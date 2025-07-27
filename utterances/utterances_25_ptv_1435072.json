@@ -1,0 +1,21 @@
+{
+  "knesset_num": 25,
+  "committee": "הוועדה_המסדרת",
+  "doc_id": "25_ptv_1435072",
+  "date": "2022-12-12T10:30:00+02:00",
+  "source_file": "https://fs.knesset.gov.il/25/Committees/25_ptv_1435072.doc",
+  "utterances": {
+    "בועז טופורובסקי": {
+      "utterances": [
+        "אני רק רוצה להזכיר שמי שמבזה וביזה את הכנסת זה אתם."
+      ],
+      "metadata": {
+        "Id": 23639,
+        "FirstName": "בועז",
+        "LastName": "טופורובסקי",
+        "FactionName": "יש עתיד",
+        "FactionID": 1102
+      }
+    }
+  }
+}

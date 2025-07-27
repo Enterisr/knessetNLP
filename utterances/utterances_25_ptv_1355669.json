@@ -1,0 +1,34 @@
+{
+  "knesset_num": 25,
+  "committee": "הוועדה_המיוחדת_לדיון_בהצעת_חוק_לתיקון_פקודת_המשטרה_(סמכויות),_התשפ\"ג-2022_(פ/80/25)",
+  "doc_id": "25_ptv_1355669",
+  "date": "2022-12-14T11:00:00+02:00",
+  "source_file": "https://fs.knesset.gov.il/25/Committees/25_ptv_1355669.doc",
+  "utterances": {
+    "צביקה פוגל": {
+      "utterances": [
+        "בל\"מ – ביטחון לאומי."
+      ],
+      "metadata": {
+        "Id": 30859,
+        "FirstName": "צביקה",
+        "LastName": "פוגל",
+        "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
+        "FactionID": 1106
+      }
+    },
+    "משה סעדה": {
+      "utterances": [
+        "כדי להגן על האזרחים בסוף...",
+        "אנחנו נגיד לו את הדבר שלנו."
+      ],
+      "metadata": {
+        "Id": 30853,
+        "FirstName": "משה",
+        "LastName": "סעדה",
+        "FactionName": "הליכוד ",
+        "FactionID": 1096
+      }
+    }
+  }
+}
