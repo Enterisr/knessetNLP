@@ -19,7 +19,7 @@ COMMITTEE_URI = "https://knesset.gov.il/OdataV4/ParliamentInfo/?committee_id"
 COMMITTEES_DATA_URI = "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_Committee?committee_id"
 
 requests_cache.install_cache(CACHE_FILE, backend='sqlite', expire_after=3600)
-
+MAX_CAST_TRIES_FOR_DOC = 10
 COMMITTEES = {}
 MKS = {}
 SAVE_TXT = os.getenv('SAVE_TXT', 'false').lower() == 'true'
@@ -103,7 +103,7 @@ def remove_resource_after_reading(doc_path: str):
     return False
 
 
-def process_document(doc, committee_name, date, knesset):
+def process_document(doc, committee_name, date, knesset, tries=0):
     doc["CommitteeName"] = committee_name
     doc["SessionDate"] = date
     doc_path = ""
@@ -112,7 +112,20 @@ def process_document(doc, committee_name, date, knesset):
         text = read_doc_as_txt(doc_path)
         save_doc_as_json(text, doc, knesset, OUTPUT_FOLDER)
     except Exception as e:
-        print(f"Error processing {doc['FilePath']}: {e}")
+        print("")
+        if tries < MAX_CAST_TRIES_FOR_DOC:
+            print(f"Error processing {doc['FilePath']}, Trying Again. {e}")
+            process_document(doc, committee_name, date, knesset, tries+1)
+        else:
+            print(f"Error processing {doc['FilePath']} OUT OF TRIES")
+            # Log error to a file
+            error_log_file = "processing_errors.log"
+            with open(error_log_file, "a", encoding="utf-8") as log_file:
+                file_name = os.path.basename(
+                    doc['FilePath']) if 'FilePath' in doc else "unknown"
+                error_message = f"{file_name}, Error after {tries} tries: {str(e)}\n"
+                log_file.write(error_message)
+            print(f"Error logged to {error_log_file}")
     finally:
         remove_resource_after_reading(doc_path)
 
