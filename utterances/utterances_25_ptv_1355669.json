@@ -15,6 +15,10 @@
         "LastName": "פוגל",
         "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
         "FactionID": 1106
+      },
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.0
       }
     },
     "משה סעדה": {
@@ -28,6 +32,10 @@
         "LastName": "סעדה",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.0
       }
     }
   }

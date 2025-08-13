@@ -50,6 +50,10 @@
         "LastName": "ביטון",
         "FactionName": "כחול לבן - המחנה הממלכתי",
         "FactionID": 1098
+      },
+      "sentiment": {
+        "polarity": 0.07124448853615521,
+        "subjectivity": 0.15496362433862432
       }
     },
     "ינון אזולאי": {
@@ -77,6 +81,10 @@
         "LastName": "אזולאי",
         "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
         "FactionID": 1095
+      },
+      "sentiment": {
+        "polarity": 0.04522395761340337,
+        "subjectivity": 0.2774824535069228
       }
     },
     "חייםרוקח": {
@@ -87,7 +95,11 @@
         "כ-20 מיליון.",
         "6 מיליון חייבים לרפתנים."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": -0.04416666666666665,
+        "subjectivity": 0.2877777777777778
+      }
     },
     "שלום דנינו": {
       "utterances": [
@@ -102,6 +114,10 @@
         "LastName": "דנינו",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.01083333333333334,
+        "subjectivity": 0.2633333333333333
       }
     },
     "יאסר חוג'יראת": {
@@ -114,6 +130,10 @@
         "LastName": "חוג'יראת",
         "FactionName": "רע\"ם",
         "FactionID": 1099
+      },
+      "sentiment": {
+        "polarity": -0.5,
+        "subjectivity": 1.0
       }
     },
     "ניסים ואטורי": {
@@ -139,6 +159,10 @@
         "LastName": "ואטורי",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.14211504500790217,
+        "subjectivity": 0.28058786848072564
       }
     },
     "שרהחקלאות": {
@@ -170,13 +194,21 @@
         "אני בעד לא לפקח בכלל.",
         "תספר לוועדה מה אוכלות הפרות ומאיפה זה מגיע."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": 0.06061433282900674,
+        "subjectivity": 0.24947132803790412
+      }
     },
     "קודםכל": {
       "utterances": [
         "אני חושב שעל הפרק עומדת בעיה הרבה יותר קשה וזה המחלבה ברמת הגולן."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.75
+      }
     },
     "ולדימיר בליאק": {
       "utterances": [
@@ -193,6 +225,10 @@
         "LastName": "בליאק",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": -0.016025641025641024,
+        "subjectivity": 0.18259140550807218
       }
     },
     "נעמה לזימי": {
@@ -208,6 +244,10 @@
         "LastName": "לזימי",
         "FactionName": "העבודה",
         "FactionID": 1100
+      },
+      "sentiment": {
+        "polarity": 0.08204166666666668,
+        "subjectivity": 0.38591666666666663
       }
     }
   }

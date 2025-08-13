@@ -22,6 +22,10 @@
         "LastName": "רוטמן",
         "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
         "FactionID": 1105
+      },
+      "sentiment": {
+        "polarity": 0.13962053571428573,
+        "subjectivity": 0.3130580357142857
       }
     },
     "ארבלאסטרחן": {
@@ -30,7 +34,11 @@
         "היו השגות לייעוץ.",
         "בדיון בבג\"ץ הוכנסו שינויים."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": 0.05333333333333334,
+        "subjectivity": 0.17999999999999997
+      }
     },
     "אופיר כץ": {
       "utterances": [
@@ -48,6 +56,10 @@
         "LastName": "כץ",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.07142857142857142,
+        "subjectivity": 0.3
       }
     },
     "משה סעדה": {
@@ -63,6 +75,10 @@
         "LastName": "סעדה",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.02499999999999998,
+        "subjectivity": 0.4
       }
     },
     "יצחק שמעון וסרלאוף": {
@@ -75,6 +91,10 @@
         "LastName": "וסרלאוף",
         "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
         "FactionID": 1106
+      },
+      "sentiment": {
+        "polarity": 0.2089285714285714,
+        "subjectivity": 0.5964285714285714
       }
     },
     "חנוך דב מלביצקי": {
@@ -87,6 +107,10 @@
         "LastName": "מלביצקי",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": -0.03333333333333332,
+        "subjectivity": 0.27499999999999997
       }
     }
   }

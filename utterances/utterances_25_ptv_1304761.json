@@ -44,6 +44,10 @@
         "LastName": "אזולאי",
         "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
         "FactionID": 1095
+      },
+      "sentiment": {
+        "polarity": 0.10064574314574316,
+        "subjectivity": 0.2056709956709957
       }
     },
     "אלי דלל": {
@@ -64,6 +68,10 @@
         "LastName": "דלל",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.13333333333333333,
+        "subjectivity": 0.05555555555555555
       }
     },
     "ולדימיר בליאק": {
@@ -77,6 +85,10 @@
         "LastName": "בליאק",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.23125,
+        "subjectivity": 0.2729166666666667
       }
     }
   }

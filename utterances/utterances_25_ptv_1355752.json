@@ -21,6 +21,10 @@
         "LastName": "טופורובסקי",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.10677721088435375,
+        "subjectivity": 0.29835034013605444
       }
     },
     "יעקב אשר": {
@@ -37,6 +41,10 @@
         "LastName": "אשר",
         "FactionName": "יהדות התורה",
         "FactionID": 1101
+      },
+      "sentiment": {
+        "polarity": 0.10871428571428572,
+        "subjectivity": 0.3387142857142857
       }
     },
     "אפרת רייטן מרום": {
@@ -69,6 +77,10 @@
         "LastName": "רייטן מרום",
         "FactionName": "העבודה",
         "FactionID": 1100
+      },
+      "sentiment": {
+        "polarity": 0.012904383975812547,
+        "subjectivity": 0.2866477702191988
       }
     },
     "שלמה קרעי": {
@@ -85,6 +97,10 @@
         "LastName": "קרעי",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.156,
+        "subjectivity": 0.21333333333333332
       }
     },
     "רון כץ": {
@@ -121,6 +137,10 @@
         "LastName": "כץ",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.013320634920634917,
+        "subjectivity": 0.22575026455026456
       }
     },
     "שמחה רוטמן": {
@@ -134,6 +154,10 @@
         "LastName": "רוטמן",
         "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
         "FactionID": 1105
+      },
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.0
       }
     },
     "מיכאל מלכיאלי": {
@@ -150,6 +174,10 @@
         "LastName": "מלכיאלי",
         "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
         "FactionID": 1095
+      },
+      "sentiment": {
+        "polarity": -0.08,
+        "subjectivity": 0.1925
       }
     },
     "עידית סילמן": {
@@ -162,6 +190,10 @@
         "LastName": "סילמן",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": -0.16666666666666666,
+        "subjectivity": 0.16666666666666666
       }
     },
     "אחמד טיבי": {
@@ -197,6 +229,10 @@
         "LastName": "טיבי",
         "FactionName": "חד\"ש-תע\"ל",
         "FactionID": 1103
+      },
+      "sentiment": {
+        "polarity": 0.054654982363315695,
+        "subjectivity": 0.19175815696649026
       }
     },
     "גלית דיסטל אטבריאן": {
@@ -223,6 +259,10 @@
         "LastName": "דיסטל אטבריאן",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.08486291486291488,
+        "subjectivity": 0.1577886002886003
       }
     },
     "משה טור פז": {
@@ -245,6 +285,10 @@
         "LastName": "טור פז",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.0393939393939394,
+        "subjectivity": 0.2424242424242424
       }
     },
     "ווליד טאהא": {
@@ -277,6 +321,10 @@
         "LastName": "טאהא",
         "FactionName": "רע\"ם",
         "FactionID": 1099
+      },
+      "sentiment": {
+        "polarity": 0.06479150919627112,
+        "subjectivity": 0.2555939783320736
       }
     },
     "חנוך דב מלביצקי": {
@@ -291,6 +339,10 @@
         "LastName": "מלביצקי",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.26666666666666666,
+        "subjectivity": 0.3666666666666667
       }
     },
     "בועז ביסמוט": {
@@ -304,6 +356,10 @@
         "LastName": "ביסמוט",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.22499999999999998,
+        "subjectivity": 0.41388888888888886
       }
     },
     "אופיר כץ": {
@@ -317,6 +373,10 @@
         "LastName": "כץ",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.0
       }
     },
     "יבגני סובה": {
@@ -331,13 +391,21 @@
         "LastName": "סובה",
         "FactionName": "ישראל ביתנו",
         "FactionID": 1104
+      },
+      "sentiment": {
+        "polarity": 0.09999999999999999,
+        "subjectivity": 0.29967948717948717
       }
     },
     "ארבלאסטרחן": {
       "utterances": [
         "צריך לומר שהבחירה היא אישית."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.3
+      }
     }
   }
 }

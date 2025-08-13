@@ -66,6 +66,10 @@
         "LastName": "קרעי",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.09760798725084438,
+        "subjectivity": 0.2762077902256474
       }
     },
     "יבגני סובה": {
@@ -154,6 +158,10 @@
         "LastName": "סובה",
         "FactionName": "ישראל ביתנו",
         "FactionID": 1104
+      },
+      "sentiment": {
+        "polarity": 0.05503929602143889,
+        "subjectivity": 0.16934034219748506
       }
     },
     "בועז טופורובסקי": {
@@ -215,6 +223,10 @@
         "LastName": "טופורובסקי",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.05336941609977325,
+        "subjectivity": 0.18575249433106575
       }
     },
     "מתן כהנא": {
@@ -240,6 +252,10 @@
         "LastName": "כהנא",
         "FactionName": "כחול לבן - המחנה הממלכתי",
         "FactionID": 1098
+      },
+      "sentiment": {
+        "polarity": 0.004966759431045141,
+        "subjectivity": 0.36515538033395173
       }
     },
     "אפרת רייטן מרום": {
@@ -366,6 +382,10 @@
         "LastName": "רייטן מרום",
         "FactionName": "העבודה",
         "FactionID": 1100
+      },
+      "sentiment": {
+        "polarity": 0.024528465369459164,
+        "subjectivity": 0.18856432290966454
       }
     },
     "גלעד קריב": {
@@ -441,6 +461,10 @@
         "LastName": "קריב",
         "FactionName": "העבודה",
         "FactionID": 1100
+      },
+      "sentiment": {
+        "polarity": 0.03580131673881673,
+        "subjectivity": 0.20083336151695524
       }
     },
     "איתמר בן גביר": {
@@ -453,6 +477,10 @@
         "LastName": "בן גביר",
         "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
         "FactionID": 1106
+      },
+      "sentiment": {
+        "polarity": 0.6,
+        "subjectivity": 0.7166666666666668
       }
     },
     "מיכל שיר סגמן": {
@@ -475,6 +503,10 @@
         "LastName": "שיר סגמן",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": -0.10034722222222223,
+        "subjectivity": 0.27480609668109673
       }
     },
     "אחמד טיבי": {
@@ -487,6 +519,10 @@
         "LastName": "טיבי",
         "FactionName": "חד\"ש-תע\"ל",
         "FactionID": 1103
+      },
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.0
       }
     },
     "ווליד טאהא": {
@@ -513,6 +549,10 @@
         "LastName": "טאהא",
         "FactionName": "רע\"ם",
         "FactionID": 1099
+      },
+      "sentiment": {
+        "polarity": 0.10851851851851851,
+        "subjectivity": 0.20767195767195765
       }
     },
     "מירב בן ארי": {
@@ -573,6 +613,10 @@
         "LastName": "בן ארי",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.06589326206673148,
+        "subjectivity": 0.2665362811791383
       }
     },
     "שמחה רוטמן": {
@@ -598,6 +642,10 @@
         "LastName": "רוטמן",
         "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
         "FactionID": 1105
+      },
+      "sentiment": {
+        "polarity": 0.1785506854256854,
+        "subjectivity": 0.2706484487734488
       }
     },
     "אברהם בצלאל": {
@@ -624,6 +672,10 @@
         "LastName": "בצלאל",
         "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
         "FactionID": 1095
+      },
+      "sentiment": {
+        "polarity": -0.009126984126984122,
+        "subjectivity": 0.17693121693121697
       }
     },
     "ארבלאסטרחן": {
@@ -642,7 +694,11 @@
         "זו ועדה לדיון בחוק - - -",
         "אי-אפשר עשר-תשע."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": -0.02077505827505827,
+        "subjectivity": 0.2591918498168498
+      }
     },
     "היועצתהמשפטית": {
       "utterances": [
@@ -657,7 +713,11 @@
         "ממלא מקום אין בעיה.",
         "אני עניתי על זה. זאת בדיוק הסיבה שלא רצינו שתוקם ועדת חוקה קבועה, כדי לא לייצר את המצב הזה."
       ],
-      "metadata": {}
+      "metadata": {},
+      "sentiment": {
+        "polarity": 0.00888888888888889,
+        "subjectivity": 0.3676404151404151
+      }
     },
     "ולדימיר בליאק": {
       "utterances": [
@@ -669,6 +729,10 @@
         "LastName": "בליאק",
         "FactionName": "יש עתיד",
         "FactionID": 1102
+      },
+      "sentiment": {
+        "polarity": 0.0,
+        "subjectivity": 0.3
       }
     },
     "חנוך דב מלביצקי": {
@@ -684,6 +748,10 @@
         "LastName": "מלביצקי",
         "FactionName": "הליכוד ",
         "FactionID": 1096
+      },
+      "sentiment": {
+        "polarity": 0.093,
+        "subjectivity": 0.1667962962962963
       }
     }
   }
