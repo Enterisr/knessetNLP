@@ -166,7 +166,7 @@ def save_mks_to_file(mks_data, file_path="mks_data.json"):
 def fetch_all_committees_from_knesset(knesset: int):
     # TODO: figure out threads here
     # Add debug parameter with default False
-    debug = os.getenv('DEBUG', 'true').lower() == 'true'
+    debug = os.getenv('DEBUG', 'false').lower() == 'true'
     page_size = 50
     skip = 0
 

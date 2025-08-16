@@ -1,242 +1,4 @@
 {
-  "30874": {
-    "Id": 30874,
-    "FirstName": "צבי ידידיה",
-    "LastName": "סוכות",
-    "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
-  },
-  "30875": {
-    "Id": 30875,
-    "FirstName": "צגה",
-    "LastName": "מלקו",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30876": {
-    "Id": 30876,
-    "FirstName": "אושר",
-    "LastName": "שקלים",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30706": {
-    "Id": 30706,
-    "FirstName": "קטי קטרין",
-    "LastName": "שטרית",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30877": {
-    "Id": 30877,
-    "FirstName": "משה",
-    "LastName": "פסל",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30879": {
-    "Id": 30879,
-    "FirstName": "ששון ששי",
-    "LastName": "גואטה",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30880": {
-    "Id": 30880,
-    "FirstName": "אביחי אברהם",
-    "LastName": "בוארון",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30881": {
-    "Id": 30881,
-    "FirstName": "ירון",
-    "LastName": "לוי",
-    "FactionName": "יש עתיד",
-    "FactionID": 1102
-  },
-  "30809": {
-    "Id": 30809,
-    "FirstName": "גלית",
-    "LastName": "דיסטל אטבריאן",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30102": {
-    "Id": 30102,
-    "FirstName": "מירב",
-    "LastName": "בן ארי",
-    "FactionName": "יש עתיד",
-    "FactionID": 1102
-  },
-  "4397": {
-    "Id": 4397,
-    "FirstName": "זאב",
-    "LastName": "אלקין",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "30118": {
-    "Id": 30118,
-    "FirstName": "שרן מרים",
-    "LastName": "השכל",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "1027": {
-    "Id": 1027,
-    "FirstName": "גדעון",
-    "LastName": "סער",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "30082": {
-    "Id": 30082,
-    "FirstName": "יפעת",
-    "LastName": "שאשא ביטון",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "30799": {
-    "Id": 30799,
-    "FirstName": "מישל",
-    "LastName": "בוסקילה",
-    "FactionName": "הימין הממלכתי ",
-    "FactionID": 1108
-  },
-  "30830": {
-    "Id": 30830,
-    "FirstName": "אוהד",
-    "LastName": "טל",
-    "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
-  },
-  "30893": {
-    "Id": 30893,
-    "FirstName": "עפיף",
-    "LastName": "עבד",
-    "FactionName": "הליכוד ",
-    "FactionID": 1096
-  },
-  "30721": {
-    "Id": 30721,
-    "FirstName": "עידן",
-    "LastName": "רול",
-    "FactionName": "יש עתיד",
-    "FactionID": 1102
-  },
-  "30857": {
-    "Id": 30857,
-    "FirstName": "עמיחי",
-    "LastName": "אליהו",
-    "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
-  },
-  "23635": {
-    "Id": 23635,
-    "FirstName": "פנינה",
-    "LastName": "תמנו",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "30859": {
-    "Id": 30859,
-    "FirstName": "צביקה",
-    "LastName": "פוגל",
-    "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
-  },
-  "30846": {
-    "Id": 30846,
-    "FirstName": "יצחק",
-    "LastName": "גולדקנופ",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101
-  },
-  "30894": {
-    "Id": 30894,
-    "FirstName": "סמיר",
-    "LastName": "בן סעיד",
-    "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
-  },
-  "30768": {
-    "Id": 30768,
-    "FirstName": "אליהו",
-    "LastName": "ברוכי",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101
-  },
-  "30693": {
-    "Id": 30693,
-    "FirstName": "איתן",
-    "LastName": "גינזבורג",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "30775": {
-    "Id": 30775,
-    "FirstName": "יעל",
-    "LastName": "רון בן משה",
-    "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
-  },
-  "22151": {
-    "Id": 22151,
-    "FirstName": "אכרם",
-    "LastName": "חסון",
-    "FactionName": "הימין הממלכתי ",
-    "FactionID": 1108
-  },
-  "11835": {
-    "Id": 11835,
-    "FirstName": "אורי",
-    "LastName": "מקלב",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101
-  },
-  "563": {
-    "Id": 563,
-    "FirstName": "מאיר",
-    "LastName": "פרוש",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101
-  },
-  "30671": {
-    "Id": 30671,
-    "FirstName": "יעקב",
-    "LastName": "טסלר",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101
-  },
-  "30873": {
-    "Id": 30873,
-    "FirstName": "ארז",
-    "LastName": "מלול",
-    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
-  },
-  "1056": {
-    "Id": 1056,
-    "FirstName": "יעקב",
-    "LastName": "מרגי",
-    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
-  },
-  "28513": {
-    "Id": 28513,
-    "FirstName": "יואב",
-    "LastName": "בן צור",
-    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
-  },
-  "30804": {
-    "Id": 30804,
-    "FirstName": "חיים",
-    "LastName": "ביטון",
-    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
-  },
   "30749": {
     "Id": 30749,
     "FirstName": "משה",
@@ -265,6 +27,20 @@
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095
   },
+  "30804": {
+    "Id": 30804,
+    "FirstName": "חיים",
+    "LastName": "ביטון",
+    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
+    "FactionID": 1095
+  },
+  "28513": {
+    "Id": 28513,
+    "FirstName": "יואב",
+    "LastName": "בן צור",
+    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
+    "FactionID": 1095
+  },
   "2291": {
     "Id": 2291,
     "FirstName": "אריה מכלוף",
@@ -283,6 +59,13 @@
     "Id": 30470,
     "FirstName": "מיכאל",
     "LastName": "מלכיאלי",
+    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
+    "FactionID": 1095
+  },
+  "1056": {
+    "Id": 1056,
+    "FirstName": "יעקב",
+    "LastName": "מרגי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095
   },
@@ -346,6 +129,13 @@
     "Id": 4395,
     "FirstName": "אבי",
     "LastName": "דיכטר",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30809": {
+    "Id": 30809,
+    "FirstName": "גלית",
+    "LastName": "דיסטל אטבריאן",
     "FactionName": "הליכוד ",
     "FactionID": 1096
   },
@@ -538,6 +328,27 @@
     "FactionName": "יהדות התורה",
     "FactionID": 1101
   },
+  "30671": {
+    "Id": 30671,
+    "FirstName": "יעקב",
+    "LastName": "טסלר",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101
+  },
+  "11835": {
+    "Id": 11835,
+    "FirstName": "אורי",
+    "LastName": "מקלב",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101
+  },
+  "563": {
+    "Id": 563,
+    "FirstName": "מאיר",
+    "LastName": "פרוש",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101
+  },
   "23631": {
     "Id": 23631,
     "FirstName": "קארין",
@@ -549,6 +360,13 @@
     "Id": 30776,
     "FirstName": "ולדימיר",
     "LastName": "בליאק",
+    "FactionName": "יש עתיד",
+    "FactionID": 1102
+  },
+  "30102": {
+    "Id": 30102,
+    "FirstName": "מירב",
+    "LastName": "בן ארי",
     "FactionName": "יש עתיד",
     "FactionID": 1102
   },
@@ -650,6 +468,13 @@
     "FactionName": "יש עתיד",
     "FactionID": 1102
   },
+  "30721": {
+    "Id": 30721,
+    "FirstName": "עידן",
+    "LastName": "רול",
+    "FactionName": "חה\"כ עידן רול",
+    "FactionID": 1109
+  },
   "23601": {
     "Id": 23601,
     "FirstName": "יואל",
@@ -664,6 +489,13 @@
     "FactionName": "יש עתיד",
     "FactionID": 1102
   },
+  "30846": {
+    "Id": 30846,
+    "FirstName": "יצחק",
+    "LastName": "גולדקנופ",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101
+  },
   "30657": {
     "Id": 30657,
     "FirstName": "בנימין",
@@ -671,12 +503,40 @@
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098
   },
+  "4397": {
+    "Id": 4397,
+    "FirstName": "זאב",
+    "LastName": "אלקין",
+    "FactionName": "הימין הממלכתי ",
+    "FactionID": 1108
+  },
+  "1027": {
+    "Id": 1027,
+    "FirstName": "גדעון",
+    "LastName": "סער",
+    "FactionName": "הימין הממלכתי ",
+    "FactionID": 1108
+  },
   "30836": {
     "Id": 30836,
     "FirstName": "גדי",
     "LastName": "איזנקוט",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098
+  },
+  "23635": {
+    "Id": 23635,
+    "FirstName": "פנינה",
+    "LastName": "תמנו",
+    "FactionName": "כחול לבן - המחנה הממלכתי",
+    "FactionID": 1098
+  },
+  "30082": {
+    "Id": 30082,
+    "FirstName": "יפעת",
+    "LastName": "שאשא ביטון",
+    "FactionName": "הימין הממלכתי ",
+    "FactionID": 1108
   },
   "30683": {
     "Id": 30683,
@@ -698,6 +558,13 @@
     "LastName": "פרקש הכהן",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098
+  },
+  "30118": {
+    "Id": 30118,
+    "FirstName": "שרן מרים",
+    "LastName": "השכל",
+    "FactionName": "הימין הממלכתי ",
+    "FactionID": 1108
   },
   "30694": {
     "Id": 30694,
@@ -790,12 +657,26 @@
     "FactionName": "הליכוד ",
     "FactionID": 1096
   },
+  "30857": {
+    "Id": 30857,
+    "FirstName": "עמיחי",
+    "LastName": "אליהו",
+    "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
+    "FactionID": 1106
+  },
   "30847": {
     "Id": 30847,
     "FirstName": "יצחק שמעון",
     "LastName": "וסרלאוף",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106
+  },
+  "30830": {
+    "Id": 30830,
+    "FirstName": "אוהד",
+    "LastName": "טל",
+    "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
+    "FactionID": 1105
   },
   "30833": {
     "Id": 30833,
@@ -815,6 +696,13 @@
     "Id": 30849,
     "FirstName": "לימור",
     "LastName": "סון הר מלך",
+    "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
+    "FactionID": 1106
+  },
+  "30859": {
+    "Id": 30859,
+    "FirstName": "צביקה",
+    "LastName": "פוגל",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106
   },
@@ -1007,6 +895,13 @@
     "FactionName": "יהדות התורה",
     "FactionID": 1101
   },
+  "30768": {
+    "Id": 30768,
+    "FirstName": "אליהו",
+    "LastName": "ברוכי",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101
+  },
   "30871": {
     "Id": 30871,
     "FirstName": "שלי טל",
@@ -1020,5 +915,117 @@
     "LastName": "מושיאשוילי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095
+  },
+  "30873": {
+    "Id": 30873,
+    "FirstName": "ארז",
+    "LastName": "מלול",
+    "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
+    "FactionID": 1095
+  },
+  "30874": {
+    "Id": 30874,
+    "FirstName": "צבי ידידיה",
+    "LastName": "סוכות",
+    "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
+    "FactionID": 1105
+  },
+  "30875": {
+    "Id": 30875,
+    "FirstName": "צגה",
+    "LastName": "מלקו",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30876": {
+    "Id": 30876,
+    "FirstName": "אושר",
+    "LastName": "שקלים",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30706": {
+    "Id": 30706,
+    "FirstName": "קטי קטרין",
+    "LastName": "שטרית",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30877": {
+    "Id": 30877,
+    "FirstName": "משה",
+    "LastName": "פסל",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30879": {
+    "Id": 30879,
+    "FirstName": "ששון ששי",
+    "LastName": "גואטה",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30880": {
+    "Id": 30880,
+    "FirstName": "אביחי אברהם",
+    "LastName": "בוארון",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30881": {
+    "Id": 30881,
+    "FirstName": "ירון",
+    "LastName": "לוי",
+    "FactionName": "יש עתיד",
+    "FactionID": 1102
+  },
+  "30799": {
+    "Id": 30799,
+    "FirstName": "מישל",
+    "LastName": "בוסקילה",
+    "FactionName": "הימין הממלכתי ",
+    "FactionID": 1108
+  },
+  "30893": {
+    "Id": 30893,
+    "FirstName": "עפיף",
+    "LastName": "עבד",
+    "FactionName": "הליכוד ",
+    "FactionID": 1096
+  },
+  "30894": {
+    "Id": 30894,
+    "FirstName": "סמיר",
+    "LastName": "בן סעיד",
+    "FactionName": "חד\"ש-תע\"ל",
+    "FactionID": 1103
+  },
+  "30693": {
+    "Id": 30693,
+    "FirstName": "איתן",
+    "LastName": "גינזבורג",
+    "FactionName": "כחול לבן - המחנה הממלכתי",
+    "FactionID": 1098
+  },
+  "30775": {
+    "Id": 30775,
+    "FirstName": "יעל",
+    "LastName": "רון בן משה",
+    "FactionName": "כחול לבן - המחנה הממלכתי",
+    "FactionID": 1098
+  },
+  "22151": {
+    "Id": 22151,
+    "FirstName": "אכרם",
+    "LastName": "חסון",
+    "FactionName": "הימין הממלכתי ",
+    "FactionID": 1108
+  },
+  "30895": {
+    "Id": 30895,
+    "FirstName": "עדי",
+    "LastName": "עזוז",
+    "FactionName": "יש עתיד",
+    "FactionID": 1102
   }
 }

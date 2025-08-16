@@ -1,18 +1,17 @@
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
-from hebToEngTranslator import HebToEngTranslator
+from heb_to_eng_translator import HebToEngTranslator
 import json
 from datetime import datetime
 import sys
 from pathlib import Path
 
-# Add the parent directory to Python path for imports
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 
-FILE = project_root / "utterances" / "utterances_25_ptv_1355973.json"
+FILE = project_root / "utterances" / "utterances_25_ptv_1525067.json"
 
 # embed all translated utterances from given file with some generic transformer and measure cosine sim to original.
 

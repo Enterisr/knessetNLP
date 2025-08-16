@@ -1,0 +1,3 @@
+Translation Quality Comparison Results:
+Google: similarity score = 0.8114 with variance 0.0157
+Libre: similarity score = 0.8074 with variance 0.0139
