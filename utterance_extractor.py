@@ -42,7 +42,7 @@ def extract_name_key_from_dover(dover_str: str) -> str:
 def extract_utterance_from_file(mks: dict, content: str):
 
     speaker_utterances = {}
-
+    # add יור and other roles
     pattern = r'<< דובר >>\s*(?P<speaker>[^:]+):\s*<< דובר >>\s*(?P<utterance>[^<]+)'
     matches = re.finditer(pattern, content)
 
@@ -53,21 +53,22 @@ def extract_utterance_from_file(mks: dict, content: str):
         if speaker and utterance:
             if speaker not in speaker_utterances:
                 speaker_key = extract_name_key_from_dover(speaker)
-                mk_meta = mks.get(speaker_key, {})
+                if not speaker_key == "קריאה":
+                    mk_meta = mks.get(speaker_key, {})
 
-                if mk_meta is not None:
-                    # first time speaking
-                    if speaker_utterances.get(speaker_key) is None:
-                        speaker_utterances[speaker_key] = {}
-                        speaker_utterances[speaker_key]["utterances"] = []
-                    speaker_utterances[speaker_key]["metadata"] = mk_meta
-                    speaker_utterances[speaker_key]["utterances"].append(
-                        utterance)
+                    if mk_meta is not None:
+                        # first time speaking
+                        if speaker_utterances.get(speaker_key) is None:
+                            speaker_utterances[speaker_key] = {}
+                            speaker_utterances[speaker_key]["utterances"] = []
+                        speaker_utterances[speaker_key]["metadata"] = mk_meta
+                        speaker_utterances[speaker_key]["utterances"].append(
+                            utterance)
 
     return speaker_utterances
 
 
-def process_protocols(output_folder="committee_data", utterances_folder="utterances"):
+def process_protocols(output_folder="committee_data", utterances_folder="utterances", force_refresh=False):
     """
     Process all JSON files in the output folder to extract utterances by speaker.
     Save utterances to separate files in a dedicated utterances folder.
@@ -83,17 +84,19 @@ def process_protocols(output_folder="committee_data", utterances_folder="utteran
             file_path = os.path.join(output_folder, file_name)
 
             with open(file_path, "r", encoding="utf-8") as f:
-                protocol_data = json.load(f)
-                utterances = extract_utterance_from_file(
-                    mks_by_name, protocol_data["text"])
-
-                del protocol_data["text"]
-                protocol_data["utterances"] = utterances
                 # Create utterances file path
                 utterances_file_name = f"utterances_{file_name}"
                 utterances_file_path = os.path.join(
                     utterances_folder, utterances_file_name)
+                if force_refresh or not os.path.exists(utterances_file_path):
+                    protocol_data = json.load(f)
+                    utterances = extract_utterance_from_file(
+                        mks_by_name, protocol_data["text"])
 
-                # Save utterances to separate file
-                with open(utterances_file_path, "w", encoding="utf-8") as f:
-                    json.dump(protocol_data, f, ensure_ascii=False, indent=2)
+                    del protocol_data["text"]
+                    protocol_data["utterances"] = utterances
+
+                    # Save utterances to separate file
+                    with open(utterances_file_path, "w", encoding="utf-8") as f:
+                        json.dump(protocol_data, f,
+                                  ensure_ascii=False, indent=2)

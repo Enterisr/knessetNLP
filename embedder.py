@@ -4,10 +4,10 @@ from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.decomposition import PCA
 import plotly.express as px
 import pandas as pd
-from sklearn.metrics.pairwise import cosine_distances, euclidean_distances
 import os
 import numpy as np
 import json
+import faiss
 
 
 def _load_utternaces_to_vector_space(dir: str) -> list:
@@ -50,6 +50,14 @@ def _load_utternaces_to_vector_space(dir: str) -> list:
     return utterances
 
 
+def build_faiss_from_embeddings(embeddings: np.ndarray) -> None:
+
+    d = embeddings.shape[1]  # get dim from embeddings
+    index = faiss.IndexFlatIP(d)
+    index.add(x=embeddings, n=len(embeddings))
+    faiss.write_index(index, "committie_index")
+
+
 def _embed_in_vector_space(utternces: list) -> np.ndarray:
 
     model = SentenceTransformer(
@@ -58,12 +66,17 @@ def _embed_in_vector_space(utternces: list) -> np.ndarray:
 
     print(f"Encoding {len(utternces)} utterances...")
     embeddings = model.encode(utternces,
+                              # we want to use cosine sim in FAISS, not L2, to be faster.
+                              # we also dont care about the norm, as its prone to be large as the utterance grows in length,
+                              # but we dont care about that too.
+                              normalize_embeddings=True,
                               show_progress_bar=True,
                               batch_size=64,
                               convert_to_numpy=True,)
     print("Encoding completed!")
 
     embeddings_array = embeddings.astype(np.float32)
+
     np.save("embeddings.npy", embeddings_array)
 
     return embeddings_array
@@ -93,7 +106,7 @@ def _graph_utterances(embeddings, sentences):
 
 
 def load_embeddings(dir: str, force_reload=False):
-    if (force_reload):
+    if force_reload:
         utternaces = _load_utternaces_to_vector_space(dir)
         embeddings = _embed_in_vector_space(utternaces)
         return utternaces, embeddings
@@ -110,6 +123,10 @@ def load_embeddings(dir: str, force_reload=False):
     return utternaces, embeddings
 
 
-def embed(dir="./utterances"):
-    utternaces, embeddings = load_embeddings(dir, False)
+def embed(dir="./utterances", force_refresh=False):
+    utternaces, embeddings = load_embeddings(dir, force_refresh)
     _graph_utterances(embeddings, utternaces)
+
+
+if __name__ == "__main__":
+    embed(force_refresh=True)

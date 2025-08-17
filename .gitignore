@@ -3,3 +3,6 @@ committee_data/
 knesset_cache.sqlite
 utterances_data.pkl
 embeddings.npy
+utterances/
+mk_utterances.jsonl
+utterances.zip

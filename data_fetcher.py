@@ -15,7 +15,7 @@ OUTPUT_FOLDER = "committee_data"
 FILE_BUFFER_SIZE = 8192
 COMMITTEE_SESSION_STR = "KNS_DocumentCommitteeSession"
 COMMITTEE_URI = "https://knesset.gov.il/OdataV4/ParliamentInfo/?committee_id"
-
+COMMITTEE_SESSION_COUNT_URI = "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_CommitteeSession?$filter=KnessetNum eq ~knesset_num~ &$count=true&$top=0"
 COMMITTEES_DATA_URI = "https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_Committee?committee_id"
 
 requests_cache.install_cache(CACHE_FILE, backend='sqlite', expire_after=3600)
@@ -26,6 +26,7 @@ SAVE_TXT = os.getenv('SAVE_TXT', 'false').lower() == 'true'
 
 
 def read_doc_as_txt(doc: str):
+    # todo: install on setup+move to docker
     cmd = [
         "soffice.com",
         "--convert-to",
@@ -49,7 +50,13 @@ def read_doc_as_txt(doc: str):
     return text_content
 
 
-def save_doc_as_json(text: str, meta: dict, knesset_num: int, output_dir: str):
+def extract_json_path(meta: dict, output_dir: str,):
+    doc_id = Path(urlparse(meta["FilePath"]).path).stem
+    output_path = os.path.join(output_dir, f"{doc_id}.json")
+    return output_path
+
+
+def save_doc_as_json(text: str, meta: dict, knesset_num: int, out_path: str):
     doc_id = Path(urlparse(meta["FilePath"]).path).stem
     committee_name = meta.get(
         "CommitteeName", "unknown_committee").strip().replace(" ", "_")
@@ -64,8 +71,7 @@ def save_doc_as_json(text: str, meta: dict, knesset_num: int, output_dir: str):
         "text": text
     }
 
-    output_path = os.path.join(output_dir, f"{doc_id}.json")
-    with open(output_path, "w", encoding="utf-8") as f:
+    with open(out_path, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
 
 
@@ -103,19 +109,22 @@ def remove_resource_after_reading(doc_path: str):
     return False
 
 
-def process_document(doc, committee_name, date, knesset, tries=0):
+def process_document(doc, committee_name, date, knesset, tries=0, force_refresh=False):
     doc["CommitteeName"] = committee_name
     doc["SessionDate"] = date
     doc_path = ""
     try:
-        doc_path = read_resource_from_remote(doc["FilePath"])
-        text = read_doc_as_txt(doc_path)
-        save_doc_as_json(text, doc, knesset, OUTPUT_FOLDER)
+        out_path = extract_json_path(doc, output_dir=OUTPUT_FOLDER)
+        if force_refresh or not os.path.exists(out_path):
+            doc_path = read_resource_from_remote(doc["FilePath"])
+            text = read_doc_as_txt(doc_path)
+            save_doc_as_json(text, doc, knesset, out_path)
     except Exception as e:
         print("")
         if tries < MAX_CAST_TRIES_FOR_DOC:
             print(f"Error processing {doc['FilePath']}, Trying Again. {e}")
-            process_document(doc, committee_name, date, knesset, tries+1)
+            process_document(doc, committee_name, date,
+                             knesset, tries+1, force_refresh)
         else:
             print(f"Error processing {doc['FilePath']} OUT OF TRIES")
             # Log error to a file
@@ -163,7 +172,7 @@ def save_mks_to_file(mks_data, file_path="mks_data.json"):
     print(f"MKs data saved to {file_path}")
 
 
-def fetch_all_committees_from_knesset(knesset: int):
+def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool):
     # TODO: figure out threads here
     # Add debug parameter with default False
     debug = os.getenv('DEBUG', 'false').lower() == 'true'
@@ -175,7 +184,7 @@ def fetch_all_committees_from_knesset(knesset: int):
             f"Fetching committee sessions from Knesset {knesset}: skip={skip}, limit={page_size}")
 
         is_end = fetch_paginated_committees_from_knesset(
-            knesset, page_size, skip)
+            knesset, page_size, skip, force_refresh)
 
         if not is_end or debug:
             break
@@ -193,7 +202,7 @@ def build_committees_uri(knesset: int, top: int, skip: int):
     return f"https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_CommitteeSession?{filter_part}&{expand_part}&{pagination_part}"
 
 
-def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int) -> bool:
+def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, force_refresh: bool) -> bool:
     uri = build_committees_uri(knesset, top, skip)
     response = requests.get(uri)
     committees_data = response.json()['value']
@@ -210,7 +219,7 @@ def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int) -
                 for doc in session[COMMITTEE_SESSION_STR]:
                     if doc['ApplicationDesc'] == 'DOC' and doc["GroupTypeID"] == 23:
                         futures.append(executor.submit(
-                            process_document, doc, committee_name, date, knesset))
+                            process_document, doc, committee_name, date, knesset, force_refresh))
 
         for future in as_completed(futures):
             try:
@@ -236,10 +245,10 @@ def init():
     return args
 
 
-def process_knesset_data(knesset: int):
+def process_knesset_data(knesset: int, force_refresh=False):
     init()
     fetch_MKs_data(knesset)
-    fetch_all_committees_from_knesset(knesset)
+    fetch_all_committees_from_knesset(knesset, force_refresh)
 
 
 if __name__ == "__main__":
