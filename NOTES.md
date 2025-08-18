@@ -47,3 +47,7 @@ Translating hunders of thoustends of utternces just for santiment analsys is a b
 might just pick random 200 Utternaces for each MK.
 
 Also, might need to find a way to make use of GPU in embedding - either use my own AMD card with orcM, or if not successful (as its not widely supported), might use some cloud compute
+
+18.8 
+Started refnining utterances. seems like some subjects are getting double written\not written. have a problem with middle names 
+seems like there are too many options for first-last names kinds and ways to write them. i need to use rapidfuzz to help me with that, just to catch names correctly. also logging to file mks that didnt found exact match

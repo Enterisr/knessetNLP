@@ -1,6 +1,7 @@
 import re
 import os
 import json
+from rapidfuzz import fuzz
 
 
 def load_mks_data():
@@ -27,23 +28,72 @@ def transfer_mks_to_name_format(mks: dict) -> dict:
 
 
 def extract_name_key_from_dover(dover_str: str) -> str:
+    dover_str = dover_str.replace(' – מ"מ היו"ר', "")
+    dover_str = dover_str.replace(' – היו"ר', "")
+    dover_str = dover_str.replace('היו"ר ', "")
+    dover_str = dover_str.replace('יושב-ראש הכנסת ', "")
+    dover_str = dover_str.replace('יו"ר ', "")
+
     match = re.match(r"^(.*?) \(", dover_str)
     if match:
         name = match.group(1)
     else:
-        parts = dover_str.split()
-        first = parts[0] if parts else ""
-        last = parts[1] if len(parts) > 1 else ""
-        name = first+last
-    print(f"mk key: {name}")
+        name = dover_str
+
+    # print(f"mk key: {name[::-1]}")
     return name
+
+
+def fallback_to_rapidfuzz(name: str, mks: dict):
+    max_ratio = 0
+    max_sim_mk = {}
+    max_mk_key = ""
+    for mk_key, mk_meta in mks.items():
+        ratio = fuzz.token_sort_ratio(name, mk_key)
+        if (ratio > max_ratio):
+            max_ratio = ratio
+            max_sim_mk = mk_meta
+            max_mk_key = mk_key
+    return max_mk_key, max_sim_mk, max_ratio
+
+
+def extract_pretext_info(text: str) -> tuple:
+    mks_from_list = set()
+    chairs = set()
+    topic = ""
+    topic_match = re.search(
+        r"<< נושא >>\s*(?P<topic>[^<]+?)\s*<< נושא >>", text)
+    if topic_match:
+        topic = topic_match.group("topic").strip()
+
+    chair_matches = re.findall(
+        r"(?P<name>.+?)\s+[–-]\s+(?P<role>יו\"ר|מ\"מ היו\"ר)", text)
+    for name, _ in chair_matches:
+        mks_from_list.add(extract_name_key_from_dover(name.strip()))
+        chairs.add(name.strip())
+
+    # Extract both sections and combine their lines
+    combined_lines = []
+    for section_title in ["חברי הוועדה", "חברי הכנסת"]:
+        section_match = re.search(
+            rf"{section_title}:\s*\n(?P<section>.*?)(?:\n\s*\n|מוזמנים:|חברי הוועדה:|חברי הכנסת:)", text, re.S)
+        if section_match:
+            lines = section_match.group("section").splitlines()
+            combined_lines.extend([line.strip()
+                                  for line in lines if line.strip()])
+
+    for line in combined_lines:
+        mks_from_list.add(extract_name_key_from_dover(line))
+
+    return mks_from_list, chairs, topic
 
 
 def extract_utterance_from_file(mks: dict, content: str):
 
+    mks_in_meeting, chairs, title = extract_pretext_info(content)
     speaker_utterances = {}
-    # add יור and other roles
-    pattern = r'<< דובר >>\s*(?P<speaker>[^:]+):\s*<< דובר >>\s*(?P<utterance>[^<]+)'
+    pattern = r'<< (?:דובר|יור) >>\s*(?P<speaker>[^:]+):\s*<< (?:דובר|יור) >>\s*(?P<utterance>[^<]+)'
+
     matches = re.finditer(pattern, content)
 
     for match in matches:
@@ -52,10 +102,16 @@ def extract_utterance_from_file(mks: dict, content: str):
 
         if speaker and utterance:
             if speaker not in speaker_utterances:
-                speaker_key = extract_name_key_from_dover(speaker)
-                if not speaker_key == "קריאה":
-                    mk_meta = mks.get(speaker_key, {})
 
+                speaker_key = extract_name_key_from_dover(speaker)
+                if speaker_key in mks_in_meeting:
+                    try:
+                        mk_meta = mks[speaker_key]
+                    except KeyError:
+                        mk_key, mk_meta, ratio = fallback_to_rapidfuzz(
+                            speaker_key, mks)
+                        print(
+                            f"WARNING: did rapidfuzz search for {speaker_key[::-1]}, found: {mk_key[::-1]} with certainty: {ratio}")
                     if mk_meta is not None:
                         # first time speaking
                         if speaker_utterances.get(speaker_key) is None:

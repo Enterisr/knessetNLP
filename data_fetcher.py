@@ -148,6 +148,7 @@ def fetch_MKs_data(knesset: int):
     for mk in mks_list:
         MKS[mk["PersonID"]] = {
             "Id": mk["KNS_Person"]["Id"],
+            # saave only first name,
             "FirstName": mk["KNS_Person"]["FirstName"],
             "LastName": mk["KNS_Person"]["LastName"],
             "FactionName": mk["FactionName"],

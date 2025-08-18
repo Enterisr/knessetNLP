@@ -128,5 +128,5 @@ def embed(dir="./utterances", force_refresh=False):
     _graph_utterances(embeddings, utternaces)
 
 
-if __name__ == "__main__":
-    embed(force_refresh=True)
+# if __name__ == "__main__":
+#     embed(force_refresh=True)

@@ -19,11 +19,11 @@ def main():
     #                     force_refresh = args.force_refresh)
 
     # Step 2: Process protocols to extract utterances and enrich with MKs data
-    # process_protocols(OUTPUT_FOLDER, force_refresh=args.force_refresh)
+    process_protocols(OUTPUT_FOLDER, force_refresh=True)
 
     # Step 3: Process Agressiveness
-    analyze_sentiment(force_refresh=args.force_refresh)
-    embed(force_refresh=args.force_refresh)
+  #  analyze_sentiment(force_refresh=args.force_refresh)
+   # embed(force_refresh=args.force_refresh)
 
 
 if __name__ == "__main__":
