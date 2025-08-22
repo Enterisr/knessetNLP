@@ -6,3 +6,4 @@ embeddings.npy
 utterances/
 mk_utterances.jsonl
 utterances.zip
+logs/

@@ -20,7 +20,7 @@ def get_logger(
 
     log_path = os.path.join(log_dir, f"{name}.log")
 
-    file_handler = logging.FileHandler(log_path)
+    file_handler = logging.FileHandler(log_path, encoding="UTF-8", delay=False)
     file_handler.setLevel(level)
     file_formatter = logging.Formatter(
         '%(asctime)s - %(name)s - %(levelname)s - %(message)s'

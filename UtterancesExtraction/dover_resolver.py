@@ -35,28 +35,28 @@ class DoverResolver:
             name = match.group(1)
         else:
             name = dover_str
-        logging.debug(
+        logger.debug(
             f"extracted doverkey: {name} from dover_str: {dover_str}")
         return name
 
     def fallback_to_rapidfuzz_(self, name: str):
-        rapidfuzz_cache = self.rapidfuzz_cache.get(name)
-        if rapidfuzz_cache is not None:
-            return (self.rapidfuzz_cache["max_mk_key"],
-                    self.rapidfuzz_cache["max_sim_mk"],
-                    self.rapidfuzz_cache["max_ratio"])
+        rapidfuzz_cache_entry = self.rapidfuzz_cache.get(name)
+        if rapidfuzz_cache_entry is not None:
+            return (rapidfuzz_cache_entry["max_mk_key"],
+                    rapidfuzz_cache_entry["max_sim_mk"],
+                    rapidfuzz_cache_entry["max_ratio"])
 
         max_ratio = 0
         max_sim_mk = {}
         max_mk_key = ""
-        for mk_key, mk_meta in self.mks.items():
+        for mk_key, mk_meta in self.mks_by_name.items():
             ratio = fuzz.token_sort_ratio(name, mk_key)
             if (ratio > max_ratio):
                 max_ratio = ratio
                 max_sim_mk = mk_meta
                 max_mk_key = mk_key
-        rapidfuzz_cache = {"max_ratio": max_ratio,
-                           "max_sim_mk": max_sim_mk, "max_mk_key": max_mk_key}
+        self.rapidfuzz_cache[name] = {"max_ratio": max_ratio,
+                                      "max_sim_mk": max_sim_mk, "max_mk_key": max_mk_key}
         return max_mk_key, max_sim_mk, max_ratio
 
     def resolve_mk(self, speaker: str, mks_in_meeting: list):
@@ -64,12 +64,12 @@ class DoverResolver:
             speaker)
         if speaker_key in mks_in_meeting:
             try:
-                mk_meta = self.mks[speaker_key]
+                mk_meta = self.mks_by_name[speaker_key]
             except KeyError:
-                speaker_key, mk_meta, ratio = self.fallback_to_rapidfuzz_(
+                rapidfuzz_match, mk_meta, ratio = self.fallback_to_rapidfuzz_(
                     speaker_key)
-                logging.warning(
-                    f"Rapidfuzz search for {speaker_key[::-1]}, found: {mk_key[::-1]} with certainty: {ratio}")
+                logger.info(
+                    f"Rapidfuzz search for {speaker_key}, found: {rapidfuzz_match} with certainty: {ratio}")
             return speaker_key, mk_meta
         return {"speaker_key": None, "mk_meta": None}
 
@@ -79,10 +79,10 @@ class DoverResolver:
             with open('mks_data.json', 'r', encoding='utf-8') as f:
                 return json.load(f)
         except FileNotFoundError:
-            logging.error(
+            logger.error(
                 "mks_data.json file not found. Returning empty dictionary.")
             return {}
         except json.JSONDecodeError:
-            logging.error(
+            logger.error(
                 "Error parsing mks_data.json. Returning empty dictionary.")
             return {}

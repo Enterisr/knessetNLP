@@ -1,5 +1,5 @@
 from setminent_analayzer import analyze_sentiment
-from utterance_extractor import process_protocols
+from UtterancesExtraction.utterance_extractor import process_protocols
 from data_fetcher import process_knesset_data
 from embedder import embed
 import argparse
