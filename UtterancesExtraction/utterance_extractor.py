@@ -66,10 +66,10 @@ def extract_utterance_from_file(dover_resolver: DoverResolver, content: str):
                     speaker_utterances[speaker_key]["utterances"].append(
                         utterance)
 
-    return speaker_utterances
+    return title, speaker_utterances
 
 
-def process_protocols(output_folder="committee_data", utterances_folder="utterances", force_refresh=False):
+def process_protocols(output_folder="committee_data", utterances_folder="utterances", force_refresh=True):
     """
     Process all JSON files in the output folder to extract utterances by speaker.
     Save utterances to separate files in a dedicated utterances folder.
@@ -78,7 +78,18 @@ def process_protocols(output_folder="committee_data", utterances_folder="utteran
     # Create utterances folder if it doesn't exist
     os.makedirs(utterances_folder, exist_ok=True)
 
+    # Get total number of files
+    total_files = len([f for f in os.listdir(
+        output_folder) if f.endswith(".json")])
+    files_processed = 0
+
     for file_name in os.listdir(output_folder):
+
+        for file_name in os.listdir(output_folder):
+            files_processed += 1
+            files_left = total_files - files_processed
+            logger.debug(
+                f"Processing file {files_processed}/{total_files}: {file_name} ({files_left} files left)")
         if file_name.endswith(".json"):
             file_path = os.path.join(output_folder, file_name)
 
@@ -89,12 +100,12 @@ def process_protocols(output_folder="committee_data", utterances_folder="utteran
                     utterances_folder, utterances_file_name)
                 if force_refresh or not os.path.exists(utterances_file_path):
                     protocol_data = json.load(f)
-                    utterances = extract_utterance_from_file(
+                    title, utterances = extract_utterance_from_file(
                         dover_resolver, protocol_data["text"])
 
                     del protocol_data["text"]
                     protocol_data["utterances"] = utterances
-
+                    protocol_data["subject"] = title
                     # Save utterances to separate file
                     with open(utterances_file_path, "w", encoding="utf-8") as f:
                         json.dump(protocol_data, f,
