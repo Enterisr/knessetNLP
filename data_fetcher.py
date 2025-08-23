@@ -9,6 +9,8 @@ from pathlib import Path
 import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
+from logger_config import get_logger
+
 CACHE_FILE = "knesset_cache.sqlite"
 TEMP_RESOURCE_FOLDER = "temp"
 OUTPUT_FOLDER = "committee_data"
@@ -22,6 +24,7 @@ requests_cache.install_cache(CACHE_FILE, backend='sqlite', expire_after=3600)
 MAX_CAST_TRIES_FOR_DOC = 10
 COMMITTEES = {}
 MKS = {}
+logger = get_logger(__name__)
 
 
 def read_doc_as_txt(doc: str, to_save_txt: bool):
@@ -225,7 +228,7 @@ def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, f
             try:
                 future.result()
             except Exception as e:
-                print(f"Thread raised exception: {e}")
+                logger.error(f"Thread raised exception: {e}")
     return True
 
 

@@ -4,6 +4,9 @@ import json
 import os
 
 from heb_to_eng_translator import HebToEngTranslator
+from logger_config import get_logger
+
+logger = get_logger(__name__)
 
 
 class SentimentAnalyzer:
@@ -21,7 +24,7 @@ class SentimentAnalyzer:
             blob = TextBlob(text)
             return blob
         except Exception as e:
-            print(f"Error analyzing sentiment with TextBlob: {e}")
+            logger.error(f"Error analyzing sentiment with TextBlob: {e}")
             return {'polarity': 0.0, 'subjectivity': 0.0}
 
     def analyze_utterances_file(self, file_path: str, force_reload: bool) -> bool:
@@ -31,7 +34,7 @@ class SentimentAnalyzer:
                 sentiment_exists = list(committee["utterances"].values())[
                     0].get("sentiment")
                 if sentiment_exists is not None and not force_reload:
-                    print(
+                    logger.debug(
                         f"sentiment already exists in {file_path}, not updating")
                     return True
 
@@ -50,13 +53,13 @@ class SentimentAnalyzer:
 
                     mk_data["sentiment"] = total_sentiment
 
-                    print(
+                    logger.ifno(
                         f"Finished Analyzing mk: {key_mk} with polarity: {total_sentiment['polarity']} with subjectivity: {total_sentiment['subjectivity']}")
 
                 with open(file_path, 'w', encoding='utf-8') as f:
                     json.dump(committee, f, ensure_ascii=False, indent=2)
 
-                print(f"Sentiment analysis saved to {file_path}")
+                logger.info(f"Sentiment analysis saved to {file_path}")
                 return True
 
     def batch_analyze_directory(self, directory_path: str, force_refresh: bool):
@@ -74,7 +77,7 @@ class SentimentAnalyzer:
                 try:
                     future.result()
                 except Exception as e:
-                    print(f"Thread raised exception: {e}")
+                    logger.error(f"Thread raised exception: {e}")
 
 
 def analyze_sentiment(force_refresh=False):
@@ -84,7 +87,8 @@ def analyze_sentiment(force_refresh=False):
     analyzer = SentimentAnalyzer()
     utterances_dir = "utterances"
     if os.path.exists(utterances_dir):
-        print(f"\n=== Analyzing utterances directory: {utterances_dir} ===")
+        logger.info(
+            f"\n=== Analyzing utterances directory: {utterances_dir} ===")
         analyzer.batch_analyze_directory(utterances_dir, force_refresh)
 
 
