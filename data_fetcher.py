@@ -22,10 +22,9 @@ requests_cache.install_cache(CACHE_FILE, backend='sqlite', expire_after=3600)
 MAX_CAST_TRIES_FOR_DOC = 10
 COMMITTEES = {}
 MKS = {}
-SAVE_TXT = os.getenv('SAVE_TXT', 'false').lower() == 'true'
 
 
-def read_doc_as_txt(doc: str):
+def read_doc_as_txt(doc: str, to_save_txt: bool):
     # todo: install on setup+move to docker
     cmd = [
         "soffice.com",
@@ -44,7 +43,7 @@ def read_doc_as_txt(doc: str):
     with open(output_file, "r", encoding="utf-8") as f:
         text_content = f.read()
 
-    if not SAVE_TXT:
+    if not to_save_txt:
         output_file.unlink(missing_ok=True)
 
     return text_content
@@ -109,7 +108,7 @@ def remove_resource_after_reading(doc_path: str):
     return False
 
 
-def process_document(doc, committee_name, date, knesset,  force_refresh: bool, tries=0):
+def process_document(doc, committee_name, date, knesset,  force_refresh: bool, tries=0, to_save_txt=False):
     doc["CommitteeName"] = committee_name
     doc["SessionDate"] = date
     doc_path = ""
@@ -117,7 +116,7 @@ def process_document(doc, committee_name, date, knesset,  force_refresh: bool, t
         out_path = extract_json_path(doc, output_dir=OUTPUT_FOLDER)
         if force_refresh or not os.path.exists(out_path):
             doc_path = read_resource_from_remote(doc["FilePath"])
-            text = read_doc_as_txt(doc_path)
+            text = read_doc_as_txt(doc_path, to_save_txt)
             save_doc_as_json(text, doc, knesset, out_path)
     except Exception as e:
         print("")
@@ -173,7 +172,7 @@ def save_mks_to_file(mks_data, file_path="mks_data.json"):
     print(f"MKs data saved to {file_path}")
 
 
-def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool):
+def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool, to_save_txt: bool):
     # TODO: figure out threads here
     # Add debug parameter with default False
     debug = os.getenv('DEBUG', 'false').lower() == 'true'
@@ -185,7 +184,7 @@ def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool):
             f"Fetching committee sessions from Knesset {knesset}: skip={skip}, limit={page_size}")
 
         is_end = fetch_paginated_committees_from_knesset(
-            knesset, page_size, skip, force_refresh)
+            knesset, page_size, skip, force_refresh, to_save_txt)
 
         if not is_end or debug:
             break
@@ -203,7 +202,7 @@ def build_committees_uri(knesset: int, top: int, skip: int):
     return f"https://knesset.gov.il/OdataV4/ParliamentInfo/KNS_CommitteeSession?{filter_part}&{expand_part}&{pagination_part}"
 
 
-def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, force_refresh: bool) -> bool:
+def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, force_refresh: bool, to_save_txt: bool) -> bool:
     uri = build_committees_uri(knesset, top, skip)
     response = requests.get(uri)
     committees_data = response.json()['value']
@@ -220,7 +219,7 @@ def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, f
                 for doc in session[COMMITTEE_SESSION_STR]:
                     if doc['ApplicationDesc'] == 'DOC' and doc["GroupTypeID"] == 23:
                         futures.append(executor.submit(
-                            process_document, doc, committee_name, date, knesset, force_refresh))
+                            process_document, doc, committee_name, date, knesset, force_refresh, to_save_txt))
 
         for future in as_completed(futures):
             try:
@@ -231,27 +230,17 @@ def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, f
 
 
 def init():
-    global SAVE_TXT
     get_committees_data()
     os.makedirs(TEMP_RESOURCE_FOLDER, exist_ok=True)
     os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-    parser = argparse.ArgumentParser(description="Knesset NLP")
-    parser.add_argument("--save-txt", action="store_true",
-                        help="Save TXT files during processing")
-    args = parser.parse_args()
 
-    SAVE_TXT = args.save_txt or os.getenv(
-        'SAVE_TXT', 'false').lower() == 'true'
-    return args
-
-
-def process_knesset_data(knesset: int, force_refresh=False):
+def process_knesset_data(knesset: int, force_refresh=False, to_save_txt=False):
     init()
     fetch_MKs_data(knesset)
-    fetch_all_committees_from_knesset(knesset, force_refresh)
+    fetch_all_committees_from_knesset(knesset, force_refresh, to_save_txt)
 
 
 if __name__ == "__main__":
-    args = init()
+    init()
     process_knesset_data(25)
