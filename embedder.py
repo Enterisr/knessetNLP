@@ -8,6 +8,13 @@ import os
 import numpy as np
 import json
 import faiss
+from faiss import IndexFlatIP
+from logger_config import get_logger
+
+model = SentenceTransformer(
+    'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
+)
+logger = get_logger(__name__)
 
 
 def _load_utternaces_to_vector_space(dir: str) -> list:
@@ -50,19 +57,27 @@ def _load_utternaces_to_vector_space(dir: str) -> list:
     return utterances
 
 
-def build_faiss_from_embeddings(embeddings: np.ndarray) -> None:
-
+def build_faiss_from_embeddings(embeddings: np.ndarray, force_reload: bool) -> IndexFlatIP:
     d = embeddings.shape[1]  # get dim from embeddings
+
+    # Try to load existing index if not forcing reload
+    if not force_reload and os.path.exists("committie_index"):
+        try:
+            logger.info("Loading existing FAISS index from file...")
+            index = faiss.read_index("committie_index")
+            return index
+        except Exception as e:
+            logger.error(f"Error loading index: {e}. Building new index...")
+
+    # Build new index if needed
+    logger.info("Building new FAISS index...")
     index = faiss.IndexFlatIP(d)
-    index.add(x=embeddings, n=len(embeddings))
+    index.add(embeddings)
     faiss.write_index(index, "committie_index")
+    return index
 
 
 def _embed_in_vector_space(utternces: list) -> np.ndarray:
-
-    model = SentenceTransformer(
-        'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
-    )
 
     print(f"Encoding {len(utternces)} utterances...")
     embeddings = model.encode(utternces,
@@ -125,8 +140,28 @@ def load_embeddings(dir: str, force_reload=False):
 
 def embed(dir="./utterances", force_refresh=False):
     utternaces, embeddings = load_embeddings(dir, force_refresh)
-    _graph_utterances(embeddings, utternaces)
+    print("done loading!")
+    return utternaces, embeddings
+
+#    _graph_utterances(embeddings, utternaces)
 
 
-# if __name__ == "__main__":
-#     embed(force_refresh=True)
+if __name__ == "__main__":
+    utternaces, embeddings = embed(force_refresh=False)
+    database = build_faiss_from_embeddings(embeddings)
+
+    while True:
+        query = input("search for intresting sentence: ")
+
+        query_embedding = model.encode(
+            [query], normalize_embeddings=True).astype(np.float32)
+
+        k = 100  # Number of nearest neighbors to retrieve
+        # No need to pre-allocate arrays, search returns them directly
+        distances, indices = database.search(query_embedding, k)
+
+        print("Search results:")
+        for i in range(k):
+            utternace_idx = indices[0][i]
+            print(
+                f"Match {i+1}: Index {utternace_idx}, Utterance: {utternaces[utternace_idx][::-1]}")

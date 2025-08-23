@@ -4,17 +4,19 @@ import json
 import re
 
 
+from UtterancesExtraction.bad_dover_exception import BadDoverException
 from logger_config import get_logger
 
 logger = get_logger(__name__)
 
 
 class DoverResolver:
-    def __init__(self, min_ratio_for_rapidfuzz=60):
-        min_ratio = min_ratio_for_rapidfuzz
+    def __init__(self, min_ratio_for_rapidfuzz=75):
+        self.min_ratio = min_ratio_for_rapidfuzz
         self.mks = self.load_mks_data()
         self.mks_by_name = self.transfer_mks_to_name_format()
         self.rapidfuzz_cache = {}
+        self.no_match_person = []
 
     def transfer_mks_to_name_format(self) -> dict:
         mks_by_name = {}
@@ -35,8 +37,8 @@ class DoverResolver:
             name = match.group(1)
         else:
             name = dover_str
-        logger.debug(
-            f"extracted doverkey: {name} from dover_str: {dover_str}")
+        # logger.debug(
+        #     f"extracted doverkey: {name} from dover_str: {dover_str}")
         return name
 
     def fallback_to_rapidfuzz_(self, name: str):
@@ -57,24 +59,29 @@ class DoverResolver:
                 max_mk_key = mk_key
         self.rapidfuzz_cache[name] = {"max_ratio": max_ratio,
                                       "max_sim_mk": max_sim_mk, "max_mk_key": max_mk_key}
+        if self.min_ratio > max_ratio:
+            raise BadDoverException(f"Can't find mk to match {name}")
         return max_mk_key, max_sim_mk, max_ratio
 
     def resolve_mk(self, speaker: str, mks_in_meeting: list):
         speaker_key = self.extract_name_key_from_dover(
             speaker)
         if speaker_key in mks_in_meeting:
-            try:
-                mk_meta = self.mks_by_name[speaker_key]
-            except KeyError:
-                rapidfuzz_match, mk_meta, ratio = self.fallback_to_rapidfuzz_(
-                    speaker_key)
-                logger.info(
-                    f"Rapidfuzz search for {speaker_key}, found: {rapidfuzz_match} with certainty: {ratio}")
-            return speaker_key, mk_meta
+            mk_meta = self.mks_by_name.get(speaker_key)
+            if mk_meta is None:
+                try:
+                    rapidfuzz_match, mk_meta, ratio = self.fallback_to_rapidfuzz_(
+                        speaker_key)
+                    logger.info(
+                        f"Rapidfuzz search for {speaker_key}, found: {rapidfuzz_match} with certainty: {ratio}")
+                    return rapidfuzz_match, mk_meta
+                except BadDoverException:
+                    self.no_match_person.append(speaker_key)
+                    logger.error(
+                        f"Can't find match for {speaker_key} with rapidfuzz match set as a min of {self.min_ratio}")
         return {"speaker_key": None, "mk_meta": None}
 
     def load_mks_data(self):
-
         try:
             with open('mks_data.json', 'r', encoding='utf-8') as f:
                 return json.load(f)

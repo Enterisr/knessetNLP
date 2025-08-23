@@ -7,3 +7,4 @@ utterances/
 mk_utterances.jsonl
 utterances.zip
 logs/
+knesset_cache.sqlite

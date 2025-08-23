@@ -109,7 +109,7 @@ def remove_resource_after_reading(doc_path: str):
     return False
 
 
-def process_document(doc, committee_name, date, knesset, tries=0, force_refresh=False):
+def process_document(doc, committee_name, date, knesset,  force_refresh: bool, tries=0):
     doc["CommitteeName"] = committee_name
     doc["SessionDate"] = date
     doc_path = ""

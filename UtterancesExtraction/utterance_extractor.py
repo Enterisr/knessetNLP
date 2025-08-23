@@ -80,16 +80,14 @@ def process_protocols(output_folder="committee_data", utterances_folder="utteran
 
     # Get total number of files
     total_files = len([f for f in os.listdir(
-        output_folder) if f.endswith(".json")])
+        output_folder)])
     files_processed = 0
 
     for file_name in os.listdir(output_folder):
-
-        for file_name in os.listdir(output_folder):
-            files_processed += 1
-            files_left = total_files - files_processed
-            logger.debug(
-                f"Processing file {files_processed}/{total_files}: {file_name} ({files_left} files left)")
+        files_processed += 1
+        files_left = total_files - files_processed
+        logger.debug(
+            f"Processing file {files_processed}/{total_files}: {file_name} ({files_left} files left)")
         if file_name.endswith(".json"):
             file_path = os.path.join(output_folder, file_name)
 
@@ -110,3 +108,9 @@ def process_protocols(output_folder="committee_data", utterances_folder="utteran
                     with open(utterances_file_path, "w", encoding="utf-8") as f:
                         json.dump(protocol_data, f,
                                   ensure_ascii=False, indent=2)
+
+    # After processing all files, save the list of keys not found
+    not_found_file_path = os.path.join(utterances_folder, "not_found_keys.txt")
+    with open(not_found_file_path, "w", encoding="utf-8") as f:
+        for key in sorted(dover_resolver.no_match_person):
+            f.write(f"{key}\n")

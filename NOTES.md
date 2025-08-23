@@ -51,3 +51,7 @@ Also, might need to find a way to make use of GPU in embedding - either use my o
 18.8 
 Started refnining utterances. seems like some subjects are getting double written\not written. have a problem with middle names 
 seems like there are too many options for first-last names kinds and ways to write them. i need to use rapidfuzz to help me with that, just to catch names correctly. also logging to file mks that didnt found exact match
+
+
+22.8.25
+refining utterances further, added logging. now rapidfuzz will take only from specific certainty..  also a minor refactor.
