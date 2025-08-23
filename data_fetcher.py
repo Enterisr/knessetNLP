@@ -107,11 +107,11 @@ def remove_resource_after_reading(doc_path: str):
             os.remove(doc_path)
             return True
         except OSError as e:
-            print(f"Error removing file {doc_path}: {e}")
+            logger.error(f"Error removing file {doc_path}: {e}")
     return False
 
 
-def process_document(doc, committee_name, date, knesset,  force_refresh: bool, tries=0, to_save_txt=False):
+def process_document(doc, committee_name, date, knesset,  force_refresh: bool, to_save_txt, tries=0):
     doc["CommitteeName"] = committee_name
     doc["SessionDate"] = date
     doc_path = ""
@@ -122,21 +122,13 @@ def process_document(doc, committee_name, date, knesset,  force_refresh: bool, t
             text = read_doc_as_txt(doc_path, to_save_txt)
             save_doc_as_json(text, doc, knesset, out_path)
     except Exception as e:
-        print("")
         if tries < MAX_CAST_TRIES_FOR_DOC:
-            print(f"Error processing {doc['FilePath']}, Trying Again. {e}")
+            logger.info(
+                f"Error processing {doc['FilePath']}, Trying Again. {e}")
             process_document(doc, committee_name, date,
-                             knesset, tries+1, force_refresh)
+                             knesset, force_refresh, to_save_txt, tries=tries+1)
         else:
-            print(f"Error processing {doc['FilePath']} OUT OF TRIES")
-            # Log error to a file
-            error_log_file = "processing_errors.log"
-            with open(error_log_file, "a", encoding="utf-8") as log_file:
-                file_name = os.path.basename(
-                    doc['FilePath']) if 'FilePath' in doc else "unknown"
-                error_message = f"{file_name}, Error after {tries} tries: {str(e)}\n"
-                log_file.write(error_message)
-            print(f"Error logged to {error_log_file}")
+            logger.error(f"Error processing {doc['FilePath']} OUT OF TRIES")
     finally:
         remove_resource_after_reading(doc_path)
 
@@ -172,7 +164,7 @@ def save_mks_to_file(mks_data, file_path="mks_data.json"):
     """
     with open(file_path, "w", encoding="utf-8") as f:
         json.dump(mks_data, f, ensure_ascii=False, indent=2)
-    print(f"MKs data saved to {file_path}")
+    logger.info(f"MKs data saved to {file_path}")
 
 
 def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool, to_save_txt: bool):
@@ -183,7 +175,7 @@ def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool, to_save
     skip = 0
 
     while True:
-        print(
+        logger.debug(
             f"Fetching committee sessions from Knesset {knesset}: skip={skip}, limit={page_size}")
 
         is_end = fetch_paginated_committees_from_knesset(
@@ -195,7 +187,7 @@ def fetch_all_committees_from_knesset(knesset: int, force_refresh: bool, to_save
         skip += page_size
 
     if debug:
-        print("Debug mode: Only fetched first page")
+        logger.info("Debug mode: Only fetched first page")
 
 
 def build_committees_uri(knesset: int, top: int, skip: int):
@@ -225,10 +217,11 @@ def fetch_paginated_committees_from_knesset(knesset: int, top: int, skip: int, f
                             process_document, doc, committee_name, date, knesset, force_refresh, to_save_txt))
 
         for future in as_completed(futures):
-            try:
-                future.result()
-            except Exception as e:
-                logger.error(f"Thread raised exception: {e}")
+            future.result()
+            # try:
+            #     future.result()
+            # except Exception as e:
+            #     logger.error(f"Thread raised exception: {e}")
     return True
 
 
