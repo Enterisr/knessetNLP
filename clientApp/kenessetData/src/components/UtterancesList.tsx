@@ -14,7 +14,8 @@ const UtterancesList = ({ mk, utterances, query, onBack, loading }: UtterancesLi
     if (!query) return text
     
     const regex = new RegExp(`(${query})`, 'gi')
-    return text.replace(regex, '<mark>$1</mark>')
+    const newText=  text.replace(regex, '<mark>$1</mark>')
+    return <div>{newText}</div>
   }
 
   return (
@@ -51,10 +52,9 @@ const UtterancesList = ({ mk, utterances, query, onBack, loading }: UtterancesLi
                   </div>
                   <div 
                     className="utterance-text"
-                    dangerouslySetInnerHTML={{
-                      __html: highlightQuery(utterance.text, query)
-                    }}
+                    
                   />
+              {highlightQuery(utterance.text, query)}
                 </div>
               ))}
             </div>
