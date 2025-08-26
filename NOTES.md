@@ -55,3 +55,7 @@ seems like there are too many options for first-last names kinds and ways to wri
 
 22.8.25
 refining utterances further, added logging. now rapidfuzz will take only from specific certainty..  also a minor refactor.
+
+
+24.8.25
+added app boilerplate

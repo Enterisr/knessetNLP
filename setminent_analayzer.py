@@ -53,7 +53,7 @@ class SentimentAnalyzer:
 
                     mk_data["sentiment"] = total_sentiment
 
-                    logger.ifno(
+                    logger.info(
                         f"Finished Analyzing mk: {key_mk} with polarity: {total_sentiment['polarity']} with subjectivity: {total_sentiment['subjectivity']}")
 
                 with open(file_path, 'w', encoding='utf-8') as f:

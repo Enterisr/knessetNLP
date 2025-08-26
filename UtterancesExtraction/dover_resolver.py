@@ -25,12 +25,18 @@ class DoverResolver:
             mks_by_name[new_key] = self.mks[key]
         return mks_by_name
 
-    def extract_name_key_from_dover(self, dover_str: str) -> str:
+    def remove_title_from_dover(self, dover_str: str):
         dover_str = dover_str.replace(' – מ"מ היו"ר', "")
         dover_str = dover_str.replace(' – היו"ר', "")
         dover_str = dover_str.replace('היו"ר ', "")
         dover_str = dover_str.replace('יושב-ראש הכנסת ', "")
         dover_str = dover_str.replace('יו"ר ', "")
+        pattern = r"(שר|שרת)\s+\S+"
+        dover_str = re.sub(pattern, "", dover_str)
+        return dover_str
+
+    def extract_name_key_from_dover(self, dover_str: str) -> str:
+        dover_str = self.remove_title_from_dover(dover_str)
 
         match = re.match(r"^(.*?) \(", dover_str)
         if match:
