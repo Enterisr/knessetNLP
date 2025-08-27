@@ -147,7 +147,7 @@ def embed(dir="./utterances", force_refresh=False):
 
 
 if __name__ == "__main__":
-    utternaces, embeddings = embed(force_refresh=False)
+    utternaces, embeddings = embed(force_refresh=True)
     database = build_faiss_from_embeddings(embeddings)
 
     while True:

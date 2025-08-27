@@ -74,17 +74,18 @@ class DoverResolver:
             speaker)
         if speaker_key in mks_in_meeting:
             mk_meta = self.mks_by_name.get(speaker_key)
-            if mk_meta is None:
-                try:
-                    rapidfuzz_match, mk_meta, ratio = self.fallback_to_rapidfuzz_(
-                        speaker_key)
-                    logger.info(
-                        f"Rapidfuzz search for {speaker_key}, found: {rapidfuzz_match} with certainty: {ratio}")
-                    return rapidfuzz_match, mk_meta
-                except BadDoverException:
-                    self.no_match_person.append(speaker_key)
-                    logger.error(
-                        f"Can't find match for {speaker_key} with rapidfuzz match set as a min of {self.min_ratio}")
+            if mk_meta is not None:
+                return speaker_key, mk_meta
+            try:
+                rapidfuzz_match, mk_meta, ratio = self.fallback_to_rapidfuzz_(
+                    speaker_key)
+                logger.info(
+                    f"Rapidfuzz search for {speaker_key}, found: {rapidfuzz_match} with certainty: {ratio}")
+                return rapidfuzz_match, mk_meta
+            except BadDoverException:
+                self.no_match_person.append(speaker_key)
+                logger.error(
+                    f"Can't find match for {speaker_key} with rapidfuzz match set as a min of {self.min_ratio}")
         return {"speaker_key": None, "mk_meta": None}
 
     def load_mks_data(self):

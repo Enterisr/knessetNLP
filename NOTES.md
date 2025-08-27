@@ -59,3 +59,10 @@ refining utterances further, added logging. now rapidfuzz will take only from sp
 
 24.8.25
 added app boilerplate
+
+
+27.8
+opted out of docker, just running libretranslate directly, too much nonsense to deal with with docker engine
+addded partition system to data pipeline to allow more multiprocessing utternaces and some generator pulling in embedder.
+I think the first approach of embedding only clean utterances and search on them is too naive, i need to add contextt to each utterance - maybe the title of the commitie.
+also need to filter out useless utterances of "תגיד לו" or "אני מסכים". so the naive approch is to filter out utterances shorter than 3 words  on embedding

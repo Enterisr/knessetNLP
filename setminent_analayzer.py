@@ -93,4 +93,4 @@ def analyze_sentiment(force_refresh=False):
 
 
 if __name__ == "__main__":
-    analyze_sentiment()
+    analyze_sentiment(force_refresh=True)

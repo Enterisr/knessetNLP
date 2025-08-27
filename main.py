@@ -1,6 +1,6 @@
 from setminent_analayzer import analyze_sentiment
 from UtterancesExtraction.utterance_extractor import process_protocols
-from data_fetcher import process_knesset_data
+from DataFetching.data_fetcher import KnessetDataFetcher
 from embedder import embed
 import argparse
 from logger_config import get_logger
@@ -26,8 +26,8 @@ def main():
     # Step 1: Fetch and process Knesset data
     # This will also save the MKs data to mks_data.json
     logger.info(f"started process_knesset_data with knesset {knesset_number}")
-    process_knesset_data(knesset=knesset_number,
-                         force_refresh=args.force_refresh, to_save_txt=args.save_txt)
+    fetcher = KnessetDataFetcher(knesset_num=knesset_number)
+    fetcher.process_knesset_data()
 
     # Step 2: Process protocols to extract utterances and enrich with MKs data
     logger.info(
@@ -35,7 +35,7 @@ def main():
     process_protocols(
         OUTPUT_FOLDER, force_refresh=args.force_refresh)
 
-    # Step 3: Process Agressiveness
+    # # Step 3: Process Agressiveness
     logger.info(f"started analyzing santiment of utterances")
     analyze_sentiment(force_refresh=args.force_refresh)
     logger.info(f"started embedding utterances")
