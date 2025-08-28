@@ -9,13 +9,24 @@ import numpy as np
 import json
 import faiss
 from faiss import IndexFlatIP
-from logger_config import get_logger
+from ..utils.logger_config import get_logger
 import gc
+from pathlib import Path
+
+# Get project root directory
+PROJECT_ROOT = Path(__file__).parent.parent
 
 model = SentenceTransformer(
     'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
 )
 logger = get_logger(__name__)
+
+
+class Embedder:
+    """Text embedding functionality using SentenceTransformers."""
+
+    def __init__(self):
+        self.model = model
 
 
 def _load_utternaces_to_vector_space(dir: str) -> list:
@@ -75,8 +86,8 @@ def _load_utternaces_to_vector_space(dir: str) -> list:
                         {'text': u, "mk": speaker_key, "src": file_name, "utter_id": f"{file_name}_{speaker_key}_{i}"})
 
     df = pd.DataFrame(mk_for_df)
-    df.to_pickle("utterances_data.pkl")
-    with open("mk_utterances.jsonl", "w", encoding="utf-8") as f:
+    df.to_pickle(PROJECT_ROOT / "utterances_data.pkl")
+    with open(PROJECT_ROOT / "mk_utterances.jsonl", "w", encoding="utf-8") as f:
         for speaker_key, data in mk_utternces.items():
             entry = {"speaker_key": speaker_key, **data}
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
@@ -88,10 +99,11 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_reload: bool) -> I
     d = embeddings.shape[1]  # get dim from embeddings
 
     # Try to load existing index if not forcing reload
-    if not force_reload and os.path.exists("committie_index"):
+    index_path = PROJECT_ROOT / "committie_index"
+    if not force_reload and index_path.exists():
         try:
             logger.info("Loading existing FAISS index from file...")
-            index = faiss.read_index("committie_index")
+            index = faiss.read_index(str(index_path))
             return index
         except Exception as e:
             logger.error(f"Error loading index: {e}. Building new index...")
@@ -100,7 +112,7 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_reload: bool) -> I
     logger.info("Building new FAISS index...")
     index = faiss.IndexFlatIP(d)
     index.add(embeddings)
-    faiss.write_index(index, "committie_index")
+    faiss.write_index(index, str(index_path))
     return index
 
 
@@ -143,7 +155,7 @@ def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarra
     gc.collect()
 
     print("Encoding completed!")
-    np.save("embeddings.npy", embeddings_array)
+    np.save(PROJECT_ROOT / "embeddings.npy", embeddings_array)
 
     return embeddings_array
 
@@ -178,8 +190,8 @@ def load_embeddings(dir: str, force_reload=False, batch_size=1000):
         return utternaces, embeddings
 
     try:
-        embeddings = np.load("embeddings.npy")
-        df = pd.read_pickle("utterances_data.pkl")
+        embeddings = np.load(PROJECT_ROOT / "embeddings.npy")
+        df = pd.read_pickle(PROJECT_ROOT / "utterances_data.pkl")
         utternaces = df["text"].tolist()
         print(f"Loaded {len(embeddings)} embeddings from file.")
     except FileNotFoundError:

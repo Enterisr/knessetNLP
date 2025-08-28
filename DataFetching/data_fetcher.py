@@ -9,7 +9,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from DataFetching.PartitionHandler import PartitionHandler
-from logger_config import get_logger
+from ..utils.logger_config import get_logger
 
 
 class KnessetDataFetcher:

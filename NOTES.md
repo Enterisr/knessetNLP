@@ -79,4 +79,6 @@ clustering is key heere not only for verification but also for an intresting fea
 also, this mk will have a score based on the mean sentiment of his utterances. it will be like a video game.
 
 seems like my gpu is not supported :( ill have to use some cloud provider probably
-started using google colab just to extract the embeddings file. seems much faster.
+started using google colab just to extract the embeddings file. seems much faster. embedded 1.4m in half an hour.
+
+*moved indivudal modules for different packages because it became a mayhem 

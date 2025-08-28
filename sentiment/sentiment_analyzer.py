@@ -2,9 +2,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from textblob import TextBlob
 import json
 import os
+from pathlib import Path
 
-from heb_to_eng_translator import HebToEngTranslator
-from logger_config import get_logger
+from ..translation.heb_to_eng_translator import HebToEngTranslator
+from ..utils.logger_config import get_logger
+
+# Get project root directory
+PROJECT_ROOT = Path(__file__).parent.parent
 
 logger = get_logger(__name__)
 
@@ -19,10 +23,21 @@ class SentimentAnalyzer:
         self.translator = HebToEngTranslator()
 
     def analyze_sentiment_textblob(self, text: str):
-
         try:
             blob = TextBlob(text)
-            return blob
+            # Get sentiment values, handling any attribute access issues
+            try:
+                polarity = blob.sentiment.polarity
+                subjectivity = blob.sentiment.subjectivity
+            except (AttributeError, TypeError):
+                # Fallback values if sentiment access fails
+                polarity = 0.0
+                subjectivity = 0.0
+
+            return {
+                'polarity': float(polarity),
+                'subjectivity': float(subjectivity)
+            }
         except (AttributeError, ValueError) as e:
             logger.error("Error analyzing sentiment with TextBlob: %s", str(e))
             return {'polarity': 0.0, 'subjectivity': 0.0}
@@ -39,12 +54,12 @@ class SentimentAnalyzer:
                     return True
 
                 for key_mk, mk_data in committee["utterances"].items():
-                    acc_sentiment = {"subjectivity": 0, "polarity": 0}
+                    acc_sentiment = {"subjectivity": 0.0, "polarity": 0.0}
                     for utterance in mk_data['utterances']:
                         en_txt = self.translator.translate(utterance)
                         sentiment = self.analyze_sentiment_textblob(en_txt)
-                        acc_sentiment["polarity"] += sentiment.polarity
-                        acc_sentiment["subjectivity"] += sentiment.subjectivity
+                        acc_sentiment["polarity"] += sentiment["polarity"]
+                        acc_sentiment["subjectivity"] += sentiment["subjectivity"]
 
                     total_sentiment = {
                         "polarity": acc_sentiment["polarity"] / len(mk_data['utterances']),
@@ -61,6 +76,7 @@ class SentimentAnalyzer:
 
                 logger.info("Sentiment analysis saved to %s", file_path)
                 return True
+        return False
 
     def batch_analyze_directory(self, directory_path: str, force_refresh: bool):
         """

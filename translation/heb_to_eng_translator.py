@@ -3,7 +3,7 @@ from googletrans import Translator
 
 import subprocess
 
-from logger_config import get_logger
+from ..utils.logger_config import get_logger
 import time
 
 cmd = 'set-alias docker-start "C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe"'
@@ -17,6 +17,7 @@ class HebToEngTranslator:
         self.resolver = self._use_libre
         self.source_language = 'he'
         self.target_language = 'en'
+        self.gTranslator = Translator() if force_google else None
         self.start_libre_()
 
     def translate(self, text: str) -> str:
@@ -63,6 +64,8 @@ class HebToEngTranslator:
 
     def _use_google(self, text: str) -> str:
         try:
+            if self.gTranslator is None:
+                self.gTranslator = Translator()
             result = self.gTranslator.translate(
                 text, src=self.source_language, dest=self.target_language)
             return result.text

@@ -1,9 +1,9 @@
-from setminent_analayzer import analyze_sentiment
+from sentiment.sentiment_analyzer import analyze_sentiment
 from UtterancesExtraction.utterance_extractor import process_protocols
 from DataFetching.data_fetcher import KnessetDataFetcher
-from embedder import embed
+from embedding.embedder import embed
 import argparse
-from logger_config import get_logger
+from utils.logger_config import get_logger
 
 logger = get_logger(__name__)
 OUTPUT_FOLDER = "committee_data"

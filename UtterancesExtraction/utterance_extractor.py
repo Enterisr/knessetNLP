@@ -4,7 +4,7 @@ import json
 from multiprocessing import Pool, cpu_count
 
 from UtterancesExtraction.dover_resolver import DoverResolver
-from logger_config import get_logger
+from ..utils.logger_config import get_logger
 MINIMAL_UTTERANCE_SIZE = 3
 logger = get_logger(__name__)
 

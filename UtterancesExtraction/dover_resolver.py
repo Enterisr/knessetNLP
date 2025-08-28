@@ -5,7 +5,7 @@ import re
 
 
 from UtterancesExtraction.bad_dover_exception import BadDoverException
-from logger_config import get_logger
+from ..utils.logger_config import get_logger
 
 logger = get_logger(__name__)
 
