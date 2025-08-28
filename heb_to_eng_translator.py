@@ -7,7 +7,7 @@ from logger_config import get_logger
 import time
 
 cmd = 'set-alias docker-start "C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe"'
-LIBRE_DOCKER_PORT = 5000
+LIBRE_PORT = 5000
 logger = get_logger(__name__)
 
 
@@ -23,7 +23,7 @@ class HebToEngTranslator:
         return self.resolver(text)
 
     def start_libre_(self):
-        process = subprocess.Popen(["libretranslate", "--load-only", "en,he"],
+        process = subprocess.Popen(["libretranslate", "--load-only", "en,he", "--port", str(LIBRE_PORT)],
                                    stdout=subprocess.PIPE,
                                    stderr=subprocess.STDOUT,
                                    text=True,
@@ -35,7 +35,7 @@ class HebToEngTranslator:
         for i in range(max_retries):
             try:
                 health_check = requests.get(
-                    f"http://localhost:{LIBRE_DOCKER_PORT}/languages")
+                    f"http://localhost:{LIBRE_PORT}/languages")
                 if health_check.status_code == 200:
                     logger.info("LibreTranslate service is up")
                     break
@@ -50,7 +50,7 @@ class HebToEngTranslator:
     def _use_libre(self, text: str):
 
         try:
-            resp = requests.post(f"http://localhost:{LIBRE_DOCKER_PORT}/translate", data={
+            resp = requests.post(f"http://localhost:{LIBRE_PORT}/translate", data={
                 "q": text,
                 "source": self.source_language,
                 "target": self.target_language,

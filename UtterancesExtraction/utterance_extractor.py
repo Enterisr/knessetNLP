@@ -249,5 +249,4 @@ def process_protocols(output_folder="committee_data", utterances_folder="utteran
 
 
 if __name__ == "__main__":
-    # Example usage
     process_protocols()

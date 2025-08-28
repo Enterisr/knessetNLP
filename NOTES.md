@@ -64,5 +64,19 @@ added app boilerplate
 27.8
 opted out of docker, just running libretranslate directly, too much nonsense to deal with with docker engine
 addded partition system to data pipeline to allow more multiprocessing utternaces and some generator pulling in embedder.
-I think the first approach of embedding only clean utterances and search on them is too naive, i need to add contextt to each utterance - maybe the title of the commitie.
+I think the first approach of embedding whonly clean utterances and search on them is too naive, i need to add contextt to each utterance - maybe the title of the commitie.
 also need to filter out useless utterances of "תגיד לו" or "אני מסכים". so the naive approch is to filter out utterances shorter than 3 words  on embedding
+Also, paramerts getting too complex, i think ill configure some JSON settings file instead of all this different env vars\params\constants.
+also, ill move to a class based apporach as each module gets a lot of compositions and its getting ugly 
+
+28/8/25
+there is about a 1m utterances in the full data - which is 700*m for vector space. if we choose the standart of float32 to represnent the utterances,  we have actually 700 * 1500000 * 4 = 4200000000
+which is about 5GB, so my ol machine can handle it perfectly well, albiet slowly, my amd GPU is kinda not liking the idea of using it for ML pipelines and just wants to run games. 
+installed remote desktop client to allow for connection to machine from my android phone. seems easier than grapichal SSH.
+
+I think about measuring the scuesses of the embedding. might need to embed also in some naive textWord static embedding from dictionry to prove im doing better than that. also, before that, i need to have an embedding ready+run hdbscan (dont want to explicitly cap number of clusters..)
+clustering is key heere not only for verification but also for an intresting feature i want to impl - i dream of an interactive infographic that will show the mks in relation to subjects, and will allow each mk to have a "profile" with core issues he's been working on.
+also, this mk will have a score based on the mean sentiment of his utterances. it will be like a video game.
+
+seems like my gpu is not supported :( ill have to use some cloud provider probably
+started using google colab just to extract the embeddings file. seems much faster.

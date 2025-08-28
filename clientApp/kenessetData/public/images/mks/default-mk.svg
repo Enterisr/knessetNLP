@@ -1,0 +1,7 @@
+<!-- Default MK Photo Placeholder -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="150" viewBox="0 0 120 150" fill="none">
+  <rect width="120" height="150" rx="12" fill="#E9ECEF"/>
+  <circle cx="60" cy="55" r="20" fill="#6C757D"/>
+  <path d="M35 120C35 105 45 95 60 95C75 95 85 105 85 120V130H35V120Z" fill="#6C757D"/>
+  <text x="60" y="140" text-anchor="middle" fill="#6C757D" font-size="8" font-family="Arial, sans-serif">חבר כנסת</text>
+</svg>

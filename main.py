@@ -25,7 +25,7 @@ def main():
 
     # Step 1: Fetch and process Knesset data
     # This will also save the MKs data to mks_data.json
-    logger.info(f"started process_knesset_data with knesset {knesset_number}")
+    # logger.info(f"started process_knesset_data with knesset {knesset_number}")
     fetcher = KnessetDataFetcher(knesset_num=knesset_number)
     fetcher.process_knesset_data()
 
@@ -35,7 +35,7 @@ def main():
     process_protocols(
         OUTPUT_FOLDER, force_refresh=args.force_refresh)
 
-    # # Step 3: Process Agressiveness
+    #  Step 3: Process Agressiveness
     logger.info(f"started analyzing santiment of utterances")
     analyze_sentiment(force_refresh=args.force_refresh)
     logger.info(f"started embedding utterances")

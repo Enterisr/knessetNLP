@@ -16,21 +16,44 @@ const MKPage = () => {
     }
   }, [mkId, query])
 
+  const getSentimentColor = (polarity: number): string => {
+    if (polarity > 0.1) return '#28a745' // Green for positive
+    if (polarity < -0.1) return '#dc3545' // Red for negative
+    return '#6c757d' // Gray for neutral
+  }
+
+  const getSentimentLabel = (polarity: number): string => {
+    if (polarity > 0.1) return 'חיובי'
+    if (polarity < -0.1) return 'שלילי'
+    return 'נייטרלי'
+  }
+
+  const getSubjectivityLabel = (subjectivity: number): string => {
+    if (subjectivity > 0.6) return 'סובייקטיבי'
+    if (subjectivity < 0.3) return 'אובייקטיבי'
+    return 'מעורב'
+  }
+
   const fetchMKAndUtterances = async (mkId: string, query: string) => {
     setLoading(true)
     try {
       // TODO: Fetch actual MK data and utterances
       // For now, using mock data
       
-      // Mock MK data
+      // Mock MK data with photos and sentiment
       const mockMK: MK = {
         id: mkId,
         name: mkId === '1' ? 'בנימין נתניהו' : mkId === '2' ? 'יאיר לפיד' : 'בצלאל סמוטריץ',
         factionName: mkId === '1' ? 'הליכוד' : mkId === '2' ? 'יש עתיד' : 'הציונות הדתית',
-        utteranceCount: 15
+        utteranceCount: 15,
+        photoUrl: `/images/mks/mk-${mkId}.svg`,
+        sentiment: {
+          polarity: mkId === '1' ? 0.15 : mkId === '2' ? -0.08 : 0.25,
+          subjectivity: mkId === '1' ? 0.65 : mkId === '2' ? 0.45 : 0.78
+        }
       }
       
-      // Mock utterances data
+      // Mock utterances data with sentiment
       const mockUtterances: Utterance[] = [
         {
           id: '1',
@@ -38,7 +61,8 @@ const MKPage = () => {
           date: '2023-10-15',
           committee: 'ועדת החינוך',
           mkId: mkId,
-          mkName: mockMK.name
+          mkName: mockMK.name,
+          sentiment: { polarity: 0.3, subjectivity: 0.6 }
         },
         {
           id: '2',
@@ -46,7 +70,8 @@ const MKPage = () => {
           date: '2023-10-20',
           committee: 'ועדת החוץ והבטחון',
           mkId: mkId,
-          mkName: mockMK.name
+          mkName: mockMK.name,
+          sentiment: { polarity: 0.1, subjectivity: 0.5 }
         },
         {
           id: '3',
@@ -54,7 +79,8 @@ const MKPage = () => {
           date: '2023-11-02',
           committee: 'ועדת הכלכלה',
           mkId: mkId,
-          mkName: mockMK.name
+          mkName: mockMK.name,
+          sentiment: { polarity: 0.2, subjectivity: 0.4 }
         }
       ]
       
@@ -111,11 +137,64 @@ const MKPage = () => {
           <Link to={`/search/${encodeURIComponent(query!)}`} className="back-button">
             ← חזור לרשימת חברי הכנסת
           </Link>
-          <div className="mk-info">
-            <h2>{mk.name}</h2>
-            <p className="mk-faction">{mk.factionName}</p>
-            <p className="search-context">אמירות על "{decodeURIComponent(query!)}"</p>
+          <div className="mk-profile">
+            <div className="mk-photo-container">
+              <img 
+                src={mk.photoUrl} 
+                alt={mk.name}
+                className="mk-photo"
+                onError={(e) => {
+                  e.currentTarget.src = '/images/mks/default-mk.svg'
+                }}
+              />
+            </div>
+            <div className="mk-info">
+              <h2>{mk.name}</h2>
+              <p className="mk-faction">{mk.factionName}</p>
+              <p className="search-context">אמירות על "{decodeURIComponent(query!)}"</p>
+            </div>
           </div>
+          
+          {mk.sentiment && (
+            <div className="sentiment-section">
+              <h3>ניתוח רגש</h3>
+              <div className="sentiment-metrics">
+                <div className="sentiment-metric">
+                  <span className="metric-label">רגש כללי:</span>
+                  <span 
+                    className="metric-value"
+                    style={{ color: getSentimentColor(mk.sentiment.polarity) }}
+                  >
+                    {getSentimentLabel(mk.sentiment.polarity)} ({(mk.sentiment.polarity * 100).toFixed(1)}%)
+                  </span>
+                  <div className="sentiment-bar">
+                    <div 
+                      className="sentiment-fill"
+                      style={{ 
+                        width: `${Math.abs(mk.sentiment.polarity) * 100}%`,
+                        backgroundColor: getSentimentColor(mk.sentiment.polarity)
+                      }}
+                    ></div>
+                  </div>
+                </div>
+                <div className="sentiment-metric">
+                  <span className="metric-label">סובייקטיביות:</span>
+                  <span className="metric-value">
+                    {getSubjectivityLabel(mk.sentiment.subjectivity)} ({(mk.sentiment.subjectivity * 100).toFixed(1)}%)
+                  </span>
+                  <div className="sentiment-bar">
+                    <div 
+                      className="sentiment-fill subjectivity"
+                      style={{ 
+                        width: `${mk.sentiment.subjectivity * 100}%`,
+                        backgroundColor: '#6c757d'
+                      }}
+                    ></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className="utterances-section">
@@ -134,6 +213,14 @@ const MKPage = () => {
                   <div className="utterance-metadata">
                     <span className="utterance-date">{utterance.date}</span>
                     <span className="utterance-committee">{utterance.committee}</span>
+                    {utterance.sentiment && (
+                      <span 
+                        className="utterance-sentiment"
+                        style={{ color: getSentimentColor(utterance.sentiment.polarity) }}
+                      >
+                        {getSentimentLabel(utterance.sentiment.polarity)}
+                      </span>
+                    )}
                   </div>
                   <div 
                     className="utterance-text"

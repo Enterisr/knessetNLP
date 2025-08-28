@@ -1,0 +1,7 @@
+<!-- Lapid Photo Placeholder -->
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="150" viewBox="0 0 120 150" fill="none">
+  <rect width="120" height="150" rx="12" fill="#FFF3E0"/>
+  <circle cx="60" cy="55" r="22" fill="#FF9800"/>
+  <path d="M33 120C33 103 43 90 60 90C77 90 87 103 87 120V135H33V120Z" fill="#FF9800"/>
+  <text x="60" y="143" text-anchor="middle" fill="#FF9800" font-size="8" font-family="Arial, sans-serif">יאיר לפיד</text>
+</svg>

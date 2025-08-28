@@ -186,6 +186,7 @@ class KnessetDataFetcher:
                 "Id": mk["KNS_Person"]["Id"],
                 # save only first name,
                 "FirstName": mk["KNS_Person"]["FirstName"],
+                "Email": mk["KNS_Person"]["Email"],
                 "LastName": mk["KNS_Person"]["LastName"],
                 "FactionName": mk["FactionName"],
                 "FactionID": mk["FactionID"],

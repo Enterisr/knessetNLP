@@ -12,3 +12,5 @@ committie_index
 clientApp/kenessetData/node_modules/*
 clientApp/kenessetData/node_modules
 /node_modules
+db/
+utterance_embeddings.npy

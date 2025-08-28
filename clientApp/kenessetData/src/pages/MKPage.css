@@ -6,7 +6,7 @@
 
 .mk-page-header {
   margin-bottom: 2rem;
-  padding-bottom: 1rem;
+  padding-bottom: 2rem;
   border-bottom: 2px solid #eee;
 }
 
@@ -30,6 +30,30 @@
   text-decoration: none;
 }
 
+.mk-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.mk-photo-container {
+  flex-shrink: 0;
+}
+
+.mk-photo {
+  width: 120px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 3px solid #e9ecef;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.mk-info {
+  flex: 1;
+}
+
 .mk-info h2 {
   margin: 0 0 0.5rem 0;
   color: #2c3e50;
@@ -48,6 +72,61 @@
   font-weight: 600;
   margin: 0;
   font-size: 1.1rem;
+}
+
+.sentiment-section {
+  background: #f8f9fa;
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  margin-top: 1.5rem;
+}
+
+.sentiment-section h3 {
+  margin: 0 0 1rem 0;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.sentiment-metrics {
+  display: grid;
+  gap: 1rem;
+}
+
+.sentiment-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metric-label {
+  font-weight: 500;
+  color: #495057;
+  font-size: 0.9rem;
+}
+
+.metric-value {
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.sentiment-bar {
+  width: 100%;
+  height: 8px;
+  background: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.sentiment-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 4px;
+}
+
+.sentiment-fill.subjectivity {
+  background: #6c757d !important;
 }
 
 .mk-page-loading,
@@ -108,11 +187,14 @@
 .utterance-metadata {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 1rem;
   padding-bottom: 0.5rem;
   border-bottom: 1px solid #eee;
   font-size: 0.9rem;
   color: #7f8c8d;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .utterance-date {
@@ -121,6 +203,14 @@
 
 .utterance-committee {
   color: #3498db;
+}
+
+.utterance-sentiment {
+  font-weight: 600;
+  font-size: 0.8rem;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: rgba(0,0,0,0.05);
 }
 
 .utterance-text {
@@ -169,16 +259,52 @@
     padding: 0 1rem;
   }
   
+  .mk-profile {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1rem;
+  }
+  
+  .mk-photo {
+    width: 100px;
+    height: 125px;
+  }
+  
   .mk-info h2 {
     font-size: 1.5rem;
   }
   
+  .sentiment-metrics {
+    gap: 1.5rem;
+  }
+  
   .utterance-metadata {
     flex-direction: column;
+    align-items: flex-start;
     gap: 0.5rem;
   }
   
   .utterance-card {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .mk-profile {
+    gap: 0.5rem;
+  }
+  
+  .mk-photo {
+    width: 80px;
+    height: 100px;
+  }
+  
+  .mk-info h2 {
+    font-size: 1.3rem;
+  }
+  
+  .sentiment-section {
     padding: 1rem;
   }
 }

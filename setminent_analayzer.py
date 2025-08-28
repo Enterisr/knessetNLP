@@ -23,8 +23,8 @@ class SentimentAnalyzer:
         try:
             blob = TextBlob(text)
             return blob
-        except Exception as e:
-            logger.error(f"Error analyzing sentiment with TextBlob: {e}")
+        except (AttributeError, ValueError) as e:
+            logger.error("Error analyzing sentiment with TextBlob: %s", str(e))
             return {'polarity': 0.0, 'subjectivity': 0.0}
 
     def analyze_utterances_file(self, file_path: str, force_reload: bool) -> bool:
@@ -35,7 +35,7 @@ class SentimentAnalyzer:
                     0].get("sentiment")
                 if sentiment_exists is not None and not force_reload:
                     logger.debug(
-                        f"sentiment already exists in {file_path}, not updating")
+                        "sentiment already exists in %s, not updating", file_path)
                     return True
 
                 for key_mk, mk_data in committee["utterances"].items():
@@ -53,25 +53,52 @@ class SentimentAnalyzer:
 
                     mk_data["sentiment"] = total_sentiment
 
-                    logger.info(
-                        f"Finished Analyzing mk: {key_mk} with polarity: {total_sentiment['polarity']} with subjectivity: {total_sentiment['subjectivity']}")
+                    logger.info("Finished Analyzing mk: %s with polarity: %s with subjectivity: %s",
+                                key_mk, total_sentiment['polarity'], total_sentiment['subjectivity'])
 
                 with open(file_path, 'w', encoding='utf-8') as f:
                     json.dump(committee, f, ensure_ascii=False, indent=2)
 
-                logger.info(f"Sentiment analysis saved to {file_path}")
+                logger.info("Sentiment analysis saved to %s", file_path)
                 return True
 
     def batch_analyze_directory(self, directory_path: str, force_refresh: bool):
+        """
+        Analyze sentiment for all utterance files in the directory.
+        Requires partition folder system (part_0, part_1, etc.).
+        """
+        # Check for partition folders
+        items_in_dir = os.listdir(directory_path)
+        partition_folders = [
+            item for item in items_in_dir
+            if item.startswith("part_") and os.path.isdir(os.path.join(directory_path, item))
+        ]
+
+        if not partition_folders:
+            raise ValueError(
+                f"No partition folders found in {directory_path}. Expected folders named 'part_0', 'part_1', etc.")
+
+        files_to_process = []
+
+        # Process files from all partition folders
+        logger.info("Found %d partition folders: %s", len(
+            partition_folders), sorted(partition_folders))
+        for partition_folder in sorted(partition_folders):
+            partition_path = os.path.join(directory_path, partition_folder)
+            for file_name in os.listdir(partition_path):
+                if file_name.endswith('.json'):
+                    full_path = os.path.join(partition_path, file_name)
+                    files_to_process.append((file_name, full_path))
+
+        logger.info("Processing %d utterance files for sentiment analysis from %d partitions",
+                    len(files_to_process), len(partition_folders))
 
         with ThreadPoolExecutor(max_workers=10) as executor:
             futures = []
-            for filename in os.listdir(directory_path):
-                if filename.endswith('.json'):
-                    file_path = os.path.join(directory_path, filename)
-                    print(f"Analyzing {filename}...")
-                    futures.append(executor.submit(
-                        self.analyze_utterances_file, file_path, force_refresh))
+            for file_name, file_path in files_to_process:
+                print(f"Analyzing {file_name}...")
+                futures.append(executor.submit(
+                    self.analyze_utterances_file, file_path, force_refresh))
 
             for future in as_completed(futures):
                 try:

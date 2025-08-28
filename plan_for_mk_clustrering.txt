@@ -1,0 +1,41 @@
+The Flow:
+Start with your existing pipeline: embeddings.npy + utterances_data.pkl
+
+Cluster utterances using HDBSCAN on the embedding vectors
+
+Aggregate clusters per MK to create MK profiles
+
+Cluster MKs based on their utterance cluster distributions
+
+Conceptual Approach:
+Step 1: Utterance Clustering
+Run HDBSCAN on your embeddings.npy to get clusters like:
+
+Cluster 0: Security/Military topics
+Cluster 5: Economic policy
+Cluster 12: Healthcare discussions
+etc.
+Step 2: Create MK Profiles
+For each MK, create a "cluster profile" - how much they talk about each topic:
+
+Step 3: Cluster MKs
+Now you can cluster MKs based on these topic distributions using:
+
+Cosine similarity on their cluster profiles
+KL divergence for probability distributions
+Regular clustering (K-means, HDBSCAN) on the profile vectors
+What You'd Discover:
+Coalition vs Opposition patterns
+Committee specializations (Defense Committee members cluster together)
+Ideological groupings (left/right economic views)
+Cross-party topical alliances (MKs from different parties who focus on similar issues)
+Key Insight:
+Your current utterances_data.pkl already has the "mk" field, so you can easily:
+
+Cluster the utterances (using embeddings)
+Group by MK to see which clusters each MK contributes to most
+Create MK vectors based on their cluster participation
+Cluster those MK vectors
+This gives you semantic political clustering rather than just party affiliation - you might discover that some Likud and Labor MKs cluster together on economic issues, for example!
+
+The beauty is you're using the same embedding space but aggregating at different levels: utterance-level clusters → speaker-level patterns.
