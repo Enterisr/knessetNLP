@@ -4,8 +4,8 @@ import json
 import os
 from pathlib import Path
 
-from ..translation.heb_to_eng_translator import HebToEngTranslator
-from ..utils.logger_config import get_logger
+from translation.heb_to_eng_translator import HebToEngTranslator
+from utils.logger_config import get_logger
 
 # Get project root directory
 PROJECT_ROOT = Path(__file__).parent.parent

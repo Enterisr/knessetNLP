@@ -1,7 +1,7 @@
 import numpy as np
 import torch
 from sentence_transformers import SentenceTransformer
-from ..translation.heb_to_eng_translator import HebToEngTranslator
+from translation.heb_to_eng_translator import HebToEngTranslator
 import json
 from datetime import datetime
 import sys

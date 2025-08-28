@@ -3,7 +3,7 @@ from googletrans import Translator
 
 import subprocess
 
-from ..utils.logger_config import get_logger
+from utils.logger_config import get_logger
 import time
 
 cmd = 'set-alias docker-start "C:\\Program Files\\Docker\\Docker\\Docker Desktop.exe"'

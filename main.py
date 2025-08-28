@@ -26,7 +26,8 @@ def main():
     # Step 1: Fetch and process Knesset data
     # This will also save the MKs data to mks_data.json
     # logger.info(f"started process_knesset_data with knesset {knesset_number}")
-    fetcher = KnessetDataFetcher(knesset_num=knesset_number)
+    fetcher = KnessetDataFetcher(
+        knesset_num=knesset_number, force_refresh=args.force_refresh)
     fetcher.process_knesset_data()
 
     # Step 2: Process protocols to extract utterances and enrich with MKs data

@@ -1,5 +1,5 @@
 
-from ..utils.logger_config import get_logger
+from utils.logger_config import get_logger
 
 MAX_FILES_FOR_FOLDER = 1000
 logger = get_logger(__name__)

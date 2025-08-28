@@ -9,7 +9,7 @@ import numpy as np
 import json
 import faiss
 from faiss import IndexFlatIP
-from ..utils.logger_config import get_logger
+from utils.logger_config import get_logger
 import gc
 from pathlib import Path
 
