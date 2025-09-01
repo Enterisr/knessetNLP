@@ -3,13 +3,8 @@ export interface Sentiment {
   subjectivity: number  // Range: 0 (objective) to 1 (subjective)
 }
 
-export interface MK {
-  id: string
-  name: string
-  factionName: string
-  utteranceCount: number
-  photoUrl?: string
-  sentiment?: Sentiment
+export interface MKUtterances {
+  [mk: string]: string[]
 }
 
 export interface Utterance {

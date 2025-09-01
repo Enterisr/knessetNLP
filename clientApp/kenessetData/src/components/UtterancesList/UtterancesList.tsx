@@ -1,5 +1,5 @@
 import './UtterancesList.css'
-import type { Utterance } from '../types/index'
+import type { Utterance } from '../../types/index'
 
 interface UtterancesListProps {
   utterances: Utterance[]

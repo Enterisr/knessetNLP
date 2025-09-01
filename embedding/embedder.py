@@ -41,7 +41,7 @@ def _process_utterance_file(file_name: str, filepath: str, mk_utternces: dict, u
             committee_prefixed_utterances = embed_metadata_in_utterance(
                 values["utterances"], file_data)
 
-            utterances += committee_prefixed_utterances
+            utterances += list(committee_prefixed_utterances)
 
             if values.get("sentiment") is not None:
                 for prop_key, prop_val in values["sentiment"].items():
@@ -55,7 +55,7 @@ def _process_utterance_file(file_name: str, filepath: str, mk_utternces: dict, u
                     {'text': u, "mk": speaker_key, "src": file_name, "utter_id": f"{file_name}_{speaker_key}_{i}"})
 
 
-def _load_utternaces_from_files(directory: str) -> list:
+def _load_utternaces_from_files(directory: str):
     utterances = []
     mk_utternces = {}
     mk_for_df = []
@@ -72,14 +72,14 @@ def _load_utternaces_from_files(directory: str) -> list:
             entry = {"speaker_key": speaker_key, **data}
             f.write(json.dumps(entry, ensure_ascii=False) + "\n")
 
-    return utterances
+    return df, utterances
 
 
 def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarray:
     """
     Embed utterances in batches to reduce memory usage.
     """
-    print(f"Encoding {len(utternces)} utterances in batches...")
+    logger.info(f"Encoding {len(utternces)} utterances in batches...")
 
     all_embeddings = []
     total_batches = (len(utternces) + batch_size - 1) // batch_size
@@ -88,7 +88,7 @@ def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarra
         batch_end = min(i + batch_size, len(utternces))
         batch_utterances = utternces[i:batch_end]
 
-        print(
+        logger.info(
             f"Processing batch {i//batch_size + 1}/{total_batches} ({len(batch_utterances)} utterances)...")
 
         batch_embeddings = model.encode(batch_utterances,
@@ -106,39 +106,39 @@ def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarra
         del batch_embeddings, batch_utterances
         gc.collect()  # Force garbage collection
 
-    print("Concatenating all embeddings...")
+    logger.info("Concatenating all embeddings...")
     embeddings_array = np.vstack(all_embeddings)
 
     # Clear the list to free memory
     del all_embeddings
     gc.collect()
 
-    print("Encoding completed!")
-    np.save(PROJECT_ROOT / "embeddings.npy", embeddings_array)
+    logger.info("Encoding completed!")
+    np.save(PROJECT_ROOT / "utterance_embeddings.npy", embeddings_array)
 
     return embeddings_array
 
 
 def load_embeddings(directory: str, force_refresh=False, batch_size=1000):
     if force_refresh:
-        utternaces = _load_utternaces_from_files(directory)
+        df, utternaces = _load_utternaces_from_files(directory)
         embeddings = _embed_in_vector_space(utternaces, batch_size)
-        return utternaces, embeddings
+        return df, utternaces, embeddings
 
     try:
-        embeddings = np.load(PROJECT_ROOT / "embeddings.npy")
+        embeddings = np.load(PROJECT_ROOT / "utterance_embeddings.npy")
         df = pd.read_pickle(PROJECT_ROOT / "utterances_data.pkl")
         utternaces = df["text"].tolist()
-        print(f"Loaded {len(embeddings)} embeddings from file.")
+        logger.info(f"Loaded {len(embeddings)} embeddings from file.")
     except FileNotFoundError:
-        print("Embeddings file not found. Generating new embeddings...")
-        utternaces = _load_utternaces_from_files(directory)
+        logger.warning(
+            "Embeddings file not found. Generating new embeddings...")
+        df, utternaces = _load_utternaces_from_files(directory)
         embeddings = _embed_in_vector_space(utternaces, batch_size)
-    return utternaces, embeddings
+    return df, embeddings
 
 
 def embed(directory="./utterances", force_refresh=False, batch_size=1000):
-    utternaces, embeddings = load_embeddings(
+    df, embeddings = load_embeddings(
         directory, force_refresh, batch_size)
-    print("done loading!")
-    return utternaces, embeddings
+    return df, embeddings

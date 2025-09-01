@@ -29,11 +29,7 @@ def process_request(repo_data: RepoData, request_json):
     """Process incoming requests based on their command"""
     try:
         request = json.loads(request_json)
-        command = request.get("command", "")
-        if command == "search":
-            return handle_search(repo_data, request)
-        else:
-            return {"status": "error", "message": f"Unknown command: {command}"}
+        return handle_search(repo_data, request)
 
     except json.JSONDecodeError:
         return {"status": "error", "message": "Invalid JSON request"}

@@ -3,7 +3,6 @@ import './App.css'
 import Home from './pages/Home/Home'
 import MKPage from './pages/MKPage/MKPage'
 import logo from './assets/logo.png' 
-import UtterancePage from './pages/UtterancePage/UtterancePage'
 
 function App() {
   return (
@@ -22,7 +21,6 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search/:query" element={<Home />} />
         <Route path="/mk/:mkId/:query" element={<MKPage />} />
-        <Route path="/mk/:mkId/:query/utterance/:utteranceId" element={<UtterancePage />} />
       </Routes>
     </div>
   )

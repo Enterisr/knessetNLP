@@ -82,3 +82,9 @@ seems like my gpu is not supported :( ill have to use some cloud provider probab
 started using google colab just to extract the embeddings file. seems much faster. embedded 1.4m in half an hour.
 
 *moved indivudal modules for different packages because it became a mayhem 
+
+1.9.25
+1.9.25
+impld IPC between the client app's server and the vector DB search process. first planned to use two different machines for better separation of concerns, but this might be overkill for now. Given limited Azure budget that will cause susing slow servers, a monolithic approach makes more sense to avoid the latency of multiple HTTP requests for each query.
+
+Also made adjustments to client app
