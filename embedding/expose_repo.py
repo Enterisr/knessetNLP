@@ -1,9 +1,9 @@
 import zmq
 import json
 import traceback
-from repo import init_repo, search
+from embedding.repo import init_repo, search
 from utils.logger_config import get_logger
-from repo_data import RepoData
+from embedding.repo_data import RepoData
 
 logger = get_logger(__name__)
 
@@ -44,11 +44,11 @@ def process_request(repo_data: RepoData, request_json):
         return {"status": "error", "message": error_msg}
 
 
-def init_repo_server():
+def init_repo_server(force_refresh: bool):
     """Start the ZeroMQ server and listen for requests"""
     logger.info("Starting ZeroMQ server on tcp://127.0.0.1:5555")
 
-    repo_data = init_repo(False)
+    repo_data = init_repo(force_refresh)
 
     try:
         while True:

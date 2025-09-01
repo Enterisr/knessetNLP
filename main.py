@@ -5,7 +5,7 @@ from DataFetching.photo_enricher import enrich_photos
 from embedding.embedder import embed
 import argparse
 from utils.logger_config import get_logger
-from embedding.repo import init_repo_process
+from embedding import init_repo_server
 logger = get_logger(__name__)
 OUTPUT_FOLDER = "committee_data"
 
@@ -38,7 +38,7 @@ def full_pipeline(args):
 
 
 def init_repo(args):
-    init_repo_process(args.force_refresh)
+    init_repo_server(args.force_refresh)
 
 
 def run():
