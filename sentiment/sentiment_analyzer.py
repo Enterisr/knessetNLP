@@ -42,13 +42,13 @@ class SentimentAnalyzer:
             logger.error("Error analyzing sentiment with TextBlob: %s", str(e))
             return {'polarity': 0.0, 'subjectivity': 0.0}
 
-    def analyze_utterances_file(self, file_path: str, force_reload: bool) -> bool:
+    def analyze_utterances_file(self, file_path: str, force_refresh: bool) -> bool:
         with open(file_path, 'r', encoding='utf-8') as f:
             committee = json.load(f)
             if len(committee["utterances"].values()) > 0:
                 sentiment_exists = list(committee["utterances"].values())[
                     0].get("sentiment")
-                if sentiment_exists is not None and not force_reload:
+                if sentiment_exists is not None and not force_refresh:
                     logger.debug(
                         "sentiment already exists in %s, not updating", file_path)
                     return True

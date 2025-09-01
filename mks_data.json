@@ -5,7 +5,10 @@
     "Email": "tzvisuccot@knesset.gov.il",
     "LastName": "סוכות",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1121/1_1121_3_19949.jpeg?v=20250828_36168",
+    "SiteId": 1121,
+    "PhotoStatus": "found"
   },
   "30875": {
     "Id": 30875,
@@ -13,7 +16,10 @@
     "Email": null,
     "LastName": "מלקו",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1122/1_1122_3_19962.jpeg?v=20250828_84982",
+    "SiteId": 1122,
+    "PhotoStatus": "found"
   },
   "30876": {
     "Id": 30876,
@@ -21,7 +27,10 @@
     "Email": "oshkalim@knesset.gov.il",
     "LastName": "שקלים",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1123/1_1123_3_19975.jpeg?v=20250828_28475",
+    "SiteId": 1123,
+    "PhotoStatus": "found"
   },
   "30706": {
     "Id": 30706,
@@ -29,7 +38,10 @@
     "Email": "kshitrit@knesset.gov.il",
     "LastName": "שטרית",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1018/1_1018_3_12330.jpeg?v=20250828_28431",
+    "SiteId": 1018,
+    "PhotoStatus": "found"
   },
   "30877": {
     "Id": 30877,
@@ -37,7 +49,10 @@
     "Email": "hak_passal@knesset.gov.il",
     "LastName": "פסל",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1124/1_1124_3_20007.jpeg?v=20250828_31202",
+    "SiteId": 1124,
+    "PhotoStatus": "found"
   },
   "30879": {
     "Id": 30879,
@@ -45,7 +60,10 @@
     "Email": "hak_guetta@knesset.gov.il",
     "LastName": "גואטה",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1125/1_1125_3_20029.jpeg?v=20250828_47774",
+    "SiteId": 1125,
+    "PhotoStatus": "found"
   },
   "30880": {
     "Id": 30880,
@@ -53,7 +71,10 @@
     "Email": "hak_boaron@knesset.gov.il",
     "LastName": "בוארון",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1126/1_1126_3_20040.jpeg?v=20250828_72488",
+    "SiteId": 1126,
+    "PhotoStatus": "found"
   },
   "30881": {
     "Id": 30881,
@@ -61,7 +82,10 @@
     "Email": "yalevi@knesset.gov.il",
     "LastName": "לוי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1127/1_1127_3_20229.png?v=20250828_28405",
+    "SiteId": 1127,
+    "PhotoStatus": "found"
   },
   "30809": {
     "Id": 30809,
@@ -69,7 +93,10 @@
     "Email": "gdistal@knesset.gov.il",
     "LastName": "דיסטל אטבריאן",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1059/1_1059_3_17778.jpeg?v=20250828_31417",
+    "SiteId": 1059,
+    "PhotoStatus": "found"
   },
   "30102": {
     "Id": 30102,
@@ -77,7 +104,10 @@
     "Email": "bmerav@knesset.gov.il",
     "LastName": "בן ארי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/915/1_915_3_2385.jpeg?v=20250828_83919",
+    "SiteId": 915,
+    "PhotoStatus": "found"
   },
   "4397": {
     "Id": 4397,
@@ -85,7 +115,10 @@
     "Email": "zelkin@knesset.gov.il",
     "LastName": "אלקין",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/768/1_768_3_1721.jpeg?v=20250828_57745",
+    "SiteId": 768,
+    "PhotoStatus": "found"
   },
   "30118": {
     "Id": 30118,
@@ -93,7 +126,10 @@
     "Email": "shaskel@knesset.gov.il",
     "LastName": "השכל",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/950/1_950_3_2607.jpeg?v=20250828_29175",
+    "SiteId": 950,
+    "PhotoStatus": "found"
   },
   "1027": {
     "Id": 1027,
@@ -101,7 +137,10 @@
     "Email": "gsaar@knesset.gov.il",
     "LastName": "סער",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/725/1_725_3_1595.jpeg",
+    "SiteId": 725,
+    "PhotoStatus": "found"
   },
   "30082": {
     "Id": 30082,
@@ -109,7 +148,10 @@
     "Email": null,
     "LastName": "שאשא ביטון",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/946/1_946_3_2590.jpeg",
+    "SiteId": 946,
+    "PhotoStatus": "found"
   },
   "30799": {
     "Id": 30799,
@@ -117,7 +159,10 @@
     "Email": "mbuskila@knesset.gov.il",
     "LastName": "בוסקילה",
     "FactionName": "הימין הממלכתי ",
-    "FactionID": 1108
+    "FactionID": 1108,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1088/1_1088_3_19591.jpeg?v=20250828_73816",
+    "SiteId": 1088,
+    "PhotoStatus": "found"
   },
   "30830": {
     "Id": 30830,
@@ -125,7 +170,10 @@
     "Email": "ohtal@knesset.gov.il",
     "LastName": "טל",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1090/1_1090_3_19702.jpeg?v=20250828_09343",
+    "SiteId": 1090,
+    "PhotoStatus": "found"
   },
   "30893": {
     "Id": 30893,
@@ -133,7 +181,10 @@
     "Email": "abbed@knesset.gov.il",
     "LastName": "עבד",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1128/1_1128_3_20759.jpeg?v=20250828_71898",
+    "SiteId": 1128,
+    "PhotoStatus": "found"
   },
   "30721": {
     "Id": 30721,
@@ -141,7 +192,10 @@
     "Email": null,
     "LastName": "רול",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1009/1_1009_3_12328.jpeg",
+    "SiteId": 1009,
+    "PhotoStatus": "found"
   },
   "30857": {
     "Id": 30857,
@@ -149,7 +203,10 @@
     "Email": "abene@knesset.gov.il",
     "LastName": "אליהו",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1096/1_1096_3_19667.jpeg?v=20250828_87134",
+    "SiteId": 1096,
+    "PhotoStatus": "found"
   },
   "23635": {
     "Id": 23635,
@@ -157,7 +214,10 @@
     "Email": "ptamano@knesset.gov.il",
     "LastName": "תמנו",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/905/1_905_3_2327.jpeg?v=20250828_71297",
+    "SiteId": 905,
+    "PhotoStatus": "found"
   },
   "30859": {
     "Id": 30859,
@@ -165,7 +225,10 @@
     "Email": "tzfoghel@knesset.gov.il",
     "LastName": "פוגל",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1110/1_1110_3_19738.jpeg?v=20250828_38642",
+    "SiteId": 1110,
+    "PhotoStatus": "found"
   },
   "30846": {
     "Id": 30846,
@@ -173,7 +236,10 @@
     "Email": "ygoldknop@knesset.gov.il",
     "LastName": "גולדקנופ",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1099/1_1099_3_19749.jpeg?v=20250828_09578",
+    "SiteId": 1099,
+    "PhotoStatus": "found"
   },
   "30894": {
     "Id": 30894,
@@ -181,7 +247,10 @@
     "Email": "samirb@knesset.gov.il",
     "LastName": "בן סעיד",
     "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
+    "FactionID": 1103,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1129/1_1129_3_20971.jpeg?v=20250828_36906",
+    "SiteId": 1129,
+    "PhotoStatus": "found"
   },
   "30768": {
     "Id": 30768,
@@ -189,7 +258,10 @@
     "Email": null,
     "LastName": "ברוכי",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1042/1_1042_3_15101.jpeg",
+    "SiteId": 1042,
+    "PhotoStatus": "found"
   },
   "30693": {
     "Id": 30693,
@@ -197,7 +269,10 @@
     "Email": "eginzburg@knesset.gov.il",
     "LastName": "גינזבורג",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/981/1_981_3_11118.jpeg?v=20250828_07375",
+    "SiteId": 981,
+    "PhotoStatus": "found"
   },
   "30775": {
     "Id": 30775,
@@ -205,7 +280,10 @@
     "Email": "yaelron@knesset.gov.il",
     "LastName": "רון בן משה",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1048/1_1048_3_16568.jpeg?v=20250828_34763",
+    "SiteId": 1048,
+    "PhotoStatus": "found"
   },
   "22151": {
     "Id": 22151,
@@ -213,7 +291,10 @@
     "Email": "akramh@knesset.gov.il",
     "LastName": "חסון",
     "FactionName": "הימין הממלכתי ",
-    "FactionID": 1108
+    "FactionID": 1108,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/854/1_854_3_2044.jpeg?v=20250828_68675",
+    "SiteId": 854,
+    "PhotoStatus": "found"
   },
   "11835": {
     "Id": 11835,
@@ -221,7 +302,10 @@
     "Email": "umaklev@knesset.gov.il",
     "LastName": "מקלב",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/814/1_814_3_1874.jpeg?v=20250828_40225",
+    "SiteId": 814,
+    "PhotoStatus": "found"
   },
   "563": {
     "Id": 563,
@@ -229,7 +313,10 @@
     "Email": "mporush@knesset.gov.il",
     "LastName": "פרוש",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/103/1_103_3_285.jpeg?v=20250828_74301",
+    "SiteId": 103,
+    "PhotoStatus": "found"
   },
   "30671": {
     "Id": 30671,
@@ -237,7 +324,10 @@
     "Email": "ytesler@knesset.gov.il",
     "LastName": "טסלר",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/996/1_996_3_11221.jpeg?v=20250828_91187",
+    "SiteId": 996,
+    "PhotoStatus": "found"
   },
   "30873": {
     "Id": 30873,
@@ -245,7 +335,10 @@
     "Email": null,
     "LastName": "מלול",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1119/1_1119_3_19933.jpeg",
+    "SiteId": 1119,
+    "PhotoStatus": "found"
   },
   "1056": {
     "Id": 1056,
@@ -253,7 +346,10 @@
     "Email": "ymargi@knesset.gov.il",
     "LastName": "מרגי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/751/1_751_3_1669.jpeg?v=20250828_22529",
+    "SiteId": 751,
+    "PhotoStatus": "found"
   },
   "28513": {
     "Id": 28513,
@@ -261,7 +357,10 @@
     "Email": "ybentzur@knesset.gov.il",
     "LastName": "בן צור",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/906/1_906_3_2332.jpeg?v=20250828_02168",
+    "SiteId": 906,
+    "PhotoStatus": "found"
   },
   "30804": {
     "Id": 30804,
@@ -269,7 +368,10 @@
     "Email": "chbiton@knesset.gov.il",
     "LastName": "ביטון",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1055/1_1055_3_17783.jpeg?v=20250828_34964",
+    "SiteId": 1055,
+    "PhotoStatus": "found"
   },
   "30895": {
     "Id": 30895,
@@ -277,7 +379,10 @@
     "Email": "aazuz@knesset.gov.il",
     "LastName": "עזוז",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1130/1_1130_3_21032.jpeg?v=20250828_15699",
+    "SiteId": 1130,
+    "PhotoStatus": "found"
   },
   "30749": {
     "Id": 30749,
@@ -285,7 +390,10 @@
     "Email": "mabutbul@knesset.gov.il",
     "LastName": "אבוטבול",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1029/1_1029_3_13527.jpeg?v=20250828_66992",
+    "SiteId": 1029,
+    "PhotoStatus": "found"
   },
   "30601": {
     "Id": 30601,
@@ -293,7 +401,10 @@
     "Email": "yazulai@knesset.gov.il",
     "LastName": "אזולאי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/970/1_970_3_2722.jpeg?v=20250828_22758",
+    "SiteId": 970,
+    "PhotoStatus": "found"
   },
   "30660": {
     "Id": 30660,
@@ -301,7 +412,10 @@
     "Email": "marbel@knesset.gov.il",
     "LastName": "ארבל",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1008/1_1008_3_11235.jpeg?v=20250828_68859",
+    "SiteId": 1008,
+    "PhotoStatus": "found"
   },
   "30765": {
     "Id": 30765,
@@ -309,7 +423,10 @@
     "Email": "urielb@knesset.gov.il",
     "LastName": "בוסו",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1039/1_1039_3_15050.jpeg?v=20250828_74788",
+    "SiteId": 1039,
+    "PhotoStatus": "found"
   },
   "2291": {
     "Id": 2291,
@@ -317,7 +434,10 @@
     "Email": "aderey@knesset.gov.il",
     "LastName": "דרעי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/41/1_41_3_110.jpeg?v=20250828_94387",
+    "SiteId": 41,
+    "PhotoStatus": "found"
   },
   "30770": {
     "Id": 30770,
@@ -325,7 +445,10 @@
     "Email": "jtaieb@knesset.gov.il",
     "LastName": "טייב",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1043/1_1043_3_15131.jpeg?v=20250828_91264",
+    "SiteId": 1043,
+    "PhotoStatus": "found"
   },
   "30470": {
     "Id": 30470,
@@ -333,7 +456,10 @@
     "Email": "malkielim@knesset.gov.il",
     "LastName": "מלכיאלי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/957/1_957_3_2656.jpeg?v=20250828_70276",
+    "SiteId": 957,
+    "PhotoStatus": "found"
   },
   "532": {
     "Id": 532,
@@ -341,7 +467,9 @@
     "Email": "yedelstein@knesset.gov.il",
     "LastName": "אדלשטיין",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": null,
+    "PhotoStatus": "no_site_id"
   },
   "30300": {
     "Id": 30300,
@@ -349,7 +477,10 @@
     "Email": "amiro@knesset.gov.il",
     "LastName": "אוחנה",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/953/1_953_3_2628.jpeg?v=20250828_80358",
+    "SiteId": 953,
+    "PhotoStatus": "found"
   },
   "23564": {
     "Id": 23564,
@@ -357,7 +488,10 @@
     "Email": "davidam@knesset.gov.il",
     "LastName": "אמסלם",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/912/1_912_3_2364.jpeg",
+    "SiteId": 912,
+    "PhotoStatus": "found"
   },
   "12937": {
     "Id": 12937,
@@ -365,7 +499,10 @@
     "Email": null,
     "LastName": "אקוניס",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/830/1_830_3_1939.jpeg",
+    "SiteId": 830,
+    "PhotoStatus": "found"
   },
   "23558": {
     "Id": 23558,
@@ -373,7 +510,10 @@
     "Email": "dbitan@knesset.gov.il",
     "LastName": "ביטן",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/914/1_914_3_2378.jpeg?v=20250828_87814",
+    "SiteId": 914,
+    "PhotoStatus": "found"
   },
   "30700": {
     "Id": 30700,
@@ -381,7 +521,10 @@
     "Email": "nbarkat@knesset.gov.il",
     "LastName": "ברקת",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/974/1_974_3_12308.jpeg?v=20250828_.3883",
+    "SiteId": 974,
+    "PhotoStatus": "found"
   },
   "30077": {
     "Id": 30077,
@@ -389,7 +532,10 @@
     "Email": null,
     "LastName": "גלנט",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/921/1_921_3_2424.jpeg",
+    "SiteId": 921,
+    "PhotoStatus": "found"
   },
   "1025": {
     "Id": 1025,
@@ -397,7 +543,10 @@
     "Email": "ggamliel@knesset.gov.il",
     "LastName": "גמליאל",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/723/1_723_3_1586.jpeg?v=20250828_44075",
+    "SiteId": 723,
+    "PhotoStatus": "found"
   },
   "4395": {
     "Id": 4395,
@@ -405,7 +554,10 @@
     "Email": "davraham@knesset.gov.il",
     "LastName": "דיכטר",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/771/1_771_3_1732.jpeg?v=20250828_66714",
+    "SiteId": 771,
+    "PhotoStatus": "found"
   },
   "30058": {
     "Id": 30058,
@@ -413,7 +565,10 @@
     "Email": "mzohar@knesset.gov.il",
     "LastName": "זוהר",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/922/1_922_3_2431.jpeg",
+    "SiteId": 922,
+    "PhotoStatus": "found"
   },
   "30083": {
     "Id": 30083,
@@ -421,7 +576,10 @@
     "Email": "elic@knesset.gov.il",
     "LastName": "כהן",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/928/1_928_3_2473.jpeg",
+    "SiteId": 928,
+    "PhotoStatus": "found"
   },
   "30701": {
     "Id": 30701,
@@ -429,7 +587,10 @@
     "Email": "okatz@knesset.gov.il",
     "LastName": "כץ",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/976/1_976_3_12324.jpeg?v=20250828_35048",
+    "SiteId": 976,
+    "PhotoStatus": "found"
   },
   "556": {
     "Id": 556,
@@ -437,7 +598,10 @@
     "Email": "hkatz@knesset.gov.il",
     "LastName": "כץ",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/212/1_212_3_535.jpeg",
+    "SiteId": 212,
+    "PhotoStatus": "found"
   },
   "468": {
     "Id": 468,
@@ -445,7 +609,10 @@
     "Email": "yiskatz@knesset.gov.il",
     "LastName": "כץ",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/69/1_69_3_191.jpeg?v=20250828_26602",
+    "SiteId": 69,
+    "PhotoStatus": "found"
   },
   "12951": {
     "Id": 12951,
@@ -453,7 +620,10 @@
     "Email": "ylevin@knesset.gov.il",
     "LastName": "לוין",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/826/1_826_3_1921.jpeg?v=20250828_51508",
+    "SiteId": 826,
+    "PhotoStatus": "found"
   },
   "965": {
     "Id": 965,
@@ -461,7 +631,10 @@
     "Email": "bnetanyahu@knesset.gov.il",
     "LastName": "נתניהו",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/90/1_90_3_248.jpeg?v=20250828_90742",
+    "SiteId": 90,
+    "PhotoStatus": "found"
   },
   "30057": {
     "Id": 30057,
@@ -469,7 +642,10 @@
     "Email": "yoavk@knesset.gov.il",
     "LastName": "קיש",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/945/1_945_3_2583.jpeg",
+    "SiteId": 945,
+    "PhotoStatus": "found"
   },
   "30704": {
     "Id": 30704,
@@ -477,7 +653,10 @@
     "Email": "shlomok@knesset.gov.il",
     "LastName": "קרעי",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1011/1_1011_3_12326.jpeg?v=20250828_64206",
+    "SiteId": 1011,
+    "PhotoStatus": "found"
   },
   "12959": {
     "Id": 12959,
@@ -485,7 +664,10 @@
     "Email": "mregev@knesset.gov.il",
     "LastName": "רגב",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/831/1_831_3_1946.jpeg",
+    "SiteId": 831,
+    "PhotoStatus": "found"
   },
   "30811": {
     "Id": 30811,
@@ -493,7 +675,10 @@
     "Email": "ibengvir@knesset.gov.il",
     "LastName": "בן גביר",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1056/1_1056_3_17788.jpeg?v=20250828_08449",
+    "SiteId": 1056,
+    "PhotoStatus": "found"
   },
   "30810": {
     "Id": 30810,
@@ -501,7 +686,10 @@
     "Email": "michalwoldiger@knesset.gov.il",
     "LastName": "וולדיגר",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1060/1_1060_3_17793.jpeg?v=20250828_12962",
+    "SiteId": 1060,
+    "PhotoStatus": "found"
   },
   "30814": {
     "Id": 30814,
@@ -509,7 +697,10 @@
     "Email": "amaaoz@knesset.gov.il",
     "LastName": "מעוז",
     "FactionName": "נעם - בראשות אבי מעוז",
-    "FactionID": 1107
+    "FactionID": 1107,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1063/1_1063_3_17738.jpeg?v=20250828_50054",
+    "SiteId": 1063,
+    "PhotoStatus": "found"
   },
   "23551": {
     "Id": 23551,
@@ -517,7 +708,10 @@
     "Email": "ostruk@knesset.gov.il",
     "LastName": "סטרוק",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/884/1_884_3_2213.jpeg?v=20250828_27397",
+    "SiteId": 884,
+    "PhotoStatus": "found"
   },
   "30055": {
     "Id": 30055,
@@ -525,7 +719,10 @@
     "Email": "bezalels@knesset.gov.il",
     "LastName": "סמוטריץ'",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/936/1_936_3_2523.jpeg",
+    "SiteId": 936,
+    "PhotoStatus": "found"
   },
   "30812": {
     "Id": 30812,
@@ -533,7 +730,10 @@
     "Email": "srothman@knesset.gov.il",
     "LastName": "רוטמן",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1067/1_1067_3_17818.jpeg?v=20250828_77034",
+    "SiteId": 1067,
+    "PhotoStatus": "found"
   },
   "30662": {
     "Id": 30662,
@@ -541,7 +741,10 @@
     "Email": null,
     "LastName": "כהנא",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1030/1_1030_3_13542.jpeg",
+    "SiteId": 1030,
+    "PhotoStatus": "found"
   },
   "30758": {
     "Id": 30758,
@@ -549,7 +752,10 @@
     "Email": "ayasin@knesset.gov.il",
     "LastName": "ח'טיב יאסין",
     "FactionName": "רע\"ם",
-    "FactionID": 1099
+    "FactionID": 1099,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1032/1_1032_3_13745.jpeg?v=20250828_09368",
+    "SiteId": 1032,
+    "PhotoStatus": "found"
   },
   "30752": {
     "Id": 30752,
@@ -557,7 +763,10 @@
     "Email": "hak_taha@knesset.gov.il",
     "LastName": "טאהא",
     "FactionName": "רע\"ם",
-    "FactionID": 1099
+    "FactionID": 1099,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1026/1_1026_3_13539.jpeg?v=20250828_68148",
+    "SiteId": 1026,
+    "PhotoStatus": "found"
   },
   "30713": {
     "Id": 30713,
@@ -565,7 +774,10 @@
     "Email": "mabas@knesset.gov.il",
     "LastName": "עבאס",
     "FactionName": "רע\"ם",
-    "FactionID": 1099
+    "FactionID": 1099,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1007/1_1007_3_12320.jpeg?v=20250828_45109",
+    "SiteId": 1007,
+    "PhotoStatus": "found"
   },
   "30106": {
     "Id": 30106,
@@ -573,7 +785,10 @@
     "Email": "naamalazimi@knesset.gov.il",
     "LastName": "לזימי",
     "FactionName": "העבודה",
-    "FactionID": 1100
+    "FactionID": 1100,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1082/1_1082_3_17989.jpeg?v=20250828_79951",
+    "SiteId": 1082,
+    "PhotoStatus": "found"
   },
   "23565": {
     "Id": 23565,
@@ -581,7 +796,10 @@
     "Email": "michaelim@knesset.gov.il",
     "LastName": "מיכאלי",
     "FactionName": "העבודה",
-    "FactionID": 1100
+    "FactionID": 1100,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/881/1_881_3_2196.jpeg?v=20250828_80531",
+    "SiteId": 881,
+    "PhotoStatus": "found"
   },
   "30807": {
     "Id": 30807,
@@ -589,7 +807,10 @@
     "Email": "gkariv@knesset.gov.il",
     "LastName": "קריב",
     "FactionName": "העבודה",
-    "FactionID": 1100
+    "FactionID": 1100,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1066/1_1066_3_17753.jpeg?v=20250828_03598",
+    "SiteId": 1066,
+    "PhotoStatus": "found"
   },
   "30808": {
     "Id": 30808,
@@ -597,7 +818,10 @@
     "Email": "eraiten@knesset.gov.il",
     "LastName": "רייטן מרום",
     "FactionName": "העבודה",
-    "FactionID": 1100
+    "FactionID": 1100,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1068/1_1068_3_17773.jpeg?v=20250828_30574",
+    "SiteId": 1068,
+    "PhotoStatus": "found"
   },
   "1057": {
     "Id": 1057,
@@ -605,7 +829,10 @@
     "Email": "ieichler@knesset.gov.il",
     "LastName": "אייכלר",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/754/1_754_3_1681.jpeg?v=20250828_30516",
+    "SiteId": 754,
+    "PhotoStatus": "found"
   },
   "23641": {
     "Id": 23641,
@@ -613,7 +840,10 @@
     "Email": "yakova@knesset.gov.il",
     "LastName": "אשר",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/861/1_861_3_2073.jpeg?v=20250828_36079",
+    "SiteId": 861,
+    "PhotoStatus": "found"
   },
   "526": {
     "Id": 526,
@@ -621,7 +851,10 @@
     "Email": "mgafni@knesset.gov.il",
     "LastName": "גפני",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/35/1_35_3_93.jpeg?v=20250828_12142",
+    "SiteId": 35,
+    "PhotoStatus": "found"
   },
   "23631": {
     "Id": 23631,
@@ -629,7 +862,10 @@
     "Email": "kelharrar@knesset.gov.il",
     "LastName": "אלהרר",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/860/1_860_3_2066.jpeg?v=20250828_13673",
+    "SiteId": 860,
+    "PhotoStatus": "found"
   },
   "30776": {
     "Id": 30776,
@@ -637,7 +873,10 @@
     "Email": "vbeliak@knesset.gov.il",
     "LastName": "בליאק",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1049/1_1049_3_16601.jpeg?v=20250828_13019",
+    "SiteId": 1049,
+    "PhotoStatus": "found"
   },
   "30691": {
     "Id": 30691,
@@ -645,7 +884,10 @@
     "Email": "rbenbarak@knesset.gov.il",
     "LastName": "בן ברק",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1022/1_1022_3_11242.jpeg?v=20250828_34377",
+    "SiteId": 1022,
+    "PhotoStatus": "found"
   },
   "30681": {
     "Id": 30681,
@@ -653,7 +895,10 @@
     "Email": null,
     "LastName": "ברביבאי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/980/1_980_3_11115.jpeg",
+    "SiteId": 980,
+    "PhotoStatus": "found"
   },
   "30820": {
     "Id": 30820,
@@ -661,7 +906,10 @@
     "Email": "hak_davidson@knesset.gov.il",
     "LastName": "דוידסון",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1085/1_1085_3_18028.jpeg?v=20250828_24802",
+    "SiteId": 1085,
+    "PhotoStatus": "found"
   },
   "23639": {
     "Id": 23639,
@@ -669,7 +917,10 @@
     "Email": "btoporovsky@knesset.gov.il",
     "LastName": "טופורובסקי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/872/1_872_3_2141.jpeg?v=20250828_24913",
+    "SiteId": 872,
+    "PhotoStatus": "found"
   },
   "30777": {
     "Id": 30777,
@@ -677,7 +928,10 @@
     "Email": "mturpaz@knesset.gov.il",
     "LastName": "טור פז",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1050/1_1050_3_16606.jpeg?v=20250828_30107",
+    "SiteId": 1050,
+    "PhotoStatus": "found"
   },
   "23597": {
     "Id": 23597,
@@ -685,7 +939,10 @@
     "Email": "cohenmeir@knesset.gov.il",
     "LastName": "כהן",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/874/1_874_3_2153.jpeg?v=20250828_85656",
+    "SiteId": 874,
+    "PhotoStatus": "found"
   },
   "30686": {
     "Id": 30686,
@@ -693,7 +950,10 @@
     "Email": "mecohen@knesset.gov.il",
     "LastName": "כהן",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1006/1_1006_3_11251.jpeg?v=20250828_16804",
+    "SiteId": 1006,
+    "PhotoStatus": "found"
   },
   "30780": {
     "Id": 30780,
@@ -701,7 +961,10 @@
     "Email": "rkatz@knesset.gov.il",
     "LastName": "כץ",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1061/1_1061_3_17813.jpeg?v=20250828_00031",
+    "SiteId": 1061,
+    "PhotoStatus": "found"
   },
   "30720": {
     "Id": 30720,
@@ -709,7 +972,10 @@
     "Email": "ylahav@knesset.gov.il",
     "LastName": "להב הרצנו",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/998/1_998_3_11225.jpeg?v=20250828_12557",
+    "SiteId": 998,
+    "PhotoStatus": "found"
   },
   "23632": {
     "Id": 23632,
@@ -717,7 +983,10 @@
     "Email": "mickeylevy@knesset.gov.il",
     "LastName": "לוי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/876/1_876_3_2167.jpeg?v=20250828_26972",
+    "SiteId": 876,
+    "PhotoStatus": "found"
   },
   "23594": {
     "Id": 23594,
@@ -725,7 +994,10 @@
     "Email": "ylapid@knesset.gov.il",
     "LastName": "לפיד",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/878/1_878_3_2178.jpeg?v=20250828_32948",
+    "SiteId": 878,
+    "PhotoStatus": "found"
   },
   "30782": {
     "Id": 30782,
@@ -733,7 +1005,10 @@
     "Email": "tmazarsky@knesset.gov.il",
     "LastName": "מזרסקי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1076/1_1076_3_17974.jpeg?v=20250828_69215",
+    "SiteId": 1076,
+    "PhotoStatus": "found"
   },
   "30695": {
     "Id": 30695,
@@ -741,7 +1016,10 @@
     "Email": "yoavse@knesset.gov.il",
     "LastName": "סגלוביץ'",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/995/1_995_3_11219.jpeg?v=20250828_67218",
+    "SiteId": 995,
+    "PhotoStatus": "found"
   },
   "30783": {
     "Id": 30783,
@@ -749,7 +1027,10 @@
     "Email": "yfridman@knesset.gov.il",
     "LastName": "פרידמן",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1079/1_1079_3_17943.jpeg?v=20250828_55246",
+    "SiteId": 1079,
+    "PhotoStatus": "found"
   },
   "23601": {
     "Id": 23601,
@@ -757,7 +1038,10 @@
     "Email": null,
     "LastName": "רזבוזוב",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/897/1_897_3_2278.jpeg",
+    "SiteId": 897,
+    "PhotoStatus": "found"
   },
   "23591": {
     "Id": 23591,
@@ -765,7 +1049,10 @@
     "Email": "sterne@knesset.gov.il",
     "LastName": "שטרן",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/899/1_899_3_2289.jpeg?v=20250828_97298",
+    "SiteId": 899,
+    "PhotoStatus": "found"
   },
   "30657": {
     "Id": 30657,
@@ -773,7 +1060,10 @@
     "Email": "bgantz@knesset.gov.il",
     "LastName": "גנץ",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/988/1_988_3_12347.jpeg?v=20250828_01998",
+    "SiteId": 988,
+    "PhotoStatus": "found"
   },
   "30836": {
     "Id": 30836,
@@ -781,7 +1071,10 @@
     "Email": null,
     "LastName": "איזנקוט",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1092/1_1092_3_19647.jpeg",
+    "SiteId": 1092,
+    "PhotoStatus": "found"
   },
   "30683": {
     "Id": 30683,
@@ -789,7 +1082,10 @@
     "Email": "ctropper@knesset.gov.il",
     "LastName": "טרופר",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1000/1_1000_3_11227.jpeg?v=20250828_10459",
+    "SiteId": 1000,
+    "PhotoStatus": "found"
   },
   "30682": {
     "Id": 30682,
@@ -797,7 +1093,10 @@
     "Email": "mbiton@knesset.gov.il",
     "LastName": "ביטון",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1003/1_1003_3_11237.jpeg?v=20250828_09208",
+    "SiteId": 1003,
+    "PhotoStatus": "found"
   },
   "30685": {
     "Id": 30685,
@@ -805,7 +1104,10 @@
     "Email": "ofarkash@knesset.gov.il",
     "LastName": "פרקש הכהן",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/978/1_978_3_11111.jpeg?v=20250828_80782",
+    "SiteId": 978,
+    "PhotoStatus": "found"
   },
   "30694": {
     "Id": 30694,
@@ -813,7 +1115,10 @@
     "Email": "aschuster@knesset.gov.il",
     "LastName": "שוסטר",
     "FactionName": "כחול לבן - המחנה הממלכתי",
-    "FactionID": 1098
+    "FactionID": 1098,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/982/1_982_3_11099.jpeg?v=20250828_72425",
+    "SiteId": 982,
+    "PhotoStatus": "found"
   },
   "30708": {
     "Id": 30708,
@@ -821,7 +1126,10 @@
     "Email": "mgolan@knesset.gov.il",
     "LastName": "גולן",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1002/1_1002_3_12304.jpeg?v=20250828_50543",
+    "SiteId": 1002,
+    "PhotoStatus": "found"
   },
   "30835": {
     "Id": 30835,
@@ -829,7 +1137,10 @@
     "Email": "bbismut@knesset.gov.il",
     "LastName": "ביסמוט",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1095/1_1095_3_19662.jpeg?v=20250828_15091",
+    "SiteId": 1095,
+    "PhotoStatus": "found"
   },
   "30860": {
     "Id": 30860,
@@ -837,7 +1148,10 @@
     "Email": "tgotlib@knesset.gov.il",
     "LastName": "גוטליב",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1098/1_1098_3_19677.jpeg?v=20250828_00239",
+    "SiteId": 1098,
+    "PhotoStatus": "found"
   },
   "30831": {
     "Id": 30831,
@@ -845,7 +1159,10 @@
     "Email": "edalal@knesset.gov.il",
     "LastName": "דלל",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1100/1_1100_3_19682.jpeg?v=20250828_93598",
+    "SiteId": 1100,
+    "PhotoStatus": "found"
   },
   "12944": {
     "Id": 12944,
@@ -853,7 +1170,10 @@
     "Email": null,
     "LastName": "דנון",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/828/1_828_3_1930.jpeg",
+    "SiteId": 828,
+    "PhotoStatus": "found"
   },
   "30861": {
     "Id": 30861,
@@ -861,7 +1181,10 @@
     "Email": "shdanino@knesset.gov.il",
     "LastName": "דנינו",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1101/1_1101_3_19687.jpeg?v=20250828_59061",
+    "SiteId": 1101,
+    "PhotoStatus": "found"
   },
   "30772": {
     "Id": 30772,
@@ -869,7 +1192,10 @@
     "Email": "nvaturi@knesset.gov.il",
     "LastName": "ואטורי",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1045/1_1045_3_16502.jpeg?v=20250828_88687",
+    "SiteId": 1045,
+    "PhotoStatus": "found"
   },
   "30842": {
     "Id": 30842,
@@ -877,7 +1203,10 @@
     "Email": "chmelavitzky@knesset.gov.il",
     "LastName": "מלביצקי",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1105/1_1105_3_19712.jpeg?v=20250828_75183",
+    "SiteId": 1105,
+    "PhotoStatus": "found"
   },
   "30718": {
     "Id": 30718,
@@ -885,7 +1214,10 @@
     "Email": "isilman@knesset.gov.il",
     "LastName": "סילמן",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1014/1_1014_3_12318.jpeg",
+    "SiteId": 1014,
+    "PhotoStatus": "found"
   },
   "30853": {
     "Id": 30853,
@@ -893,7 +1225,10 @@
     "Email": "mosaada@knesset.gov.il",
     "LastName": "סעדה",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1109/1_1109_3_19733.jpeg?v=20250828_29031",
+    "SiteId": 1109,
+    "PhotoStatus": "found"
   },
   "30832": {
     "Id": 30832,
@@ -901,7 +1236,10 @@
     "Email": "erevivo@knesset.gov.il",
     "LastName": "רביבו",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1111/1_1111_3_19753.jpeg?v=20250828_16741",
+    "SiteId": 1111,
+    "PhotoStatus": "found"
   },
   "30786": {
     "Id": 30786,
@@ -909,7 +1247,10 @@
     "Email": "ashikly@knesset.gov.il",
     "LastName": "שיקלי",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1070/1_1070_3_17798.jpeg",
+    "SiteId": 1070,
+    "PhotoStatus": "found"
   },
   "30847": {
     "Id": 30847,
@@ -917,7 +1258,10 @@
     "Email": "yvaserlof@knesset.gov.il",
     "LastName": "וסרלאוף",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1102/1_1102_3_19692.jpeg?v=20250828_72954",
+    "SiteId": 1102,
+    "PhotoStatus": "found"
   },
   "30833": {
     "Id": 30833,
@@ -925,7 +1269,10 @@
     "Email": "almcohen@knesset.gov.il",
     "LastName": "כהן",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1104/1_1104_3_19707.jpeg",
+    "SiteId": 1104,
+    "PhotoStatus": "found"
   },
   "30852": {
     "Id": 30852,
@@ -933,7 +1280,10 @@
     "Email": "mosolomon@knesset.gov.il",
     "LastName": "סולומון",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1107/1_1107_3_19723.jpeg?v=20250828_64316",
+    "SiteId": 1107,
+    "PhotoStatus": "found"
   },
   "30849": {
     "Id": 30849,
@@ -941,7 +1291,10 @@
     "Email": "lsun.har@knesset.gov.il",
     "LastName": "סון הר מלך",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1108/1_1108_3_19728.jpeg?v=20250828_13084",
+    "SiteId": 1108,
+    "PhotoStatus": "found"
   },
   "30717": {
     "Id": 30717,
@@ -949,7 +1302,10 @@
     "Email": "osofer@knesset.gov.il",
     "LastName": "סופר",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
-    "FactionID": 1105
+    "FactionID": 1105,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/977/1_977_3_11108.jpeg?v=20250828_90745",
+    "SiteId": 977,
+    "PhotoStatus": "found"
   },
   "30840": {
     "Id": 30840,
@@ -957,7 +1313,10 @@
     "Email": "waleed.alh@knesset.gov.il",
     "LastName": "אלהואשלה",
     "FactionName": "רע\"ם",
-    "FactionID": 1099
+    "FactionID": 1099,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1093/1_1093_3_19652.jpeg?v=20250828_77891",
+    "SiteId": 1093,
+    "PhotoStatus": "found"
   },
   "30843": {
     "Id": 30843,
@@ -965,7 +1324,10 @@
     "Email": "yschogarat@knesset.gov.il",
     "LastName": "חוג'יראת",
     "FactionName": "רע\"ם",
-    "FactionID": 1099
+    "FactionID": 1099,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1103/1_1103_3_19697.jpeg?v=20250828_82028",
+    "SiteId": 1103,
+    "PhotoStatus": "found"
   },
   "30066": {
     "Id": 30066,
@@ -973,7 +1335,10 @@
     "Email": "aymanod@knesset.gov.il",
     "LastName": "עודה",
     "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
+    "FactionID": 1103,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/938/1_938_3_2537.jpeg?v=20250828_29123",
+    "SiteId": 938,
+    "PhotoStatus": "found"
   },
   "560": {
     "Id": 560,
@@ -981,7 +1346,10 @@
     "Email": "atibi@knesset.gov.il",
     "LastName": "טיבי",
     "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
+    "FactionID": 1103,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/208/1_208_3_520.jpeg?v=20250828_87323",
+    "SiteId": 208,
+    "PhotoStatus": "found"
   },
   "30067": {
     "Id": 30067,
@@ -989,7 +1357,10 @@
     "Email": "aidat@knesset.gov.il",
     "LastName": "תומא סלימאן",
     "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
+    "FactionID": 1103,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/948/1_948_3_2597.jpeg?v=20250828_98182",
+    "SiteId": 948,
+    "PhotoStatus": "found"
   },
   "30719": {
     "Id": 30719,
@@ -997,7 +1368,10 @@
     "Email": "ocassif@knesset.gov.il",
     "LastName": "כסיף",
     "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
+    "FactionID": 1103,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1013/1_1013_3_12312.jpeg?v=20250828_54921",
+    "SiteId": 1013,
+    "PhotoStatus": "found"
   },
   "30558": {
     "Id": 30558,
@@ -1005,7 +1379,10 @@
     "Email": null,
     "LastName": "עטאונה",
     "FactionName": "חד\"ש-תע\"ל",
-    "FactionID": 1103
+    "FactionID": 1103,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/964/1_964_3_2697.jpeg",
+    "SiteId": 964,
+    "PhotoStatus": "found"
   },
   "30837": {
     "Id": 30837,
@@ -1013,7 +1390,10 @@
     "Email": "dvbiton@knesset.gov.il",
     "LastName": "ביטון",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1094/1_1094_3_19657.jpeg?v=20250828_68539",
+    "SiteId": 1094,
+    "PhotoStatus": "found"
   },
   "30851": {
     "Id": 30851,
@@ -1021,7 +1401,10 @@
     "Email": "mattisarfatti@knesset.gov.il",
     "LastName": "צרפתי הרכבי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1091/1_1091_3_19743.jpeg?v=20250828_78434",
+    "SiteId": 1091,
+    "PhotoStatus": "found"
   },
   "30705": {
     "Id": 30705,
@@ -1029,7 +1412,10 @@
     "Email": "mshir@knesset.gov.il",
     "LastName": "שיר סגמן",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1004/1_1004_3_12334.jpeg?v=20250828_30092",
+    "SiteId": 1004,
+    "PhotoStatus": "found"
   },
   "30854": {
     "Id": 30854,
@@ -1037,7 +1423,10 @@
     "Email": "nshiri@knesset.gov.il",
     "LastName": "שירי",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1112/1_1112_3_19758.jpeg?v=20250828_76976",
+    "SiteId": 1112,
+    "PhotoStatus": "found"
   },
   "30480": {
     "Id": 30480,
@@ -1045,7 +1434,10 @@
     "Email": null,
     "LastName": "בצלאל",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1097/1_1097_3_19672.jpeg",
+    "SiteId": 1097,
+    "PhotoStatus": "found"
   },
   "427": {
     "Id": 427,
@@ -1053,7 +1445,10 @@
     "Email": "aliberman@knesset.gov.il",
     "LastName": "ליברמן",
     "FactionName": "ישראל ביתנו",
-    "FactionID": 1104
+    "FactionID": 1104,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/214/1_214_3_548.jpeg?v=20250828_34281",
+    "SiteId": 214,
+    "PhotoStatus": "found"
   },
   "23560": {
     "Id": 23560,
@@ -1061,7 +1456,10 @@
     "Email": "ymalinovsky@knesset.gov.il",
     "LastName": "מלינובסקי",
     "FactionName": "ישראל ביתנו",
-    "FactionID": 1104
+    "FactionID": 1104,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/956/1_956_3_2649.jpeg?v=20250828_69434",
+    "SiteId": 956,
+    "PhotoStatus": "found"
   },
   "30722": {
     "Id": 30722,
@@ -1069,7 +1467,10 @@
     "Email": "esova@knesset.gov.il",
     "LastName": "סובה",
     "FactionName": "ישראל ביתנו",
-    "FactionID": 1104
+    "FactionID": 1104,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/994/1_994_3_11217.jpeg?v=20250828_48986",
+    "SiteId": 994,
+    "PhotoStatus": "found"
   },
   "12938": {
     "Id": 12938,
@@ -1077,7 +1478,10 @@
     "Email": "amarh@knesset.gov.il",
     "LastName": "עמאר",
     "FactionName": "ישראל ביתנו",
-    "FactionID": 1104
+    "FactionID": 1104,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/837/1_837_3_1973.jpeg?v=20250828_74456",
+    "SiteId": 837,
+    "PhotoStatus": "found"
   },
   "30121": {
     "Id": 30121,
@@ -1085,7 +1489,10 @@
     "Email": "odedfo@knesset.gov.il",
     "LastName": "פורר",
     "FactionName": "ישראל ביתנו",
-    "FactionID": 1104
+    "FactionID": 1104,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/951/1_951_3_2614.jpeg?v=20250828_97544",
+    "SiteId": 951,
+    "PhotoStatus": "found"
   },
   "30863": {
     "Id": 30863,
@@ -1093,7 +1500,10 @@
     "Email": "shnir@knesset.gov.il",
     "LastName": "ניר",
     "FactionName": "ישראל ביתנו",
-    "FactionID": 1104
+    "FactionID": 1104,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1106/1_1106_3_19718.jpeg?v=20250828_19786",
+    "SiteId": 1106,
+    "PhotoStatus": "found"
   },
   "30867": {
     "Id": 30867,
@@ -1101,7 +1511,10 @@
     "Email": "ykroyer@knesset.gov.ik",
     "LastName": "קרויזר",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
-    "FactionID": 1106
+    "FactionID": 1106,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1114/1_1114_3_19866.jpeg?v=20250828_79196",
+    "SiteId": 1114,
+    "PhotoStatus": "found"
   },
   "30868": {
     "Id": 30868,
@@ -1109,7 +1522,10 @@
     "Email": "hak_jmishraki@knesset.gov.il",
     "LastName": "מישרקי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1115/1_1115_3_19849.jpeg?v=20250828_30744",
+    "SiteId": 1115,
+    "PhotoStatus": "found"
   },
   "30672": {
     "Id": 30672,
@@ -1117,7 +1533,10 @@
     "Email": null,
     "LastName": "פינדרוס",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1001/1_1001_3_11229.jpeg",
+    "SiteId": 1001,
+    "PhotoStatus": "found"
   },
   "30839": {
     "Id": 30839,
@@ -1125,7 +1544,10 @@
     "Email": "hak_diluz@knesset.gov.il",
     "LastName": "אילוז",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1116/1_1116_3_19861.jpeg?v=20250828_10369",
+    "SiteId": 1116,
+    "PhotoStatus": "found"
   },
   "30710": {
     "Id": 30710,
@@ -1133,7 +1555,10 @@
     "Email": "kallner@knesset.gov.il",
     "LastName": "קלנר",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/987/1_987_3_11129.jpeg?v=20250828_89668",
+    "SiteId": 987,
+    "PhotoStatus": "found"
   },
   "30702": {
     "Id": 30702,
@@ -1141,7 +1566,10 @@
     "Email": "hatia@knesset.gov.il",
     "LastName": "עטייה",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/992/1_992_3_11212.jpeg?v=20250828_93871",
+    "SiteId": 992,
+    "PhotoStatus": "found"
   },
   "30711": {
     "Id": 30711,
@@ -1149,7 +1577,10 @@
     "Email": "ahalevi@knesset.gov.il",
     "LastName": "הלוי",
     "FactionName": "הליכוד ",
-    "FactionID": 1096
+    "FactionID": 1096,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1044/1_1044_3_16220.jpeg?v=20250828_30013",
+    "SiteId": 1044,
+    "PhotoStatus": "found"
   },
   "30870": {
     "Id": 30870,
@@ -1157,7 +1588,10 @@
     "Email": null,
     "LastName": "רוט",
     "FactionName": "יהדות התורה",
-    "FactionID": 1101
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1117/1_1117_3_19896.jpeg",
+    "SiteId": 1117,
+    "PhotoStatus": "found"
   },
   "30871": {
     "Id": 30871,
@@ -1165,7 +1599,10 @@
     "Email": "hak_shellym@knesset.gov.il",
     "LastName": "מירון",
     "FactionName": "יש עתיד",
-    "FactionID": 1102
+    "FactionID": 1102,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1118/1_1118_3_19926.jpeg?v=20250828_63167",
+    "SiteId": 1118,
+    "PhotoStatus": "found"
   },
   "30872": {
     "Id": 30872,
@@ -1173,6 +1610,9 @@
     "Email": null,
     "LastName": "מושיאשוילי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
-    "FactionID": 1095
+    "FactionID": 1095,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
+    "SiteId": 1120,
+    "PhotoStatus": "found"
   }
 }

@@ -37,7 +37,7 @@ When reviewing utterances labeled as "negative" by TextBlob, I noticed they ofte
 This limitation might be mitigated by aggregating a large number of utterances per MK, under the assumption that an inflammatory MK will exhibit such tone consistently across a wide range of topics.
 
 **Quility Of Life**
-threads for more things and "force_reload" mechanism for whole pipeline to not start from scratch everytime unless required to 
+threads for more things and "force_refresh" mechanism for whole pipeline to not start from scratch everytime unless required to 
 
 **critical findings**
 Some utterances are not saved as the metadata shows as <<יור>> or <<שר החינוך>> which is critical

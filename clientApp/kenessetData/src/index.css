@@ -15,6 +15,8 @@
 
 * {
   box-sizing: border-box;
+  /*force default colors to prevent weird browser "dark mode"s */
+  color-scheme:none;
 }
 
 body {

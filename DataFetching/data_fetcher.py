@@ -8,7 +8,7 @@ from subprocess import run
 from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
-from DataFetching.PartitionHandler import PartitionHandler
+from DataFetching.partition_handler import PartitionHandler
 from utils.logger_config import get_logger
 
 
