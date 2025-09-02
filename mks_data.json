@@ -1,4 +1,15 @@
-{
+{ 
+   "-1": {
+    "Id": -1,
+    "FirstName": "חבר ",
+    "Email": "",
+    "LastName": "כנסת",
+    "FactionName": "אין",
+    "FactionID":1105,
+    "PhotoURL":null,
+    "SiteId": -1
+    
+  },
   "30874": {
     "Id": 30874,
     "FirstName": "צבי ידידיה",

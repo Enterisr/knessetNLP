@@ -3,7 +3,7 @@ import type { MKUtterances } from '../../types'
 
 interface MKListProps {
   mks: MKUtterances
-  onMKSelect: (mk:MKUtterances) => void
+  onMKSelect: (mkName: string) => void
   loading: boolean
 }
 
@@ -19,7 +19,9 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
     )
   }
 
-  if (!mks.length) {
+  const mkNames = Object.keys(mks)
+
+  if (mkNames.length === 0) {
     return (
       <div className="mk-list-empty">
         <p>No results found</p>
@@ -29,12 +31,33 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
 
   return (
     <ul className="mk-list">
-      {mks.map((mk:MKUtterances,idx:number) => (
-        <li key={idx} className="mk-list-item" onClick={() => onMKSelect(mk)}>
-          <h3 className="mk-list-item-title">{mk.title}</h3>
-          <p className="mk-list-item-description">{mk.description}</p>
-        </li>
-      ))}
+      {mkNames.map((mkName) => {
+        const mkData = mks[mkName];
+        const photoUrl = mkData.metadata?.PhotoURL || '/public/images/mks/default-mk.svg';
+        const party = mkData.metadata?.FactionName || '';
+        
+        return (
+          <li key={mkName} className="mk-list-item" onClick={() => onMKSelect(mkName)}>
+            <div className="mk-list-item-content">
+              <div className="mk-photo-container">
+                <img 
+                  src={photoUrl} 
+                  alt={`${mkName}`} 
+                  className="mk-photo" 
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).src = '/public/images/mks/default-mk.svg';
+                  }}
+                />
+              </div>
+              <div className="mk-details">
+                <h3 className="mk-list-item-title">{mkName}</h3>
+                {party && <p className="mk-list-item-party">{party}</p>}
+                <p className="mk-list-item-description">{mkData.utterances.length} utterances</p>
+              </div>
+            </div>
+          </li>
+        );
+      })}
     </ul>
   )
 }

@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom'
 import SearchBar from '../../components/SearchBar/SearchBar'
 import MKList from '../../components/MKList/MKList'
 import { resolveServerURI } from '../../utils'
-import type {  MKUtterances } from '../../types'
+import type { MKUtterances } from '../../types'
 import "./Home.css"
 
 const Home = () => {
@@ -12,12 +12,6 @@ const Home = () => {
   const [mks, setMks] = useState<MKUtterances>({})
   const [loading, setLoading] = useState(false)
   const [currentQuery, setCurrentQuery] = useState(query || '')
-
-  useEffect(() => {
-    if (query) {
-      handleSearch(query)
-    }
-  }, [query])
 
   const handleSearch = useCallback(async (searchQuery: string) => {
     setLoading(true)
@@ -32,25 +26,49 @@ const Home = () => {
       const response = await fetch(resolveServerURI(`/api/query?query=${encodeURIComponent(searchQuery)}`))
       const data = await response.json()
       
-      // TODO: Process the actual response from your backend
-      console.log('API Response:', data)
-     
+      // Transform the response into the format expected by the MKList component
+      const transformedData: MKUtterances = {}
       
-      setMks(data)
+      if (data.response) {
+        // Process each MK entry in the response
+        Object.entries(data.response).forEach(([, mkData]) => {
+          if (mkData && typeof mkData === 'object' && 'name' in mkData && 'utterances' in mkData) {
+            const mkName = mkData.name as string
+            // Use the MK name as the key and store their utterances and metadata
+            transformedData[mkName] = {
+              utterances: Array.isArray(mkData.utterances) ? mkData.utterances : [],
+              metadata: 'metadata' in mkData ? mkData.metadata as Record<string, unknown> : {}
+            }
+          }
+        })
+        
+        console.log('Processed data:', transformedData)
+        setMks(transformedData)
+      } else {
+        console.error('Invalid response format:', data)
+        setMks({})
+      }
     } catch (error) {
       console.error('Error searching:', error)
+      setMks({})
     } finally {
       setLoading(false)
     }
   }, [navigate, query])
 
-  const handleMKSelect = (mk: MKUtterances) => {
-    navigate(`/mk/${mk.id}/${encodeURIComponent(currentQuery)}`)
+  useEffect(() => {
+    if (query) {
+      handleSearch(query)
+    }
+  }, [query, handleSearch])
+
+  const handleMKSelect = (mkName: string) => {
+    // Navigate to the MK page with the selected MK name and current query
+    navigate(`/mk/${encodeURIComponent(mkName)}/${encodeURIComponent(currentQuery)}`)
   }
 
   return (
     <main className="app-main">
-      
       <SearchBar onSearch={handleSearch} initialValue={currentQuery} />
       <MKList 
         mks={mks} 

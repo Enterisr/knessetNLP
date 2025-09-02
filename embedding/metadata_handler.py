@@ -2,8 +2,8 @@ from typing import Iterable, Iterator
 
 
 # be careful not to make the context more important than the text
-MAX_SUBJECT_LEN = 20
-MAX_COMMITIEE_LEN = 20
+MAX_SUBJECT_LEN = 100
+MAX_COMMITIEE_LEN = 100
 METADATA_FORMAT = "[sub:{subject} comm:{comm}]{text}"
 
 

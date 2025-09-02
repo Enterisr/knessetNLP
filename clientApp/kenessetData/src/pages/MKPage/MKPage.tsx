@@ -1,46 +1,69 @@
 import { useState, useEffect } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
-import type {  Utterance } from '../../types'
+import { useParams, Link } from 'react-router-dom'
+import { resolveServerURI } from '../../utils'
+import type { Utterance, MKMetadata } from '../../types'
 import './MKPage.css'
 
 const MKPage = () => {
-  const { mkId, query } = useParams<{ mkId: string; query: string }>()
-  const navigate = useNavigate()
-  const [mk, setMk] = useState(null)
+  const { mkName, query } = useParams<{ mkName: string; query: string }>()
   const [utterances, setUtterances] = useState<Utterance[]>([])
+  const [metadata, setMetadata] = useState<MKMetadata | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    if (mkId && query) {
-      fetchMKAndUtterances(mkId, query)
+    if (mkName && query) {
+      fetchMKUtterances(mkName, query)
     }
-  }, [mkId, query])
+  }, [mkName, query])
 
-  const getSentimentColor = (polarity: number): string => {
-    if (polarity > 0.1) return '#28a745' // Green for positive
-    if (polarity < -0.1) return '#dc3545' // Red for negative
-    return '#6c757d' // Gray for neutral
-  }
-
-  const getSentimentLabel = (polarity: number): string => {
-    if (polarity > 0.1) return 'חיובי'
-    if (polarity < -0.1) return 'שלילי'
-    return 'נייטרלי'
-  }
-
-  const getSubjectivityLabel = (subjectivity: number): string => {
-    if (subjectivity > 0.6) return 'סובייקטיבי'
-    if (subjectivity < 0.3) return 'אובייקטיבי'
-    return 'מעורב'
-  }
-
-  const fetchMKAndUtterances = async (mkId: string, query: string) => {
+  const fetchMKUtterances = async (mkName: string, query: string) => {
     setLoading(true)
     try {
-     
-      console.log(`Fetched data for MK ${mkId} with query "${query}"`)
+      const response = await fetch(resolveServerURI(`/api/query?query=${encodeURIComponent(query)}`))
+      const data = await response.json()
+      
+      if (data.response) {
+        const decodedMkName = decodeURIComponent(mkName)
+        
+        // Search through the response to find the MK by name
+        let found = false
+        Object.entries(data.response).forEach(([, mkData]) => {
+          if (mkData && typeof mkData === 'object' && 'name' in mkData && mkData.name === decodedMkName) {
+            // We found the MK
+            found = true
+            
+            // Get the utterances and metadata
+            if ('utterances' in mkData && Array.isArray(mkData.utterances)) {
+              setUtterances(mkData.utterances)
+            } else {
+              setUtterances([])
+            }
+            
+            // Set metadata if available
+            if ('metadata' in mkData && typeof mkData.metadata === 'object') {
+              setMetadata(mkData.metadata as MKMetadata)
+            } else {
+              setMetadata(null)
+            }
+          }
+        })
+        
+        if (!found) {
+          console.error('MK not found in response')
+          setUtterances([])
+          setMetadata(null)
+        }
+      } else {
+        console.error('Invalid response format:', data)
+        setUtterances([])
+        setMetadata(null)
+      }
+      
+      console.log(`Fetched data for MK ${mkName} with query "${query}"`)
     } catch (error) {
       console.error('Error fetching MK data:', error)
+      setUtterances([])
+      setMetadata(null)
     } finally {
       setLoading(false)
     }
@@ -53,139 +76,93 @@ const MKPage = () => {
     return text.replace(regex, '<mark>$1</mark>')
   }
 
-  const handleUtteranceClick = (utteranceId: string) => {
-    navigate(`/mk/${mkId}/${encodeURIComponent(query!)}/utterance/${utteranceId}`)
-  }
-
   if (loading) {
     return (
       <main className="app-main">
         <div className="mk-page-loading">
           <div className="spinner"></div>
-          <p>טוען נתונים...</p>
+          <p>Loading data...</p>
         </div>
       </main>
     )
   }
 
-  if (!mk) {
+  if (!mkName || utterances.length === 0) {
     return (
       <main className="app-main">
         <div className="mk-page-error">
-          <p>לא נמצא חבר כנסת</p>
+          <p>No member of Knesset or utterances found</p>
           <Link to={`/search/${encodeURIComponent(query!)}`} className="back-link">
-            חזור לחיפוש
+            Back to search
           </Link>
         </div>
       </main>
     )
   }
+
+  const decodedMkName = decodeURIComponent(mkName!)
+  const photoUrl = metadata?.PhotoURL || '/public/images/mks/default-mk.svg'
+  const factionName = metadata?.FactionName || ''
 
   return (
     <main className="app-main">
       <div className="mk-page">
         <div className="mk-page-header">
           <Link to={`/search/${encodeURIComponent(query!)}`} className="back-button">
-            ← חזור לרשימת חברי הכנסת
+            ← Back to MK list
           </Link>
           <div className="mk-profile">
             <div className="mk-photo-container">
               <img 
-                src={mk.photoUrl} 
-                alt={mk.name}
+                src={photoUrl} 
+                alt={decodedMkName}
                 className="mk-photo"
                 onError={(e) => {
-                  e.currentTarget.src = '/images/mks/default-mk.svg'
+                  (e.target as HTMLImageElement).src = '/public/images/mks/default-mk.svg'
                 }}
               />
             </div>
-            <div className="mk-info">
-              <h2>{mk.name}</h2>
-              <p className="mk-faction">{mk.factionName}</p>
-              <p className="search-context">אמירות על "{decodeURIComponent(query!)}"</p>
-            </div>
-          </div>
-          
-          {mk.sentiment && (
-            <div className="sentiment-section">
-              <h3>ניתוח רגש</h3>
-              <div className="sentiment-metrics">
-                <div className="sentiment-metric">
-                  <span className="metric-label">רגש כללי:</span>
-                  <span 
-                    className="metric-value"
-                    style={{ color: getSentimentColor(mk.sentiment.polarity) }}
-                  >
-                    {getSentimentLabel(mk.sentiment.polarity)} ({(mk.sentiment.polarity * 100).toFixed(1)}%)
-                  </span>
-                  <div className="sentiment-bar">
-                    <div 
-                      className="sentiment-fill"
-                      style={{ 
-                        width: `${Math.abs(mk.sentiment.polarity) * 100}%`,
-                        backgroundColor: getSentimentColor(mk.sentiment.polarity)
-                      }}
-                    ></div>
-                  </div>
-                </div>
-                <div className="sentiment-metric">
-                  <span className="metric-label">סובייקטיביות:</span>
-                  <span className="metric-value">
-                    {getSubjectivityLabel(mk.sentiment.subjectivity)} ({(mk.sentiment.subjectivity * 100).toFixed(1)}%)
-                  </span>
-                  <div className="sentiment-bar">
-                    <div 
-                      className="sentiment-fill subjectivity"
-                      style={{ 
-                        width: `${mk.sentiment.subjectivity * 100}%`,
-                        backgroundColor: '#6c757d'
-                      }}
-                    ></div>
-                  </div>
+            <div className="mk-details">
+              <h1 className="mk-name">{decodedMkName}</h1>
+              {factionName && <p className="mk-faction">{factionName}</p>}
+              <div className="mk-stats">
+                <div className="mk-stat">
+                  <span className="mk-stat-label">Utterances:</span>
+                  <span className="mk-stat-value">{utterances.length}</span>
                 </div>
               </div>
             </div>
-          )}
+          </div>
         </div>
 
-        <div className="utterances-section">
-          {utterances.length === 0 ? (
-            <div className="no-utterances">
-              <p>לא נמצאו אמירות עבור {mk.name} בנושא "{decodeURIComponent(query!)}"</p>
-            </div>
-          ) : (
-            <div className="utterances-grid">
-              {utterances.map((utterance) => (
-                <div 
-                  key={utterance.id} 
-                  className="utterance-card"
-                  onClick={() => handleUtteranceClick(utterance.id)}
-                >
+        <div className="mk-utterances">
+          <h2>Utterances about "{decodeURIComponent(query!)}"</h2>
+          <ul className="utterances-list">
+            {utterances.map((utterance, index) => (
+              <li key={index} className="utterance-item">
+                <div className="utterance-content">
+                  <p 
+                    className="utterance-text" 
+                    dangerouslySetInnerHTML={{ 
+                      __html: highlightQuery(utterance.text, decodeURIComponent(query!)) 
+                    }} 
+                  />
                   <div className="utterance-metadata">
-                    <span className="utterance-date">{utterance.date}</span>
-                    <span className="utterance-committee">{utterance.committee}</span>
-                    {utterance.sentiment && (
-                      <span 
-                        className="utterance-sentiment"
-                        style={{ color: getSentimentColor(utterance.sentiment.polarity) }}
+                    {utterance.src && (
+                      <a 
+                        href={utterance.src} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        className="utterance-source"
                       >
-                        {getSentimentLabel(utterance.sentiment.polarity)}
-                      </span>
+                        Source document
+                      </a>
                     )}
                   </div>
-                  <div 
-                    className="utterance-text"
-                    dangerouslySetInnerHTML={{
-                      __html: highlightQuery(utterance.text, decodeURIComponent(query!))
-                    }}
-                  />
-                  <div className="utterance-action">
-                    <span className="view-full">לחץ לצפייה מלאה →</span>
-                  </div>
                 </div>
-              ))}
-            </div>
-          )}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </main>

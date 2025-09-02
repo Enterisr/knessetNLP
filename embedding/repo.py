@@ -1,4 +1,4 @@
-
+import json
 import faiss
 from faiss import IndexFlatIP
 from sentence_transformers import SentenceTransformer
@@ -13,6 +13,29 @@ logger = get_logger(__name__)
 model = SentenceTransformer(
     'sentence-transformers/paraphrase-multilingual-mpnet-base-v2',
 )
+
+PROJECT_ROOT = Path(__file__).parent.parent
+
+
+def load_mks():
+    """Load Member of Knesset data from JSON file"""
+
+    mks_path = PROJECT_ROOT / "mks_data.json"
+
+    try:
+        with open(mks_path, 'r', encoding='utf-8') as f:
+            mks_data = json.load(f)
+        logger.info(f"Successfully loaded {len(mks_data)} MKs from {mks_path}")
+        return mks_data
+    except FileNotFoundError:
+        logger.error(f"MKs data file not found at {mks_path}")
+        return {}
+    except json.JSONDecodeError:
+        logger.error(f"Error parsing MKs JSON data at {mks_path}")
+        return {}
+
+
+MKS = load_mks()
 
 PROJECT_ROOT = Path(__file__).parent.parent
 
@@ -43,7 +66,7 @@ def search(repo_data: RepoData, query: str) -> dict[str, list]:
     query_embedding = model.encode(
         [query], normalize_embeddings=True).astype(np.float32)
 
-    k = 100  # Number of nearest neighbors to retrieve
+    k = 400  # Number of nearest neighbors to retrieve
     # search method only takes query vectors and k as parameters, it returns distances and indices
     distances, indices = repo_data.database.search(query_embedding, k)
     utters_by_mk = {}
@@ -53,11 +76,13 @@ def search(repo_data: RepoData, query: str) -> dict[str, list]:
         embedding_registry = repo_data.df.iloc[utternace_idx]
         print(
             f"Match {i+1}: Index {utternace_idx}, Utterance: {embedding_registry.text[::-1]}")
-        if utters_by_mk.get(embedding_registry["mk"]) is None:
-            utters_by_mk[embedding_registry["mk"]] = []
+        mk_id = str(int(embedding_registry["mk_id"]))
+        if utters_by_mk.get(mk_id) is None:
+            utters_by_mk[mk_id] = {"utterances": [
+            ], "name": embedding_registry["mk"], "metadata": MKS[mk_id]}
 
-        utters_by_mk[embedding_registry["mk"]].append(
-            {"text": embedding_registry["text"], "mk": embedding_registry["mk"], "src": embedding_registry["src"]})
+        utters_by_mk[mk_id]["utterances"].append(
+            {"text": embedding_registry["text"], "src": embedding_registry["src"]})
     return utters_by_mk
 
 

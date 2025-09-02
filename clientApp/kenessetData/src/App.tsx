@@ -20,7 +20,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/search/:query" element={<Home />} />
-        <Route path="/mk/:mkId/:query" element={<MKPage />} />
+        <Route path="/mk/:mkName/:query" element={<MKPage />} />
       </Routes>
     </div>
   )

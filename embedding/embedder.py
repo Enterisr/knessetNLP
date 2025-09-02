@@ -40,8 +40,9 @@ def _process_utterance_file(file_name: str, filepath: str, mk_utternces: dict, u
 
             committee_prefixed_utterances = embed_metadata_in_utterance(
                 values["utterances"], file_data)
-
-            utterances += list(committee_prefixed_utterances)
+            committee_prefixed_utterances_lst = list(
+                committee_prefixed_utterances)
+            utterances += committee_prefixed_utterances_lst
 
             if values.get("sentiment") is not None:
                 for prop_key, prop_val in values["sentiment"].items():
@@ -50,9 +51,18 @@ def _process_utterance_file(file_name: str, filepath: str, mk_utternces: dict, u
 
                     mk_utternces[speaker_key]["sentiment"][prop_key] += prop_val
 
-            for i, u in enumerate(values["utterances"]):
+            for i, u in enumerate(committee_prefixed_utterances_lst):
                 mk_for_df.append(
-                    {'text': u, "mk": speaker_key, "src": file_name, "utter_id": f"{file_name}_{speaker_key}_{i}"})
+                    {'text': u, "mk": speaker_key, "mk_id": resolve_mk_metadata(values["metadata"]), "src": file_data["source_file"], "utter_id": f"{file_name}_{speaker_key}_{i}"})
+
+# TODO:  this is shit lol
+
+
+def resolve_mk_metadata(metadata):
+    try:
+        return metadata.get("Id")
+    except (AttributeError, TypeError):
+        return -1
 
 
 def _load_utternaces_from_files(directory: str):
@@ -123,7 +133,7 @@ def load_embeddings(directory: str, force_refresh=False, batch_size=1000):
     if force_refresh:
         df, utternaces = _load_utternaces_from_files(directory)
         embeddings = _embed_in_vector_space(utternaces, batch_size)
-        return df, utternaces, embeddings
+        return df,  embeddings
 
     try:
         embeddings = np.load(PROJECT_ROOT / "utterance_embeddings.npy")
