@@ -7,6 +7,7 @@ from utils.logger_config import get_logger
 from pathlib import Path
 from processing.embedder import embed
 from processing.repo_data import RepoData
+from processing.mk_database import get_mks
 
 logger = get_logger(__name__)
 
@@ -14,27 +15,6 @@ model = SentenceTransformer(
     'imvladikon/sentence-transformers-alephbert',
 )
 PROJECT_ROOT = Path(__file__).parent.parent
-
-
-def load_mks():
-    """Load Member of Knesset data from JSON file"""
-
-    mks_path = PROJECT_ROOT / "mks_data.json"
-
-    try:
-        with open(mks_path, 'r', encoding='utf-8') as f:
-            mks_data = json.load(f)
-        logger.info(f"Successfully loaded {len(mks_data)} MKs from {mks_path}")
-        return mks_data
-    except FileNotFoundError:
-        logger.error(f"MKs data file not found at {mks_path}")
-        return {}
-    except json.JSONDecodeError:
-        logger.error(f"Error parsing MKs JSON data at {mks_path}")
-        return {}
-
-
-MKS = load_mks()
 
 
 def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> IndexFlatIP:
@@ -60,7 +40,7 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> 
     return index
 
 
-def search(repo_data: RepoData, query: str) -> dict[str, list]:
+def search(repo_data: RepoData, query: str) -> dict[str, dict]:
 
     query_embedding = model.encode(
         [query], normalize_embeddings=True, convert_to_numpy=True).astype(np.float32)
@@ -85,7 +65,7 @@ def search(repo_data: RepoData, query: str) -> dict[str, list]:
             utters_by_mk[mk_id] = {
                 "utterances": [],
                 "name": row["mk"],
-                "metadata": MKS.get(mk_id),
+                "metadata": get_mks().get(mk_id),
             }
 
         utters_by_mk[mk_id]["utterances"].append(

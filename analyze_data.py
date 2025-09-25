@@ -1,7 +1,7 @@
 import argparse
 import os
 from processing.clusterer import Clusterer
-from training import simple_trainer
+from trash_utterances_detector import trainer
 
 
 def main():
@@ -22,8 +22,17 @@ def main():
                         help='Minimum cluster size for HDBSCAN')
     parser.add_argument('--min_samples', type=int, default=15,
                         help='Minimum samples for HDBSCAN')
+    parser.add_argument('--filter_unimportant', action='store_true', default=True,
+                        help='Filter out unimportant utterances using trained classifier')
+    parser.add_argument('--no_filter', action='store_true', default=False,
+                        help='Disable importance filtering')
+    parser.add_argument('--classifier_path', type=str, default=None,
+                        help='Path to custom classifier model (optional)')
 
     args = parser.parse_args()
+
+    # Handle filtering flags
+    filter_unimportant = args.filter_unimportant and not args.no_filter
 
     if not os.path.exists(args.output_dir):
         os.makedirs(args.output_dir)
@@ -31,14 +40,18 @@ def main():
     clusterer = Clusterer(
         embeddings_file=args.embeddings_file,
         data_file=args.data_file,
-        output_dir=args.output_dir
+        output_dir=args.output_dir,
+        filter_unimportant=filter_unimportant,
+        classifier_path=args.classifier_path
     )
 
     clusterer.load_data()
 
+    # Reduce dimensions for clustering and visualization
+    clusterer.reduce_dimensions(n_components=2, sample_size=args.sample_size)
+
     clusterer.cluster_npy_file(
-        min_cluster_size=args.min_cluster_size,
-        min_samples=args.min_samples,
+        clusters_num=30,  # Using K-means clustering
         sample_size=args.sample_size
     )
 
@@ -60,4 +73,4 @@ def main():
 
 if __name__ == '__main__':
     #    main()
-    simple_trainer.train_classifier_with_kfold()
+    trainer.train_classifier_with_kfold()

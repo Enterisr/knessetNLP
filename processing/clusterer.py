@@ -12,31 +12,81 @@ from collections import Counter
 from tqdm import tqdm
 import matplotlib.pyplot as plt
 from sklearn.feature_extraction.text import TfidfVectorizer
+from trash_utterances_detector.predictor import UtteranceImportancePredictor
 
 
 class Clusterer:
     def __init__(self,
                  embeddings_file: str = 'utterance_embeddings.npy',
                  data_file: str = 'utterances_data.pkl',
-                 output_dir: str = 'clustering_results') -> None:
+                 output_dir: str = 'clustering_results',
+                 filter_unimportant: bool = True,
+                 classifier_path: str | None = None) -> None:
         self.logger = get_logger(__name__)
         self.embeddings_file = embeddings_file
         self.data_file = data_file
         self.output_dir = output_dir
+        self.filter_unimportant = filter_unimportant
+        self.classifier_path = classifier_path
         self.embeddings = None
         self.data = None
         self.cluster_labels = None
         self.reduced_embeddings = None
+        self.importance_predictor = None
+        self.original_embeddings = None  # Store original before filtering
+        self.original_data = None       # Store original before filtering
+        self.importance_scores = None
+        self.important_indices = None
 
         if not os.path.exists(output_dir):
             os.makedirs(output_dir)
 
+        # Initialize importance predictor if filtering is enabled
+        if self.filter_unimportant:
+            try:
+                self.importance_predictor = UtteranceImportancePredictor(
+                    classifier_path)
+                self.logger.info("Importance filtering is enabled")
+            except Exception as e:
+                self.logger.warning(
+                    f"Failed to load importance predictor: {e}")
+                self.logger.warning("Proceeding without importance filtering")
+                self.filter_unimportant = False
+
     def load_data(self) -> Tuple[np.ndarray, pd.DataFrame]:
         self.logger.info(f"Loading embeddings from {self.embeddings_file}")
-        self.embeddings = np.load(self.embeddings_file)
+        self.original_embeddings = np.load(self.embeddings_file)
 
         self.logger.info(f"Loading utterance data from {self.data_file}")
-        self.data = pickle.load(open(self.data_file, 'rb'))
+        self.original_data = pickle.load(open(self.data_file, 'rb'))
+
+        # Apply importance filtering if enabled
+        if self.filter_unimportant and self.importance_predictor is not None:
+            self.logger.info("Filtering out unimportant utterances...")
+            (self.embeddings,
+             self.data,
+             self.importance_scores,
+             self.important_indices) = self.importance_predictor.filter_important_utterances(
+                self.original_embeddings, self.original_data
+            )
+
+            # Save filtering results
+            filtering_info_path = os.path.join(
+                self.output_dir, 'filtering_info.pkl')
+            with open(filtering_info_path, 'wb') as f:
+                pickle.dump({
+                    'importance_scores': self.importance_scores,
+                    'important_indices': self.important_indices,
+                    'original_count': len(self.original_embeddings),
+                    'filtered_count': len(self.embeddings),
+                    'filtering_ratio': len(self.embeddings) / len(self.original_embeddings)
+                }, f)
+            self.logger.info(f"Filtering info saved to {filtering_info_path}")
+        else:
+            # Use original data without filtering
+            self.embeddings = self.original_embeddings
+            self.data = self.original_data
+            self.logger.info("No importance filtering applied")
 
         return self.embeddings, self.data
 
@@ -47,7 +97,8 @@ class Clusterer:
             self.load_data()
         assert self.embeddings is not None
 
-        embeddings = self.reduced_embeddings
+        # Use reduced embeddings if available, otherwise use original embeddings
+        embeddings = self.reduced_embeddings if self.reduced_embeddings is not None else self.embeddings
 
         if sample_size and sample_size < len(embeddings):
             self.logger.info(
@@ -80,16 +131,32 @@ class Clusterer:
         self.logger.info(
             f"Number of noise points: {cluster_counts.get(-1, 0)}")
 
-        # Ensure the DataFrame is defined before sampling utterances
+        # Handle both dict and DataFrame formats for data and match with sampling
+        if isinstance(self.data, dict):
+            all_texts = self.data['text'] if isinstance(
+                self.data['text'], list) else self.data['text'].tolist()
+            all_mks = self.data['mk'] if isinstance(
+                self.data['mk'], list) else self.data['mk'].tolist()
+        else:
+            all_texts = self.data['text'].tolist()
+            all_mks = self.data['mk'].tolist()
+
+        # If we sampled embeddings, we need to sample texts and mks too
+        if sample_size and sample_size < len(embeddings):
+            texts = [all_texts[i] for i in indices]
+            mks = [all_mks[i] for i in indices]
+        else:
+            texts = all_texts
+            mks = all_mks
+
         df = pd.DataFrame({
-            'x': embeddings[:, 0],
-            'y': embeddings[:, 1],
+            'x': embeddings_to_cluster[:, 0],
+            'y': embeddings_to_cluster[:, 1],
             'cluster': labels,
-            'text': self.data['text'].tolist(),
-            'mk': self.data['mk'].tolist()
+            'text': texts,
+            'mk': mks
         })
 
-        # Print a sample of 10 utterances for each cluster
         for cluster_id in df['cluster'].unique():
             cluster_sample = df[df['cluster'] == cluster_id].sample(
                 n=min(10, len(df[df['cluster'] == cluster_id])))
@@ -194,14 +261,26 @@ class Clusterer:
             text = text.replace('[sub:', '').replace('comm:', '')
             return text
 
-        all_texts = [preprocess_text(text)
-                     for text in self.data['text'].tolist()]
+        # Handle both dict and DataFrame formats for data
+        if isinstance(self.data, dict):
+            all_texts_data = self.data['text'] if isinstance(
+                self.data['text'], list) else self.data['text'].tolist()
+        else:
+            all_texts_data = self.data['text'].tolist()
+
+        all_texts = [preprocess_text(text) for text in all_texts_data]
 
         cluster_titles = {}
 
         for cluster_id in tqdm(unique_clusters, desc="Generating cluster titles"):
             mask = self.cluster_labels == cluster_id
-            cluster_texts_raw = self.data.iloc[mask]['text'].tolist()
+
+            # Get cluster texts based on data format
+            if isinstance(self.data, dict):
+                cluster_texts_raw = [all_texts_data[i]
+                                     for i in range(len(all_texts_data)) if mask[i]]
+            else:
+                cluster_texts_raw = self.data.iloc[mask]['text'].tolist()
 
             if len(cluster_texts_raw) == 0:
                 cluster_titles[cluster_id] = f"Cluster {cluster_id} (empty)"
@@ -259,15 +338,31 @@ class Clusterer:
                 points = self.reduced_sample
             else:
                 points = self.reduce_dimensions(2, sample_size=sample_size)
-            texts = self.data.iloc[indices]['text'].tolist()
-            mks = self.data.iloc[indices]['mk'].tolist()
+            # Handle both dict and DataFrame formats
+            if isinstance(self.data, dict):
+                all_texts = self.data['text'] if isinstance(
+                    self.data['text'], list) else self.data['text'].tolist()
+                all_mks = self.data['mk'] if isinstance(
+                    self.data['mk'], list) else self.data['mk'].tolist()
+                texts = [all_texts[i] for i in indices]
+                mks = [all_mks[i] for i in indices]
+            else:
+                texts = self.data.iloc[indices]['text'].tolist()
+                mks = self.data.iloc[indices]['mk'].tolist()
         else:
             if self.reduced_embeddings is None:
                 self.reduced_embeddings = self.reduce_dimensions(2)
             points = self.reduced_embeddings
             labels = self.cluster_labels
-            texts = self.data['text'].tolist()
-            mks = self.data['mk'].tolist()
+            # Handle both dict and DataFrame formats
+            if isinstance(self.data, dict):
+                texts = self.data['text'] if isinstance(
+                    self.data['text'], list) else self.data['text'].tolist()
+                mks = self.data['mk'] if isinstance(
+                    self.data['mk'], list) else self.data['mk'].tolist()
+            else:
+                texts = self.data['text'].tolist()
+                mks = self.data['mk'].tolist()
 
         df = pd.DataFrame({
             'x': points[:, 0],
@@ -308,7 +403,12 @@ class Clusterer:
             self.load_data()
         assert self.data is not None
 
-        result_df = self.data.copy()
+        # Handle both dict and DataFrame formats
+        if isinstance(self.data, dict):
+            result_df = pd.DataFrame(self.data.copy())
+        else:
+            result_df = self.data.copy()
+
         result_df['cluster'] = self.cluster_labels
 
         output_path = os.path.join(self.output_dir, output_file)
@@ -324,9 +424,16 @@ class Clusterer:
             self.load_data()
         assert self.data is not None
 
+        # Handle both dict and DataFrame formats
+        if isinstance(self.data, dict):
+            mks = self.data['mk'] if isinstance(
+                self.data['mk'], list) else self.data['mk'].tolist()
+        else:
+            mks = self.data['mk'].tolist()
+
         df = pd.DataFrame({
             'cluster': self.cluster_labels,
-            'mk': self.data['mk'].tolist(),
+            'mk': mks,
         })
 
         cluster_mk_counts = df.groupby(

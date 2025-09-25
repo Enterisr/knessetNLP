@@ -3,9 +3,9 @@ import logging
 import json
 import re
 
-
 from UtterancesExtraction.bad_dover_exception import BadDoverException
 from utils.logger_config import get_logger
+from processing.mk_database import get_mks
 
 logger = get_logger(__name__)
 
@@ -13,16 +13,18 @@ logger = get_logger(__name__)
 class DoverResolver:
     def __init__(self, min_ratio_for_rapidfuzz=75):
         self.min_ratio = min_ratio_for_rapidfuzz
-        self.mks = self.load_mks_data()
-        self.mks_by_name = self.transfer_mks_to_name_format()
+        self.mks_by_name = self._build_name_index()
         self.rapidfuzz_cache = {}
         self.no_match_person = []
 
-    def transfer_mks_to_name_format(self) -> dict:
+    def _build_name_index(self) -> dict:
+        """Build name index from MK data."""
         mks_by_name = {}
-        for key in self.mks.keys():
-            new_key = self.mks[key]["FirstName"]+" "+self.mks[key]["LastName"]
-            mks_by_name[new_key] = self.mks[key]
+        mk_data_instance = get_mks()
+        for mk_id, mk_data in mk_data_instance.items():
+            if "FirstName" in mk_data and "LastName" in mk_data:
+                full_name = f"{mk_data['FirstName']} {mk_data['LastName']}"
+                mks_by_name[full_name] = {**mk_data, 'mk_id': mk_id}
         return mks_by_name
 
     def remove_title_from_dover(self, dover_str: str):
@@ -87,16 +89,3 @@ class DoverResolver:
                 logger.error(
                     f"Can't find match for {speaker_key} with rapidfuzz match set as a min of {self.min_ratio}")
         return {"speaker_key": None, "mk_meta": None}
-
-    def load_mks_data(self):
-        try:
-            with open('mks_data.json', 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except FileNotFoundError:
-            logger.error(
-                "mks_data.json file not found. Returning empty dictionary.")
-            return {}
-        except json.JSONDecodeError:
-            logger.error(
-                "Error parsing mks_data.json. Returning empty dictionary.")
-            return {}

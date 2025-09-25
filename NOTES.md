@@ -99,3 +99,45 @@ Although it wasn’t trained directly on Hebrew, it seems to “inherit” Hebre
 
 23.9
 done more extensive testing on search. seems to work perfectly for dummy data, but very flaky on real data. i think that reducing committe noise will help here. thinking about training a model of my own to predict !fast! if this utterance will be relevant, and not incnlude it if not. might also first remove alll "מי בעד? מי נגד?" utterances with regex. i think length of utternace should also play a role in its importance, in addition of the complete removal of <4 words utterances
+
+25.9
+addded logisitic regression to catch useless utterances like mentiooned above. training is done on dataset of 1000 utterances that i labled myself. 
+calibrated alpha with kfold because 1000 is not a big number. made it focus on recall, because i just want less "noise" utterances, but dont want to miss important utterances. added also some L2 regulazation, seems to help
+trash_utterances_detector.trainer - INFO - ==================================================
+trash_utterances_detector.trainer - INFO - Recall:     0.943 ± 0.033
+trash_utterances_detector.trainer - INFO - Precision:  0.457 ± 0.013
+trash_utterances_detector.trainer - INFO - F1 Score:   0.615 ± 0.010
+trash_utterances_detector.trainer - INFO - Avg Threshold: 0.652
+trash_utterances_detector.trainer - INFO - ==================================================
+means that i can filter out about 50% of noise utterances only 6 out of 100 real utterances thrown out (mostly border examples i think)ill add some feature engineering to help it with simple examples.maybe punish per length, and also multiply but the existance of 
+"מי בעד? מי נגד" and stuff like that
+
+seems like some simple feature enginerrirng helping here just a bit. i found that 1 feature in 750~ is getting ignored so i tried to multiply it and to set it as duplicate to 20-30 features and extend the embedding. seems the first approch is better because the model is ignoring multiplied data. its espessicly effective as the original embedding is normilized
+==
+trash_utterances_detector.trainer - INFO - Recall:     0.931 ± 0.016
+trash_utterances_detector.trainer - INFO - Precision:  0.476 ± 0.024
+trash_utterances_detector.trainer - INFO - F1 Score:   0.630 ± 0.019
+trash_utterances_detector.trainer - INFO - Avg Threshold: 0.663
+trash_utterances_detector.trainer - INFO - ==================================================
+
+
+seems like preceptron is trash here because of too little examples, so ill stick to logistic regression
+trash_utterances_detector.trainer - INFO - NEURAL NETWORK K-FOLD CROSS-VALIDATION RESULTS
+trash_utterances_detector.trainer - INFO - ==================================================
+trash_utterances_detector.trainer - INFO - Recall:     0.906 ± 0.079
+trash_utterances_detector.trainer - INFO - Precision:  0.448 ± 0.011
+trash_utterances_detector.trainer - INFO - F1 Score:   0.599 ± 0.016
+trash_utterances_detector.trainer - INFO - Avg Threshold: 0.004
+trash_utterances_detector.trainer - INFO - ==================================================
+
+tuned features again
+
+trash_utterances_detector.trainer - INFO - K-FOLD CROSS-VALIDATION RESULTS
+trash_utterances_detector.trainer - INFO - ==================================================
+trash_utterances_detector.trainer - INFO - Recall:     0.968 ± 0.018
+trash_utterances_detector.trainer - INFO - Precision:  0.491 ± 0.047
+trash_utterances_detector.trainer - INFO - F1 Score:   0.650 ± 0.038
+trash_utterances_detector.trainer - INFO - Avg Threshold: 0.483
+trash_utterances_detector.trainer - INFO - ==================================================
+
+even with much better handling of trash utternaces kmeans is still strugelling to grasp any meaningful concept. i might ought to do dbscan here, might focus first on imlempting better semantic search with score based on the LR model I created today, and realse it as an MVP
