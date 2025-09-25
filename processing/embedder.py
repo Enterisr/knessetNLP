@@ -1,15 +1,13 @@
 from processing.embed_utils import get_utterances_files_list
+from processing.df_builder import create_df, recreate_utterances_from_files
 
 from sentence_transformers import SentenceTransformer
 
 import pandas as pd
 import numpy as np
-import json
-
 
 import gc
 from pathlib import Path
-from processing.metadata_handler import embed_metadata_in_utterance
 from utils.logger_config import get_logger
 
 # Get project root directory
@@ -26,64 +24,6 @@ class Embedder:
 
     def __init__(self):
         self.model = model
-
-
-def _process_utterance_file(file_name: str, filepath: str, mk_utternces: dict, utterances: list, mk_for_df: list):
-    with open(filepath, "r", encoding="utf-8") as file_content:
-        file_data = json.loads(file_content.read())
-
-        for speaker_key, values in file_data["utterances"].items():
-            if mk_utternces.get(speaker_key) is None:
-                mk_utternces[speaker_key] = {
-                    "utterances": [], "metadata": values["metadata"], "sentiment": {}}
-
-            mk_utternces[speaker_key]["utterances"] += values["utterances"]
-
-            committee_prefixed_utterances = embed_metadata_in_utterance(
-                values["utterances"], file_data)
-            committee_prefixed_utterances_lst = list(
-                committee_prefixed_utterances)
-            utterances += committee_prefixed_utterances_lst
-
-            if values.get("sentiment") is not None:
-                for prop_key, prop_val in values["sentiment"].items():
-                    if mk_utternces[speaker_key]["sentiment"].get(prop_key) is None:
-                        mk_utternces[speaker_key]["sentiment"][prop_key] = 0
-
-                    mk_utternces[speaker_key]["sentiment"][prop_key] += prop_val
-
-            for i, u in enumerate(committee_prefixed_utterances_lst):
-                mk_for_df.append(
-                    {'text': u, "mk": speaker_key, "mk_id": resolve_mk_metadata(values["metadata"]), "src": file_data["source_file"], "utter_id": f"{file_name}_{speaker_key}_{i}"})
-
-# TODO:  this is shit lol
-
-
-def resolve_mk_metadata(metadata):
-    try:
-        return metadata.get("Id")
-    except (AttributeError, TypeError):
-        return -1
-
-
-def _load_utternaces_from_files(directory: str):
-    utterances = []
-    mk_utternces = {}
-    mk_for_df = []
-
-    files_to_prorcess = get_utterances_files_list(directory)
-    for file_name, filepath in files_to_prorcess:
-        _process_utterance_file(file_name, filepath,
-                                mk_utternces, utterances, mk_for_df)
-
-    df = pd.DataFrame(mk_for_df)
-    df.to_pickle(PROJECT_ROOT / "utterances_data.pkl")
-    with open(PROJECT_ROOT / "mk_utterances.jsonl", "w", encoding="utf-8") as f:
-        for speaker_key, data in mk_utternces.items():
-            entry = {"speaker_key": speaker_key, **data}
-            f.write(json.dumps(entry, ensure_ascii=False) + "\n")
-
-    return df, utterances
 
 
 def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarray:
@@ -132,19 +72,22 @@ def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarra
 
 def load_embeddings(directory: str, force_refresh=False, batch_size=1000):
     if force_refresh:
-        df, utternaces = _load_utternaces_from_files(directory)
+        df, utternaces = create_df(directory)
         embeddings = _embed_in_vector_space(utternaces, batch_size)
-        return df,  embeddings
+        return df, embeddings, utternaces
 
     try:
         embeddings = np.load(PROJECT_ROOT / "utterance_embeddings.npy")
         df = pd.read_pickle(PROJECT_ROOT / "utterances_data.pkl")
-        utternaces = df["text"].tolist()
+        # The utterances in the embedding are the metadata-prefixed versions
+        # We need to recreate them from the files
+        utternaces = recreate_utterances_from_files(directory)
+
         logger.info(f"Loaded {len(embeddings)} embeddings from file.")
     except FileNotFoundError:
         logger.warning(
             "Embeddings file not found. Generating new embeddings...")
-        df, utternaces = _load_utternaces_from_files(directory)
+        df, utternaces = create_df(directory)
         embeddings = _embed_in_vector_space(utternaces, batch_size)
     return df, embeddings, utternaces
 

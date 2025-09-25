@@ -1,12 +1,8 @@
-export interface Sentiment {
-  polarity: number  // Range: -1 (negative) to 1 (positive)
-  subjectivity: number  // Range: 0 (objective) to 1 (subjective)
-}
-
 export interface Utterance {
   text: string
   mk: string
   src: string
+  sentiment?: number  // Range: 1-5 (1=very negative/nasty, 5=very positive/angel)
 }
 
 export interface MKMetadata {
@@ -25,18 +21,20 @@ export interface MKMetadata {
 export interface MKData {
   utterances: Utterance[]
   metadata?: MKMetadata
+  sentiment?: number  // Range: 1-5 (1=very negative/nasty, 5=very positive/angel)
 }
 
 export interface MKUtterances {
   [mk: string]: MKData
 }
 
-export interface Utterance {
+export interface DetailedUtterance {
   id: string
   text: string
   date: string
   committee: string
+  src?: string
   mkId?: string
   mkName?: string
-  sentiment?: Sentiment
+  sentiment?: number  // Range: 1-5 (1=very negative/nasty, 5=very positive/angel)
 }

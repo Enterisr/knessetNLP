@@ -1,139 +1,157 @@
-from concurrent.futures import ThreadPoolExecutor, as_completed
-from textblob import TextBlob
 import json
 import os
-from pathlib import Path
+import random
+from concurrent.futures import ThreadPoolExecutor, as_completed
+from transformers import AutoModelForSequenceClassification, TextClassificationPipeline, AutoTokenizer
 
 from translation.heb_to_eng_translator import HebToEngTranslator
 from utils.logger_config import get_logger
-
-# Get project root directory
-PROJECT_ROOT = Path(__file__).parent.parent
 
 logger = get_logger(__name__)
 
 
 class SentimentAnalyzer:
-    """
-    A sentiment analysis class that uses Google Translate and TextBlob
-    to analyze sentiment of Hebrew text by translating it to English first.
-    """
-
     def __init__(self):
-        self.translator = HebToEngTranslator()
+        # self.translator = HebToEngTranslator()
+        model_name = "classla/xlm-r-parlasent"
+        sentiment_tokenizer = AutoTokenizer.from_pretrained(model_name)
+        sentiment_model = AutoModelForSequenceClassification.from_pretrained(
+            model_name)
+        pipe = TextClassificationPipeline(model=sentiment_model, tokenizer=sentiment_tokenizer, return_all_scores=True,
+                                          task='sentiment_analysis', device=0, function_to_apply="none")
+        self.analyze = pipe
 
-    def analyze_sentiment_textblob(self, text: str):
+    def analyze_sentiment_model(self, text: str) -> float:
         try:
-            blob = TextBlob(text)
-            # Get sentiment values, handling any attribute access issues
+            results = self.analyze(text)
+            return results[0][0]["score"]
+        except Exception as e:
+            logger.error("Error analyzing sentiment with model: %s", str(e))
+            return 3
+
+    def load_jsonl_data(self, jsonl_path: str):
+        speakers_data = []
+        with open(jsonl_path, 'r', encoding='utf-8') as f:
+            for line in f:
+                line = line.strip()
+                if not line:
+                    continue
+                try:
+                    data = json.loads(line)
+                    if 'speaker_key' in data and 'utterances' in data:
+                        speakers_data.append({
+                            'speaker_name': data['speaker_key'],
+                            'utterances': data['utterances']
+                        })
+                except json.JSONDecodeError:
+                    continue
+        return speakers_data
+
+    def sample_utterances(self, utterances, max_utterances):
+        if max_utterances is None or len(utterances) <= max_utterances:
+            return utterances
+        return random.sample(utterances, max_utterances)
+
+    def analyze_speaker_sentiment(self, utterances):
+        all_sentiments = 0
+        processed_count = 0
+
+        for utterance in utterances:
             try:
-                polarity = blob.sentiment.polarity
-                subjectivity = blob.sentiment.subjectivity
-            except (AttributeError, TypeError):
-                # Fallback values if sentiment access fails
-                polarity = 0.0
-                subjectivity = 0.0
+                #  en_txt = self.translator.translate(utterance)
+                sentiment = self.analyze_sentiment_model(utterance)
+                all_sentiments += sentiment
+                processed_count += 1
+                logger.info(
+                    "Processed utterance with sentiment: %s, sentence is %s", sentiment, utterance[::-1])
+            except (ValueError, TypeError) as e:
+                logger.warning("Error processing utterance: %s", str(e))
+                continue
 
-            return {
-                'polarity': float(polarity),
-                'subjectivity': float(subjectivity)
-            }
-        except (AttributeError, ValueError) as e:
-            logger.error("Error analyzing sentiment with TextBlob: %s", str(e))
-            return {'polarity': 0.0, 'subjectivity': 0.0}
+        if processed_count > 0:
+            return all_sentiments/processed_count
+        return 3
 
-    def analyze_utterances_file(self, file_path: str, force_refresh: bool) -> bool:
-        with open(file_path, 'r', encoding='utf-8') as f:
-            committee = json.load(f)
-            if len(committee["utterances"].values()) > 0:
-                sentiment_exists = list(committee["utterances"].values())[
-                    0].get("sentiment")
-                if sentiment_exists is not None and not force_refresh:
-                    logger.debug(
-                        "sentiment already exists in %s, not updating", file_path)
-                    return True
+    def find_matching_mk(self, speaker_name, mks_data):
+        for mk_id, mk_info in mks_data.items():
+            if 'FirstName' in mk_info and 'LastName' in mk_info:
+                full_name = f"{mk_info['FirstName']} {mk_info['LastName']}"
+                if speaker_name in full_name or full_name in speaker_name:
+                    return mk_id
+        return None
 
-                for key_mk, mk_data in committee["utterances"].items():
-                    acc_sentiment = {"subjectivity": 0.0, "polarity": 0.0}
-                    for utterance in mk_data['utterances']:
-                        en_txt = self.translator.translate(utterance)
-                        sentiment = self.analyze_sentiment_textblob(en_txt)
-                        acc_sentiment["polarity"] += sentiment["polarity"]
-                        acc_sentiment["subjectivity"] += sentiment["subjectivity"]
+    def process_single_speaker(self, speaker_data, mks_data, max_utterances_per_mk, force_refresh):
+        speaker_name = speaker_data['speaker_name']
+        utterances = speaker_data['utterances']
 
-                    total_sentiment = {
-                        "polarity": acc_sentiment["polarity"] / len(mk_data['utterances']),
-                        "subjectivity": acc_sentiment["subjectivity"] / len(mk_data['utterances'])
-                    }
+        mk_id = self.find_matching_mk(speaker_name, mks_data)
+        if not mk_id:
+            return None
 
-                    mk_data["sentiment"] = total_sentiment
+        # Check if sentiment already exists and force_refresh is False
+        if not force_refresh and 'sentiment' in mks_data[mk_id]:
+            logger.debug(
+                "Sentiment already exists for MK %s (%s), skipping", mk_id, speaker_name)
+            return None
 
-                    logger.info("Finished Analyzing mk: %s with polarity: %s with subjectivity: %s",
-                                key_mk, total_sentiment['polarity'], total_sentiment['subjectivity'])
+        sampled_utterances = self.sample_utterances(
+            utterances, max_utterances_per_mk)
 
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    json.dump(committee, f, ensure_ascii=False, indent=2)
+        logger.info("Analyzing %d utterances for %s",
+                    len(sampled_utterances), speaker_name)
 
-                logger.info("Sentiment analysis saved to %s", file_path)
-                return True
-        return False
+        avg_sentiment = self.analyze_speaker_sentiment(sampled_utterances)
 
-    def batch_analyze_directory(self, directory_path: str, force_refresh: bool):
-        """
-        Analyze sentiment for all utterance files in the directory.
-        Requires partition folder system (part_0, part_1, etc.).
-        """
-        # Check for partition folders
-        items_in_dir = os.listdir(directory_path)
-        partition_folders = [
-            item for item in items_in_dir
-            if item.startswith("part_") and os.path.isdir(os.path.join(directory_path, item))
-        ]
+        return mk_id, speaker_name, avg_sentiment
 
-        if not partition_folders:
-            raise ValueError(
-                f"No partition folders found in {directory_path}. Expected folders named 'part_0', 'part_1', etc.")
+    def analyze_jsonl_sentiment(self, jsonl_path: str, mks_data_path: str, max_utterances_per_mk=200, force_refresh=False):
+        logger.info("Starting sentiment analysis with max %s utterances per MK (force_refresh=%s)",
+                    max_utterances_per_mk or 'all', force_refresh)
 
-        files_to_process = []
+        try:
+            with open(mks_data_path, 'r', encoding='utf-8') as f:
+                mks_data = json.load(f)
+        except (FileNotFoundError, json.JSONDecodeError) as e:
+            logger.error("Could not load %s: %s", mks_data_path, str(e))
+            return
 
-        # Process files from all partition folders
-        logger.info("Found %d partition folders: %s", len(
-            partition_folders), sorted(partition_folders))
-        for partition_folder in sorted(partition_folders):
-            partition_path = os.path.join(directory_path, partition_folder)
-            for file_name in os.listdir(partition_path):
-                if file_name.endswith('.json'):
-                    full_path = os.path.join(partition_path, file_name)
-                    files_to_process.append((file_name, full_path))
+        speakers_data = self.load_jsonl_data(jsonl_path)
 
-        logger.info("Processing %d utterance files for sentiment analysis from %d partitions",
-                    len(files_to_process), len(partition_folders))
-
-        with ThreadPoolExecutor(max_workers=10) as executor:
+        with ThreadPoolExecutor(max_workers=5) as executor:
             futures = []
-            for file_name, file_path in files_to_process:
-                print(f"Analyzing {file_name}...")
-                futures.append(executor.submit(
-                    self.analyze_utterances_file, file_path, force_refresh))
+            for speaker_data in speakers_data:
+                future = executor.submit(self.process_single_speaker,
+                                         speaker_data, mks_data, max_utterances_per_mk, force_refresh)
+                futures.append(future)
 
             for future in as_completed(futures):
                 try:
-                    future.result()
-                except Exception as e:
-                    logger.error(f"Thread raised exception: {e}")
+                    result = future.result()
+                    if result:
+                        mk_id, speaker_name, avg_sentiment = result
+                        mks_data[mk_id]['sentiment'] = avg_sentiment
+                        logger.info("Updated sentiment for MK %s (%s): %s",
+                                    mk_id, speaker_name, avg_sentiment)
+                except (ValueError, TypeError, KeyError) as e:
+                    logger.error("Thread raised exception: %s", str(e))
+
+        with open(mks_data_path, 'w', encoding='utf-8') as f:
+            json.dump(mks_data, f, ensure_ascii=False, indent=2)
+
+        logger.info("Sentiment analysis complete and saved to mks_data.json")
 
 
 def analyze_sentiment(force_refresh=False):
-    """
-    Main function to demonstrate the sentiment analyzer functionality.
-    """
     analyzer = SentimentAnalyzer()
-    utterances_dir = "utterances"
-    if os.path.exists(utterances_dir):
-        logger.info(
-            f"\n=== Analyzing utterances directory: {utterances_dir} ===")
-        analyzer.batch_analyze_directory(utterances_dir, force_refresh)
+    jsonl_path = "mk_utterances.jsonl"
+    mks_data_path = "mks_data.json"
+
+    if os.path.exists(jsonl_path) and os.path.exists(mks_data_path):
+        analyzer.analyze_jsonl_sentiment(
+            jsonl_path, mks_data_path, max_utterances_per_mk=500, force_refresh=force_refresh)
+    else:
+        logger.error("Required files not found")
 
 
 if __name__ == "__main__":
-    analyze_sentiment(force_refresh=True)
+    analyze_sentiment()

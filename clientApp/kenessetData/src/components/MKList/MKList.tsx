@@ -36,6 +36,20 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
         const mkData = mks[mkName];
         const photoUrl = mkData.metadata?.PhotoURL || defaultMkImage;
         const party = mkData.metadata?.FactionName || '';
+        const sentiment = mkData.sentiment;
+        
+        // Determine sentiment display
+        const getSentimentInfo = (sentiment: number | undefined) => {
+          if (sentiment === undefined) return { label: 'Neutral', className: 'sentiment-neutral' };
+          
+          if (sentiment >= 4) return { label: 'Very Positive', className: 'sentiment-very-positive' };
+          if (sentiment >= 3.5) return { label: 'Positive', className: 'sentiment-positive' };
+          if (sentiment >= 2.5) return { label: 'Neutral', className: 'sentiment-neutral' };
+          if (sentiment >= 2) return { label: 'Negative', className: 'sentiment-negative' };
+          return { label: 'Very Negative', className: 'sentiment-very-negative' };
+        };
+        
+        const sentimentInfo = getSentimentInfo(sentiment);
         
         return (
           <li key={mkName} className="mk-list-item" onClick={() => onMKSelect(mkName)}>
@@ -54,6 +68,12 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
                 <h3 className="mk-list-item-title">{mkName}</h3>
                 {party && <p className="mk-list-item-party">{party}</p>}
                 <p className="mk-list-item-description">{mkData.utterances.length} utterances</p>
+                <div className={`mk-sentiment ${sentimentInfo.className}`}>
+                  <span className="sentiment-label">Sentiment: {sentimentInfo.label}</span>
+                  {sentiment !== undefined && (
+                    <span className="sentiment-score">({sentiment.toFixed(2)})</span>
+                  )}
+                </div>
               </div>
             </div>
           </li>

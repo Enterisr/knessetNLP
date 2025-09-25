@@ -1,5 +1,4 @@
 import requests
-from googletrans import Translator
 
 import subprocess
 
@@ -13,11 +12,10 @@ logger = get_logger(__name__)
 
 class HebToEngTranslator:
 
-    def __init__(self, force_google=False):
+    def __init__(self):
         self.resolver = self._use_libre
         self.source_language = 'he'
         self.target_language = 'en'
-        self.gTranslator = Translator() if force_google else None
         self.start_libre_()
 
     def translate(self, text: str) -> str:
@@ -61,20 +59,3 @@ class HebToEngTranslator:
         except Exception as e:
             print(f"Error translating with Libre Translate: {e}")
             return text
-
-    def _use_google(self, text: str) -> str:
-        try:
-            if self.gTranslator is None:
-                self.gTranslator = Translator()
-            result = self.gTranslator.translate(
-                text, src=self.source_language, dest=self.target_language)
-            return result.text
-        except Exception as e:
-            print(f"Error translating with Google Translate: {e}")
-            return text
-
-
-if __name__ == "__main__":
-    t = HebToEngTranslator()
-    eng = t.translate("אמא שלך חמודה מאוד, אני מכיר אותה מקרוב")
-    print(eng)

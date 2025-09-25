@@ -1,8 +1,8 @@
 import './UtterancesList.css'
-import type { Utterance } from '../../types/index'
+import type { DetailedUtterance } from '../../types/index'
 
 interface UtterancesListProps {
-  utterances: Utterance[]
+  utterances: DetailedUtterance[]
   query: string
   onBack: () => void
   loading: boolean

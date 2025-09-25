@@ -9,7 +9,7 @@ import uvicorn
 
 
 from zmq_client import ZMQClient
-from service import validate_and_sanitize_query
+from service import validate_and_sanitize_query, process_response_with_mk_sentiment
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
@@ -57,7 +57,11 @@ class Server:
             logger.info("Processing query: %s...",
                         (sanitized_query or "")[:50])
             res = self.zmq_client.req(query)
-            return {"query": sanitized_query, "response": res, "status": "success"}
+
+            # Process the response to add MK-level sentiment
+            processed_res = process_response_with_mk_sentiment(res)
+
+            return {"query": sanitized_query, "response": processed_res, "status": "success"}
         except HTTPException:
             raise
         except Exception as e:

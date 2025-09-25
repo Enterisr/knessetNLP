@@ -13,7 +13,6 @@ logger = get_logger(__name__)
 model = SentenceTransformer(
     'imvladikon/sentence-transformers-alephbert',
 )
-
 PROJECT_ROOT = Path(__file__).parent.parent
 
 
@@ -37,13 +36,10 @@ def load_mks():
 
 MKS = load_mks()
 
-PROJECT_ROOT = Path(__file__).parent.parent
-
 
 def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> IndexFlatIP:
     d = embeddings.shape[1]  # get dim from embeddings
 
-    # Try to load existing index if not forcing reload
     index_path = PROJECT_ROOT / "committie_index"
     if not force_refresh and index_path.exists():
         try:
@@ -53,7 +49,6 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> 
         except Exception as e:
             logger.error(f"Error loading index: {e}. Building new index...")
 
-    # Build new index if needed
     logger.info("Building new FAISS index...")
     con_embeddings = np.ascontiguousarray(embeddings)
     index = faiss.IndexIDMap2(faiss.IndexFlatIP(d))
@@ -66,7 +61,7 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> 
 
 
 def search(repo_data: RepoData, query: str) -> dict[str, list]:
-    # encode query exactly like corpus (normalized + float32)
+
     query_embedding = model.encode(
         [query], normalize_embeddings=True, convert_to_numpy=True).astype(np.float32)
     k = 100
@@ -83,9 +78,9 @@ def search(repo_data: RepoData, query: str) -> dict[str, list]:
         row = repo_data.df.iloc[utter_idx]
 
         print(
-            f"Match {rank}: ID {utter_idx}, score={float(dist):.4f}, Utterance: {row['text'][:120][::-1]}")
+            f"Match {rank}: ID {utter_idx}, score={float(dist):.4f}, Utterance: {row['text'][:120][::-1]} mk: { row['mk'][::-1]}")
 
-        mk_id = row["mk"]
+        mk_id = str(row["mk_id"])
         if mk_id not in utters_by_mk:
             utters_by_mk[mk_id] = {
                 "utterances": [],

@@ -7,10 +7,6 @@ from processing.repo_data import RepoData
 
 logger = get_logger(__name__)
 
-context = zmq.Context()
-socket = context.socket(zmq.REP)
-socket.bind("tcp://127.0.0.1:5555")
-
 
 def handle_search(repo_data: RepoData, request):
     """Handle search requests"""
@@ -43,6 +39,9 @@ def process_request(repo_data: RepoData, request_json):
 def init_repo_server(force_refresh: bool):
     """Start the ZeroMQ server and listen for requests"""
     logger.info("Starting ZeroMQ server on tcp://127.0.0.1:5555")
+    context = zmq.Context()
+    socket = context.socket(zmq.REP)
+    socket.bind("tcp://127.0.0.1:5555")
 
     repo_data = init_repo(force_refresh)
 

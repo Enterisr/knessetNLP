@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
 import { resolveServerURI } from '../../utils'
-import type { Utterance, MKMetadata } from '../../types'
+import type { DetailedUtterance, MKMetadata } from '../../types'
 import './MKPage.css'
 import defaultMkImage from '../../assets/default-mk.svg'
 
 const MKPage = () => {
   const { mkName, query } = useParams<{ mkName: string; query: string }>()
-  const [utterances, setUtterances] = useState<Utterance[]>([])
+  const [utterances, setUtterances] = useState<DetailedUtterance[]>([])
   const [metadata, setMetadata] = useState<MKMetadata | null>(null)
+  const [sentiment, setSentiment] = useState<number | undefined>(undefined)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
@@ -46,6 +47,13 @@ const MKPage = () => {
             } else {
               setMetadata(null)
             }
+            
+            // Set sentiment if available
+            if ('sentiment' in mkData && typeof mkData.sentiment === 'number') {
+              setSentiment(mkData.sentiment)
+            } else {
+              setSentiment(undefined)
+            }
           }
         })
         
@@ -53,11 +61,13 @@ const MKPage = () => {
           console.error('MK not found in response')
           setUtterances([])
           setMetadata(null)
+          setSentiment(undefined)
         }
       } else {
         console.error('Invalid response format:', data)
         setUtterances([])
         setMetadata(null)
+        setSentiment(undefined)
       }
       
       console.log(`Fetched data for MK ${mkName} with query "${query}"`)
@@ -105,6 +115,19 @@ const MKPage = () => {
   const photoUrl = metadata?.PhotoURL || defaultMkImage
   const factionName = metadata?.FactionName || ''
 
+  // Determine sentiment display
+  const getSentimentInfo = (sentiment: number | undefined) => {
+    if (sentiment === undefined) return { label: 'Neutral', className: 'sentiment-neutral' };
+    
+    if (sentiment >= 4) return { label: 'Very Positive', className: 'sentiment-very-positive' };
+    if (sentiment >= 3.5) return { label: 'Positive', className: 'sentiment-positive' };
+    if (sentiment >= 2.5) return { label: 'Neutral', className: 'sentiment-neutral' };
+    if (sentiment >= 2) return { label: 'Negative', className: 'sentiment-negative' };
+    return { label: 'Very Negative', className: 'sentiment-very-negative' };
+  };
+
+  const sentimentInfo = getSentimentInfo(sentiment);
+
   return (
     <main className="app-main">
       <div className="mk-page">
@@ -130,6 +153,15 @@ const MKPage = () => {
                 <div className="mk-stat">
                   <span className="mk-stat-label">Utterances:</span>
                   <span className="mk-stat-value">{utterances.length}</span>
+                </div>
+                <div className="mk-stat">
+                  <span className="mk-stat-label">Overall Sentiment:</span>
+                  <span className={`mk-stat-sentiment ${sentimentInfo.className}`}>
+                    {sentimentInfo.label}
+                    {sentiment !== undefined && (
+                      <span className="sentiment-score"> ({sentiment.toFixed(1)})</span>
+                    )}
+                  </span>
                 </div>
               </div>
             </div>

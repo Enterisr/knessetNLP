@@ -8,7 +8,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1121/1_1121_3_19949.jpeg?v=20250911_89399",
     "SiteId": 1121,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7693166285380721
   },
   "30875": {
     "Id": 30875,
@@ -19,7 +20,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1122/1_1122_3_19962.jpeg?v=20250911_92761",
     "SiteId": 1122,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9591702365651726
   },
   "30876": {
     "Id": 30876,
@@ -30,7 +32,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1123/1_1123_3_19975.jpeg?v=20250911_72437",
     "SiteId": 1123,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.7836577892303467
   },
   "30706": {
     "Id": 30706,
@@ -41,7 +44,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1018/1_1018_3_12330.jpeg?v=20250911_85301",
     "SiteId": 1018,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8431087464252487
   },
   "30877": {
     "Id": 30877,
@@ -52,7 +56,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1124/1_1124_3_20007.jpeg?v=20250911_58411",
     "SiteId": 1124,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7933750621025684
   },
   "30879": {
     "Id": 30879,
@@ -63,7 +68,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1125/1_1125_3_20029.jpeg?v=20250911_16243",
     "SiteId": 1125,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5841391548998653
   },
   "30880": {
     "Id": 30880,
@@ -74,7 +80,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1126/1_1126_3_20040.jpeg?v=20250911_01885",
     "SiteId": 1126,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.868989234626293
   },
   "30881": {
     "Id": 30881,
@@ -85,7 +92,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1127/1_1127_3_20229.png?v=20250911_74471",
     "SiteId": 1127,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.996795052521862
   },
   "30809": {
     "Id": 30809,
@@ -96,7 +104,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1059/1_1059_3_17778.jpeg?v=20250911_29405",
     "SiteId": 1059,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8126555596217513
   },
   "30102": {
     "Id": 30102,
@@ -107,7 +116,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/915/1_915_3_2385.jpeg?v=20250911_83561",
     "SiteId": 915,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5970992019418626
   },
   "4397": {
     "Id": 4397,
@@ -118,7 +128,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/768/1_768_3_1721.jpeg?v=20250911_78635",
     "SiteId": 768,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8167396411299706
   },
   "30118": {
     "Id": 30118,
@@ -129,7 +140,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/950/1_950_3_2607.jpeg?v=20250911_48383",
     "SiteId": 950,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.630603067728691
   },
   "1027": {
     "Id": 1027,
@@ -140,7 +152,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/725/1_725_3_1595.jpeg",
     "SiteId": 725,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0092552076489514
   },
   "30082": {
     "Id": 30082,
@@ -151,7 +164,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/946/1_946_3_2590.jpeg",
     "SiteId": 946,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5680469365119933
   },
   "30799": {
     "Id": 30799,
@@ -162,7 +176,8 @@
     "FactionID": 1108,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1088/1_1088_3_19591.jpeg?v=20250911_08493",
     "SiteId": 1088,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.7925104437924144
   },
   "30830": {
     "Id": 30830,
@@ -173,7 +188,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1090/1_1090_3_19702.jpeg?v=20250911_53367",
     "SiteId": 1090,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.404126241357997
   },
   "30893": {
     "Id": 30893,
@@ -184,7 +200,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1128/1_1128_3_20759.jpeg?v=20250911_55585",
     "SiteId": 1128,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.666343284025788
   },
   "30721": {
     "Id": 30721,
@@ -195,7 +212,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1009/1_1009_3_12328.jpeg",
     "SiteId": 1009,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5920646378099919
   },
   "30857": {
     "Id": 30857,
@@ -206,7 +224,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1096/1_1096_3_19667.jpeg?v=20250911_22709",
     "SiteId": 1096,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5796245625466108
   },
   "23635": {
     "Id": 23635,
@@ -217,7 +236,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/905/1_905_3_2327.jpeg?v=20250911_09485",
     "SiteId": 905,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8878134451541118
   },
   "30859": {
     "Id": 30859,
@@ -228,7 +248,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1110/1_1110_3_19738.jpeg?v=20250911_20975",
     "SiteId": 1110,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.4783268397077918
   },
   "30846": {
     "Id": 30846,
@@ -239,7 +260,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1099/1_1099_3_19749.jpeg?v=20250911_41065",
     "SiteId": 1099,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9761718777366555
   },
   "30894": {
     "Id": 30894,
@@ -250,7 +272,8 @@
     "FactionID": 1103,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1129/1_1129_3_20971.jpeg?v=20250911_79506",
     "SiteId": 1129,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.4560805401381325
   },
   "30768": {
     "Id": 30768,
@@ -261,7 +284,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1042/1_1042_3_15101.jpeg",
     "SiteId": 1042,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.014357447417453
   },
   "30693": {
     "Id": 30693,
@@ -272,7 +296,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/981/1_981_3_11118.jpeg?v=20250911_61215",
     "SiteId": 981,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8502737118679127
   },
   "30775": {
     "Id": 30775,
@@ -283,7 +308,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1048/1_1048_3_16568.jpeg?v=20250911_89409",
     "SiteId": 1048,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.2480655344993328
   },
   "22151": {
     "Id": 22151,
@@ -305,7 +331,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/814/1_814_3_1874.jpeg?v=20250911_51026",
     "SiteId": 814,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.323543402850628
   },
   "563": {
     "Id": 563,
@@ -316,7 +343,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/103/1_103_3_285.jpeg?v=20250911_00566",
     "SiteId": 103,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6138171817621458
   },
   "30671": {
     "Id": 30671,
@@ -327,7 +355,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/996/1_996_3_11221.jpeg?v=20250911_87491",
     "SiteId": 996,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 0.7236377596855164
   },
   "30873": {
     "Id": 30873,
@@ -338,7 +367,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1119/1_1119_3_19933.jpeg",
     "SiteId": 1119,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0106364194601776
   },
   "1056": {
     "Id": 1056,
@@ -349,7 +379,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/751/1_751_3_1669.jpeg?v=20250911_49018",
     "SiteId": 751,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6924416510227285
   },
   "28513": {
     "Id": 28513,
@@ -360,7 +391,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/906/1_906_3_2332.jpeg?v=20250911_11582",
     "SiteId": 906,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8856992128270644
   },
   "30804": {
     "Id": 30804,
@@ -371,7 +403,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1055/1_1055_3_17783.jpeg?v=20250911_24406",
     "SiteId": 1055,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5248716417979449
   },
   "30895": {
     "Id": 30895,
@@ -382,7 +415,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1130/1_1130_3_21032.jpeg?v=20250911_98191",
     "SiteId": 1130,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.8864588836828866
   },
   "30749": {
     "Id": 30749,
@@ -393,7 +427,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1029/1_1029_3_13527.jpeg?v=20250911_75951",
     "SiteId": 1029,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.380044548875756
   },
   "30601": {
     "Id": 30601,
@@ -404,7 +439,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/970/1_970_3_2722.jpeg?v=20250911_46761",
     "SiteId": 970,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.02496795284003
   },
   "30660": {
     "Id": 30660,
@@ -415,7 +451,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1008/1_1008_3_11235.jpeg?v=20250911_23601",
     "SiteId": 1008,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.969829521784559
   },
   "30765": {
     "Id": 30765,
@@ -426,7 +463,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1039/1_1039_3_15050.jpeg?v=20250911_88737",
     "SiteId": 1039,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.374376961886883
   },
   "2291": {
     "Id": 2291,
@@ -437,7 +475,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/41/1_41_3_110.jpeg?v=20250911_21001",
     "SiteId": 41,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6766824566505172
   },
   "30770": {
     "Id": 30770,
@@ -448,7 +487,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1043/1_1043_3_15131.jpeg?v=20250911_68965",
     "SiteId": 1043,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.4020999586898832
   },
   "30470": {
     "Id": 30470,
@@ -459,7 +499,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/957/1_957_3_2656.jpeg?v=20250911_84685",
     "SiteId": 957,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7972288804749648
   },
   "532": {
     "Id": 532,
@@ -469,7 +510,8 @@
     "FactionName": "הליכוד ",
     "FactionID": 1096,
     "PhotoURL": null,
-    "PhotoStatus": "no_site_id"
+    "PhotoStatus": "no_site_id",
+    "sentiment": 2.476514690835029
   },
   "30300": {
     "Id": 30300,
@@ -480,7 +522,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/953/1_953_3_2628.jpeg?v=20250911_22097",
     "SiteId": 953,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.189201145348224
   },
   "23564": {
     "Id": 23564,
@@ -491,7 +534,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/912/1_912_3_2364.jpeg",
     "SiteId": 912,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8703248645434831
   },
   "12937": {
     "Id": 12937,
@@ -502,7 +546,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/830/1_830_3_1939.jpeg",
     "SiteId": 830,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 3.0
   },
   "23558": {
     "Id": 23558,
@@ -513,7 +558,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/914/1_914_3_2378.jpeg?v=20250911_27253",
     "SiteId": 914,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.559592631664127
   },
   "30700": {
     "Id": 30700,
@@ -524,7 +570,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/974/1_974_3_12308.jpeg?v=20250911_60388",
     "SiteId": 974,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.59056265409226
   },
   "30077": {
     "Id": 30077,
@@ -535,7 +582,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/921/1_921_3_2424.jpeg",
     "SiteId": 921,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 4.416049063205719
   },
   "1025": {
     "Id": 1025,
@@ -546,7 +594,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/723/1_723_3_1586.jpeg?v=20250911_06101",
     "SiteId": 723,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1487041666652216
   },
   "4395": {
     "Id": 4395,
@@ -557,7 +606,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/771/1_771_3_1732.jpeg?v=20250911_11214",
     "SiteId": 771,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.376923748425075
   },
   "30058": {
     "Id": 30058,
@@ -568,7 +618,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/922/1_922_3_2431.jpeg",
     "SiteId": 922,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.437261515855789
   },
   "30083": {
     "Id": 30083,
@@ -579,7 +630,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/928/1_928_3_2473.jpeg",
     "SiteId": 928,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7311694584786892
   },
   "30701": {
     "Id": 30701,
@@ -590,7 +642,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/976/1_976_3_12324.jpeg?v=20250911_49974",
     "SiteId": 976,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.2344348388053477
   },
   "556": {
     "Id": 556,
@@ -623,7 +676,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/826/1_826_3_1921.jpeg?v=20250911_82525",
     "SiteId": 826,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5829614546034754
   },
   "965": {
     "Id": 965,
@@ -634,7 +688,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/90/1_90_3_248.jpeg?v=20250911_48475",
     "SiteId": 90,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.853067091533116
   },
   "30057": {
     "Id": 30057,
@@ -645,7 +700,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/945/1_945_3_2583.jpeg",
     "SiteId": 945,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0905143220461904
   },
   "30704": {
     "Id": 30704,
@@ -656,7 +712,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1011/1_1011_3_12326.jpeg?v=20250911_64976",
     "SiteId": 1011,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.344333003140986
   },
   "12959": {
     "Id": 12959,
@@ -678,7 +735,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1056/1_1056_3_17788.jpeg?v=20250911_62244",
     "SiteId": 1056,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5614157809577882
   },
   "30810": {
     "Id": 30810,
@@ -689,7 +747,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1060/1_1060_3_17793.jpeg?v=20250911_45469",
     "SiteId": 1060,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9426972049945035
   },
   "30814": {
     "Id": 30814,
@@ -700,7 +759,8 @@
     "FactionID": 1107,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1063/1_1063_3_17738.jpeg?v=20250911_79581",
     "SiteId": 1063,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8147009647427461
   },
   "23551": {
     "Id": 23551,
@@ -711,7 +771,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/884/1_884_3_2213.jpeg?v=20250911_01716",
     "SiteId": 884,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 0.8321140706539154
   },
   "30055": {
     "Id": 30055,
@@ -733,7 +794,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1067/1_1067_3_17818.jpeg?v=20250911_44772",
     "SiteId": 1067,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.909775127114728
   },
   "30662": {
     "Id": 30662,
@@ -744,7 +806,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1030/1_1030_3_13542.jpeg",
     "SiteId": 1030,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.720468027360388
   },
   "30758": {
     "Id": 30758,
@@ -755,7 +818,8 @@
     "FactionID": 1099,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1032/1_1032_3_13745.jpeg?v=20250911_96789",
     "SiteId": 1032,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8327182366997004
   },
   "30752": {
     "Id": 30752,
@@ -766,7 +830,8 @@
     "FactionID": 1099,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1026/1_1026_3_13539.jpeg?v=20250911_68092",
     "SiteId": 1026,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5573138129599393
   },
   "30713": {
     "Id": 30713,
@@ -777,7 +842,8 @@
     "FactionID": 1099,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1007/1_1007_3_12320.jpeg?v=20250911_34957",
     "SiteId": 1007,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1285953447394776
   },
   "30106": {
     "Id": 30106,
@@ -788,7 +854,8 @@
     "FactionID": 1100,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1082/1_1082_3_17989.jpeg?v=20250911_61326",
     "SiteId": 1082,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.807654452720657
   },
   "23565": {
     "Id": 23565,
@@ -799,7 +866,8 @@
     "FactionID": 1100,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/881/1_881_3_2196.jpeg?v=20250911_45712",
     "SiteId": 881,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7883810297837481
   },
   "30807": {
     "Id": 30807,
@@ -810,7 +878,8 @@
     "FactionID": 1100,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1066/1_1066_3_17753.jpeg?v=20250911_55996",
     "SiteId": 1066,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5761425435589627
   },
   "30808": {
     "Id": 30808,
@@ -821,7 +890,8 @@
     "FactionID": 1100,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1068/1_1068_3_17773.jpeg?v=20250911_08993",
     "SiteId": 1068,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5559022613689304
   },
   "1057": {
     "Id": 1057,
@@ -832,7 +902,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/754/1_754_3_1681.jpeg?v=20250911_22829",
     "SiteId": 754,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0518967375122013
   },
   "23641": {
     "Id": 23641,
@@ -843,7 +914,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/861/1_861_3_2073.jpeg?v=20250911_77618",
     "SiteId": 861,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1389561128541827
   },
   "526": {
     "Id": 526,
@@ -854,7 +926,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/35/1_35_3_93.jpeg?v=20250911_99717",
     "SiteId": 35,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.207399537988007
   },
   "23631": {
     "Id": 23631,
@@ -865,7 +938,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/860/1_860_3_2066.jpeg?v=20250911_44854",
     "SiteId": 860,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.587401674269233
   },
   "30776": {
     "Id": 30776,
@@ -876,7 +950,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1049/1_1049_3_16601.jpeg?v=20250911_61368",
     "SiteId": 1049,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.585547373317182
   },
   "30691": {
     "Id": 30691,
@@ -887,7 +962,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1022/1_1022_3_11242.jpeg?v=20250911_80179",
     "SiteId": 1022,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6077629455607385
   },
   "30681": {
     "Id": 30681,
@@ -898,7 +974,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/980/1_980_3_11115.jpeg",
     "SiteId": 980,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6047299983277916
   },
   "30820": {
     "Id": 30820,
@@ -909,7 +986,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1085/1_1085_3_18028.jpeg?v=20250911_69127",
     "SiteId": 1085,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8868214334249496
   },
   "23639": {
     "Id": 23639,
@@ -920,7 +998,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/872/1_872_3_2141.jpeg?v=20250911_07851",
     "SiteId": 872,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5808256748151035
   },
   "30777": {
     "Id": 30777,
@@ -931,7 +1010,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1050/1_1050_3_16606.jpeg?v=20250911_27992",
     "SiteId": 1050,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0218894106531518
   },
   "23597": {
     "Id": 23597,
@@ -942,7 +1022,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/874/1_874_3_2153.jpeg?v=20250911_08103",
     "SiteId": 874,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6445987936630846
   },
   "30686": {
     "Id": 30686,
@@ -953,7 +1034,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1006/1_1006_3_11251.jpeg?v=20250911_18025",
     "SiteId": 1006,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9587689454704522
   },
   "30780": {
     "Id": 30780,
@@ -964,7 +1046,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1061/1_1061_3_17813.jpeg?v=20250911_86804",
     "SiteId": 1061,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7008959049042314
   },
   "30720": {
     "Id": 30720,
@@ -975,7 +1058,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/998/1_998_3_11225.jpeg?v=20250911_09128",
     "SiteId": 998,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6994344146383227
   },
   "23632": {
     "Id": 23632,
@@ -986,7 +1070,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/876/1_876_3_2167.jpeg?v=20250911_74387",
     "SiteId": 876,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9667854705229402
   },
   "23594": {
     "Id": 23594,
@@ -997,7 +1082,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/878/1_878_3_2178.jpeg?v=20250911_75352",
     "SiteId": 878,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.060930622617404
   },
   "30782": {
     "Id": 30782,
@@ -1008,7 +1094,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1076/1_1076_3_17974.jpeg?v=20250911_82195",
     "SiteId": 1076,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.221776963315904
   },
   "30695": {
     "Id": 30695,
@@ -1019,7 +1106,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/995/1_995_3_11219.jpeg?v=20250911_77497",
     "SiteId": 995,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.4295418897606433
   },
   "30783": {
     "Id": 30783,
@@ -1030,7 +1118,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1079/1_1079_3_17943.jpeg?v=20250911_76258",
     "SiteId": 1079,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5056818902175872
   },
   "23601": {
     "Id": 23601,
@@ -1052,7 +1141,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/899/1_899_3_2289.jpeg?v=20250911_83813",
     "SiteId": 899,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8397010237947107
   },
   "30657": {
     "Id": 30657,
@@ -1063,7 +1153,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/988/1_988_3_12347.jpeg?v=20250911_09193",
     "SiteId": 988,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.2067764598515724
   },
   "30836": {
     "Id": 30836,
@@ -1074,7 +1165,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1092/1_1092_3_19647.jpeg",
     "SiteId": 1092,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0449109428051497
   },
   "30683": {
     "Id": 30683,
@@ -1085,7 +1177,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1000/1_1000_3_11227.jpeg?v=20250911_38297",
     "SiteId": 1000,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7754102672785521
   },
   "30682": {
     "Id": 30682,
@@ -1096,7 +1189,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1003/1_1003_3_11237.jpeg?v=20250911_19126",
     "SiteId": 1003,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9209842499215155
   },
   "30685": {
     "Id": 30685,
@@ -1107,7 +1201,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/978/1_978_3_11111.jpeg?v=20250911_17085",
     "SiteId": 978,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6246787397526206
   },
   "30694": {
     "Id": 30694,
@@ -1118,7 +1213,8 @@
     "FactionID": 1098,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/982/1_982_3_11099.jpeg?v=20250911_79059",
     "SiteId": 982,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.268904496807605
   },
   "30708": {
     "Id": 30708,
@@ -1129,7 +1225,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1002/1_1002_3_12304.jpeg?v=20250911_04114",
     "SiteId": 1002,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.4628912843763828
   },
   "30835": {
     "Id": 30835,
@@ -1140,7 +1237,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1095/1_1095_3_19662.jpeg?v=20250911_71803",
     "SiteId": 1095,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.604232350707054
   },
   "30860": {
     "Id": 30860,
@@ -1151,7 +1249,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1098/1_1098_3_19677.jpeg?v=20250911_33383",
     "SiteId": 1098,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5238762044552714
   },
   "30831": {
     "Id": 30831,
@@ -1162,7 +1261,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1100/1_1100_3_19682.jpeg?v=20250911_43378",
     "SiteId": 1100,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.290614795762114
   },
   "12944": {
     "Id": 12944,
@@ -1173,7 +1273,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/828/1_828_3_1930.jpeg",
     "SiteId": 828,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1983336101878774
   },
   "30861": {
     "Id": 30861,
@@ -1184,7 +1285,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1101/1_1101_3_19687.jpeg?v=20250911_52645",
     "SiteId": 1101,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8831277589946984
   },
   "30772": {
     "Id": 30772,
@@ -1195,7 +1297,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1045/1_1045_3_16502.jpeg?v=20250911_62961",
     "SiteId": 1045,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9542104345625266
   },
   "30842": {
     "Id": 30842,
@@ -1206,7 +1309,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1105/1_1105_3_19712.jpeg?v=20250911_50768",
     "SiteId": 1105,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.571373766567558
   },
   "30718": {
     "Id": 30718,
@@ -1217,7 +1321,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1014/1_1014_3_12318.jpeg",
     "SiteId": 1014,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0386367390408764
   },
   "30853": {
     "Id": 30853,
@@ -1228,7 +1333,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1109/1_1109_3_19733.jpeg?v=20250911_80215",
     "SiteId": 1109,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7227952273283154
   },
   "30832": {
     "Id": 30832,
@@ -1239,7 +1345,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1111/1_1111_3_19753.jpeg?v=20250911_66047",
     "SiteId": 1111,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8710022410079836
   },
   "30786": {
     "Id": 30786,
@@ -1250,7 +1357,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1070/1_1070_3_17798.jpeg",
     "SiteId": 1070,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7623096216522471
   },
   "30847": {
     "Id": 30847,
@@ -1261,7 +1369,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1102/1_1102_3_19692.jpeg?v=20250911_85269",
     "SiteId": 1102,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.2171417397001516
   },
   "30833": {
     "Id": 30833,
@@ -1272,7 +1381,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1104/1_1104_3_19707.jpeg",
     "SiteId": 1104,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8171167321512476
   },
   "30852": {
     "Id": 30852,
@@ -1283,7 +1393,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1107/1_1107_3_19723.jpeg?v=20250911_17399",
     "SiteId": 1107,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1120747777596116
   },
   "30849": {
     "Id": 30849,
@@ -1294,7 +1405,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1108/1_1108_3_19728.jpeg?v=20250911_98532",
     "SiteId": 1108,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.056436565379612
   },
   "30717": {
     "Id": 30717,
@@ -1305,7 +1417,8 @@
     "FactionID": 1105,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/977/1_977_3_11108.jpeg?v=20250911_44614",
     "SiteId": 977,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.083377319268691
   },
   "30840": {
     "Id": 30840,
@@ -1316,7 +1429,8 @@
     "FactionID": 1099,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1093/1_1093_3_19652.jpeg?v=20250911_50958",
     "SiteId": 1093,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.110629194136709
   },
   "30843": {
     "Id": 30843,
@@ -1327,7 +1441,8 @@
     "FactionID": 1099,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1103/1_1103_3_19697.jpeg?v=20250911_.7724",
     "SiteId": 1103,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.313890797019005
   },
   "30066": {
     "Id": 30066,
@@ -1338,7 +1453,8 @@
     "FactionID": 1103,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/938/1_938_3_2537.jpeg?v=20250911_72589",
     "SiteId": 938,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.7189153169989586
   },
   "560": {
     "Id": 560,
@@ -1349,7 +1465,8 @@
     "FactionID": 1103,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/208/1_208_3_520.jpeg?v=20250911_07586",
     "SiteId": 208,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.650314533477649
   },
   "30067": {
     "Id": 30067,
@@ -1360,7 +1477,8 @@
     "FactionID": 1103,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/948/1_948_3_2597.jpeg?v=20250911_31004",
     "SiteId": 948,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.621285926981247
   },
   "30719": {
     "Id": 30719,
@@ -1371,7 +1489,8 @@
     "FactionID": 1103,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1013/1_1013_3_12312.jpeg?v=20250911_62032",
     "SiteId": 1013,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5308725278641795
   },
   "30558": {
     "Id": 30558,
@@ -1382,7 +1501,8 @@
     "FactionID": 1103,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/964/1_964_3_2697.jpeg",
     "SiteId": 964,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6359405431640335
   },
   "30837": {
     "Id": 30837,
@@ -1393,7 +1513,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1094/1_1094_3_19657.jpeg?v=20250911_88732",
     "SiteId": 1094,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8448282316084952
   },
   "30851": {
     "Id": 30851,
@@ -1404,7 +1525,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1091/1_1091_3_19743.jpeg?v=20250911_00953",
     "SiteId": 1091,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.8487926849834622
   },
   "30705": {
     "Id": 30705,
@@ -1415,7 +1537,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1004/1_1004_3_12334.jpeg?v=20250911_91674",
     "SiteId": 1004,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.3931297894548624
   },
   "30854": {
     "Id": 30854,
@@ -1426,7 +1549,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1112/1_1112_3_19758.jpeg?v=20250911_91177",
     "SiteId": 1112,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.4959154438190163
   },
   "30480": {
     "Id": 30480,
@@ -1437,7 +1561,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1097/1_1097_3_19672.jpeg",
     "SiteId": 1097,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1922643945887685
   },
   "427": {
     "Id": 427,
@@ -1448,7 +1573,8 @@
     "FactionID": 1104,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/214/1_214_3_548.jpeg?v=20250911_71518",
     "SiteId": 214,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.2093918779343364
   },
   "23560": {
     "Id": 23560,
@@ -1459,7 +1585,8 @@
     "FactionID": 1104,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/956/1_956_3_2649.jpeg?v=20250911_00696",
     "SiteId": 956,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.6251251103430986
   },
   "30722": {
     "Id": 30722,
@@ -1470,7 +1597,8 @@
     "FactionID": 1104,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/994/1_994_3_11217.jpeg?v=20250911_68066",
     "SiteId": 994,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.776417744198814
   },
   "12938": {
     "Id": 12938,
@@ -1481,7 +1609,8 @@
     "FactionID": 1104,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/837/1_837_3_1973.jpeg?v=20250911_20295",
     "SiteId": 837,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.5675800948962568
   },
   "30121": {
     "Id": 30121,
@@ -1492,7 +1621,8 @@
     "FactionID": 1104,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/951/1_951_3_2614.jpeg?v=20250911_75904",
     "SiteId": 951,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.000298014417291
   },
   "30863": {
     "Id": 30863,
@@ -1503,7 +1633,8 @@
     "FactionID": 1104,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1106/1_1106_3_19718.jpeg?v=20250911_83589",
     "SiteId": 1106,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.036844061974436
   },
   "30867": {
     "Id": 30867,
@@ -1514,7 +1645,8 @@
     "FactionID": 1106,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1114/1_1114_3_19866.jpeg?v=20250911_51987",
     "SiteId": 1114,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.1452367450110614
   },
   "30868": {
     "Id": 30868,
@@ -1525,7 +1657,8 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1115/1_1115_3_19849.jpeg?v=20250911_37456",
     "SiteId": 1115,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.5290715636312964
   },
   "30672": {
     "Id": 30672,
@@ -1536,7 +1669,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1001/1_1001_3_11229.jpeg",
     "SiteId": 1001,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9385333247631789
   },
   "30839": {
     "Id": 30839,
@@ -1547,7 +1681,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1116/1_1116_3_19861.jpeg?v=20250911_91774",
     "SiteId": 1116,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.0406602903157474
   },
   "30710": {
     "Id": 30710,
@@ -1558,7 +1693,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/987/1_987_3_11129.jpeg?v=20250911_62367",
     "SiteId": 987,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9664770373255014
   },
   "30702": {
     "Id": 30702,
@@ -1569,7 +1705,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/992/1_992_3_11212.jpeg?v=20250911_21907",
     "SiteId": 992,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.236823054689914
   },
   "30711": {
     "Id": 30711,
@@ -1580,7 +1717,8 @@
     "FactionID": 1096,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1044/1_1044_3_16220.jpeg?v=20250911_70308",
     "SiteId": 1044,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.7947961844876408
   },
   "30870": {
     "Id": 30870,
@@ -1591,7 +1729,8 @@
     "FactionID": 1101,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1117/1_1117_3_19896.jpeg",
     "SiteId": 1117,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.259037691785023
   },
   "30871": {
     "Id": 30871,
@@ -1602,7 +1741,8 @@
     "FactionID": 1102,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1118/1_1118_3_19926.jpeg?v=20250911_00432",
     "SiteId": 1118,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 1.9227903082184494
   },
   "30872": {
     "Id": 30872,
@@ -1613,6 +1753,46 @@
     "FactionID": 1095,
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
     "SiteId": 1120,
-    "PhotoStatus": "found"
+    "PhotoStatus": "found",
+    "sentiment": 2.167489304408431
+  }
+  ,
+  "1": {
+    "Id": 1,
+    "FirstName": "דוויט",
+    "Email": null,
+    "LastName": "שרוט",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
+    "SiteId": 1120,
+    "PhotoStatus": "found",
+    "sentiment": 2.167489304408431
+  }
+  ,
+  "2": {
+    "Id": 2,
+    "FirstName": "אור",
+    "Email": null,
+    "LastName": "ישראלי",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
+    "SiteId": 1120,
+    "PhotoStatus": "found",
+    "sentiment": 2.167489304408431
+  }
+  ,
+  "3": {
+    "Id": 3,
+    "FirstName": "טיילור",
+    "Email": null,
+    "LastName": "סוויפט",
+    "FactionName": "יהדות התורה",
+    "FactionID": 1101,
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
+    "SiteId": 1120,
+    "PhotoStatus": "found",
+    "sentiment": 2.167489304408431
   }
 }

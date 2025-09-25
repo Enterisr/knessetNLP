@@ -92,3 +92,10 @@ Also made adjustments to client app
 
 16/9
 After extensive trial and error, and a lot of research into why the search results weren’t aligning with the queries, I switched the model to imvladikon/sentence-transformers-alephbert, which is specifically trained on Hebrew. The improvement has been remarkable—irrelevant “trash” utterances (אני מסכים איתך, הצעה 5 נדחית....) no longer dominate the results, and the subject itself is now properly taken into account. seems like most of these models are very similar in the network design, and change only based on the training data. now, i wonder if i should look at a baseline of tf-idf to prove the effectiveness of the model. 
+
+22.9
+After considering various tools for more effective and faster sentiment labeling than translation followed by a lexicon method  (Text blob) / LLM-based labeling and then attempting fine-tuning, I found this model: classla/xlm-r-parlasent.
+Although it wasn’t trained directly on Hebrew, it seems to “inherit” Hebrew understanding from the underlying XLM model, and it is specifically trained on parliamentary data. Thus, utterances like “Who’s in favor? Who’s against? Who abstains? Rejected” are labeled as neutral. It also does a decent job with irony and sarcasm, and overall seems more reliable than anything else I’ve tried.
+
+23.9
+done more extensive testing on search. seems to work perfectly for dummy data, but very flaky on real data. i think that reducing committe noise will help here. thinking about training a model of my own to predict !fast! if this utterance will be relevant, and not incnlude it if not. might also first remove alll "מי בעד? מי נגד?" utterances with regex. i think length of utternace should also play a role in its importance, in addition of the complete removal of <4 words utterances

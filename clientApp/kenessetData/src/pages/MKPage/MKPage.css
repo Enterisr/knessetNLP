@@ -119,6 +119,50 @@
   font-size: 1.2rem;
 }
 
+.mk-stat-sentiment {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  display: inline-block;
+}
+
+.mk-stat-sentiment.sentiment-very-positive {
+  background-color: #d1f2eb;
+  color: #0a3d2e;
+  border: 1px solid #a3e4d7;
+}
+
+.mk-stat-sentiment.sentiment-positive {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.mk-stat-sentiment.sentiment-neutral {
+  background-color: #f8f9fa;
+  color: #6c757d;
+  border: 1px solid #dee2e6;
+}
+
+.mk-stat-sentiment.sentiment-negative {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.mk-stat-sentiment.sentiment-very-negative {
+  background-color: #f5c6cb;
+  color: #721c24;
+  border: 1px solid #f1b0b7;
+}
+
+.mk-stat-sentiment .sentiment-score {
+  margin-left: 0.25rem;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
 /* Utterances List */
 .mk-utterances {
   margin-top: 2rem;

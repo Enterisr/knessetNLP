@@ -1,3 +1,4 @@
+from processing.clusterer import Clusterer
 from sentiment.sentiment_analyzer import analyze_sentiment
 from UtterancesExtraction.utterance_extractor import process_protocols
 from DataFetching.data_fetcher import KnessetDataFetcher
@@ -5,32 +6,26 @@ from DataFetching.photo_enricher import enrich_photos
 from processing.embedder import embed
 import argparse
 from utils.logger_config import get_logger
-from processing import init_repo_server, run_tf_idf_analysis
+from processing import init_repo_server
 logger = get_logger(__name__)
 OUTPUT_FOLDER = "committee_data"
 
 
 def full_pipeline(args):
     knesset_number = 25
-
-    # Step 1: Fetch and process Knesset data
-    # This will also save the MKs data to mks_data.json
-    # logger.info(f"started process_knesset_data with knesset {knesset_number}")
+    logger.info(f"started process_knesset_data with knesset {knesset_number}")
     fetcher = KnessetDataFetcher(
         knesset_num=knesset_number, force_refresh=args.force_refresh)
     fetcher.process_knesset_data()
 
-    # Step 1.5: Enrich MKs data with photos
     logger.info("Starting photo enrichment of MKs data...")
     enrich_photos(force_refresh=args.force_refresh)
 
-    # Step 2: Process protocols to extract utterances and enrich with MKs data
     logger.info(
         f"started process_protocols to utterances with knesset {knesset_number}")
     process_protocols(
         OUTPUT_FOLDER, force_refresh=args.force_refresh)
 
-    #  Step 3: Process Agressiveness
     logger.info(f"started analyzing santiment of utterances")
     analyze_sentiment(force_refresh=args.force_refresh)
     logger.info(f"started embedding utterances")
@@ -69,6 +64,4 @@ def run():
 
 
 if __name__ == "__main__":
-    # run_tf_idf_analysis()
-    # embed()
     run()
