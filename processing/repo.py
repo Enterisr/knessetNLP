@@ -8,6 +8,9 @@ from pathlib import Path
 from processing.embedder import embed
 from processing.repo_data import RepoData
 from processing.mk_database import get_mks
+from processing.filter_db.utterance_filter import filter_and_save_utterances
+from processing.search_utils import process_search_results, build_sorted_results
+import pandas as pd
 
 logger = get_logger(__name__)
 
@@ -41,45 +44,56 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> 
 
 
 def search(repo_data: RepoData, query: str) -> dict[str, dict]:
+    """
+    Search for utterances matching the query and return results grouped by MK.
 
+    Args:
+        repo_data: Repository data containing FAISS database and dataframe
+        query: Search query string
+
+    Returns:
+        Dictionary of MK results sorted by total relevance score
+    """
     query_embedding = model.encode(
         [query], normalize_embeddings=True, convert_to_numpy=True).astype(np.float32)
-    k = 100
-
+    k = 200
     distances, ids = repo_data.database.search(query_embedding, k)
 
-    utters_by_mk: dict[str, dict] = {}
-    print("Search results:")
-    for rank, (uid, dist) in enumerate(zip(ids[0], distances[0]), start=1):
-        if uid == -1:
-            continue
+    mk_utterances, mk_total_scores, mk_metadata = process_search_results(
+        distances, ids, repo_data.df
+    )
 
-        utter_idx = int(uid)
-        row = repo_data.df.iloc[utter_idx]
-
-        print(
-            f"Match {rank}: ID {utter_idx}, score={float(dist):.4f}, Utterance: {row['text'][:120][::-1]} mk: { row['mk'][::-1]}")
-
-        mk_id = str(row["mk_id"])
-        if mk_id not in utters_by_mk:
-            utters_by_mk[mk_id] = {
-                "utterances": [],
-                "name": row["mk"],
-                "metadata": get_mks().get(mk_id),
-            }
-
-        utters_by_mk[mk_id]["utterances"].append(
-            {"text": row["text"], "src": row["src"], "score": float(dist)}
-        )
-
-    return utters_by_mk
+    return build_sorted_results(mk_utterances, mk_total_scores, mk_metadata)
 
 
 def init_repo(force_refresh: bool):
-    df, embeddings, utternaces = embed(force_refresh=force_refresh)
+    """Initialize repository with importance filtering."""
+    df, embeddings, utterances = embed(force_refresh=force_refresh)
+
+    # Check if filtered files exist
+    filtered_embeddings_path = PROJECT_ROOT / "filtered_utterance_embeddings.npy"
+    filtered_df_path = PROJECT_ROOT / "filtered_utterances_data.pkl"
+
+    need_filter = (force_refresh or
+                   not filtered_embeddings_path.exists() or
+                   not filtered_df_path.exists())
+
+    if need_filter:
+        logger.info("Creating filtered data...")
+        filtered_embeddings, filtered_df = filter_and_save_utterances(
+            embeddings, df, 0.43)
+    else:
+        logger.info("Loading existing filtered data...")
+        filtered_embeddings = np.load(filtered_embeddings_path)
+        filtered_df = pd.read_pickle(filtered_df_path)
+
+    # Build or load FAISS index
+    index_path = PROJECT_ROOT / "committie_index"
+    need_rebuild_index = force_refresh or not index_path.exists()
     database = build_faiss_from_embeddings(
-        embeddings, force_refresh)
-    return RepoData(database, df, utternaces)
+        filtered_embeddings, need_rebuild_index)
+
+    return RepoData(database, filtered_df, utterances)
 
 
 if __name__ == "__main__":

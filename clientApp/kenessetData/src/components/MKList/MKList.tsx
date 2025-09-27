@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useMemo } from 'react'
 import './MKList.css'
 import type { MKUtterances } from '../../types'
 import { getSentimentInfo } from '../../utils'
@@ -12,16 +12,13 @@ interface MKListProps {
 }
 
 const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
-  const [sortedMkIds, setSortedMkIds] = useState<string[]>([])
-
-  useEffect(() => {
+  const sortedMkIds = useMemo(() => {
     const mkIds = Object.keys(mks)
-    const sorted = mkIds.sort((a, b) => {
+    return mkIds.sort((a, b) => {
       const scoreA = mks[a]?.total_relevance_score || 0
       const scoreB = mks[b]?.total_relevance_score || 0
       return scoreB - scoreA // Sort descending (highest score first)
     })
-    setSortedMkIds(sorted)
   }, [mks])
 
   if (loading) {
@@ -46,12 +43,15 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
   return (
     <ul className="mk-list">
       {sortedMkIds.map((mkID) => {
-        const mkData = mks[mkID];
-        const mkName = mks[mkID].name
-        const photoUrl = mkData.metadata?.PhotoURL || defaultMkImage;
-        const party = mkData.metadata?.FactionName || '';
-        const sentiment = typeof mkData.metadata?.sentiment === 'number' ? mkData.metadata.sentiment : mkData.sentiment;
-        const relevanceScore = mkData.total_relevance_score;
+        const mkIDNum = parseInt(mkID)
+        console.log(mkID)
+        console.log(mks[mkIDNum])
+        const mkData = mks[mkIDNum];
+        const mkName = mks[mkIDNum]?.name
+        const photoUrl = mkData?.metadata?.PhotoURL || defaultMkImage;
+        const party = mkData?.metadata?.FactionName || '';
+        const sentiment =  mkData?.metadata?.sentiment||undefined;
+        const relevanceScore = mkData?.total_relevance_score||0;
         
         if (relevanceScore === undefined) {
           console.warn(`MK ${mkID} missing relevance score:`, mkData);

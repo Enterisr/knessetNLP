@@ -18,3 +18,5 @@ clientApp/kenessetData/node_modules
 /node_modules
 db/
 utterance_embeddings.npy
+processing/filtered_out_utterances_0.43.json
+processing/filtered_summary_0.43.txt

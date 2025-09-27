@@ -18,6 +18,7 @@ export interface MKMetadata {
   PhotoURL?: string
   SiteId?: number
   PhotoStatus?: string
+  sentiment?:number,
   [key: string]: unknown // Allow for any additional properties
 }
 
