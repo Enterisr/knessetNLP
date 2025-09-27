@@ -146,3 +146,121 @@
   color: #7f8c8d;
   font-size: 1.1rem;
 }
+
+/* Relevance Score Styles */
+.mk-relevance-score {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.relevance-label {
+  font-weight: 500;
+}
+
+.relevance-score {
+  font-weight: bold;
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #fadbd8;
+}
+
+/* Utterances Preview Styles */
+.mk-utterances-preview {
+  margin-top: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid #e9ecef;
+}
+
+.utterance-preview {
+  margin-bottom: 0.5rem;
+  padding: 0.75rem;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.utterance-preview:last-child {
+  margin-bottom: 0;
+}
+
+.utterance-scores {
+  margin-bottom: 0.5rem;
+}
+
+.relevance-score {
+  font-size: 0.8rem;
+  background-color: #e3f2fd;
+  color: #1565c0;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+.utterance-text {
+  font-size: 0.85rem;
+  color: #495057;
+  line-height: 1.4;
+  margin: 0;
+  text-align: justify;
+}
+
+/* Update the main item to not be clickable */
+.mk-list-item {
+  cursor: default;
+}
+
+.mk-list-item:hover {
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  border-color: #ddd;
+}
+
+/* Protocol Info Clickable Styles */
+.protocol-info {
+  display: inline-block;
+  font-size: 0.8rem;
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.protocol-info.clickable {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  color: #495057;
+}
+
+.protocol-info.clickable:hover {
+  background-color: #e9ecef;
+  border-color: #3498db;
+  color: #2c3e50;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(52, 152, 219, 0.2);
+}
+
+.protocol-info.clickable:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 2px rgba(52, 152, 219, 0.3);
+}
+
+.document-icon {
+  margin-right: 0.2rem;
+  font-size: 0.9em;
+}
+
+.external-link-icon {
+  margin-left: 0.2rem;
+  font-size: 0.8em;
+  opacity: 0.7;
+  transition: opacity 0.2s ease;
+}
+
+.protocol-info.clickable:hover .external-link-icon {
+  opacity: 1;
+}

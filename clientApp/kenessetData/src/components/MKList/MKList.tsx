@@ -1,5 +1,8 @@
+import { useState, useEffect } from 'react'
 import './MKList.css'
 import type { MKUtterances } from '../../types'
+import { getSentimentInfo } from '../../utils'
+import UtteranceItem from '../UtteranceItem/UtteranceItem'
 import defaultMkImage from '../../assets/default-mk.svg'
 
 interface MKListProps {
@@ -9,6 +12,18 @@ interface MKListProps {
 }
 
 const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
+  const [sortedMkIds, setSortedMkIds] = useState<string[]>([])
+
+  useEffect(() => {
+    const mkIds = Object.keys(mks)
+    const sorted = mkIds.sort((a, b) => {
+      const scoreA = mks[a]?.total_relevance_score || 0
+      const scoreB = mks[b]?.total_relevance_score || 0
+      return scoreB - scoreA // Sort descending (highest score first)
+    })
+    setSortedMkIds(sorted)
+  }, [mks])
+
   if (loading) {
     return (
       <div className="mk-list-loading">
@@ -20,9 +35,7 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
     )
   }
 
-  const mkNames = Object.keys(mks)
-
-  if (mkNames.length === 0) {
+  if (sortedMkIds.length === 0) {
     return (
       <div className="mk-list-empty">
         <p>No results found</p>
@@ -32,27 +45,26 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
 
   return (
     <ul className="mk-list">
-      {mkNames.map((mkName) => {
-        const mkData = mks[mkName];
+      {sortedMkIds.map((mkID) => {
+        const mkData = mks[mkID];
+        const mkName = mks[mkID].name
         const photoUrl = mkData.metadata?.PhotoURL || defaultMkImage;
         const party = mkData.metadata?.FactionName || '';
-        const sentiment = mkData.sentiment;
+        const sentiment = typeof mkData.metadata?.sentiment === 'number' ? mkData.metadata.sentiment : mkData.sentiment;
+        const relevanceScore = mkData.total_relevance_score;
         
-        // Determine sentiment display
-        const getSentimentInfo = (sentiment: number | undefined) => {
-          if (sentiment === undefined) return { label: 'Neutral', className: 'sentiment-neutral' };
-          
-          if (sentiment >= 4) return { label: 'Very Positive', className: 'sentiment-very-positive' };
-          if (sentiment >= 3.5) return { label: 'Positive', className: 'sentiment-positive' };
-          if (sentiment >= 2.5) return { label: 'Neutral', className: 'sentiment-neutral' };
-          if (sentiment >= 2) return { label: 'Negative', className: 'sentiment-negative' };
-          return { label: 'Very Negative', className: 'sentiment-very-negative' };
-        };
+        if (relevanceScore === undefined) {
+          console.warn(`MK ${mkID} missing relevance score:`, mkData);
+        }
+        if (sentiment === undefined) {
+          console.warn(`MK ${mkID} missing sentiment:`, mkData);
+        }
         
+        const topUtterances = mkData.utterances.slice(0, 5);
         const sentimentInfo = getSentimentInfo(sentiment);
         
         return (
-          <li key={mkName} className="mk-list-item" onClick={() => onMKSelect(mkName)}>
+          <li key={mkID} className="mk-list-item">
             <div className="mk-list-item-content">
               <div className="mk-photo-container">
                 <img 
@@ -65,14 +77,32 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
                 />
               </div>
               <div className="mk-details">
-                <h3 className="mk-list-item-title">{mkName}</h3>
+                <h3 className="mk-list-item-title" onClick={() => onMKSelect(mkID)} style={{cursor: 'pointer'}}>
+                  {mkName}
+                </h3>
                 {party && <p className="mk-list-item-party">{party}</p>}
-                <p className="mk-list-item-description">{mkData.utterances.length} utterances</p>
+                <p className="mk-list-item-description">
+                רלוונטיות לחיפוש: {relevanceScore !== undefined ? relevanceScore.toFixed(3) : 'N/A'} 
+                </p>
+                
+                {/* Sentiment Display */}
                 <div className={`mk-sentiment ${sentimentInfo.className}`}>
-                  <span className="sentiment-label">Sentiment: {sentimentInfo.label}</span>
+                  <span className="sentiment-label">דרך ארץ: {sentimentInfo.label}</span>
                   {sentiment !== undefined && (
-                    <span className="sentiment-score">({sentiment.toFixed(2)})</span>
+                    <span className="sentiment-score"> ({sentiment.toFixed(2)})</span>
                   )}
+                </div>
+                
+                {/* Utterances Preview */}
+                <div className="mk-utterances-preview">
+                  {topUtterances.map((utterance, index) => (
+                    <UtteranceItem 
+                      key={index} 
+                      utterance={utterance} 
+                      showRelevanceScore={true}
+                      maxLength={150}
+                    />
+                  ))}
                 </div>
               </div>
             </div>

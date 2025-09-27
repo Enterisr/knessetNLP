@@ -26,24 +26,9 @@ const Home = () => {
       const response = await fetch(resolveServerURI(`/api/query?query=${encodeURIComponent(searchQuery)}`))
       const data = await response.json()
       
-      // Transform the response into the format expected by the MKList component
-      const transformedData: MKUtterances = {}
-      
       if (data.response) {
-        // Process each MK entry in the response
-        Object.entries(data.response).forEach(([, mkData]) => {
-          if (mkData && typeof mkData === 'object' && 'name' in mkData && 'utterances' in mkData) {
-            const mkName = mkData.name as string
-            // Use the MK name as the key and store their utterances and metadata
-            transformedData[mkName] = {
-              utterances: Array.isArray(mkData.utterances) ? mkData.utterances : [],
-              metadata: 'metadata' in mkData ? mkData.metadata as Record<string, unknown> : {}
-            }
-          }
-        })
-        
-        console.log('Processed data:', transformedData)
-        setMks(transformedData)
+        console.log('Backend response:', data.response)
+        setMks(data.response as MKUtterances)
       } else {
         console.error('Invalid response format:', data)
         setMks({})

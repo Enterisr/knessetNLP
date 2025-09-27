@@ -96,6 +96,7 @@ def calculate_mk_sentiment(mk_data: Dict[str, Any]) -> Optional[float]:
 def process_response_with_mk_sentiment(response_data: Dict[str, Any]) -> Dict[str, Any]:
     """
     Process the response data to add aggregated sentiment for each MK.
+    Also ensures proper sorting by total_relevance_score is maintained.
 
     Args:
         response_data: The response from the NLP service
@@ -118,5 +119,10 @@ def process_response_with_mk_sentiment(response_data: Dict[str, Any]) -> Dict[st
                     f"Calculated sentiment for {mk_name}: {mk_sentiment:.3f}")
             else:
                 logger.debug(f"No sentiment data available for {mk_name}")
+
+            # Log relevance score for debugging
+            if 'total_relevance_score' in mk_data:
+                logger.info(
+                    f"MK {mk_name} relevance score: {mk_data['total_relevance_score']:.3f}")
 
     return processed_data

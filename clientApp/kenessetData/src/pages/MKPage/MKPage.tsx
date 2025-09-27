@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useParams, Link } from 'react-router-dom'
-import { resolveServerURI } from '../../utils'
-import type { DetailedUtterance, MKMetadata } from '../../types'
+import { resolveServerURI, getSentimentInfo } from '../../utils'
+import type { Utterance, MKMetadata } from '../../types'
+import UtteranceItem from '../../components/UtteranceItem/UtteranceItem'
 import './MKPage.css'
 import defaultMkImage from '../../assets/default-mk.svg'
 
 const MKPage = () => {
   const { mkName, query } = useParams<{ mkName: string; query: string }>()
-  const [utterances, setUtterances] = useState<DetailedUtterance[]>([])
+  const [utterances, setUtterances] = useState<Utterance[]>([])
   const [metadata, setMetadata] = useState<MKMetadata | null>(null)
   const [sentiment, setSentiment] = useState<number | undefined>(undefined)
   const [loading, setLoading] = useState(true)
@@ -24,68 +25,24 @@ const MKPage = () => {
       const response = await fetch(resolveServerURI(`/api/query?query=${encodeURIComponent(query)}`))
       const data = await response.json()
       
-      if (data.response) {
-        const decodedMkName = decodeURIComponent(mkName)
-        
-        // Search through the response to find the MK by name
-        let found = false
-        Object.entries(data.response).forEach(([, mkData]) => {
-          if (mkData && typeof mkData === 'object' && 'name' in mkData && mkData.name === decodedMkName) {
-            // We found the MK
-            found = true
-            
-            // Get the utterances and metadata
-            if ('utterances' in mkData && Array.isArray(mkData.utterances)) {
-              setUtterances(mkData.utterances)
-            } else {
-              setUtterances([])
-            }
-            
-            // Set metadata if available
-            if ('metadata' in mkData && typeof mkData.metadata === 'object') {
-              setMetadata(mkData.metadata as MKMetadata)
-            } else {
-              setMetadata(null)
-            }
-            
-            // Set sentiment if available
-            if ('sentiment' in mkData && typeof mkData.sentiment === 'number') {
-              setSentiment(mkData.sentiment)
-            } else {
-              setSentiment(undefined)
-            }
-          }
-        })
-        
-        if (!found) {
-          console.error('MK not found in response')
-          setUtterances([])
-          setMetadata(null)
-          setSentiment(undefined)
-        }
-      } else {
-        console.error('Invalid response format:', data)
-        setUtterances([])
-        setMetadata(null)
-        setSentiment(undefined)
-      }
+      const decodedMkName = decodeURIComponent(mkName)
+      const mkData = data.response[decodedMkName]
       
-      console.log(`Fetched data for MK ${mkName} with query "${query}"`)
+      setUtterances(mkData?.utterances || [])
+      setMetadata(mkData?.metadata || null)
+      setSentiment(mkData?.sentiment)
+      
     } catch (error) {
       console.error('Error fetching MK data:', error)
       setUtterances([])
       setMetadata(null)
+      setSentiment(undefined)
     } finally {
       setLoading(false)
     }
   }
 
-  const highlightQuery = (text: string, query: string) => {
-    if (!query) return text
-    
-    const regex = new RegExp(`(${query})`, 'gi')
-    return text.replace(regex, '<mark>$1</mark>')
-  }
+
 
   if (loading) {
     return (
@@ -114,18 +71,6 @@ const MKPage = () => {
   const decodedMkName = decodeURIComponent(mkName!)
   const photoUrl = metadata?.PhotoURL || defaultMkImage
   const factionName = metadata?.FactionName || ''
-
-  // Determine sentiment display
-  const getSentimentInfo = (sentiment: number | undefined) => {
-    if (sentiment === undefined) return { label: 'Neutral', className: 'sentiment-neutral' };
-    
-    if (sentiment >= 4) return { label: 'Very Positive', className: 'sentiment-very-positive' };
-    if (sentiment >= 3.5) return { label: 'Positive', className: 'sentiment-positive' };
-    if (sentiment >= 2.5) return { label: 'Neutral', className: 'sentiment-neutral' };
-    if (sentiment >= 2) return { label: 'Negative', className: 'sentiment-negative' };
-    return { label: 'Very Negative', className: 'sentiment-very-negative' };
-  };
-
   const sentimentInfo = getSentimentInfo(sentiment);
 
   return (
@@ -133,7 +78,7 @@ const MKPage = () => {
       <div className="mk-page">
         <div className="mk-page-header">
           <Link to={`/search/${encodeURIComponent(query!)}`} className="back-button">
-            ← Back to MK list
+            ← חזרה לרשימת ח"כ
           </Link>
           <div className="mk-profile">
             <div className="mk-photo-container">
@@ -151,11 +96,11 @@ const MKPage = () => {
               {factionName && <p className="mk-faction">{factionName}</p>}
               <div className="mk-stats">
                 <div className="mk-stat">
-                  <span className="mk-stat-label">Utterances:</span>
+                  <span className="mk-stat-label">התבטאויות:</span>
                   <span className="mk-stat-value">{utterances.length}</span>
                 </div>
                 <div className="mk-stat">
-                  <span className="mk-stat-label">Overall Sentiment:</span>
+                  <span className="mk-stat-label">דרך ארץ כללית:</span>
                   <span className={`mk-stat-sentiment ${sentimentInfo.className}`}>
                     {sentimentInfo.label}
                     {sentiment !== undefined && (
@@ -169,33 +114,17 @@ const MKPage = () => {
         </div>
 
         <div className="mk-utterances">
-          <h2>Utterances about "{decodeURIComponent(query!)}"</h2>
-          <ul className="utterances-list">
+          <h2>התבטאויות על "{decodeURIComponent(query!)}"</h2>
+          <div className="utterances-container">
             {utterances.map((utterance, index) => (
-              <li key={index} className="utterance-item">
-                <div className="utterance-content">
-                  <p 
-                    className="utterance-text" 
-                    dangerouslySetInnerHTML={{ 
-                      __html: highlightQuery(utterance.text, decodeURIComponent(query!)) 
-                    }} 
-                  />
-                  <div className="utterance-metadata">
-                    {utterance.src && (
-                      <a 
-                        href={utterance.src} 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
-                        className="utterance-source"
-                      >
-                        Source document
-                      </a>
-                    )}
-                  </div>
-                </div>
-              </li>
+              <UtteranceItem 
+                key={index} 
+                utterance={utterance} 
+                showRelevanceScore={true}
+                maxLength={300}
+              />
             ))}
-          </ul>
+          </div>
         </div>
       </div>
     </main>
