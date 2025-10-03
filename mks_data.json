@@ -6,10 +6,10 @@
     "LastName": "סוכות",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1121/1_1121_3_19949.jpeg?v=20250911_89399",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1121/1_1121_3_19949.jpeg?v=20250927_96895",
     "SiteId": 1121,
     "PhotoStatus": "found",
-    "sentiment": 1.7693166285380721
+    "sentiment": 1.7170671225339174
   },
   "30875": {
     "Id": 30875,
@@ -18,10 +18,10 @@
     "LastName": "מלקו",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1122/1_1122_3_19962.jpeg?v=20250911_92761",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1122/1_1122_3_19962.jpeg?v=20250927_74573",
     "SiteId": 1122,
     "PhotoStatus": "found",
-    "sentiment": 1.9591702365651726
+    "sentiment": 1.9926087518036366
   },
   "30876": {
     "Id": 30876,
@@ -30,7 +30,7 @@
     "LastName": "שקלים",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1123/1_1123_3_19975.jpeg?v=20250911_72437",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1123/1_1123_3_19975.jpeg?v=20250927_64483",
     "SiteId": 1123,
     "PhotoStatus": "found",
     "sentiment": 2.7836577892303467
@@ -42,10 +42,10 @@
     "LastName": "שטרית",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1018/1_1018_3_12330.jpeg?v=20250911_85301",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1018/1_1018_3_12330.jpeg?v=20250927_49701",
     "SiteId": 1018,
     "PhotoStatus": "found",
-    "sentiment": 1.8431087464252487
+    "sentiment": 1.7638421876132488
   },
   "30877": {
     "Id": 30877,
@@ -54,10 +54,10 @@
     "LastName": "פסל",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1124/1_1124_3_20007.jpeg?v=20250911_58411",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1124/1_1124_3_20007.jpeg?v=20250927_16359",
     "SiteId": 1124,
     "PhotoStatus": "found",
-    "sentiment": 1.7933750621025684
+    "sentiment": 1.9091610913425685
   },
   "30879": {
     "Id": 30879,
@@ -66,10 +66,10 @@
     "LastName": "גואטה",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1125/1_1125_3_20029.jpeg?v=20250911_16243",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1125/1_1125_3_20029.jpeg?v=20250927_18432",
     "SiteId": 1125,
     "PhotoStatus": "found",
-    "sentiment": 1.5841391548998653
+    "sentiment": 1.58361062412709
   },
   "30880": {
     "Id": 30880,
@@ -78,10 +78,10 @@
     "LastName": "בוארון",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1126/1_1126_3_20040.jpeg?v=20250911_01885",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1126/1_1126_3_20040.jpeg?v=20250927_51597",
     "SiteId": 1126,
     "PhotoStatus": "found",
-    "sentiment": 1.868989234626293
+    "sentiment": 1.793431982986629
   },
   "30881": {
     "Id": 30881,
@@ -90,10 +90,10 @@
     "LastName": "לוי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1127/1_1127_3_20229.png?v=20250911_74471",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1127/1_1127_3_20229.png?v=20250927_59409",
     "SiteId": 1127,
     "PhotoStatus": "found",
-    "sentiment": 1.996795052521862
+    "sentiment": 2.0548229098113953
   },
   "30809": {
     "Id": 30809,
@@ -102,10 +102,10 @@
     "LastName": "דיסטל אטבריאן",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1059/1_1059_3_17778.jpeg?v=20250911_29405",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1059/1_1059_3_17778.jpeg?v=20250927_19346",
     "SiteId": 1059,
     "PhotoStatus": "found",
-    "sentiment": 1.8126555596217513
+    "sentiment": 1.7414451439380645
   },
   "30102": {
     "Id": 30102,
@@ -114,10 +114,10 @@
     "LastName": "בן ארי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/915/1_915_3_2385.jpeg?v=20250911_83561",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/915/1_915_3_2385.jpeg?v=20250927_90128",
     "SiteId": 915,
     "PhotoStatus": "found",
-    "sentiment": 1.5970992019418626
+    "sentiment": 1.6935234964452683
   },
   "4397": {
     "Id": 4397,
@@ -126,10 +126,10 @@
     "LastName": "אלקין",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/768/1_768_3_1721.jpeg?v=20250911_78635",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/768/1_768_3_1721.jpeg?v=20250927_42468",
     "SiteId": 768,
     "PhotoStatus": "found",
-    "sentiment": 1.8167396411299706
+    "sentiment": 1.778735058411956
   },
   "30118": {
     "Id": 30118,
@@ -138,10 +138,10 @@
     "LastName": "השכל",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/950/1_950_3_2607.jpeg?v=20250911_48383",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/950/1_950_3_2607.jpeg?v=20250927_73784",
     "SiteId": 950,
     "PhotoStatus": "found",
-    "sentiment": 1.630603067728691
+    "sentiment": 1.5876738708615303
   },
   "1027": {
     "Id": 1027,
@@ -165,7 +165,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/946/1_946_3_2590.jpeg",
     "SiteId": 946,
     "PhotoStatus": "found",
-    "sentiment": 1.5680469365119933
+    "sentiment": 1.685041824452579
   },
   "30799": {
     "Id": 30799,
@@ -174,7 +174,7 @@
     "LastName": "בוסקילה",
     "FactionName": "הימין הממלכתי ",
     "FactionID": 1108,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1088/1_1088_3_19591.jpeg?v=20250911_08493",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1088/1_1088_3_19591.jpeg?v=20250927_95991",
     "SiteId": 1088,
     "PhotoStatus": "found",
     "sentiment": 2.7925104437924144
@@ -186,10 +186,10 @@
     "LastName": "טל",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1090/1_1090_3_19702.jpeg?v=20250911_53367",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1090/1_1090_3_19702.jpeg?v=20250927_12973",
     "SiteId": 1090,
     "PhotoStatus": "found",
-    "sentiment": 2.404126241357997
+    "sentiment": 2.355953358463943
   },
   "30893": {
     "Id": 30893,
@@ -198,7 +198,7 @@
     "LastName": "עבד",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1128/1_1128_3_20759.jpeg?v=20250911_55585",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1128/1_1128_3_20759.jpeg?v=20250927_98573",
     "SiteId": 1128,
     "PhotoStatus": "found",
     "sentiment": 2.666343284025788
@@ -213,7 +213,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1009/1_1009_3_12328.jpeg",
     "SiteId": 1009,
     "PhotoStatus": "found",
-    "sentiment": 1.5920646378099919
+    "sentiment": 1.6909728936385364
   },
   "30857": {
     "Id": 30857,
@@ -222,10 +222,10 @@
     "LastName": "אליהו",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1096/1_1096_3_19667.jpeg?v=20250911_22709",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1096/1_1096_3_19667.jpeg?v=20250927_88287",
     "SiteId": 1096,
     "PhotoStatus": "found",
-    "sentiment": 1.5796245625466108
+    "sentiment": 1.5671390616856515
   },
   "23635": {
     "Id": 23635,
@@ -234,10 +234,10 @@
     "LastName": "תמנו",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/905/1_905_3_2327.jpeg?v=20250911_09485",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/905/1_905_3_2327.jpeg?v=20250927_05179",
     "SiteId": 905,
     "PhotoStatus": "found",
-    "sentiment": 1.8878134451541118
+    "sentiment": 2.0097664588959887
   },
   "30859": {
     "Id": 30859,
@@ -246,10 +246,10 @@
     "LastName": "פוגל",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1110/1_1110_3_19738.jpeg?v=20250911_20975",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1110/1_1110_3_19738.jpeg?v=20250927_17187",
     "SiteId": 1110,
     "PhotoStatus": "found",
-    "sentiment": 2.4783268397077918
+    "sentiment": 2.50015004721703
   },
   "30846": {
     "Id": 30846,
@@ -258,7 +258,7 @@
     "LastName": "גולדקנופ",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1099/1_1099_3_19749.jpeg?v=20250911_41065",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1099/1_1099_3_19749.jpeg?v=20250927_36716",
     "SiteId": 1099,
     "PhotoStatus": "found",
     "sentiment": 1.9761718777366555
@@ -270,7 +270,7 @@
     "LastName": "בן סעיד",
     "FactionName": "חד\"ש-תע\"ל",
     "FactionID": 1103,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1129/1_1129_3_20971.jpeg?v=20250911_79506",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1129/1_1129_3_20971.jpeg?v=20250927_96705",
     "SiteId": 1129,
     "PhotoStatus": "found",
     "sentiment": 2.4560805401381325
@@ -285,7 +285,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1042/1_1042_3_15101.jpeg",
     "SiteId": 1042,
     "PhotoStatus": "found",
-    "sentiment": 2.014357447417453
+    "sentiment": 1.944352518194355
   },
   "30693": {
     "Id": 30693,
@@ -294,7 +294,7 @@
     "LastName": "גינזבורג",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/981/1_981_3_11118.jpeg?v=20250911_61215",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/981/1_981_3_11118.jpeg?v=20250927_45813",
     "SiteId": 981,
     "PhotoStatus": "found",
     "sentiment": 1.8502737118679127
@@ -306,7 +306,7 @@
     "LastName": "רון בן משה",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1048/1_1048_3_16568.jpeg?v=20250911_89409",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1048/1_1048_3_16568.jpeg?v=20250927_00598",
     "SiteId": 1048,
     "PhotoStatus": "found",
     "sentiment": 1.2480655344993328
@@ -318,7 +318,7 @@
     "LastName": "חסון",
     "FactionName": "הימין הממלכתי ",
     "FactionID": 1108,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/854/1_854_3_2044.jpeg?v=20250911_51445",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/854/1_854_3_2044.jpeg?v=20250927_31378",
     "SiteId": 854,
     "PhotoStatus": "found"
   },
@@ -329,7 +329,7 @@
     "LastName": "מקלב",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/814/1_814_3_1874.jpeg?v=20250911_51026",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/814/1_814_3_1874.jpeg?v=20250927_95382",
     "SiteId": 814,
     "PhotoStatus": "found",
     "sentiment": 2.323543402850628
@@ -341,7 +341,7 @@
     "LastName": "פרוש",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/103/1_103_3_285.jpeg?v=20250911_00566",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/103/1_103_3_285.jpeg?v=20250927_91525",
     "SiteId": 103,
     "PhotoStatus": "found",
     "sentiment": 1.6138171817621458
@@ -353,7 +353,7 @@
     "LastName": "טסלר",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/996/1_996_3_11221.jpeg?v=20250911_87491",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/996/1_996_3_11221.jpeg?v=20250927_74558",
     "SiteId": 996,
     "PhotoStatus": "found",
     "sentiment": 0.7236377596855164
@@ -368,7 +368,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1119/1_1119_3_19933.jpeg",
     "SiteId": 1119,
     "PhotoStatus": "found",
-    "sentiment": 2.0106364194601776
+    "sentiment": 2.1102279446050525
   },
   "1056": {
     "Id": 1056,
@@ -377,7 +377,7 @@
     "LastName": "מרגי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/751/1_751_3_1669.jpeg?v=20250911_49018",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/751/1_751_3_1669.jpeg?v=20250927_34921",
     "SiteId": 751,
     "PhotoStatus": "found",
     "sentiment": 1.6924416510227285
@@ -389,7 +389,7 @@
     "LastName": "בן צור",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/906/1_906_3_2332.jpeg?v=20250911_11582",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/906/1_906_3_2332.jpeg?v=20250927_65808",
     "SiteId": 906,
     "PhotoStatus": "found",
     "sentiment": 1.8856992128270644
@@ -401,7 +401,7 @@
     "LastName": "ביטון",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1055/1_1055_3_17783.jpeg?v=20250911_24406",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1055/1_1055_3_17783.jpeg?v=20250927_48418",
     "SiteId": 1055,
     "PhotoStatus": "found",
     "sentiment": 1.5248716417979449
@@ -413,7 +413,7 @@
     "LastName": "עזוז",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1130/1_1130_3_21032.jpeg?v=20250911_98191",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1130/1_1130_3_21032.jpeg?v=20250927_62917",
     "SiteId": 1130,
     "PhotoStatus": "found",
     "sentiment": 2.8864588836828866
@@ -425,7 +425,7 @@
     "LastName": "אבוטבול",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1029/1_1029_3_13527.jpeg?v=20250911_75951",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1029/1_1029_3_13527.jpeg?v=20250927_56223",
     "SiteId": 1029,
     "PhotoStatus": "found",
     "sentiment": 2.380044548875756
@@ -437,10 +437,10 @@
     "LastName": "אזולאי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/970/1_970_3_2722.jpeg?v=20250911_46761",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/970/1_970_3_2722.jpeg?v=20250927_37739",
     "SiteId": 970,
     "PhotoStatus": "found",
-    "sentiment": 2.02496795284003
+    "sentiment": 1.8186668350854889
   },
   "30660": {
     "Id": 30660,
@@ -449,10 +449,10 @@
     "LastName": "ארבל",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1008/1_1008_3_11235.jpeg?v=20250911_23601",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1008/1_1008_3_11235.jpeg?v=20250927_14451",
     "SiteId": 1008,
     "PhotoStatus": "found",
-    "sentiment": 1.969829521784559
+    "sentiment": 1.937962936536409
   },
   "30765": {
     "Id": 30765,
@@ -461,10 +461,10 @@
     "LastName": "בוסו",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1039/1_1039_3_15050.jpeg?v=20250911_88737",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1039/1_1039_3_15050.jpeg?v=20250927_78139",
     "SiteId": 1039,
     "PhotoStatus": "found",
-    "sentiment": 2.374376961886883
+    "sentiment": 2.4175734418332575
   },
   "2291": {
     "Id": 2291,
@@ -473,7 +473,7 @@
     "LastName": "דרעי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/41/1_41_3_110.jpeg?v=20250911_21001",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/41/1_41_3_110.jpeg?v=20250927_18162",
     "SiteId": 41,
     "PhotoStatus": "found",
     "sentiment": 1.6766824566505172
@@ -485,10 +485,10 @@
     "LastName": "טייב",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1043/1_1043_3_15131.jpeg?v=20250911_68965",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1043/1_1043_3_15131.jpeg?v=20250927_38831",
     "SiteId": 1043,
     "PhotoStatus": "found",
-    "sentiment": 2.4020999586898832
+    "sentiment": 2.433749945851043
   },
   "30470": {
     "Id": 30470,
@@ -497,7 +497,7 @@
     "LastName": "מלכיאלי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/957/1_957_3_2656.jpeg?v=20250911_84685",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/957/1_957_3_2656.jpeg?v=20250927_32265",
     "SiteId": 957,
     "PhotoStatus": "found",
     "sentiment": 1.7972288804749648
@@ -511,7 +511,7 @@
     "FactionID": 1096,
     "PhotoURL": null,
     "PhotoStatus": "no_site_id",
-    "sentiment": 2.476514690835029
+    "sentiment": 2.5064676465690137
   },
   "30300": {
     "Id": 30300,
@@ -520,7 +520,7 @@
     "LastName": "אוחנה",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/953/1_953_3_2628.jpeg?v=20250911_22097",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/953/1_953_3_2628.jpeg?v=20250927_28068",
     "SiteId": 953,
     "PhotoStatus": "found",
     "sentiment": 2.189201145348224
@@ -556,10 +556,10 @@
     "LastName": "ביטן",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/914/1_914_3_2378.jpeg?v=20250911_27253",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/914/1_914_3_2378.jpeg?v=20250927_54382",
     "SiteId": 914,
     "PhotoStatus": "found",
-    "sentiment": 1.559592631664127
+    "sentiment": 1.6299105449989437
   },
   "30700": {
     "Id": 30700,
@@ -568,7 +568,7 @@
     "LastName": "ברקת",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/974/1_974_3_12308.jpeg?v=20250911_60388",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/974/1_974_3_12308.jpeg?v=20250927_07508",
     "SiteId": 974,
     "PhotoStatus": "found",
     "sentiment": 1.59056265409226
@@ -592,7 +592,7 @@
     "LastName": "גמליאל",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/723/1_723_3_1586.jpeg?v=20250911_06101",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/723/1_723_3_1586.jpeg?v=20250927_78725",
     "SiteId": 723,
     "PhotoStatus": "found",
     "sentiment": 2.1487041666652216
@@ -604,7 +604,7 @@
     "LastName": "דיכטר",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/771/1_771_3_1732.jpeg?v=20250911_11214",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/771/1_771_3_1732.jpeg?v=20250927_35707",
     "SiteId": 771,
     "PhotoStatus": "found",
     "sentiment": 2.376923748425075
@@ -640,10 +640,10 @@
     "LastName": "כץ",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/976/1_976_3_12324.jpeg?v=20250911_49974",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/976/1_976_3_12324.jpeg?v=20250927_61976",
     "SiteId": 976,
     "PhotoStatus": "found",
-    "sentiment": 2.2344348388053477
+    "sentiment": 2.188470561027527
   },
   "556": {
     "Id": 556,
@@ -663,7 +663,7 @@
     "LastName": "כץ",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/69/1_69_3_191.jpeg?v=20250911_95929",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/69/1_69_3_191.jpeg?v=20250927_28803",
     "SiteId": 69,
     "PhotoStatus": "found"
   },
@@ -674,7 +674,7 @@
     "LastName": "לוין",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/826/1_826_3_1921.jpeg?v=20250911_82525",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/826/1_826_3_1921.jpeg?v=20250927_77322",
     "SiteId": 826,
     "PhotoStatus": "found",
     "sentiment": 1.5829614546034754
@@ -686,7 +686,7 @@
     "LastName": "נתניהו",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/90/1_90_3_248.jpeg?v=20250911_48475",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/90/1_90_3_248.jpeg?v=20250927_81387",
     "SiteId": 90,
     "PhotoStatus": "found",
     "sentiment": 2.853067091533116
@@ -701,7 +701,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/945/1_945_3_2583.jpeg",
     "SiteId": 945,
     "PhotoStatus": "found",
-    "sentiment": 2.0905143220461904
+    "sentiment": 2.193348421245813
   },
   "30704": {
     "Id": 30704,
@@ -710,10 +710,10 @@
     "LastName": "קרעי",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1011/1_1011_3_12326.jpeg?v=20250911_64976",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1011/1_1011_3_12326.jpeg?v=20250927_93535",
     "SiteId": 1011,
     "PhotoStatus": "found",
-    "sentiment": 2.344333003140986
+    "sentiment": 2.277123406689614
   },
   "12959": {
     "Id": 12959,
@@ -733,10 +733,10 @@
     "LastName": "בן גביר",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1056/1_1056_3_17788.jpeg?v=20250911_62244",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1056/1_1056_3_17788.jpeg?v=20250927_53921",
     "SiteId": 1056,
     "PhotoStatus": "found",
-    "sentiment": 1.5614157809577882
+    "sentiment": 1.509296364320442
   },
   "30810": {
     "Id": 30810,
@@ -745,10 +745,10 @@
     "LastName": "וולדיגר",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1060/1_1060_3_17793.jpeg?v=20250911_45469",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1060/1_1060_3_17793.jpeg?v=20250927_85977",
     "SiteId": 1060,
     "PhotoStatus": "found",
-    "sentiment": 1.9426972049945035
+    "sentiment": 2.005230563178193
   },
   "30814": {
     "Id": 30814,
@@ -757,7 +757,7 @@
     "LastName": "מעוז",
     "FactionName": "נעם - בראשות אבי מעוז",
     "FactionID": 1107,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1063/1_1063_3_17738.jpeg?v=20250911_79581",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1063/1_1063_3_17738.jpeg?v=20250927_79745",
     "SiteId": 1063,
     "PhotoStatus": "found",
     "sentiment": 1.8147009647427461
@@ -769,7 +769,7 @@
     "LastName": "סטרוק",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/884/1_884_3_2213.jpeg?v=20250911_01716",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/884/1_884_3_2213.jpeg?v=20250927_12038",
     "SiteId": 884,
     "PhotoStatus": "found",
     "sentiment": 0.8321140706539154
@@ -792,10 +792,10 @@
     "LastName": "רוטמן",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1067/1_1067_3_17818.jpeg?v=20250911_44772",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1067/1_1067_3_17818.jpeg?v=20250927_53755",
     "SiteId": 1067,
     "PhotoStatus": "found",
-    "sentiment": 1.909775127114728
+    "sentiment": 2.0359613123089075
   },
   "30662": {
     "Id": 30662,
@@ -807,7 +807,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1030/1_1030_3_13542.jpeg",
     "SiteId": 1030,
     "PhotoStatus": "found",
-    "sentiment": 1.720468027360388
+    "sentiment": 1.6974270845036954
   },
   "30758": {
     "Id": 30758,
@@ -816,10 +816,10 @@
     "LastName": "ח'טיב יאסין",
     "FactionName": "רע\"ם",
     "FactionID": 1099,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1032/1_1032_3_13745.jpeg?v=20250911_96789",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1032/1_1032_3_13745.jpeg?v=20250927_82861",
     "SiteId": 1032,
     "PhotoStatus": "found",
-    "sentiment": 1.8327182366997004
+    "sentiment": 1.731344347026199
   },
   "30752": {
     "Id": 30752,
@@ -828,10 +828,10 @@
     "LastName": "טאהא",
     "FactionName": "רע\"ם",
     "FactionID": 1099,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1026/1_1026_3_13539.jpeg?v=20250911_68092",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1026/1_1026_3_13539.jpeg?v=20250927_42978",
     "SiteId": 1026,
     "PhotoStatus": "found",
-    "sentiment": 1.5573138129599393
+    "sentiment": 1.5614309755206341
   },
   "30713": {
     "Id": 30713,
@@ -840,7 +840,7 @@
     "LastName": "עבאס",
     "FactionName": "רע\"ם",
     "FactionID": 1099,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1007/1_1007_3_12320.jpeg?v=20250911_34957",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1007/1_1007_3_12320.jpeg?v=20250927_88395",
     "SiteId": 1007,
     "PhotoStatus": "found",
     "sentiment": 2.1285953447394776
@@ -852,10 +852,10 @@
     "LastName": "לזימי",
     "FactionName": "העבודה",
     "FactionID": 1100,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1082/1_1082_3_17989.jpeg?v=20250911_61326",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1082/1_1082_3_17989.jpeg?v=20250927_10835",
     "SiteId": 1082,
     "PhotoStatus": "found",
-    "sentiment": 1.807654452720657
+    "sentiment": 1.9483944818443852
   },
   "23565": {
     "Id": 23565,
@@ -864,10 +864,10 @@
     "LastName": "מיכאלי",
     "FactionName": "העבודה",
     "FactionID": 1100,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/881/1_881_3_2196.jpeg?v=20250911_45712",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/881/1_881_3_2196.jpeg?v=20250927_55914",
     "SiteId": 881,
     "PhotoStatus": "found",
-    "sentiment": 1.7883810297837481
+    "sentiment": 1.7393961202842183
   },
   "30807": {
     "Id": 30807,
@@ -876,10 +876,10 @@
     "LastName": "קריב",
     "FactionName": "העבודה",
     "FactionID": 1100,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1066/1_1066_3_17753.jpeg?v=20250911_55996",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1066/1_1066_3_17753.jpeg?v=20250927_02822",
     "SiteId": 1066,
     "PhotoStatus": "found",
-    "sentiment": 1.5761425435589627
+    "sentiment": 1.6677006956413387
   },
   "30808": {
     "Id": 30808,
@@ -888,10 +888,10 @@
     "LastName": "רייטן מרום",
     "FactionName": "העבודה",
     "FactionID": 1100,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1068/1_1068_3_17773.jpeg?v=20250911_08993",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1068/1_1068_3_17773.jpeg?v=20250927_10235",
     "SiteId": 1068,
     "PhotoStatus": "found",
-    "sentiment": 1.5559022613689304
+    "sentiment": 1.6268197620213032
   },
   "1057": {
     "Id": 1057,
@@ -900,10 +900,10 @@
     "LastName": "אייכלר",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/754/1_754_3_1681.jpeg?v=20250911_22829",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/754/1_754_3_1681.jpeg?v=20250927_90679",
     "SiteId": 754,
     "PhotoStatus": "found",
-    "sentiment": 2.0518967375122013
+    "sentiment": 2.172015350498259
   },
   "23641": {
     "Id": 23641,
@@ -912,10 +912,10 @@
     "LastName": "אשר",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/861/1_861_3_2073.jpeg?v=20250911_77618",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/861/1_861_3_2073.jpeg?v=20250927_30988",
     "SiteId": 861,
     "PhotoStatus": "found",
-    "sentiment": 2.1389561128541827
+    "sentiment": 2.0405124930292367
   },
   "526": {
     "Id": 526,
@@ -924,10 +924,10 @@
     "LastName": "גפני",
     "FactionName": "יהדות התורה",
     "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/35/1_35_3_93.jpeg?v=20250911_99717",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/35/1_35_3_93.jpeg?v=20250927_07858",
     "SiteId": 35,
     "PhotoStatus": "found",
-    "sentiment": 2.207399537988007
+    "sentiment": 2.044722184598446
   },
   "23631": {
     "Id": 23631,
@@ -936,10 +936,10 @@
     "LastName": "אלהרר",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/860/1_860_3_2066.jpeg?v=20250911_44854",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/860/1_860_3_2066.jpeg?v=20250927_02734",
     "SiteId": 860,
     "PhotoStatus": "found",
-    "sentiment": 1.587401674269233
+    "sentiment": 1.5138704285784625
   },
   "30776": {
     "Id": 30776,
@@ -948,10 +948,10 @@
     "LastName": "בליאק",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1049/1_1049_3_16601.jpeg?v=20250911_61368",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1049/1_1049_3_16601.jpeg?v=20250927_72669",
     "SiteId": 1049,
     "PhotoStatus": "found",
-    "sentiment": 1.585547373317182
+    "sentiment": 1.7053774938210844
   },
   "30691": {
     "Id": 30691,
@@ -960,10 +960,10 @@
     "LastName": "בן ברק",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1022/1_1022_3_11242.jpeg?v=20250911_80179",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1022/1_1022_3_11242.jpeg?v=20250927_68135",
     "SiteId": 1022,
     "PhotoStatus": "found",
-    "sentiment": 1.6077629455607385
+    "sentiment": 1.5773501160503365
   },
   "30681": {
     "Id": 30681,
@@ -975,7 +975,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/980/1_980_3_11115.jpeg",
     "SiteId": 980,
     "PhotoStatus": "found",
-    "sentiment": 1.6047299983277916
+    "sentiment": 1.6876406531138346
   },
   "30820": {
     "Id": 30820,
@@ -984,10 +984,10 @@
     "LastName": "דוידסון",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1085/1_1085_3_18028.jpeg?v=20250911_69127",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1085/1_1085_3_18028.jpeg?v=20250927_66549",
     "SiteId": 1085,
     "PhotoStatus": "found",
-    "sentiment": 1.8868214334249496
+    "sentiment": 1.8360283108502626
   },
   "23639": {
     "Id": 23639,
@@ -996,10 +996,10 @@
     "LastName": "טופורובסקי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/872/1_872_3_2141.jpeg?v=20250911_07851",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/872/1_872_3_2141.jpeg?v=20250927_61127",
     "SiteId": 872,
     "PhotoStatus": "found",
-    "sentiment": 1.5808256748151035
+    "sentiment": 1.6874722739867867
   },
   "30777": {
     "Id": 30777,
@@ -1008,10 +1008,10 @@
     "LastName": "טור פז",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1050/1_1050_3_16606.jpeg?v=20250911_27992",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1050/1_1050_3_16606.jpeg?v=20250927_35502",
     "SiteId": 1050,
     "PhotoStatus": "found",
-    "sentiment": 2.0218894106531518
+    "sentiment": 2.0212499292492865
   },
   "23597": {
     "Id": 23597,
@@ -1020,10 +1020,10 @@
     "LastName": "כהן",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/874/1_874_3_2153.jpeg?v=20250911_08103",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/874/1_874_3_2153.jpeg?v=20250927_63222",
     "SiteId": 874,
     "PhotoStatus": "found",
-    "sentiment": 1.6445987936630846
+    "sentiment": 1.596595373004675
   },
   "30686": {
     "Id": 30686,
@@ -1032,10 +1032,10 @@
     "LastName": "כהן",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1006/1_1006_3_11251.jpeg?v=20250911_18025",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1006/1_1006_3_11251.jpeg?v=20250927_83369",
     "SiteId": 1006,
     "PhotoStatus": "found",
-    "sentiment": 1.9587689454704522
+    "sentiment": 1.8669038282483816
   },
   "30780": {
     "Id": 30780,
@@ -1044,10 +1044,10 @@
     "LastName": "כץ",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1061/1_1061_3_17813.jpeg?v=20250911_86804",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1061/1_1061_3_17813.jpeg?v=20250927_27377",
     "SiteId": 1061,
     "PhotoStatus": "found",
-    "sentiment": 1.7008959049042314
+    "sentiment": 1.7766189702823758
   },
   "30720": {
     "Id": 30720,
@@ -1056,10 +1056,10 @@
     "LastName": "להב הרצנו",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/998/1_998_3_11225.jpeg?v=20250911_09128",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/998/1_998_3_11225.jpeg?v=20250927_60775",
     "SiteId": 998,
     "PhotoStatus": "found",
-    "sentiment": 1.6994344146383227
+    "sentiment": 1.552876969841309
   },
   "23632": {
     "Id": 23632,
@@ -1068,10 +1068,10 @@
     "LastName": "לוי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/876/1_876_3_2167.jpeg?v=20250911_74387",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/876/1_876_3_2167.jpeg?v=20250927_23827",
     "SiteId": 876,
     "PhotoStatus": "found",
-    "sentiment": 1.9667854705229402
+    "sentiment": 2.0026655292734503
   },
   "23594": {
     "Id": 23594,
@@ -1080,7 +1080,7 @@
     "LastName": "לפיד",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/878/1_878_3_2178.jpeg?v=20250911_75352",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/878/1_878_3_2178.jpeg?v=20250927_79368",
     "SiteId": 878,
     "PhotoStatus": "found",
     "sentiment": 2.060930622617404
@@ -1092,10 +1092,10 @@
     "LastName": "מזרסקי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1076/1_1076_3_17974.jpeg?v=20250911_82195",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1076/1_1076_3_17974.jpeg?v=20250927_90771",
     "SiteId": 1076,
     "PhotoStatus": "found",
-    "sentiment": 2.221776963315904
+    "sentiment": 2.224049223277718
   },
   "30695": {
     "Id": 30695,
@@ -1104,10 +1104,10 @@
     "LastName": "סגלוביץ'",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/995/1_995_3_11219.jpeg?v=20250911_77497",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/995/1_995_3_11219.jpeg?v=20250927_24291",
     "SiteId": 995,
     "PhotoStatus": "found",
-    "sentiment": 1.4295418897606433
+    "sentiment": 1.534670033108443
   },
   "30783": {
     "Id": 30783,
@@ -1116,10 +1116,10 @@
     "LastName": "פרידמן",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1079/1_1079_3_17943.jpeg?v=20250911_76258",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1079/1_1079_3_17943.jpeg?v=20250927_88682",
     "SiteId": 1079,
     "PhotoStatus": "found",
-    "sentiment": 1.5056818902175872
+    "sentiment": 1.5551256138645113
   },
   "23601": {
     "Id": 23601,
@@ -1139,10 +1139,10 @@
     "LastName": "שטרן",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/899/1_899_3_2289.jpeg?v=20250911_83813",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/899/1_899_3_2289.jpeg?v=20250927_42218",
     "SiteId": 899,
     "PhotoStatus": "found",
-    "sentiment": 1.8397010237947107
+    "sentiment": 1.740949352462776
   },
   "30657": {
     "Id": 30657,
@@ -1151,7 +1151,7 @@
     "LastName": "גנץ",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/988/1_988_3_12347.jpeg?v=20250911_09193",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/988/1_988_3_12347.jpeg?v=20250927_63272",
     "SiteId": 988,
     "PhotoStatus": "found",
     "sentiment": 2.2067764598515724
@@ -1175,10 +1175,10 @@
     "LastName": "טרופר",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1000/1_1000_3_11227.jpeg?v=20250911_38297",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1000/1_1000_3_11227.jpeg?v=20250927_19249",
     "SiteId": 1000,
     "PhotoStatus": "found",
-    "sentiment": 1.7754102672785521
+    "sentiment": 1.7819987472742795
   },
   "30682": {
     "Id": 30682,
@@ -1187,10 +1187,10 @@
     "LastName": "ביטון",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1003/1_1003_3_11237.jpeg?v=20250911_19126",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1003/1_1003_3_11237.jpeg?v=20250927_64069",
     "SiteId": 1003,
     "PhotoStatus": "found",
-    "sentiment": 1.9209842499215155
+    "sentiment": 1.947814301919192
   },
   "30685": {
     "Id": 30685,
@@ -1199,10 +1199,10 @@
     "LastName": "פרקש הכהן",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/978/1_978_3_11111.jpeg?v=20250911_17085",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/978/1_978_3_11111.jpeg?v=20250927_37103",
     "SiteId": 978,
     "PhotoStatus": "found",
-    "sentiment": 1.6246787397526206
+    "sentiment": 1.7070271932827308
   },
   "30694": {
     "Id": 30694,
@@ -1211,10 +1211,10 @@
     "LastName": "שוסטר",
     "FactionName": "כחול לבן - המחנה הממלכתי",
     "FactionID": 1098,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/982/1_982_3_11099.jpeg?v=20250911_79059",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/982/1_982_3_11099.jpeg?v=20250927_91825",
     "SiteId": 982,
     "PhotoStatus": "found",
-    "sentiment": 2.268904496807605
+    "sentiment": 2.2034874147996306
   },
   "30708": {
     "Id": 30708,
@@ -1223,7 +1223,7 @@
     "LastName": "גולן",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1002/1_1002_3_12304.jpeg?v=20250911_04114",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1002/1_1002_3_12304.jpeg?v=20250927_86683",
     "SiteId": 1002,
     "PhotoStatus": "found",
     "sentiment": 1.4628912843763828
@@ -1235,10 +1235,10 @@
     "LastName": "ביסמוט",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1095/1_1095_3_19662.jpeg?v=20250911_71803",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1095/1_1095_3_19662.jpeg?v=20250927_18862",
     "SiteId": 1095,
     "PhotoStatus": "found",
-    "sentiment": 2.604232350707054
+    "sentiment": 2.6954389414191247
   },
   "30860": {
     "Id": 30860,
@@ -1247,10 +1247,10 @@
     "LastName": "גוטליב",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1098/1_1098_3_19677.jpeg?v=20250911_33383",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1098/1_1098_3_19677.jpeg?v=20250927_11612",
     "SiteId": 1098,
     "PhotoStatus": "found",
-    "sentiment": 1.5238762044552714
+    "sentiment": 1.5727931582825259
   },
   "30831": {
     "Id": 30831,
@@ -1259,10 +1259,10 @@
     "LastName": "דלל",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1100/1_1100_3_19682.jpeg?v=20250911_43378",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1100/1_1100_3_19682.jpeg?v=20250927_98591",
     "SiteId": 1100,
     "PhotoStatus": "found",
-    "sentiment": 2.290614795762114
+    "sentiment": 2.3044440431445836
   },
   "12944": {
     "Id": 12944,
@@ -1283,10 +1283,10 @@
     "LastName": "דנינו",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1101/1_1101_3_19687.jpeg?v=20250911_52645",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1101/1_1101_3_19687.jpeg?v=20250927_96472",
     "SiteId": 1101,
     "PhotoStatus": "found",
-    "sentiment": 1.8831277589946984
+    "sentiment": 1.9358471989035606
   },
   "30772": {
     "Id": 30772,
@@ -1295,10 +1295,10 @@
     "LastName": "ואטורי",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1045/1_1045_3_16502.jpeg?v=20250911_62961",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1045/1_1045_3_16502.jpeg?v=20250927_44929",
     "SiteId": 1045,
     "PhotoStatus": "found",
-    "sentiment": 1.9542104345625266
+    "sentiment": 2.0632674394510686
   },
   "30842": {
     "Id": 30842,
@@ -1307,10 +1307,10 @@
     "LastName": "מלביצקי",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1105/1_1105_3_19712.jpeg?v=20250911_50768",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1105/1_1105_3_19712.jpeg?v=20250927_85646",
     "SiteId": 1105,
     "PhotoStatus": "found",
-    "sentiment": 1.571373766567558
+    "sentiment": 1.6801211964217946
   },
   "30718": {
     "Id": 30718,
@@ -1331,10 +1331,10 @@
     "LastName": "סעדה",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1109/1_1109_3_19733.jpeg?v=20250911_80215",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1109/1_1109_3_19733.jpeg?v=20250927_42085",
     "SiteId": 1109,
     "PhotoStatus": "found",
-    "sentiment": 1.7227952273283154
+    "sentiment": 1.674230449923314
   },
   "30832": {
     "Id": 30832,
@@ -1343,10 +1343,10 @@
     "LastName": "רביבו",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1111/1_1111_3_19753.jpeg?v=20250911_66047",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1111/1_1111_3_19753.jpeg?v=20250927_76624",
     "SiteId": 1111,
     "PhotoStatus": "found",
-    "sentiment": 1.8710022410079836
+    "sentiment": 1.9100451777130365
   },
   "30786": {
     "Id": 30786,
@@ -1367,7 +1367,7 @@
     "LastName": "וסרלאוף",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1102/1_1102_3_19692.jpeg?v=20250911_85269",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1102/1_1102_3_19692.jpeg?v=20250927_17684",
     "SiteId": 1102,
     "PhotoStatus": "found",
     "sentiment": 2.2171417397001516
@@ -1382,7 +1382,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1104/1_1104_3_19707.jpeg",
     "SiteId": 1104,
     "PhotoStatus": "found",
-    "sentiment": 1.8171167321512476
+    "sentiment": 1.845499200786464
   },
   "30852": {
     "Id": 30852,
@@ -1391,10 +1391,10 @@
     "LastName": "סולומון",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1107/1_1107_3_19723.jpeg?v=20250911_17399",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1107/1_1107_3_19723.jpeg?v=20250927_11578",
     "SiteId": 1107,
     "PhotoStatus": "found",
-    "sentiment": 2.1120747777596116
+    "sentiment": 2.270212388500571
   },
   "30849": {
     "Id": 30849,
@@ -1403,10 +1403,10 @@
     "LastName": "סון הר מלך",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1108/1_1108_3_19728.jpeg?v=20250911_98532",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1108/1_1108_3_19728.jpeg?v=20250927_.5188",
     "SiteId": 1108,
     "PhotoStatus": "found",
-    "sentiment": 2.056436565379612
+    "sentiment": 1.9686742325825617
   },
   "30717": {
     "Id": 30717,
@@ -1415,7 +1415,7 @@
     "LastName": "סופר",
     "FactionName": "הציונות הדתית בראשות בצלאל סמוטריץ'",
     "FactionID": 1105,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/977/1_977_3_11108.jpeg?v=20250911_44614",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/977/1_977_3_11108.jpeg?v=20250927_44025",
     "SiteId": 977,
     "PhotoStatus": "found",
     "sentiment": 2.083377319268691
@@ -1427,10 +1427,10 @@
     "LastName": "אלהואשלה",
     "FactionName": "רע\"ם",
     "FactionID": 1099,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1093/1_1093_3_19652.jpeg?v=20250911_50958",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1093/1_1093_3_19652.jpeg?v=20250927_80163",
     "SiteId": 1093,
     "PhotoStatus": "found",
-    "sentiment": 2.110629194136709
+    "sentiment": 2.0944759194627403
   },
   "30843": {
     "Id": 30843,
@@ -1439,10 +1439,10 @@
     "LastName": "חוג'יראת",
     "FactionName": "רע\"ם",
     "FactionID": 1099,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1103/1_1103_3_19697.jpeg?v=20250911_.7724",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1103/1_1103_3_19697.jpeg?v=20250927_39551",
     "SiteId": 1103,
     "PhotoStatus": "found",
-    "sentiment": 2.313890797019005
+    "sentiment": 2.2756840767674147
   },
   "30066": {
     "Id": 30066,
@@ -1451,10 +1451,10 @@
     "LastName": "עודה",
     "FactionName": "חד\"ש-תע\"ל",
     "FactionID": 1103,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/938/1_938_3_2537.jpeg?v=20250911_72589",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/938/1_938_3_2537.jpeg?v=20250927_33725",
     "SiteId": 938,
     "PhotoStatus": "found",
-    "sentiment": 2.7189153169989586
+    "sentiment": 2.86259049038589
   },
   "560": {
     "Id": 560,
@@ -1463,10 +1463,10 @@
     "LastName": "טיבי",
     "FactionName": "חד\"ש-תע\"ל",
     "FactionID": 1103,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/208/1_208_3_520.jpeg?v=20250911_07586",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/208/1_208_3_520.jpeg?v=20250927_01338",
     "SiteId": 208,
     "PhotoStatus": "found",
-    "sentiment": 1.650314533477649
+    "sentiment": 1.7011204799227417
   },
   "30067": {
     "Id": 30067,
@@ -1475,10 +1475,10 @@
     "LastName": "תומא סלימאן",
     "FactionName": "חד\"ש-תע\"ל",
     "FactionID": 1103,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/948/1_948_3_2597.jpeg?v=20250911_31004",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/948/1_948_3_2597.jpeg?v=20250927_72975",
     "SiteId": 948,
     "PhotoStatus": "found",
-    "sentiment": 1.621285926981247
+    "sentiment": 1.59101112498343
   },
   "30719": {
     "Id": 30719,
@@ -1487,10 +1487,10 @@
     "LastName": "כסיף",
     "FactionName": "חד\"ש-תע\"ל",
     "FactionID": 1103,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1013/1_1013_3_12312.jpeg?v=20250911_62032",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1013/1_1013_3_12312.jpeg?v=20250927_94889",
     "SiteId": 1013,
     "PhotoStatus": "found",
-    "sentiment": 1.5308725278641795
+    "sentiment": 1.5645711275525391
   },
   "30558": {
     "Id": 30558,
@@ -1502,7 +1502,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/964/1_964_3_2697.jpeg",
     "SiteId": 964,
     "PhotoStatus": "found",
-    "sentiment": 1.6359405431640335
+    "sentiment": 1.5309840793092735
   },
   "30837": {
     "Id": 30837,
@@ -1511,10 +1511,10 @@
     "LastName": "ביטון",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1094/1_1094_3_19657.jpeg?v=20250911_88732",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1094/1_1094_3_19657.jpeg?v=20250927_62643",
     "SiteId": 1094,
     "PhotoStatus": "found",
-    "sentiment": 1.8448282316084952
+    "sentiment": 1.7798115388303994
   },
   "30851": {
     "Id": 30851,
@@ -1523,10 +1523,10 @@
     "LastName": "צרפתי הרכבי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1091/1_1091_3_19743.jpeg?v=20250911_00953",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1091/1_1091_3_19743.jpeg?v=20250927_78025",
     "SiteId": 1091,
     "PhotoStatus": "found",
-    "sentiment": 1.8487926849834622
+    "sentiment": 1.8941486534252763
   },
   "30705": {
     "Id": 30705,
@@ -1535,10 +1535,10 @@
     "LastName": "שיר סגמן",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1004/1_1004_3_12334.jpeg?v=20250911_91674",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1004/1_1004_3_12334.jpeg?v=20250927_89822",
     "SiteId": 1004,
     "PhotoStatus": "found",
-    "sentiment": 1.3931297894548624
+    "sentiment": 1.4398548224046825
   },
   "30854": {
     "Id": 30854,
@@ -1547,10 +1547,10 @@
     "LastName": "שירי",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1112/1_1112_3_19758.jpeg?v=20250911_91177",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1112/1_1112_3_19758.jpeg?v=20250927_63734",
     "SiteId": 1112,
     "PhotoStatus": "found",
-    "sentiment": 1.4959154438190163
+    "sentiment": 1.5005199661180377
   },
   "30480": {
     "Id": 30480,
@@ -1562,7 +1562,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1097/1_1097_3_19672.jpeg",
     "SiteId": 1097,
     "PhotoStatus": "found",
-    "sentiment": 2.1922643945887685
+    "sentiment": 2.137245666839182
   },
   "427": {
     "Id": 427,
@@ -1571,10 +1571,10 @@
     "LastName": "ליברמן",
     "FactionName": "ישראל ביתנו",
     "FactionID": 1104,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/214/1_214_3_548.jpeg?v=20250911_71518",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/214/1_214_3_548.jpeg?v=20250927_70323",
     "SiteId": 214,
     "PhotoStatus": "found",
-    "sentiment": 2.2093918779343364
+    "sentiment": 2.25896926869452
   },
   "23560": {
     "Id": 23560,
@@ -1583,10 +1583,10 @@
     "LastName": "מלינובסקי",
     "FactionName": "ישראל ביתנו",
     "FactionID": 1104,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/956/1_956_3_2649.jpeg?v=20250911_00696",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/956/1_956_3_2649.jpeg?v=20250927_68616",
     "SiteId": 956,
     "PhotoStatus": "found",
-    "sentiment": 1.6251251103430986
+    "sentiment": 1.6113338296543807
   },
   "30722": {
     "Id": 30722,
@@ -1595,10 +1595,10 @@
     "LastName": "סובה",
     "FactionName": "ישראל ביתנו",
     "FactionID": 1104,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/994/1_994_3_11217.jpeg?v=20250911_68066",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/994/1_994_3_11217.jpeg?v=20250927_40006",
     "SiteId": 994,
     "PhotoStatus": "found",
-    "sentiment": 1.776417744198814
+    "sentiment": 1.6795379249453544
   },
   "12938": {
     "Id": 12938,
@@ -1607,10 +1607,10 @@
     "LastName": "עמאר",
     "FactionName": "ישראל ביתנו",
     "FactionID": 1104,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/837/1_837_3_1973.jpeg?v=20250911_20295",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/837/1_837_3_1973.jpeg?v=20250927_11724",
     "SiteId": 837,
     "PhotoStatus": "found",
-    "sentiment": 1.5675800948962568
+    "sentiment": 1.6185186904482542
   },
   "30121": {
     "Id": 30121,
@@ -1619,10 +1619,10 @@
     "LastName": "פורר",
     "FactionName": "ישראל ביתנו",
     "FactionID": 1104,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/951/1_951_3_2614.jpeg?v=20250911_75904",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/951/1_951_3_2614.jpeg?v=20250927_42878",
     "SiteId": 951,
     "PhotoStatus": "found",
-    "sentiment": 2.000298014417291
+    "sentiment": 2.0570103809684515
   },
   "30863": {
     "Id": 30863,
@@ -1631,10 +1631,10 @@
     "LastName": "ניר",
     "FactionName": "ישראל ביתנו",
     "FactionID": 1104,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1106/1_1106_3_19718.jpeg?v=20250911_83589",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1106/1_1106_3_19718.jpeg?v=20250927_42033",
     "SiteId": 1106,
     "PhotoStatus": "found",
-    "sentiment": 2.036844061974436
+    "sentiment": 1.9009385149516165
   },
   "30867": {
     "Id": 30867,
@@ -1643,10 +1643,10 @@
     "LastName": "קרויזר",
     "FactionName": "עוצמה יהודית בראשות איתמר בן גביר",
     "FactionID": 1106,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1114/1_1114_3_19866.jpeg?v=20250911_51987",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1114/1_1114_3_19866.jpeg?v=20250927_03323",
     "SiteId": 1114,
     "PhotoStatus": "found",
-    "sentiment": 2.1452367450110614
+    "sentiment": 2.2741894455780276
   },
   "30868": {
     "Id": 30868,
@@ -1655,10 +1655,10 @@
     "LastName": "מישרקי",
     "FactionName": "התאחדות הספרדים שומרי תורה תנועתו של מרן הרב עובדיה יוסף זצ\"ל",
     "FactionID": 1095,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1115/1_1115_3_19849.jpeg?v=20250911_37456",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1115/1_1115_3_19849.jpeg?v=20250927_15032",
     "SiteId": 1115,
     "PhotoStatus": "found",
-    "sentiment": 2.5290715636312964
+    "sentiment": 2.3819293298497795
   },
   "30672": {
     "Id": 30672,
@@ -1670,7 +1670,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1001/1_1001_3_11229.jpeg",
     "SiteId": 1001,
     "PhotoStatus": "found",
-    "sentiment": 1.9385333247631789
+    "sentiment": 1.9947220273464918
   },
   "30839": {
     "Id": 30839,
@@ -1679,10 +1679,10 @@
     "LastName": "אילוז",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1116/1_1116_3_19861.jpeg?v=20250911_91774",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1116/1_1116_3_19861.jpeg?v=20250928_65589",
     "SiteId": 1116,
     "PhotoStatus": "found",
-    "sentiment": 2.0406602903157474
+    "sentiment": 2.106555739726871
   },
   "30710": {
     "Id": 30710,
@@ -1691,10 +1691,10 @@
     "LastName": "קלנר",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/987/1_987_3_11129.jpeg?v=20250911_62367",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/987/1_987_3_11129.jpeg?v=20250928_44825",
     "SiteId": 987,
     "PhotoStatus": "found",
-    "sentiment": 1.9664770373255014
+    "sentiment": 2.023261329494417
   },
   "30702": {
     "Id": 30702,
@@ -1703,10 +1703,10 @@
     "LastName": "עטייה",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/992/1_992_3_11212.jpeg?v=20250911_21907",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/992/1_992_3_11212.jpeg?v=20250928_94451",
     "SiteId": 992,
     "PhotoStatus": "found",
-    "sentiment": 2.236823054689914
+    "sentiment": 2.401025594726205
   },
   "30711": {
     "Id": 30711,
@@ -1715,10 +1715,10 @@
     "LastName": "הלוי",
     "FactionName": "הליכוד ",
     "FactionID": 1096,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1044/1_1044_3_16220.jpeg?v=20250911_70308",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1044/1_1044_3_16220.jpeg?v=20250928_11105",
     "SiteId": 1044,
     "PhotoStatus": "found",
-    "sentiment": 1.7947961844876408
+    "sentiment": 1.7124889962747694
   },
   "30870": {
     "Id": 30870,
@@ -1730,7 +1730,7 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1117/1_1117_3_19896.jpeg",
     "SiteId": 1117,
     "PhotoStatus": "found",
-    "sentiment": 2.259037691785023
+    "sentiment": 2.3069445698820052
   },
   "30871": {
     "Id": 30871,
@@ -1739,10 +1739,10 @@
     "LastName": "מירון",
     "FactionName": "יש עתיד",
     "FactionID": 1102,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1118/1_1118_3_19926.jpeg?v=20250911_00432",
+    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1118/1_1118_3_19926.jpeg?v=20250928_86421",
     "SiteId": 1118,
     "PhotoStatus": "found",
-    "sentiment": 1.9227903082184494
+    "sentiment": 1.8834269991274923
   },
   "30872": {
     "Id": 30872,
@@ -1754,45 +1754,6 @@
     "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
     "SiteId": 1120,
     "PhotoStatus": "found",
-    "sentiment": 2.167489304408431
-  }
-  ,
-  "1": {
-    "Id": 1,
-    "FirstName": "דוויט",
-    "Email": null,
-    "LastName": "שרוט",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
-    "SiteId": 1120,
-    "PhotoStatus": "found",
-    "sentiment": 2.167489304408431
-  }
-  ,
-  "2": {
-    "Id": 2,
-    "FirstName": "אור",
-    "Email": null,
-    "LastName": "ישראלי",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
-    "SiteId": 1120,
-    "PhotoStatus": "found",
-    "sentiment": 2.167489304408431
-  }
-  ,
-  "3": {
-    "Id": 3,
-    "FirstName": "טיילור",
-    "Email": null,
-    "LastName": "סוויפט",
-    "FactionName": "יהדות התורה",
-    "FactionID": 1101,
-    "PhotoURL": "https://fs.knesset.gov.il/globaldocs/MK/1120/1_1120_3_19940.jpeg",
-    "SiteId": 1120,
-    "PhotoStatus": "found",
-    "sentiment": 2.167489304408431
+    "sentiment": 2.2297886592447758
   }
 }

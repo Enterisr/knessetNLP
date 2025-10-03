@@ -26,7 +26,8 @@
 
 .mk-list-item-content {
   display: flex;
-  align-items: center;
+  align-items: start;
+  column-gap:3em;
 }
 
 .mk-photo-container {
@@ -234,6 +235,7 @@
   background-color: #f8f9fa;
   border: 1px solid #dee2e6;
   color: #495057;
+  cursor: pointer;
 }
 
 .protocol-info.clickable:hover {

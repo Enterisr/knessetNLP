@@ -65,8 +65,6 @@ class UtteranceImportancePredictor:
             logger.error(f"Failed to load model from {self.model_path}: {e}")
             raise
 
-    # Note: make_handcrafted_features is now imported from .features module
-
     def predict_importance(self, embeddings, texts):
         """
         Predict importance scores for utterances.
@@ -115,23 +113,18 @@ class UtteranceImportancePredictor:
         Returns:
             tuple: (filtered_embeddings, filtered_data, importance_scores, important_indices)
         """
-        import pandas as pd
 
-        # Handle both DataFrame and dict inputs
         if isinstance(data, dict):
             texts = data['text'] if isinstance(
                 data['text'], list) else data['text'].tolist()
         else:
             texts = data['text'].tolist()
 
-        # Get importance predictions
         importance_scores, important_mask = self.predict_importance(
             embeddings, texts)
 
-        # Filter embeddings
         filtered_embeddings = embeddings[important_mask]
 
-        # Filter data
         if isinstance(data, dict):
             filtered_data = {}
             for key, values in data.items():

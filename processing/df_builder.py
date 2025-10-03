@@ -1,4 +1,7 @@
 import json
+import os
+import hashlib
+import numpy as np
 import pandas as pd
 from pathlib import Path
 from processing.embed_utils import get_utterances_files_list
@@ -8,12 +11,18 @@ from utils.logger_config import get_logger
 PROJECT_ROOT = Path(__file__).parent.parent
 
 # Constants for metadata embedding
-MAX_SUBJECT_LEN = 40
-MAX_COMMITIEE_LEN = 40
-SEP = " | "  # clearer for the model than underscores jammed together
+MAX_SUBJECT_LEN = 150
+MAX_COMMITIEE_LEN = 150
+SEP = " | "
 METADATA_FORMAT = f"נושא: %s{SEP}ועדה: %s{SEP}תוכן: %s"
 
 logger = get_logger(__name__)
+
+
+def make_faiss_uid(utter_id: str) -> int:
+    # EXACTLY the same hashing you used in Colab
+    # If Colab used a salt like "|text", add it here and there as well.
+    return int(hashlib.sha1(utter_id.encode("utf-8")).hexdigest(), 16) % (2**63)
 
 
 def embed_metadata_in_utterance(utter_list: list[str], file_data: dict):
@@ -29,11 +38,31 @@ def embed_metadata_in_utterance(utter_list: list[str], file_data: dict):
 def extract_id(metadata):
     """Extract ID from metadata with error handling."""
     try:
-        id = metadata["Id"]
-    except:
-        id = -1
+        return (metadata or {}).get("Id", -1)
+    except Exception:
+        return -1
 
-    return id
+
+def align_df_to_manifest(df: pd.DataFrame) -> pd.DataFrame:
+    """Align DataFrame to utter_ids.npy manifest order if it exists."""
+    ids_path = PROJECT_ROOT / "utter_ids.npy"
+    if not ids_path.exists():
+        return df
+
+    ids = np.load(ids_path).astype("int64")
+    # Make sure all ids in manifest exist in this DF; report if some are missing
+    df_ids_set = set(df["faiss_uid"].tolist())
+    missing = [int(x) for x in ids if x not in df_ids_set]
+    if missing:
+        logger.warning(
+            f"{len(missing)} ids from utter_ids.npy were not found in local DF.")
+    # Reindex to the manifest order, dropping missing to keep order tight
+    df = (df.set_index("faiss_uid")
+            .reindex(ids)
+            .dropna(subset=["utter_id"])
+            .reset_index())
+    logger.info("Aligned DF to utter_ids.npy order.")
+    return df
 
 
 def _process_utterance_file(file_name: str, filepath: str,
@@ -42,9 +71,8 @@ def _process_utterance_file(file_name: str, filepath: str,
     with open(filepath, "r", encoding="utf-8") as f:
         file_data = json.loads(f.read())
 
-    # Make speaker iteration stable
     speakers = list((file_data.get("utterances") or {}).items())
-    speakers.sort(key=lambda kv: str(kv[0]))
+    speakers.sort(key=lambda kv: str(kv[0]))  # stable by speaker key
 
     for speaker_key, values in speakers:
         ulist = list(values.get("utterances", []))
@@ -52,15 +80,15 @@ def _process_utterance_file(file_name: str, filepath: str,
             embed_metadata_in_utterance(ulist, file_data))
         utterances.extend(committee_prefixed_utterances)
 
-        #  build DF rows in the SAME order to keep alignment
         for i, u in enumerate(ulist):
-            utter_id = f"{file_name}::{speaker_key}::{i}"
+            # IMPORTANT: this must match the Colab convention exactly
+            utter_id = f"{file_name}::{str(speaker_key)}::{i}"
             utterances_df_list.append({
                 "utter_id": utter_id,
                 "text": u,
                 "mk": speaker_key,
-                "mk_id": extract_id(values["metadata"]),
-                "src": file_data["source_file"],
+                "mk_id": extract_id(values.get("metadata", {})),
+                "src": file_data.get("source_file", ""),
                 "subject": str(file_data.get("subject", ""))[:MAX_SUBJECT_LEN],
                 "committee": str(file_data.get("committee", ""))[:MAX_COMMITIEE_LEN],
             })
@@ -68,10 +96,15 @@ def _process_utterance_file(file_name: str, filepath: str,
 
 def create_df(directory: str):
     """Load utterances from all JSON files in directory and build DataFrame."""
-    utterances = []
-    utterances_df_list = []
+    utterances: list[str] = []
+    utterances_df_list: list[dict] = []
 
     files_to_process = get_utterances_files_list(directory)
+    # Ensure deterministic order even if the helper returns arbitrary ordering
+    files_to_process = sorted(
+        files_to_process,
+        key=lambda t: (str(t[0]).lower(), str(t[1]).lower())
+    )
     logger.info(f"Processing {len(files_to_process)} files from {directory}")
 
     for file_name, filepath in files_to_process:
@@ -81,15 +114,22 @@ def create_df(directory: str):
     df = pd.DataFrame(utterances_df_list)
 
     # Hard alignment check: lengths must match
-    assert len(df) == len(
-        utterances), f"DataFrame length ({len(df)}) != utterances length ({len(utterances)})"
+    assert len(df) == len(utterances), \
+        f"DataFrame length ({len(df)}) != utterances length ({len(utterances)})"
 
-    df.reset_index(drop=True, inplace=True)
-    df["row_id"] = df.index.astype("int64")
+    df["faiss_uid"] = df["utter_id"].apply(make_faiss_uid)
 
-    df.to_pickle(PROJECT_ROOT / "utterances_data.pkl")
+    assert df["utter_id"].is_unique, "utter_id collisions detected"
+    assert df["faiss_uid"].is_unique, "faiss_uid collisions detected"
+
+    # Align to colab  manifest order if it exists (if we embedded oin colab)
+    df = align_df_to_manifest(df)
+
+    # Persist with faiss_uid present (index as columns is usually safer)
+    out_path = PROJECT_ROOT / "utterances_data.pkl"
+    df.to_pickle(out_path)
     logger.info(
-        f"Created DataFrame with {len(df)} rows and saved to utterances_data.pkl")
+        f"Created DataFrame with {len(df)} rows and saved to {out_path}")
 
     return df, utterances
 
@@ -99,12 +139,12 @@ def recreate_utterances_from_files(directory: str):
     utterances = []
     files_to_process = get_utterances_files_list(directory)
 
-    for file_name, filepath in files_to_process:
+    for _, filepath in files_to_process:
         with open(filepath, "r", encoding="utf-8") as f:
             file_data = json.loads(f.read())
         speakers = list((file_data.get("utterances") or {}).items())
         speakers.sort(key=lambda kv: str(kv[0]))
-        for speaker_key, values in speakers:
+        for _, values in speakers:
             ulist = list(values.get("utterances", []))
             committee_prefixed_utterances = list(
                 embed_metadata_in_utterance(ulist, file_data))

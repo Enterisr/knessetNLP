@@ -103,8 +103,6 @@ def make_handcrafted_features(texts: Union[List[str], np.ndarray]) -> np.ndarray
         numpy.ndarray: Array of shape (n_samples, NUM_FEATURE_COPIES) containing
                       handcrafted features
     """
-    if not texts:
-        return np.array([], dtype=np.float32).reshape(0, NUM_FEATURE_COPIES)
 
     # Handle numpy arrays with dtype=object
     if isinstance(texts, np.ndarray):

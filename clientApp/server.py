@@ -16,7 +16,11 @@ logger = logging.getLogger(__name__)
 
 # React app build path
 react_build_path = os.path.join(
-    os.path.dirname(__file__), "kenessetData", "dist")
+    os.path.dirname(__file__), "reactApp", "dist")
+
+# Check if we're in development mode
+DEVELOPMENT_MODE = os.environ.get("DEVELOPMENT", "false").lower() == "true"
+print(f"developement mode: {DEVELOPMENT_MODE}")
 
 
 class Server:
@@ -30,25 +34,36 @@ class Server:
 
     def _setup_middleware(self):
         """Configure CORS middleware"""
+        if DEVELOPMENT_MODE:
+            # In development, allow the Vite dev server
+            origins = ["http://localhost:5173", "http://127.0.0.1:5173"]
+        else:
+            # In production, allow all origins (or specify your production domain)
+            origins = ["*"]
+
         self.app.add_middleware(
             CORSMiddleware,
-            allow_origins=["*"],
+            allow_origins=origins,
             allow_credentials=True,
             allow_methods=["*"],
             allow_headers=["*"],
         )
 
     def _setup_static_files(self):
-        """Mount static files for the React frontend"""
-        self.app.mount(
-            "/assets", StaticFiles(directory=os.path.join(react_build_path, "assets")), name="assets")
+        """Mount static files for the React frontend (only in production)"""
+        if not DEVELOPMENT_MODE and os.path.exists(react_build_path):
+            self.app.mount(
+                "/assets", StaticFiles(directory=os.path.join(react_build_path, "assets")), name="assets")
 
     def _setup_routes(self):
         """Setup API routes"""
         self.app.add_api_route(
             "/api/query", self._handle_query, methods=["GET"])
-        self.app.add_api_route("/{full_path:path}",
-                               self._serve_spa, methods=["GET"])
+
+        # Only serve SPA in production mode
+        if not DEVELOPMENT_MODE:
+            self.app.add_api_route("/{full_path:path}",
+                                   self._serve_spa, methods=["GET"])
 
     async def _handle_query(self, query: str = Query(None, description="Query to process")):
         """Handle API query requests"""
@@ -58,7 +73,9 @@ class Server:
                         (sanitized_query or "")[:50])
             res = self.zmq_client.req(query)
 
-            # Process the response to add MK-level sentiment
+            if "error" in res:
+                raise HTTPException(500)
+
             processed_res = process_response_with_mk_sentiment(res)
 
             return {"query": sanitized_query, "response": processed_res, "status": "success"}
@@ -75,7 +92,6 @@ class Server:
 
 
 if __name__ == "__main__":
-    # Create an instance of the server and expose the FastAPI app
     server = Server()
     app = server.app
     port = int(os.environ.get("PORT", 3000))

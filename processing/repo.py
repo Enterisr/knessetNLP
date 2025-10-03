@@ -1,4 +1,3 @@
-import json
 import faiss
 from faiss import IndexFlatIP
 from sentence_transformers import SentenceTransformer
@@ -7,20 +6,19 @@ from utils.logger_config import get_logger
 from pathlib import Path
 from processing.embedder import embed
 from processing.repo_data import RepoData
-from processing.mk_database import get_mks
-from processing.filter_db.utterance_filter import filter_and_save_utterances
+from processing.filter_db.utterance_filter import get_or_create_filtered_data
 from processing.search_utils import process_search_results, build_sorted_results
 import pandas as pd
-
 logger = get_logger(__name__)
 
 model = SentenceTransformer(
     'imvladikon/sentence-transformers-alephbert',
 )
 PROJECT_ROOT = Path(__file__).parent.parent
+FILTER_TRESHHOLD = 0.43
 
 
-def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> IndexFlatIP:
+def build_faiss_from_embeddings(embeddings: np.ndarray, df, force_refresh: bool) -> IndexFlatIP:
     d = embeddings.shape[1]  # get dim from embeddings
 
     index_path = PROJECT_ROOT / "committie_index"
@@ -28,18 +26,26 @@ def build_faiss_from_embeddings(embeddings: np.ndarray, force_refresh: bool) -> 
         try:
             logger.info("Loading existing FAISS index from file...")
             index = faiss.read_index(str(index_path))
+            logger.info(f"Loaded FAISS index with {index.ntotal} vectors")
             return index
         except Exception as e:
             logger.error(f"Error loading index: {e}. Building new index...")
 
     logger.info("Building new FAISS index...")
+    logger.info(f"Embeddings shape: {embeddings.shape}")
+
     con_embeddings = np.ascontiguousarray(embeddings)
     index = faiss.IndexIDMap2(faiss.IndexFlatIP(d))
-    ids = np.arange(embeddings.shape[0], dtype=np.int64)
-    index.add_with_ids(np.ascontiguousarray(
-        con_embeddings, dtype=np.float32), ids)
 
+    ids = df.index.to_numpy(dtype=np.int64)
+    logger.info(
+        f"Creating IDs array: {ids.shape}, range: {ids.min()} to {ids.max()}")
+
+    index.add_with_ids(con_embeddings, ids)
+
+    logger.info(f"Built FAISS index with {index.ntotal} vectors")
     faiss.write_index(index, str(index_path))
+
     return index
 
 
@@ -56,7 +62,7 @@ def search(repo_data: RepoData, query: str) -> dict[str, dict]:
     """
     query_embedding = model.encode(
         [query], normalize_embeddings=True, convert_to_numpy=True).astype(np.float32)
-    k = 200
+    k = 300
     distances, ids = repo_data.database.search(query_embedding, k)
 
     mk_utterances, mk_total_scores, mk_metadata = process_search_results(
@@ -68,30 +74,21 @@ def search(repo_data: RepoData, query: str) -> dict[str, dict]:
 
 def init_repo(force_refresh: bool):
     """Initialize repository with importance filtering."""
-    df, embeddings, utterances = embed(force_refresh=force_refresh)
+    df, embeddings, utterances = embed(
+        force_refresh=force_refresh)
+    logger.info(
+        f"Original data - DataFrame shape: {df.shape}, Embeddings shape: {embeddings.shape}")
 
-    # Check if filtered files exist
-    filtered_embeddings_path = PROJECT_ROOT / "filtered_utterance_embeddings.npy"
-    filtered_df_path = PROJECT_ROOT / "filtered_utterances_data.pkl"
+    filtered_embeddings, filtered_df = get_or_create_filtered_data(
+        embeddings, df, FILTER_TRESHHOLD, force_refresh)
 
-    need_filter = (force_refresh or
-                   not filtered_embeddings_path.exists() or
-                   not filtered_df_path.exists())
+    logger.info(
+        f"DataFrame index info - Type: {type(filtered_df.index)}, Range: {filtered_df.index.min()} to {filtered_df.index.max()}")
 
-    if need_filter:
-        logger.info("Creating filtered data...")
-        filtered_embeddings, filtered_df = filter_and_save_utterances(
-            embeddings, df, 0.43)
-    else:
-        logger.info("Loading existing filtered data...")
-        filtered_embeddings = np.load(filtered_embeddings_path)
-        filtered_df = pd.read_pickle(filtered_df_path)
-
-    # Build or load FAISS index
     index_path = PROJECT_ROOT / "committie_index"
     need_rebuild_index = force_refresh or not index_path.exists()
     database = build_faiss_from_embeddings(
-        filtered_embeddings, need_rebuild_index)
+        filtered_embeddings, filtered_df, need_rebuild_index)
 
     return RepoData(database, filtered_df, utterances)
 

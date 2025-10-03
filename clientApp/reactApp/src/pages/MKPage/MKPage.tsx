@@ -22,7 +22,15 @@ const MKPage = () => {
   const fetchMKUtterances = async (mkName: string, query: string) => {
     setLoading(true)
     try {
-      const response = await fetch(resolveServerURI(`/api/query?query=${encodeURIComponent(query)}`))
+      const response = await fetch(
+        resolveServerURI(`/api/query?query=${encodeURIComponent(query)}`), 
+        { 
+          cache: 'force-cache',
+          headers: {
+        'Cache-Control': 'max-age=86400, immutable' 
+          }
+        }
+      )
       const data = await response.json()
       
       const decodedMkName = decodeURIComponent(mkName)

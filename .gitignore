@@ -13,8 +13,8 @@ utterances.zip
 logs/
 knesset_cache.sqlite
 committie_index
-clientApp/kenessetData/node_modules/*
-clientApp/kenessetData/node_modules
+clientApp/reactApp/node_modules/*
+clientApp/reactApp/node_modules
 /node_modules
 db/
 utterance_embeddings.npy

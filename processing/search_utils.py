@@ -1,7 +1,7 @@
 """
 Utility functions for search operations and result processing.
 """
-from typing import Dict, List, Tuple, Any
+from typing import Dict, Tuple
 from processing.mk_database import get_mks
 from utils.logger_config import get_logger
 
@@ -25,50 +25,47 @@ def process_search_results(distances, ids, df) -> Tuple[Dict, Dict, Dict]:
     mk_metadata = {}  # mk_id -> (name, metadata)
 
     print("Search results:")
+    print(f"DataFrame shape: {df.shape}")
+    print(f"DataFrame index range: {df.index.min()} to {df.index.max()}")
+    print(f"Number of search results: {len(ids[0])}")
+
     for rank, (uid, dist) in enumerate(zip(ids[0], distances[0]), start=1):
-        if uid == -1:
-            continue
+        utter_id = int(uid)
 
-        utter_idx = int(uid)
-        row = df.iloc[utter_idx]
-
-        # Calculate combined score: similarity score * importance score
+        row = df.loc[utter_id]
         similarity_score = float(dist)
-        # fallback to 1.0 if not available
         importance_score = row.get('importance_score', 1.0)
         combined_score = calculate_combined_score(
             similarity_score, importance_score)
 
         print(
-            f"Match {rank}: ID {utter_idx}, sim={similarity_score:.4f}, imp={importance_score:.4f}, "
+            f"Match {rank}: ID {utter_id}, sim={similarity_score:.4f}, imp={importance_score:.4f}, "
             f"combined={combined_score:.4f}, Utterance: {row['text'][:120][::-1]} mk: {row['mk'][::-1]}")
 
         mk_id = str(row["mk_id"])
 
-        # Initialize MK data if not exists
         if mk_id not in mk_utterances:
             mk_utterances[mk_id] = []
             mk_total_scores[mk_id] = 0.0
             mk_metadata[mk_id] = (row["mk"], get_mks().get(mk_id))
 
-        # Add utterance with score for later sorting
         utterance_data = {
             "text": row["text"],
             "src": row["src"],
             "relevance_score": combined_score
         }
 
-        # Add committee and subject information if available
-        if 'committee' in row and row['committee'] is not None:
-            utterance_data["committee"] = str(row['committee'])
-        if 'subject' in row and row['subject'] is not None:
-            utterance_data["subject"] = str(row['subject'])
+        utterance_data["committee"] = str(row['committee'])
+        utterance_data["subject"] = str(row['subject'])
 
-        # Add sentiment if available in the dataframe
-        if 'sentiment' in row and row['sentiment'] is not None:
-            utterance_data["sentiment"] = float(row['sentiment'])
         mk_utterances[mk_id].append((combined_score, utterance_data))
         mk_total_scores[mk_id] += combined_score
+
+    for mk, val in mk_total_scores.items():
+        max_score = max(score for score, _ in mk_utterances[mk])
+        avg_score = val/len(mk_utterances[mk])
+        context_score = (avg_score * 0.3) + (len(mk_utterances[mk])*0.0001)
+        mk_total_scores[mk] = max_score+context_score
 
     return mk_utterances, mk_total_scores, mk_metadata
 

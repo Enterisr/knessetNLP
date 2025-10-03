@@ -58,7 +58,7 @@ def extract_utterance_from_file(dover_resolver: DoverResolver, content: str):
             if speaker not in speaker_utterances:
                 speaker_key, mk_meta = dover_resolver.resolve_mk(
                     speaker, mks_in_meeting)
-                if mk_meta is not None:
+                if mk_meta != "mk_meta":
                     # first time speaking
                     if speaker_utterances.get(speaker_key) is None:
                         speaker_utterances[speaker_key] = {}

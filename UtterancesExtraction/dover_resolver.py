@@ -47,7 +47,7 @@ class DoverResolver:
             name = dover_str
         # logger.debug(
         #     f"extracted doverkey: {name} from dover_str: {dover_str}")
-        return name
+        return name.strip()
 
     def fallback_to_rapidfuzz_(self, name: str):
         rapidfuzz_cache_entry = self.rapidfuzz_cache.get(name)

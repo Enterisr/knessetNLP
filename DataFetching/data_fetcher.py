@@ -9,6 +9,7 @@ from pathlib import Path
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from DataFetching.partition_handler import PartitionHandler
+from DataFetching.duplicate_checker import check_for_duplicate_files
 from utils.logger_config import get_logger
 
 
@@ -269,6 +270,10 @@ class KnessetDataFetcher:
         """Main method to process all Knesset data."""
         self.fetch_mks_data()
         self.fetch_all_committees_from_knesset()
+
+        # Check for duplicate files after processing
+        self.logger.info("Checking for duplicate JSON files...")
+        check_for_duplicate_files(self.OUTPUT_FOLDER)
 
 
 if __name__ == "__main__":

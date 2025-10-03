@@ -70,29 +70,43 @@ def _embed_in_vector_space(utternces: list, batch_size: int = 1000) -> np.ndarra
     return embeddings_array
 
 
-def load_embeddings(directory: str, force_refresh=False, batch_size=1000):
-    if force_refresh:
-        df, utternaces = create_df(directory)
-        embeddings = _embed_in_vector_space(utternaces, batch_size)
-        return df, embeddings, utternaces
+def load_or_create_dataframe(directory: str, force_refresh=False):
+    df_path = PROJECT_ROOT / "utterances_data.pkl"
 
-    try:
-        embeddings = np.load(PROJECT_ROOT / "utterance_embeddings.npy")
-        df = pd.read_pickle(PROJECT_ROOT / "utterances_data.pkl")
-        # The utterances in the embedding are the metadata-prefixed versions
-        # We need to recreate them from the files
-        utternaces = recreate_utterances_from_files(directory)
+    if not force_refresh and df_path.exists():
+        df = pd.read_pickle(df_path)
+        utterances = recreate_utterances_from_files(directory)
+        logger.info(f"Loaded DataFrame with {len(df)} rows from file.")
+        return df, utterances
 
+    logger.info("Creating new DataFrame...")
+    df, utterances = create_df(directory)
+    return df, utterances
+
+
+def load_or_create_embeddings(utterances: list, force_refresh=False, batch_size=1000):
+    embeddings_path = PROJECT_ROOT / "utterance_embeddings.npy"
+
+    if not force_refresh and embeddings_path.exists():
+        embeddings = np.load(embeddings_path)
         logger.info(f"Loaded {len(embeddings)} embeddings from file.")
-    except FileNotFoundError:
-        logger.warning(
-            "Embeddings file not found. Generating new embeddings...")
-        df, utternaces = create_df(directory)
-        embeddings = _embed_in_vector_space(utternaces, batch_size)
-    return df, embeddings, utternaces
+        return embeddings
+
+    logger.info("Creating new embeddings...")
+    embeddings = _embed_in_vector_space(utterances, batch_size)
+    return embeddings
+
+
+def load_embeddings(directory: str, force_refresh=False, batch_size=1000):
+    """Load or create both DataFrame and embeddings. Ensures both are available even if only one exists."""
+    df, utterances = load_or_create_dataframe(directory, force_refresh)
+    embeddings = load_or_create_embeddings(
+        utterances, force_refresh, batch_size)
+    return df, embeddings, utterances
 
 
 def embed(directory="./utterances", force_refresh=False, batch_size=1000):
-    df, embeddings, utternaces = load_embeddings(
+    """Main entry point for embedding functionality."""
+    df, embeddings, utterances = load_embeddings(
         directory, force_refresh, batch_size)
-    return df, embeddings, utternaces
+    return df, embeddings, utterances
