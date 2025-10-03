@@ -1,67 +1,52 @@
-import { useState, useEffect, useCallback } from 'react'
-import { useParams, useNavigate } from 'react-router-dom'
-import SearchBar from '../../components/SearchBar/SearchBar'
-import MKList from '../../components/MKList/MKList'
-import { resolveServerURI } from '../../utils'
-import type { MKUtterances } from '../../types'
-import "./Home.css"
+import { useEffect, useCallback } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import MKList from "../../components/MKList/MKList";
+import { useSearch } from "../../hooks/useSearch";
 
 const Home = () => {
-  const { query } = useParams<{ query?: string }>()
-  const navigate = useNavigate()
-  const [mks, setMks] = useState<MKUtterances>({})
-  const [loading, setLoading] = useState(false)
-  const [currentQuery, setCurrentQuery] = useState(query || '')
+  const { query } = useParams<{ query?: string }>();
+  const navigate = useNavigate();
+  const { searchResults, currentQuery, loading, search } = useSearch();
 
-  const handleSearch = useCallback(async (searchQuery: string) => {
-    setLoading(true)
-    setCurrentQuery(searchQuery)
-    
-    // Update URL without triggering a page reload
-    if (searchQuery !== query) {
-      navigate(`/search/${encodeURIComponent(searchQuery)}`, { replace: false })
-    }
-
-    try {
-      const response = await fetch(resolveServerURI(`/api/query?query=${encodeURIComponent(searchQuery)}`))
-      const data = await response.json()
-      
-      if (data.response) {
-        console.log('Backend response:', data.response)
-        setMks(data.response as MKUtterances)
-      } else {
-        console.error('Invalid response format:', data)
-        setMks({})
+  const handleSearch = useCallback(
+    async (searchQuery: string) => {
+      // Update URL without triggering a page reload
+      if (searchQuery !== query) {
+        navigate(`/search/${encodeURIComponent(searchQuery)}`, {
+          replace: false,
+        });
       }
-    } catch (error) {
-      console.error('Error searching:', error)
-      setMks({})
-    } finally {
-      setLoading(false)
-    }
-  }, [navigate, query])
+
+      // Use context search method
+      await search(searchQuery);
+    },
+    [navigate, query, search]
+  );
 
   useEffect(() => {
     if (query) {
-      handleSearch(query)
+      handleSearch(query);
     }
-  }, [query, handleSearch])
+  }, [query, handleSearch]);
 
   const handleMKSelect = (mkName: string) => {
     // Navigate to the MK page with the selected MK name and current query
-    navigate(`/mk/${encodeURIComponent(mkName)}/${encodeURIComponent(currentQuery)}`)
-  }
+    navigate(
+      `/mk/${encodeURIComponent(mkName)}/${encodeURIComponent(currentQuery)}`
+    );
+  };
 
   return (
     <main className="app-main">
       <SearchBar onSearch={handleSearch} initialValue={currentQuery} />
-      <MKList 
-        mks={mks} 
+      <MKList
+        mks={searchResults}
         onMKSelect={handleMKSelect}
         loading={loading}
       />
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

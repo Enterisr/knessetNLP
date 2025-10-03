@@ -1,0 +1,142 @@
+.mk-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 3rem auto;
+  max-width: 1300px;
+}
+
+.mk-list-item {
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem;
+}
+
+.mk-list-item-content {
+  display: flex;
+  align-items: start;
+  column-gap: 3em;
+}
+
+.mk-photo-container {
+  margin-right: 1.5rem;
+  flex-shrink: 1;
+  width: fit-content;
+}
+
+.mk-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #f0f0f0;
+}
+
+.mk-details {
+  flex-grow: 1;
+  flex-direction: column;
+}
+
+.mk-list-item-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #2c3e50;
+  margin-bottom: 0.25rem;
+}
+
+.mk-list-item-party {
+  color: #7f8c8d;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.mk-list-item-description {
+  color: #3498db;
+  font-weight: 500;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Sentiment container rendered by SentimentTag (styles are global) */
+
+.mk-list-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border-left-color: #3498db;
+  animation: spin 1s linear infinite;
+  margin-bottom: 1rem;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.mk-list-empty {
+  text-align: center;
+  padding: 3rem;
+  color: #7f8c8d;
+  font-size: 1.1rem;
+}
+
+/* Relevance Score Styles */
+.mk-relevance-score {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.relevance-label {
+  font-weight: 500;
+}
+
+.relevance-score {
+  font-weight: bold;
+  color: #e74c3c;
+  background-color: #fdf2f2;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  border: 1px solid #fadbd8;
+}
+
+/* Utterances Preview Styles */
+.mk-utterances-preview {
+  margin-top: 0.75rem;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid #e9ecef;
+}
+
+/* Update the main item to not be clickable */
+.mk-list-item {
+  cursor: default;
+}
+
+.mk-list-item:hover {
+  transform: none;
+  box-shadow: 0 0px 12px 0px #70b0db;
+  border-color: #ddd;
+  transition: ease-out 0.3s all;
+}
+
+/* Protocol Info Clickable Styles (used inside UtteranceItem, now scoped there) */

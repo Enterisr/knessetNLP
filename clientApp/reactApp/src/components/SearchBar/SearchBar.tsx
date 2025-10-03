@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./SearchBar.css";
+import styles from "./SearchBar.module.css";
 
 interface SearchBarProps {
   onSearch: (query: string) => void;
@@ -21,16 +21,18 @@ const SearchBar = ({ onSearch, initialValue = "" }: SearchBarProps) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="search-form">
-      <div className="search-input-container">
+    <form onSubmit={handleSubmit} className={styles["search-form"]}>
+      <div className={styles["search-input-container"]}>
         <input
           type="text"
-          className="search-input"
+          className={styles["search-input"]}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
           placeholder="חיפוש..."
         />
-        <button type="submit" className="search-button">חיפוש</button>
+        <button type="submit" className={styles["search-button"]}>
+          חיפוש
+        </button>
       </div>
     </form>
   );
