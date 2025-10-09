@@ -21,6 +21,7 @@
   display: flex;
   align-items: start;
   column-gap: 3em;
+  flex-direction: column;
 }
 
 .mk-photo-container {
@@ -40,6 +41,10 @@
 .mk-details {
   flex-grow: 1;
   flex-direction: column;
+  display: flex;
+  flex-direction: row;
+  gap: 2em;
+  align-items: anchor-center;
 }
 
 .mk-list-item-title {
@@ -124,6 +129,8 @@
   background-color: #f8f9fa;
   border-radius: 8px;
   padding: 0.75rem;
+  width: 100%;
+
   border: 1px solid #e9ecef;
 }
 

@@ -2,6 +2,7 @@
 *.pyc
 *.csv
 *.npy
+*.zip
 temp/
 committee_data/
 knesset_cache.sqlite

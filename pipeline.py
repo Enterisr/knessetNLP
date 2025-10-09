@@ -1,19 +1,14 @@
-from processing.clusterer import Clusterer
 from sentiment.sentiment_analyzer import analyze_sentiment
 from UtterancesExtraction.utterance_extractor import process_protocols
 from DataFetching.data_fetcher import KnessetDataFetcher
 from DataFetching.photo_enricher import enrich_photos
 from processing.embedder import embed
 import argparse
-from trash_utterances_detector.trainer import train_classifier_with_kfold
 from utils.logger_config import get_logger
 from processing import init_repo_server
 logger = get_logger(__name__)
 OUTPUT_FOLDER = "committee_data"
 
-
-def init_repo(args):
-    init_repo_server(args.force_refresh)
 
 
 def full_pipeline(args):
@@ -64,7 +59,7 @@ def run():
         full_pipeline(args)
     else:
         logger.info("Running init repo...")
-        init_repo(args)
+        init_repo_server(args.force_refresh)
 
 
 if __name__ == "__main__":

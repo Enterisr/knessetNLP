@@ -1,5 +1,7 @@
-from processing.embed_utils import get_utterances_files_list
-from processing.df_builder import create_df, recreate_utterances_from_files
+from processing.df_builder import (
+    create_df,
+    recreate_utterances_from_df,
+)
 
 from sentence_transformers import SentenceTransformer
 
@@ -75,8 +77,9 @@ def load_or_create_dataframe(directory: str, force_refresh=False):
 
     if not force_refresh and df_path.exists():
         df = pd.read_pickle(df_path)
-        utterances = recreate_utterances_from_files(directory)
-        logger.info(f"Loaded DataFrame with {len(df)} rows from file.")
+        # Recreate utterances directly from DF to preserve exact ordering
+        utterances = recreate_utterances_from_df(df)
+        logger.info(f"Loaded DataFrame with {len(df)} rows from file and reconstructed {len(utterances)} utterances from DF.")
         return df, utterances
 
     logger.info("Creating new DataFrame...")

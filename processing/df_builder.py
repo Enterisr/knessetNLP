@@ -134,20 +134,22 @@ def create_df(directory: str):
     return df, utterances
 
 
-def recreate_utterances_from_files(directory: str):
-    """Recreate the metadata-prefixed utterances from files (used when loading existing embeddings)."""
-    utterances = []
-    files_to_process = get_utterances_files_list(directory)
+def recreate_utterances_from_df(df: 'pd.DataFrame') -> list[str]:  # type: ignore[name-defined]
+    """Recreate metadata-prefixed utterances directly from an existing DataFrame.
 
-    for _, filepath in files_to_process:
-        with open(filepath, "r", encoding="utf-8") as f:
-            file_data = json.loads(f.read())
-        speakers = list((file_data.get("utterances") or {}).items())
-        speakers.sort(key=lambda kv: str(kv[0]))
-        for _, values in speakers:
-            ulist = list(values.get("utterances", []))
-            committee_prefixed_utterances = list(
-                embed_metadata_in_utterance(ulist, file_data))
-            utterances.extend(committee_prefixed_utterances)
+    This guarantees the exact ordering matches the DataFrame rows (important
+    when aligning with stored embeddings or utter_ids manifest) and avoids
+    re-reading & re-sorting the raw JSON source files which may introduce
+    ordering drift.
+    """
 
+    required_cols = {"subject", "committee", "text"}
+    missing = required_cols - set(df.columns)
+    if missing:
+        raise ValueError(f"DataFrame missing required columns: {missing}")
+
+    utterances = [
+        METADATA_FORMAT % (row.subject, row.committee, row.text)
+        for row in df.itertuples(index=False)
+    ]
     return utterances

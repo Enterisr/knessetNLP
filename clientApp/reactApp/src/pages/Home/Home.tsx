@@ -1,6 +1,7 @@
-import { useEffect, useCallback } from "react";
+import { useEffect, useCallback, useMemo } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import PartyDistributionBar from "../../components/PartyDistributionBar/PartyDistributionBar";
 import MKList from "../../components/MKList/MKList";
 import { useSearch } from "../../hooks/useSearch";
 
@@ -37,9 +38,15 @@ const Home = () => {
     );
   };
 
+  const hasResults = useMemo(
+    () => Object.keys(searchResults).length > 0,
+    [searchResults]
+  );
+
   return (
     <main className="app-main">
       <SearchBar onSearch={handleSearch} initialValue={currentQuery} />
+      {hasResults && <PartyDistributionBar mks={searchResults} />}
       <MKList
         mks={searchResults}
         onMKSelect={handleMKSelect}

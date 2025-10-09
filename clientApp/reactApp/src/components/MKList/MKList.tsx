@@ -96,17 +96,17 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
                     sentimentInfo={sentimentInfo}
                   />
                 </div>
-                {/* Utterances Preview */}
-                <div className={styles["mk-utterances-preview"]}>
-                  {topUtterances.map((utterance, index) => (
-                    <UtteranceItem
-                      key={index}
-                      utterance={utterance}
-                      showRelevanceScore={true}
-                      maxLength={150}
-                    />
-                  ))}
-                </div>
+              </div>
+              {/* Utterances Preview */}
+              <div className={styles["mk-utterances-preview"]}>
+                {topUtterances.map((utterance, index) => (
+                  <UtteranceItem
+                    key={index}
+                    utterance={utterance}
+                    showRelevanceScore={true}
+                    maxLength={150}
+                  />
+                ))}
               </div>
             </div>
           </li>

@@ -1,0 +1,7 @@
+{
+  "paths": {
+    "index_path": "committie_index",
+    "embeddings_path": "utterance_embeddings.npy",
+    "utterances_data_path": "utterances_data.pkl"
+  }
+}

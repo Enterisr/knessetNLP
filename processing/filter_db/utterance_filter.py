@@ -7,7 +7,7 @@ import pandas as pd
 from pathlib import Path
 from utils.logger_config import get_logger
 from trash_utterances_detector.predictor import UtteranceImportancePredictor
-from .storage import FilteredUtteranceStorage
+from .filtered_storage import FilteredUtteranceStorage
 from . import FilterReportGenerator
 
 logger = get_logger(__name__)
@@ -45,6 +45,7 @@ def filter_and_save_utterances(embeddings: np.ndarray, df: pd.DataFrame, thresho
 
     storage = FilteredUtteranceStorage(PROJECT_ROOT)
     storage.save_filtered_embeddings(filtered_embeddings)
+    storage.save_filtered_df(filtered_df)
 
     if np.sum(filter_mask) > 0:
         filtered_out_sorted = storage.save_filtered_utterances(
@@ -60,25 +61,13 @@ def get_or_create_filtered_data(embeddings: np.ndarray, df: pd.DataFrame, thresh
     """Get existing filtered data or create new filtered data if needed."""
     storage = FilteredUtteranceStorage(PROJECT_ROOT)
 
-    if force_refresh or not storage.embeddings_exist():
+    if force_refresh or not storage.embeddings_exist() or not storage.filtered_df_exists():
         logger.info("Creating filtered data...")
         return filter_and_save_utterances(embeddings, df, threshold)
 
     logger.info("Loading existing filtered data...")
     filtered_embeddings = storage.load_filtered_embeddings()
-
-    if len(filtered_embeddings) == 0:
-        logger.warning(
-            "Failed to load filtered embeddings, creating new ones...")
-        return filter_and_save_utterances(embeddings, df, threshold)
-
-    # Recreate filtered dataframe from original data
-    predictor = UtteranceImportancePredictor()
-    scores, _ = predictor.predict_importance(embeddings, df['text'].tolist())
-    keep_mask = scores >= threshold
-    filtered_df = df.iloc[np.where(keep_mask)[0]].copy()
-    filtered_df['original_index'] = filtered_df.index
-    filtered_df['importance_score'] = scores[keep_mask]
+    filtered_df = storage.load_filtered_df()
 
     logger.info(
         f"Filtered data - DataFrame shape: {filtered_df.shape}, Embeddings shape: {filtered_embeddings.shape}")

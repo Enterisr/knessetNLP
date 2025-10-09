@@ -8,7 +8,6 @@ from processing.embedder import embed
 from processing.repo_data import RepoData
 from processing.filter_db.utterance_filter import get_or_create_filtered_data
 from processing.search_utils import process_search_results, build_sorted_results
-import pandas as pd
 logger = get_logger(__name__)
 
 model = SentenceTransformer(
@@ -73,6 +72,8 @@ def search(repo_data: RepoData, query: str) -> dict[str, dict]:
 
 
 def init_repo(force_refresh: bool):
+    index_path = PROJECT_ROOT / "committie_index"
+    need_rebuild_index = force_refresh or not index_path.exists()
     """Initialize repository with importance filtering."""
     df, embeddings, utterances = embed(
         force_refresh=force_refresh)
@@ -85,7 +86,6 @@ def init_repo(force_refresh: bool):
     logger.info(
         f"DataFrame index info - Type: {type(filtered_df.index)}, Range: {filtered_df.index.min()} to {filtered_df.index.max()}")
 
-    index_path = PROJECT_ROOT / "committie_index"
     need_rebuild_index = force_refresh or not index_path.exists()
     database = build_faiss_from_embeddings(
         filtered_embeddings, filtered_df, need_rebuild_index)

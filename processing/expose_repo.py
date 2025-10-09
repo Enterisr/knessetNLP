@@ -1,3 +1,4 @@
+import os
 import zmq
 import json
 import traceback
@@ -6,6 +7,14 @@ from utils.logger_config import get_logger
 from processing.repo_data import RepoData
 
 logger = get_logger(__name__)
+
+
+def _resolve_bool_env(var_name: str, default: bool = False) -> bool:
+    """Parse boolean-like environment variables."""
+    value = os.getenv(var_name)
+    if value is None:
+        return default
+    return value.strip().lower() in {"1", "true", "yes", "on"}
 
 
 def handle_search(repo_data: RepoData, request):
@@ -36,14 +45,17 @@ def process_request(repo_data: RepoData, request_json):
         return {"status": "error", "message": error_msg}
 
 
-def init_repo_server(force_refresh: bool):
+def init_repo_server(force_refresh: bool, host: str | None = None, port: int | None = None,init_repo_func=init_repo):
     """Start the ZeroMQ server and listen for requests"""
-    logger.info("Starting ZeroMQ server on tcp://127.0.0.1:5555")
+    host = host or os.getenv("REPO_HOST", "0.0.0.0")
+    port = port or int(os.getenv("REPO_PORT", "5555"))
+
+    logger.info("Starting ZeroMQ server on tcp://%s:%s", host, port)
     context = zmq.Context()
     socket = context.socket(zmq.REP)
-    socket.bind("tcp://127.0.0.1:5555")
+    socket.bind(f"tcp://{host}:{port}")
 
-    repo_data = init_repo(force_refresh)
+    repo_data = init_repo_func(force_refresh)
 
     try:
         while True:
@@ -63,3 +75,9 @@ def init_repo_server(force_refresh: bool):
         socket.close()
         context.term()
         logger.info("Server terminated")
+
+
+
+if __name__ == "__main__":
+    force_refresh_env = _resolve_bool_env("FORCE_REFRESH", default=False)
+    init_repo_server(force_refresh=force_refresh_env)

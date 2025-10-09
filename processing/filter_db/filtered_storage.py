@@ -40,6 +40,12 @@ class FilteredUtteranceStorage:
         path = self.project_root / "filtered_utterance_embeddings.npy"
         np.save(path, embeddings)
         logger.info("Saved %d filtered embeddings", len(embeddings))
+        
+    def save_filtered_df(self, df: pd.DataFrame):
+        """Save filtered DataFrame to pickle file."""
+        path = self.project_root / "filtered_utterances_data.pkl"
+        df.to_pickle(path)
+        logger.info("Saved filtered DataFrame with %d rows", len(df))
 
     def load_filtered_utterances(self, threshold: float) -> pd.DataFrame:
         """Load filtered out utterances from JSON file."""
@@ -49,6 +55,19 @@ class FilteredUtteranceStorage:
         """Load filtered embeddings from numpy file."""
         path = self.project_root / "filtered_utterance_embeddings.npy"
         return np.load(path) if path.exists() else np.array([])
+        
+    def load_filtered_df(self) -> pd.DataFrame:
+        """Load filtered DataFrame from pickle file."""
+        path = self.project_root / "filtered_utterances_data.pkl"
+        if path.exists():
+            df = pd.read_pickle(path)
+            logger.info("Loaded filtered DataFrame with %d rows", len(df))
+            return df
+        return pd.DataFrame()
+
+    def filtered_df_exists(self) -> bool:
+        """Check if filtered DataFrame exists."""
+        return (self.project_root / "filtered_utterances_data.pkl").exists()
 
     def embeddings_exist(self) -> bool:
         """Check if filtered embeddings exist."""
