@@ -1,12 +1,14 @@
 import zmq
 import json
+from config import ZMQ_SERVER
 
 
 class ZMQClient:
     def __init__(self) -> None:
         self.context = zmq.Context()
         self.socket = self.context.socket(zmq.REQ)
-        self.socket.connect("tcp://127.0.0.1:5555")
+        print(f"Connecting to ZMQ server: {ZMQ_SERVER}")
+        self.socket.connect(ZMQ_SERVER)
 
     def req(self, req: str, timeout=500000) -> dict:
         # Timeout in milliseconds
