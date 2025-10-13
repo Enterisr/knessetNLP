@@ -35,7 +35,7 @@
 
 /* Protocol Info Clickable Styles */
 .protocol-info {
-  display: inline-block;
+  display: block;
   font-size: 0.8rem;
   margin-left: 0.5rem;
   padding: 0.2rem 0.5rem;
@@ -77,4 +77,14 @@
 
 .clickable:hover .external-link-icon {
   opacity: 1;
+}
+@media only screen and (max-width: 480px) {
+  .protocol-info {
+    max-width: 100%;
+    overflow: hidden;
+  }
+  .utterance-scores {
+    margin-bottom: 02rem;
+    max-height: 44px;
+  }
 }

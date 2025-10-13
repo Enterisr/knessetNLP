@@ -33,14 +33,11 @@ const UtteranceItem = ({
             }
             title={utterance.src ? "לחץ לפתיחת הפרוטוקול המלא" : undefined}
           >
-            {utterance.src && (
+            <div className={styles["utterance-doc"]}>
               <span className={styles["document-icon"]}>📄 </span>
-            )}
-            {utterance.committee && ` | מתוך: ${utterance.committee}`}
-            {utterance.subject && ` | נושא: ${utterance.subject}`}
-            {utterance.src && (
-              <span className={styles["external-link-icon"]}> ↗</span>
-            )}
+              {utterance.committee && ` מתוך: ${utterance.committee}`}
+              {utterance.subject && ` | נושא: ${utterance.subject}`}
+            </div>
           </div>
         )}
       </div>
