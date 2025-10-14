@@ -24,3 +24,17 @@
   cursor: pointer;
   width: 5rem;
 }
+
+@media (max-width: 600px) {
+  .app-header h1 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 1.5rem;
+    user-select: none;
+    cursor: pointer;
+  }
+  .logo-container img {
+    cursor: pointer;
+    width: 1.5rem;
+  }
+}

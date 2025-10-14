@@ -2,9 +2,15 @@
   background-color: rgb(177 187 215 / 3%);
   border-radius: 9px;
   border: solid 1px #f1f1f1;
-  max-width: 30vw;
   margin: auto;
+  max-width: 30vw;
 }
 .app-search-desc li {
   padding: 0.1em;
+}
+
+@media (max-width: 600px) {
+  .app-search-desc {
+    max-width: 90vw;
+  }
 }
