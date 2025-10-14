@@ -4,7 +4,6 @@ import random
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from transformers import AutoModelForSequenceClassification, TextClassificationPipeline, AutoTokenizer
 
-from translation.heb_to_eng_translator import HebToEngTranslator
 from utils.logger_config import get_logger
 
 logger = get_logger(__name__)

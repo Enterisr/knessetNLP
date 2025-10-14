@@ -10,7 +10,7 @@ from utils.logger_config import get_logger
 import os
 
 logger = get_logger(__name__)
-DEFAULT_DF_FILE = "utterances_data.pkl"
+DEFAULT_DF_FILE = "filtered_utterances_data.pkl"
 DEFAULT_VECTOR_DB_FILE = "committie_index"
 
 def run():
