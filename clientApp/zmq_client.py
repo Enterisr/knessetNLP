@@ -3,7 +3,9 @@ import zmq.asyncio
 import json
 import os
 import asyncio
-asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+if os.name == "nt":
+    asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
 class AsyncZMQClient:
     def __init__(self) -> None:
         self.context = zmq.asyncio.Context()
