@@ -74,7 +74,6 @@
 }
 
 .mk-stat {
-  background: #f8f9fa;
   border-radius: 8px;
   display: inline-flex;
   align-items: center;
@@ -103,7 +102,11 @@
   padding: 1rem;
   border: 1px solid #e9ecef;
 }
-
+.mk-email {
+  text-align: center;
+  background-color: #e9e9e945;
+  padding: 6px;
+}
 /* Loading and Error States */
 .mk-page-loading,
 .mk-page-error {
@@ -259,7 +262,7 @@
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .mk-page {
     padding: 0 1rem;
   }
@@ -289,27 +292,10 @@
     align-items: flex-start;
     gap: 0.5rem;
   }
-
+  .mk-email {
+    align-self: center;
+  }
   .utterance-card {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .mk-profile {
-    gap: 0.5rem;
-  }
-
-  .mk-photo {
-    width: 80px;
-    height: 100px;
-  }
-
-  .mk-info h2 {
-    font-size: 1.3rem;
-  }
-
-  .sentiment-section {
     padding: 1rem;
   }
 }

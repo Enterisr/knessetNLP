@@ -78,8 +78,10 @@ const MKPage = () => {
               {factionName && (
                 <span className={styles["mk-faction"]}>{factionName}</span>
               )}
-              <div className={(styles["mk-stat"], styles["mk-stat-label"])}>
-                {metadata?.Email}
+              <div
+                className={`${styles["mk-stat"]} ${styles["mk-stat-label"]} ${styles["mk-email"]}`}
+              >
+                <a href={`mailto:${metadata?.Email}`}>{metadata?.Email}</a>
               </div>
               <div className={styles["mk-stats"]}>
                 <div className={styles["mk-stat"]}>

@@ -147,3 +147,20 @@
 }
 
 /* Protocol Info Clickable Styles (used inside UtteranceItem, now scoped there) */
+@media (max-width: 600px) {
+  .mk-photo {
+    height: 130px;
+    border-radius: 9px;
+    object-fit: cover;
+    border: 2px solid #f0f0f0;
+  }
+  .mk-details {
+    flex-grow: 1;
+    flex-direction: column;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    align-items: anchor-center;
+    align-items: center;
+  }
+}
