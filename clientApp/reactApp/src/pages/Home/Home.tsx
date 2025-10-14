@@ -29,6 +29,7 @@ const Home = () => {
   );
 
   useEffect(() => {
+    //ignore react router and check the url too to avoid some re-render react-router bug.
     //kinda hacky BUT i dont care honostly
     if (queryFromURI && window.location.pathname !== "/") {
       handleSearch(queryFromURI);
