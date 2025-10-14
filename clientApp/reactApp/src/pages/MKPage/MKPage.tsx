@@ -85,14 +85,6 @@ const MKPage = () => {
               </div>
               <div className={styles["mk-stats"]}>
                 <div className={styles["mk-stat"]}>
-                  <span className={styles["mk-stat-label"]}>
-                    התבטאויות: &nbsp;
-                  </span>
-                  <span className={styles["mk-stat-value"]}>
-                    {utterances.length}
-                  </span>
-                </div>
-                <div className={styles["mk-stat"]}>
                   <SentimentTag
                     sentiment={metadata?.sentiment}
                     sentimentInfo={sentimentInfo}
@@ -105,7 +97,7 @@ const MKPage = () => {
 
         <div className={styles["mk-utterances"]}>
           <h2 className={styles["mk-utterances-title"]}>
-            התבטאויות על "{decodeURIComponent(query!)}"
+            {utterances.length} התבטאויות על "{decodeURIComponent(query!)}"
           </h2>
           <div className={styles["utterances-container"]}>
             {utterances.map((utterance, index) => (

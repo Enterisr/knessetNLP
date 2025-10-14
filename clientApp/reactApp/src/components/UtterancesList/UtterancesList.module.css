@@ -88,3 +88,11 @@
   line-height: 1.5;
   color: #2c3e50;
 }
+
+@media (max-width: 600px) {
+  .back-button {
+    width: 100%;
+    text-align: center;
+    position: relative;
+  }
+}

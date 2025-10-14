@@ -298,4 +298,12 @@
   .utterance-card {
     padding: 1rem;
   }
+
+  .back-button {
+    width: 100%;
+    text-align: center;
+  }
+  .mk-stats {
+    align-self: center;
+  }
 }
