@@ -9,7 +9,7 @@ interface SearchProviderProps {
 }
 
 export const SearchProvider = ({ children }: SearchProviderProps) => {
-  const [searchResults, setSearchResults] = useState<MKUtterances | null>();
+  const [searchResults, setSearchResults] = useState<MKUtterances | null>(null);
   const [currentQuery, setCurrentQuery] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -17,7 +17,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
   const fetchFromServer = useCallback(
     async (query: string) => {
       if (!query.trim()) {
-        setSearchResults({});
+        setSearchResults(null);
         setCurrentQuery("");
         return;
       }
@@ -64,7 +64,7 @@ export const SearchProvider = ({ children }: SearchProviderProps) => {
   );
 
   const clearResults = useCallback(() => {
-    setSearchResults({});
+    setSearchResults(null);
     setCurrentQuery("");
     setError(null);
   }, []);

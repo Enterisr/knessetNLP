@@ -17,7 +17,7 @@ const UtteranceItem = ({
       <div className={styles["utterance-scores"]}>
         {showRelevanceScore && utterance.relevance_score !== undefined && (
           <span className={styles["relevance-score"]}>
-            Score: {utterance.relevance_score.toFixed(3)}
+            {utterance.relevance_score.toFixed(3)}
           </span>
         )}
         {(utterance.committee || utterance.subject) && (

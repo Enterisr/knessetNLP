@@ -47,9 +47,15 @@ const Home = () => {
     <main className="app-main">
       <SearchBar onSearch={handleSearch} initialValue={queryFromURI} />
       {searchResults && <PartyDistributionBar mks={searchResults} />}
+      {window.location.pathname !== "/" && (
+        <ul className="app-search-desc">
+          <li>לחץ על חבר כנסת כדי לראות את כל האמירות שלו בנושא</li>
+          <li> מומלץ להסתכל מעבר לתוצאות הראשונות</li>
+        </ul>
+      )}
       <MKList
-        isError={error}
-        mks={searchResults}
+        isError={Boolean(error)}
+        mks={searchResults ?? {}}
         onMKSelect={handleMKSelect}
         isLoading={isLoading}
       />

@@ -39,8 +39,8 @@ const MKList = ({
   if (isError) {
     return (
       <div className={styles["mk-list-loading"]}>
-        <div className={styles["spinner"]}></div>
-        <p>שגיאה 🙃</p>
+        <h3>משהו לא עובד 🙃</h3>
+        <h3>אפשר לנסות אחר כך</h3>
       </div>
     );
   }
@@ -90,7 +90,10 @@ const MKList = ({
                   {party && (
                     <p className={styles["mk-list-item-party"]}>{party}</p>
                   )}
-                  <p className={styles["mk-list-item-description"]}>
+                  <p
+                    title="הציון מורכב ממספר האמירות של חבר הכנסת שנמצאו קשורות, הרלוונטיות של כל אחת מהם ומהרלוונטיות של האמירה הכי קשורה לנושא."
+                    className={styles["mk-list-item-description"]}
+                  >
                     רלוונטיות לחיפוש:{" "}
                     {relevanceScore !== undefined
                       ? relevanceScore.toFixed(3)

@@ -33,6 +33,8 @@
 .home-search-description {
   width: 71vw;
   margin: auto;
+  margin-bottom: 1em;
+  font-weight: bold;
 }
 
 .search-button {

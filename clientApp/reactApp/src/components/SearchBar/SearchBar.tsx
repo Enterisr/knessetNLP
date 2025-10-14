@@ -2,6 +2,14 @@ import React, { useState, useEffect } from "react";
 import styles from "./SearchBar.module.css";
 import { useLocation } from "react-router-dom";
 
+const PLACEHOLDER_EXAMPLES = [
+  "סיוע נפשי למילואימניקים",
+  "אכיפה קורקינטים חשמליים",
+  "שיפוץ סורוקה",
+  "תחבורה ציבורית",
+  "הקולנוע הישראלי",
+];
+
 interface SearchBarProps {
   onSearch: (query: string) => void;
   initialValue?: string;
@@ -9,6 +17,12 @@ interface SearchBarProps {
 
 const SearchBar = ({ onSearch, initialValue = "" }: SearchBarProps) => {
   const [query, setQuery] = useState(initialValue);
+  const [placeholderExample] = useState(
+    () =>
+      PLACEHOLDER_EXAMPLES[
+        Math.floor(Math.random() * PLACEHOLDER_EXAMPLES.length)
+      ]
+  );
   const inputRef = React.useRef<HTMLInputElement>(null);
   const loc = useLocation();
   useEffect(() => {
@@ -33,7 +47,7 @@ const SearchBar = ({ onSearch, initialValue = "" }: SearchBarProps) => {
       {loc.pathname === "/" && (
         <div className={styles["home-search-description"]}>
           {" "}
-          חפש נושא או ארגון, ותוכל לגלות אילו חברי כנסת עסקו בהם
+          חפש שם, נושא או ארגון, ותוכל לגלות אילו חברי כנסת עסקו בו בוועדות:
         </div>
       )}
       <div className={styles["search-input-container"]}>
@@ -44,7 +58,7 @@ const SearchBar = ({ onSearch, initialValue = "" }: SearchBarProps) => {
           className={styles["search-input"]}
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="חיפוש..."
+          placeholder={placeholderExample}
         />
         <button type="submit" className={styles["search-button"]}>
           חפש

@@ -1,0 +1,10 @@
+.app-search-desc {
+  background-color: rgb(177 187 215 / 3%);
+  border-radius: 9px;
+  border: solid 1px #f1f1f1;
+  max-width: 30vw;
+  margin: auto;
+}
+.app-search-desc li {
+  padding: 0.1em;
+}
