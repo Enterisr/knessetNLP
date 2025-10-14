@@ -15,12 +15,12 @@ const MKPage = () => {
   }>();
   const [utterances, setUtterances] = useState<Utterance[]>([]);
   const [metadata, setMetadata] = useState<MKMetadata | null>(null);
-  const { searchResults, currentQuery, loading, search } = useSearch();
+  const { searchResults, currentQuery, loading, fetchFromServer } = useSearch();
 
   useEffect(() => {
     if (mkId && query) {
       if (currentQuery !== query) {
-        search(query);
+        fetchFromServer(query);
       } else if (searchResults && mkId) {
         const decodedMkName = decodeURIComponent(mkId);
         const mkData = searchResults[decodedMkName];
@@ -34,35 +34,19 @@ const MKPage = () => {
         }
       }
     }
-  }, [mkId, query, searchResults, currentQuery, search]);
+  }, [mkId, query, searchResults, currentQuery, fetchFromServer]);
 
   if (loading) {
     return (
       <main className="app-main">
         <div className={styles["mk-page-loading"]}>
           <div className={styles["spinner"]}></div>
-          <p>Loading data...</p>
+          <p>טוען...</p>
         </div>
       </main>
     );
   }
 
-  if (!mkId || utterances.length === 0) {
-    return (
-      <main className="app-main">
-        <div className={styles["mk-page-error"]}>
-          <p>No member of Knesset or utterances found</p>
-          <Link
-            to={`/search/${encodeURIComponent(query!)}`}
-            className={styles["back-link"]}
-          >
-            Back to search
-          </Link>
-        </div>
-      </main>
-    );
-  }
-  console.log(metadata);
   const mkName = metadata?.FirstName + " " + metadata?.LastName;
   const photoUrl = metadata?.PhotoURL || defaultMkImage;
   const factionName = metadata?.FactionName || "";

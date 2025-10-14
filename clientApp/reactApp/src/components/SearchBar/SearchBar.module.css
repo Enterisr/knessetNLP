@@ -11,6 +11,7 @@
   display: flex;
   gap: max(10px, 1vw);
   align-items: center;
+  position: relative;
 }
 
 .search-input {
@@ -28,6 +29,10 @@
 .search-input:focus {
   outline: none;
   border-color: #3498db;
+}
+.home-search-description {
+  width: 71vw;
+  margin: auto;
 }
 
 .search-button {

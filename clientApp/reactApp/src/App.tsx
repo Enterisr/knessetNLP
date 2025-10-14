@@ -1,23 +1,17 @@
-import './App.css'
-import { SearchProvider } from './contexts/SearchContext.tsx'
-import AppRouter from './components/AppRouter/AppRouter'
-import logo from './assets/logo.png' 
+import "./App.css";
+import { SearchProvider } from "./contexts/SearchContext.tsx";
+import AppRouter from "./components/AppRouter/AppRouter.tsx";
+import Header from "./components/Header/Header.tsx";
 
 function App() {
   return (
     <SearchProvider>
       <div className="app">
-        <header className="app-header">
-          <div className="logo-container">
-            <img src={logo} alt="App Logo" className="app-logo" />
-          </div>
-          <h1>חיפוש-כנסת</h1>
-        </header>
-        
+        <Header />
         <AppRouter />
       </div>
     </SearchProvider>
-  )
+  );
 }
 
-export default App
+export default App;

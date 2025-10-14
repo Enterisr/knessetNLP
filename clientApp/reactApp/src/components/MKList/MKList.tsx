@@ -9,12 +9,18 @@ import SentimentTag from "../SentimentTag/SentimentTag";
 interface MKListProps {
   mks: MKUtterances;
   onMKSelect: (mkName: string) => void;
-  loading: boolean;
+  isLoading: boolean;
+  isError: boolean;
 }
 
-const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
+const MKList = ({
+  mks,
+  onMKSelect,
+  isLoading: isLoading,
+  isError,
+}: MKListProps) => {
   const sortedMkIds = useMemo(() => {
-    const mkIds = Object.keys(mks);
+    const mkIds = mks ? Object.keys(mks) : [];
     return mkIds.sort((a, b) => {
       const scoreA = mks[a]?.total_relevance_score || 0;
       const scoreB = mks[b]?.total_relevance_score || 0;
@@ -22,19 +28,19 @@ const MKList = ({ mks, onMKSelect, loading }: MKListProps) => {
     });
   }, [mks]);
 
-  if (loading) {
+  if (isLoading) {
     return (
       <div className={styles["mk-list-loading"]}>
         <div className={styles["spinner"]}></div>
-        <p>Loading...</p>
+        <p>מחפש בפרוטוקולים...</p>
       </div>
     );
   }
-
-  if (sortedMkIds.length === 0) {
+  if (isError) {
     return (
-      <div className={styles["mk-list-empty"]}>
-        <p>No results found</p>
+      <div className={styles["mk-list-loading"]}>
+        <div className={styles["spinner"]}></div>
+        <p>שגיאה 🙃</p>
       </div>
     );
   }

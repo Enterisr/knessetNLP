@@ -1,35 +1,39 @@
-import { useEffect, useCallback, useMemo } from "react";
+import { useEffect, useCallback } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 import PartyDistributionBar from "../../components/PartyDistributionBar/PartyDistributionBar";
 import MKList from "../../components/MKList/MKList";
 import { useSearch } from "../../hooks/useSearch";
-
+import "./Home.css";
 const Home = () => {
-  const { query } = useParams<{ query?: string }>();
+  const { query: queryFromURI } = useParams<{ query?: string }>();
   const navigate = useNavigate();
-  const { searchResults, currentQuery, loading, search } = useSearch();
-
+  const {
+    searchResults,
+    currentQuery,
+    loading: isLoading,
+    fetchFromServer,
+    error,
+  } = useSearch();
   const handleSearch = useCallback(
     async (searchQuery: string) => {
-      // Update URL without triggering a page reload
-      if (searchQuery !== query) {
+      if (searchQuery !== queryFromURI) {
         navigate(`/search/${encodeURIComponent(searchQuery)}`, {
           replace: false,
         });
       }
 
-      // Use context search method
-      await search(searchQuery);
+      await fetchFromServer(searchQuery);
     },
-    [navigate, query, search]
+    [navigate, queryFromURI, fetchFromServer]
   );
 
   useEffect(() => {
-    if (query) {
-      handleSearch(query);
+    //kinda hacky BUT i dont care honostly
+    if (queryFromURI && window.location.pathname !== "/") {
+      handleSearch(queryFromURI);
     }
-  }, [query, handleSearch]);
+  }, [queryFromURI, handleSearch]);
 
   const handleMKSelect = (mkName: string) => {
     // Navigate to the MK page with the selected MK name and current query
@@ -38,19 +42,15 @@ const Home = () => {
     );
   };
 
-  const hasResults = useMemo(
-    () => Object.keys(searchResults).length > 0,
-    [searchResults]
-  );
-
   return (
     <main className="app-main">
-      <SearchBar onSearch={handleSearch} initialValue={currentQuery} />
-      {hasResults && <PartyDistributionBar mks={searchResults} />}
+      <SearchBar onSearch={handleSearch} initialValue={queryFromURI} />
+      {searchResults && <PartyDistributionBar mks={searchResults} />}
       <MKList
+        isError={error}
         mks={searchResults}
         onMKSelect={handleMKSelect}
-        loading={loading}
+        isLoading={isLoading}
       />
     </main>
   );

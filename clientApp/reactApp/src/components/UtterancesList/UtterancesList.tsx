@@ -28,23 +28,18 @@ const UtterancesList = ({
         <button onClick={onBack} className={styles["back-button"]}>
           Back
         </button>
-        <h2 className={styles["header-title"]}>Utterances</h2>
       </div>
       {loading ? (
         <div className={styles["loading"]}>Loading...</div>
       ) : (
         <div className={styles["utterances-content"]}>
-          {utterances.length === 0 ? (
-            <div className={styles["no-utterances"]}>No utterances found.</div>
-          ) : (
-            utterances.map((utterance) => (
-              <div key={utterance.id} className={styles["utterance-item"]}>
-                <div className={styles["utterance-text"]}>
-                  {highlightQuery(utterance.text, query)}
-                </div>
+          {utterances.map((utterance) => (
+            <div key={utterance.id} className={styles["utterance-item"]}>
+              <div className={styles["utterance-text"]}>
+                {highlightQuery(utterance.text, query)}
               </div>
-            ))
-          )}
+            </div>
+          ))}
         </div>
       )}
     </div>

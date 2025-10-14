@@ -6,13 +6,17 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 import uvicorn
+from dotenv import load_dotenv
 
 
-from zmq_client import ZMQClient
+from zmq_client import AsyncZMQClient
 from service import validate_and_sanitize_query, process_response_with_mk_sentiment
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
+
+load_dotenv()
+
 
 # React app build path
 react_build_path = os.path.join(
@@ -30,7 +34,7 @@ class Server:
         self._setup_middleware()
         self._setup_static_files()
         self._setup_routes()
-        self.zmq_client = ZMQClient()
+        self.zmq_client = AsyncZMQClient()
 
     def _setup_middleware(self):
         """Configure CORS middleware"""
@@ -71,7 +75,7 @@ class Server:
             sanitized_query = validate_and_sanitize_query(query)
             logger.info("Processing query: %s...",
                         (sanitized_query or "")[:50])
-            res = self.zmq_client.req(query)
+            res = await self.zmq_client.req(query)
 
             if "error" in res:
                 raise HTTPException(500)
@@ -95,4 +99,5 @@ if __name__ == "__main__":
     server = Server()
     app = server.app
     port = int(os.environ.get("PORT", 3000))
-    uvicorn.run(app, host="0.0.0.0", port=port)
+    # Use uvicorn with lifespan support for proper asyncio lifecycle management
+    uvicorn.run(app, host="0.0.0.0", port=port, lifespan="on")
