@@ -14,7 +14,7 @@ function Header() {
       <div className="logo-container" onClick={navigateHome}>
         <img src={logo} alt="App Logo" className="app-logo" />
       </div>
-      <h1 onClick={navigateHome}>חיפוש-כנסת</h1>
+      <h1 onClick={navigateHome}>מידעכנסת</h1>
     </header>
   );
 }
