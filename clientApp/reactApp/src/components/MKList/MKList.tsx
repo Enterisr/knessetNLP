@@ -28,7 +28,7 @@ const MKList = ({
     });
   }, [mks]);
 
-  if (isLoading) {
+  if (isLoading && window.location.pathname !== "/") {
     return (
       <div className={styles["mk-list-loading"]}>
         <div className={styles["spinner"]}></div>
