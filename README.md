@@ -73,11 +73,10 @@ You can either run the Python service directly or use Docker Compose.
 
 Environment variables supported by the service:
 
-| Variable        | Default   | Description                                                         |
-| --------------- | --------- | ------------------------------------------------------------------- |
-| `REPO_HOST`     | `0.0.0.0` | Interface the ZeroMQ REP socket binds to                            |
-| `REPO_PORT`     | `5555`    | TCP port exposed by the service                                     |
-| `FORCE_REFRESH` | `0`       | Set to `1` to rebuild embeddings & FAISS index inside the container |
+The pipeline also mirrors the raw Knesset protocol JSONs under `utterances/part_*/*.json`; if you already have historical dumps
+they can be pre-seeded here to avoid downloading again. Optional caches (`utterance_embeddings.npy`, `utterances_data.pkl`,
+`filtered_utterance_embeddings.npy`, `utter_ids.npy`) are respected when present and allow expensive recomputation steps to be
+skipped on subsequent runs.
 
 Supply overrides via an `.env` file or `docker compose` command-line flags.
 
