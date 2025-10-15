@@ -1,10 +1,10 @@
 # Knesset NLP Platform
 
-The Knesset NLP project ingests parliamentary protocols, enriches them with metadata, filters and embeds utterances, and finally exposes a semantic search API backed by a FAISS vector index. This repository contains the full ETL pipeline, a lightweight production runner for serving the vector database, and the client-facing FastAPI + React application.
+The Knesset NLP project ingests parliamentary protocols, enriches them with metadata, filters and embeds utterances, and finally exposes a semantic search API over a FAISS vector index. This repository contains the end-to-end pipeline as well as the ZeroMQ-based inference service consumed by the client application, and the client app.
 
 ## Pipeline Architecture
 
-The orchestration entry point is [`pipeline.py`](pipeline.py). Running it with `--run-pipeline` executes the complete workflow:
+The production pipeline is orchestrated from [`pipeline.py`](pipeline.py) and can be summarized as follows:
 
 ```
 ┌───────────────────┐
@@ -24,21 +24,21 @@ The orchestration entry point is [`pipeline.py`](pipeline.py). Running it with `
 └────────┬──────────┘
          │
 ┌────────▼──────────┐
-│ Quality Filtering │  trash_utterances_detector/     • Logistic regression removes procedural "noise" utterances
+│ Quality Filtering │  trash_utterances_detector/     • Logistic regression removes procedural “noise” utterances
 └────────┬──────────┘
          │
 ┌────────▼──────────┐
-│ Embedding & FAISS │  processing/embedder.py         • AlephBERT sentence embeddings + vector index build
+│ Embedding & FAISS │  processing/embedder.py         • SBERT (AlephBERT) embeddings + vector index build
 └────────┬──────────┘
          │
 ┌────────▼──────────┐
-│ Repo Bootstrap    │  processing/expose_repo.py      • Prepares ZeroMQ search server assets
+│ Repo Service      │  processing/expose_repo.py      • ZeroMQ server answering semantic search queries
 └───────────────────┘
 ```
 
 Key characteristics:
 
-- **Hebrew-first embedding**: [`imvladikon/sentence-transformers-alephbert`](https://huggingface.co/imvladikon/sentence-transformers-alephbert) drives semantic similarity and dramatically improves topical relevance over multilingual baselines.
+- **Hebrew-first embedding**: We use [`imvladikon/sentence-transformers-alephbert`](https://huggingface.co/imvladikon/sentence-transformers-alephbert) for sentence embeddings, dramatically improving topical relevance over earlier multilingual models.
 - **Noise reduction**: A logistic-regression classifier filters procedural utterances ("מי בעד?" etc.), achieving ~0.65 F1 with high recall so that meaningful speech is retained.
 - **Sentiment analysis**: Parliamentary-tailored `classla/xlm-r-parlasent` tags utterances as positive/negative/neutral without requiring large-scale translation.
 - **Scalable search**: The FAISS index contains ~1M utterances (~5 GB in float32) and powers MK-level analytics and semantic retrieval for the client app.
@@ -49,88 +49,69 @@ Key characteristics:
 
 - Python 3.10+
 - Node.js 18+ (for `clientApp` development)
-- `faiss-cpu` Python package (installed via `requirements.txt`)
-- CUDA-capable GPU recommended for faster embedding (CPU works but is significantly slower)
+- CUDA-capable GPU recommended for faster embedding (CPU works but is significantly slower). Also see colab notebook for people that dont have Nvidia GPU like me.
 
-Install Python dependencies:
+## Running the Pipeline
 
-```bash
-python -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-```
-
-Install client dependencies if you plan to work on the React app:
+The pipeline entry point accepts a few convenience flags:
 
 ```bash
-cd clientApp/reactApp
-npm install
+python -m pipeline --run-pipeline [--force-refresh]
 ```
 
-### Expected directories & artifacts
+- `--run-pipeline` (or `--complete`): execute the full ETL flow shown above.
+- `--force-refresh`: ignore cached data and rebuild everything from scratch (slow but useful after schema changes).
 
-Running `python -m pipeline --run-pipeline` will populate the repository with all derived artifacts. After the first successful
-execution you should see the following outputs on disk (paths relative to the repo root):
+Running without `--run-pipeline` starts only the repository service bootstrapping (`processing.init_repo_server`) and assumes that required artifacts already exist.
 
-- `committee_data/` – main pipeline output (utterances, metadata, FAISS build artifacts)
-- `committie_index/` – persisted FAISS index (`*.faiss`) consumed by the search service
-- `trash_utterances_detector/` – trained classifier artifacts (`classifier.pkl`, `embeddings.npy`, …)
-- `filtered_utterances_data.pkl` – cached pandas DataFrame used by `prod_runner.py`
+Logs are written according to `utils/logger_config.py`; monitor them to track progress through each stage.
+
+## Serving Semantic Search
+
+You can either run the Python service directly or use Docker Compose.
+
+
+Environment variables supported by the service:
 
 The pipeline also mirrors the raw Knesset protocol JSONs under `utterances/part_*/*.json`; if you already have historical dumps
 they can be pre-seeded here to avoid downloading again. Optional caches (`utterance_embeddings.npy`, `utterances_data.pkl`,
 `filtered_utterance_embeddings.npy`, `utter_ids.npy`) are respected when present and allow expensive recomputation steps to be
 skipped on subsequent runs.
 
-## Running the Data Pipeline
+Supply overrides via an `.env` file or `docker compose` command-line flags.
 
-Execute the full ETL pipeline and bootstrap assets in one go:
+Once running, the service exposes `tcp://localhost:5555`. Example request:
 
-```bash
-python -m pipeline --run-pipeline
+```python
+import json
+import zmq
+
+ctx = zmq.Context()
+sock = ctx.socket(zmq.REQ)
+sock.connect("tcp://127.0.0.1:5555")
+sock.send_string(json.dumps({"query": "חינוך חובה"}))
+print(sock.recv_string())
 ```
 
-Useful flags:
-
-- `--force-refresh` – ignore cached data and rebuild everything from scratch (slow but useful after schema changes)
-- `--save-txt` – persist intermediate text files during processing
-
-Running `python -m pipeline` without `--run-pipeline` only calls `processing.init_repo_server` and expects the embeddings/index artifacts to already exist.
-
-Logs are written according to `utils/logger_config.py`; monitor them to track progress through each stage.
-
-## Serving the FAISS Index in Production
-
-[`prod_runner.py`](prod_runner.py) is the supported way to host the semantic search service. It loads the cached DataFrame and FAISS index from disk and exposes the ZeroMQ API used by the client application.
+### Manual Docker usage
 
 ```bash
-python -m prod_runner \
-  --df-path path/to/filtered_utterances_data.pkl \
-  --committee-index-path path/to/committie_index
+docker build -t knesset-nlp-repo .
+docker run --rm -p 5555:5555 \
+  -e REPO_PORT=5555 -e REPO_HOST=0.0.0.0 -e FORCE_REFRESH=0 \
+  -v ${PWD}/utterances:/app/utterances:ro \
+  -v ${PWD}/committie_index:/app/committie_index \
+  -v ${PWD}/logs:/app/logs \
+  -v ${PWD}/trash_utterances_detector:/app/trash_utterances_detector:ro \
+  knesset-nlp-repo
 ```
 
-The runner validates that both the `.pkl` DataFrame and FAISS index file exist before starting. The ZeroMQ server binds to `REPO_HOST`/`REPO_PORT` environment variables (default `0.0.0.0:5555`).
+### Development tips
 
-## Running the Client Application
-
-The web client lives under [`clientApp/`](clientApp/) and consists of a FastAPI backend (`server.py`) and a React frontend (`reactApp/`).
-
-1. Start the ZeroMQ search service (either via `prod_runner.py` or `python -m pipeline` once artifacts exist).
-2. Launch the API server:
-   ```bash
-   cd clientApp
-   python server.py
-   ```
-   Environment variables:
-   - `ZMQ_SERVER` – address of the ZeroMQ service (defaults to `tcp://127.0.0.1:5555`)
-   - `ZMQ_TIMEOUT` – request timeout in milliseconds (default `500000`)
-   - `DEVELOPMENT` – set to `true` to serve React from the Vite dev server instead of static assets.
-3. In a separate terminal (development mode only), run the React dev server:
-   ```bash
-   cd clientApp/reactApp
-   npm run dev
-   ```
-   Build for production with `npm run build`; the FastAPI server automatically serves `reactApp/dist` when `DEVELOPMENT` is not `true`.
+- **Trigger FAISS rebuild**: `python -m processing.expose_repo`
+- **Open shell in container**: `docker compose exec repo-service bash`
+- **Persisted volumes**: `committie_index/` and `logs/` are mounted so indexes and logs survive restarts.
+- **Scaling**: Run multiple replicas behind a load balancer if needed; ensure each instance mounts the same index volume.
 
 ## Key Insights from `DEV_NOTES.md`
 
@@ -153,4 +134,4 @@ After boot, expect to see a log line similar to:
 processing.expose_repo - INFO - Starting ZeroMQ server on tcp://0.0.0.0:5555
 ```
 
-Use the FastAPI endpoint (`GET /api/query`) or the React UI to validate responses.
+Use the Python snippet above or the client application to validate responses.
