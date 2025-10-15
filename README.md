@@ -1,6 +1,6 @@
 # Knesset NLP Platform
 
-The Knesset NLP project ingests parliamentary protocols, enriches them with metadata, filters and embeds utterances, and finally exposes a semantic search API over a FAISS vector index. This repository contains the end-to-end pipeline as well as the ZeroMQ-based inference service consumed by the client application.
+The Knesset NLP project ingests parliamentary protocols, enriches them with metadata, filters and embeds utterances, and finally exposes a semantic search API over a FAISS vector index. This repository contains the end-to-end pipeline as well as the ZeroMQ-based inference service consumed by the client application, and the client app.
 
 ## Pipeline Architecture
 
@@ -49,19 +49,7 @@ Key characteristics:
 
 - Python 3.10+
 - Node.js 18+ (for `clientApp` development)
-- Docker 24+ and Docker Compose (optional, for containerized deployment)
-- CUDA-capable GPU recommended for faster embedding (CPU works but is significantly slower)
-
-### Local configuration
-
-Create the expected folders before running the pipeline:
-
-- `utterances/part_*/*.json` – raw committee protocol dumps
-- `committee_data/` – pipeline output (utterances, metadata, FAISS artifacts)
-- `committie_index/` – persisted FAISS index for the repo service
-- `trash_utterances_detector/` – trained classifier artifacts (`classifier.pkl`, `embeddings.npy`, …)
-
-Optional cached artifacts (`utterance_embeddings.npy`, `utterances_data.pkl`, `filtered_utterance_embeddings.npy`, `utter_ids.npy`) can be placed in the corresponding folders to skip expensive recomputation.
+- CUDA-capable GPU recommended for faster embedding (CPU works but is significantly slower). Also see colab notebook for people that dont have Nvidia GPU like me.
 
 ## Running the Pipeline
 
@@ -82,11 +70,6 @@ Logs are written according to `utils/logger_config.py`; monitor them to track pr
 
 You can either run the Python service directly or use Docker Compose.
 
-### Docker Compose
-
-```bash
-docker compose up --build
-```
 
 Environment variables supported by the service:
 
